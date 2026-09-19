@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wren · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Wren</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">bytecode VM</span>
+</div>
+<p class="muted">wren-cli 0.4.0 · wren_cli → Wren bytecode · Wren VM</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">17.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">12.7 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">92.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">752.5 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="17.4">17.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="30">30 B</td>
+        <td class="num" data-n="50">50 B</td>
+        <td class="num" data-n="849920">830 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="12.7">12.7</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="94">94 B</td>
+        <td class="num" data-n="99">99 B</td>
+        <td class="num" data-n="849920">830 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="92.2">92.2</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="391">391 B</td>
+        <td class="num" data-n="218">218 B</td>
+        <td class="num" data-n="849920">830 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="752.5">752.5</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="1100">1 KB</td>
+        <td class="num" data-n="329">329 B</td>
+        <td class="num" data-n="849920">830 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 46 (work table).
+   Sort rank 58.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[752.5, 756.7, 766.1, 748.7, 747.2]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/wren/hello.wren</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>System.print(&quot;Hello, World!&quot;)</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/wren/fibonacci.wren</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>var a = 0</span></span>
+<span class="giallo-l"><span>var b = 1</span></span>
+<span class="giallo-l"><span>for (i in 0...42) {</span></span>
+<span class="giallo-l"><span>  var tmp = a + b</span></span>
+<span class="giallo-l"><span>  a = b</span></span>
+<span class="giallo-l"><span>  b = tmp</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span>System.print(a)</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/wren/prime_sieve.wren</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>var limit = 1000000</span></span>
+<span class="giallo-l"><span>var sieve = List.filled(limit + 1, true)</span></span>
+<span class="giallo-l"><span>sieve[0] = false</span></span>
+<span class="giallo-l"><span>sieve[1] = false</span></span>
+<span class="giallo-l"><span>var i = 2</span></span>
+<span class="giallo-l"><span>while (i * i &lt;= limit) {</span></span>
+<span class="giallo-l"><span>  if (sieve[i]) {</span></span>
+<span class="giallo-l"><span>    var j = i * i</span></span>
+<span class="giallo-l"><span>    while (j &lt;= limit) {</span></span>
+<span class="giallo-l"><span>      sieve[j] = false</span></span>
+<span class="giallo-l"><span>      j = j + i</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>  i = i + 1</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span>var count = 0</span></span>
+<span class="giallo-l"><span>i = 2</span></span>
+<span class="giallo-l"><span>while (i &lt;= limit) {</span></span>
+<span class="giallo-l"><span>  if (sieve[i]) count = count + 1</span></span>
+<span class="giallo-l"><span>  i = i + 1</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span>System.print(&quot;Primes up to %(limit): %(count)&quot;)</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/wren/sorting.wren</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>var n = 1000000</span></span>
+<span class="giallo-l"><span>var data = List.filled(n, 0)</span></span>
+<span class="giallo-l"><span>var tmp = List.filled(n, 0)</span></span>
+<span class="giallo-l"><span>var seed = 42</span></span>
+<span class="giallo-l"><span>var a = 1664525</span></span>
+<span class="giallo-l"><span>var c = 1013904223</span></span>
+<span class="giallo-l"><span>var two32 = 4294967296</span></span>
+<span class="giallo-l"><span>var two31 = 2147483648</span></span>
+<span class="giallo-l"><span>var i = 0</span></span>
+<span class="giallo-l"><span>while (i &lt; n) {</span></span>
+<span class="giallo-l"><span>  var x = seed * a + c</span></span>
+<span class="giallo-l"><span>  seed = x - two32 * (x / two32).floor</span></span>
+<span class="giallo-l"><span>  if (seed &gt;= two31) {</span></span>
+<span class="giallo-l"><span>    data[i] = seed - two31</span></span>
+<span class="giallo-l"><span>  } else {</span></span>
+<span class="giallo-l"><span>    data[i] = seed</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>  i = i + 1</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>var SHIFT = [1, 256, 65536, 16777216]</span></span>
+<span class="giallo-l"><span>var count = List.filled(256, 0)</span></span>
+<span class="giallo-l"><span>var src = data</span></span>
+<span class="giallo-l"><span>var dst = tmp</span></span>
+<span class="giallo-l"><span>var pass = 0</span></span>
+<span class="giallo-l"><span>while (pass &lt; 4) {</span></span>
+<span class="giallo-l"><span>  var c = 0</span></span>
+<span class="giallo-l"><span>  while (c &lt; 256) {</span></span>
+<span class="giallo-l"><span>    count[c] = 0</span></span>
+<span class="giallo-l"><span>    c = c + 1</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>  var s = SHIFT[pass]</span></span>
+<span class="giallo-l"><span>  i = 0</span></span>
+<span class="giallo-l"><span>  while (i &lt; n) {</span></span>
+<span class="giallo-l"><span>    var b = ((src[i] / s).floor % 256).truncate</span></span>
+<span class="giallo-l"><span>    count[b] = count[b] + 1</span></span>
+<span class="giallo-l"><span>    i = i + 1</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>  var sum = 0</span></span>
+<span class="giallo-l"><span>  c = 0</span></span>
+<span class="giallo-l"><span>  while (c &lt; 256) {</span></span>
+<span class="giallo-l"><span>    var k = count[c]</span></span>
+<span class="giallo-l"><span>    count[c] = sum</span></span>
+<span class="giallo-l"><span>    sum = sum + k</span></span>
+<span class="giallo-l"><span>    c = c + 1</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>  i = 0</span></span>
+<span class="giallo-l"><span>  while (i &lt; n) {</span></span>
+<span class="giallo-l"><span>    var v = src[i]</span></span>
+<span class="giallo-l"><span>    var b = ((v / s).floor % 256).truncate</span></span>
+<span class="giallo-l"><span>    dst[count[b]] = v</span></span>
+<span class="giallo-l"><span>    count[b] = count[b] + 1</span></span>
+<span class="giallo-l"><span>    i = i + 1</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>  var t = src</span></span>
+<span class="giallo-l"><span>  src = dst</span></span>
+<span class="giallo-l"><span>  dst = t</span></span>
+<span class="giallo-l"><span>  pass = pass + 1</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>System.print(&quot;Sorted %(n) integers: first=%(src[0]), last=%(src[n - 1])&quot;)</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

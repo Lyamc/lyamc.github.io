@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COBOL · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>COBOL</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  
+</div>
+<p class="muted"> ·  →  · </p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">— <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">— <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">— <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">— <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="142">142 B</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="20795">20 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="513">513 B</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="21548">21 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="1070">1 KB</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="22131">22 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="1077">1 KB</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="23286">23 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+
+<p class="note">exe present but missing GnuCOBOL runtime (exit 0xC0000139 STATUS_ENTRYPOINT_NOT_FOUND)</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/cobol/hello.cob</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="cobol"><span class="giallo-l"><span style="color: #CBA6F7;">       IDENTIFICATION DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       PROGRAM-ID</span><span>. </span><span style="color: #89B4FA;font-style: italic;">HELLO</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       PROCEDURE DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           DISPLAY</span><span style="color: #A6E3A1;"> &quot;Hello, World!&quot;</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           STOP RUN</span><span>.</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/cobol/fibonacci.cob</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="cobol"><span class="giallo-l"><span style="color: #CBA6F7;">       IDENTIFICATION DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       PROGRAM-ID</span><span>. </span><span style="color: #89B4FA;font-style: italic;">FIBONACCI</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       DATA DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       WORKING-STORAGE SECTION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> N</span><span style="color: #CBA6F7;"> PIC 9</span><span>(</span><span style="color: #FAB387;">4</span><span>)</span><span style="color: #CBA6F7;"> VALUE</span><span style="color: #FAB387;"> 42</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> I</span><span style="color: #CBA6F7;"> PIC 9</span><span>(</span><span style="color: #FAB387;">4</span><span>)</span><span style="color: #CBA6F7;"> VALUE</span><span style="color: #FAB387;"> 0</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> A</span><span style="color: #CBA6F7;"> PIC 9</span><span>(</span><span style="color: #FAB387;">18</span><span>)</span><span style="color: #CBA6F7;"> VALUE</span><span style="color: #FAB387;"> 0</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> B</span><span style="color: #CBA6F7;"> PIC 9</span><span>(</span><span style="color: #FAB387;">18</span><span>)</span><span style="color: #CBA6F7;"> VALUE</span><span style="color: #FAB387;"> 1</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> TMP</span><span style="color: #CBA6F7;"> PIC 9</span><span>(</span><span style="color: #FAB387;">18</span><span>)</span><span style="color: #CBA6F7;"> VALUE</span><span style="color: #FAB387;"> 0</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       PROCEDURE DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           PERFORM UNTIL</span><span> I</span><span style="color: #94E2D5;"> &gt;=</span><span> N</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               COMPUTE</span><span> TMP</span><span style="color: #94E2D5;"> =</span><span> A</span><span style="color: #94E2D5;"> +</span><span> B</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               MOVE</span><span> B</span><span style="color: #CBA6F7;"> TO</span><span> A</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               MOVE</span><span> TMP</span><span style="color: #CBA6F7;"> TO</span><span> B</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               ADD</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> TO</span><span> I</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           END-PERFORM</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           DISPLAY</span><span> A</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           STOP RUN</span><span>.</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/cobol/prime_sieve.cob</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="cobol"><span class="giallo-l"><span style="color: #CBA6F7;">       IDENTIFICATION DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       PROGRAM-ID</span><span>. </span><span style="color: #89B4FA;font-style: italic;">PRIME-SIEVE</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       DATA DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       WORKING-STORAGE SECTION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> LIMIT-N</span><span style="color: #CBA6F7;"> PIC 9</span><span>(</span><span style="color: #FAB387;">7</span><span>)</span><span style="color: #CBA6F7;"> VALUE</span><span style="color: #FAB387;"> 1000000</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> SIEVE</span><span style="color: #CBA6F7;"> PIC X OCCURS</span><span style="color: #FAB387;"> 1000001</span><span style="color: #CBA6F7;"> TIMES</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> I</span><span style="color: #CBA6F7;"> PIC 9</span><span>(</span><span style="color: #FAB387;">7</span><span>).</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> J</span><span style="color: #CBA6F7;"> PIC 9</span><span>(</span><span style="color: #FAB387;">7</span><span>).</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> COUNT-P</span><span style="color: #CBA6F7;"> PIC 9</span><span>(</span><span style="color: #FAB387;">7</span><span>)</span><span style="color: #CBA6F7;"> VALUE</span><span style="color: #FAB387;"> 0</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       PROCEDURE DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           PERFORM VARYING</span><span> I</span><span style="color: #CBA6F7;"> FROM</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> BY</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> UNTIL</span><span> I</span><span style="color: #94E2D5;"> &gt;</span><span> LIMIT-N</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               MOVE</span><span style="color: #A6E3A1;"> &quot;T&quot;</span><span style="color: #CBA6F7;"> TO</span><span> SIEVE(I)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           END-PERFORM</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           MOVE</span><span style="color: #A6E3A1;"> &quot;F&quot;</span><span style="color: #CBA6F7;"> TO</span><span> SIEVE(</span><span style="color: #FAB387;">1</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           MOVE</span><span style="color: #FAB387;"> 2</span><span style="color: #CBA6F7;"> TO</span><span> I</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           PERFORM UNTIL</span><span> I</span><span style="color: #94E2D5;"> *</span><span> I</span><span style="color: #94E2D5;"> &gt;</span><span> LIMIT-N</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               IF</span><span> SIEVE(I) </span><span style="color: #94E2D5;">=</span><span style="color: #A6E3A1;"> &quot;T&quot;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">                   COMPUTE</span><span> J</span><span style="color: #94E2D5;"> =</span><span> I</span><span style="color: #94E2D5;"> *</span><span> I</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">                   PERFORM UNTIL</span><span> J</span><span style="color: #94E2D5;"> &gt;</span><span> LIMIT-N</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">                       MOVE</span><span style="color: #A6E3A1;"> &quot;F&quot;</span><span style="color: #CBA6F7;"> TO</span><span> SIEVE(J)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">                       ADD</span><span> I</span><span style="color: #CBA6F7;"> TO</span><span> J</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">                   END-PERFORM</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               END-IF</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               ADD</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> TO</span><span> I</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           END-PERFORM</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           PERFORM VARYING</span><span> I</span><span style="color: #CBA6F7;"> FROM</span><span style="color: #FAB387;"> 2</span><span style="color: #CBA6F7;"> BY</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> UNTIL</span><span> I</span><span style="color: #94E2D5;"> &gt;</span><span> LIMIT-N</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               IF</span><span> SIEVE(I) </span><span style="color: #94E2D5;">=</span><span style="color: #A6E3A1;"> &quot;T&quot;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">                   ADD</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> TO</span><span> COUNT-P</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               END-IF</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           END-PERFORM</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           DISPLAY</span><span style="color: #A6E3A1;"> &quot;Primes up to &quot;</span><span> LIMIT-N</span><span style="color: #A6E3A1;"> &quot;: &quot;</span><span> COUNT-P</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           STOP RUN</span><span>.</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/cobol/sorting.cob</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="cobol"><span class="giallo-l"><span style="color: #CBA6F7;">       IDENTIFICATION DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       PROGRAM-ID</span><span>. </span><span style="color: #89B4FA;font-style: italic;">SORTING</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       DATA DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       WORKING-STORAGE SECTION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> N</span><span style="color: #CBA6F7;">                       PIC 9</span><span>(</span><span style="color: #FAB387;">7</span><span>)</span><span style="color: #CBA6F7;"> VALUE</span><span style="color: #FAB387;"> 1000000</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> I</span><span style="color: #CBA6F7;">                       PIC 9</span><span>(</span><span style="color: #FAB387;">7</span><span>)</span><span style="color: #CBA6F7;"> COMP-5</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> SEED</span><span style="color: #CBA6F7;">                    PIC 9</span><span>(</span><span style="color: #FAB387;">18</span><span>)</span><span style="color: #CBA6F7;"> COMP-5 VALUE</span><span style="color: #FAB387;"> 42</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> VAL</span><span style="color: #CBA6F7;">                     PIC 9</span><span>(</span><span style="color: #FAB387;">10</span><span>)</span><span style="color: #CBA6F7;"> COMP-5</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> FIRST-D</span><span style="color: #CBA6F7;">                 PIC 9</span><span>(</span><span style="color: #FAB387;">10</span><span>).</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> LAST-D</span><span style="color: #CBA6F7;">                  PIC 9</span><span>(</span><span style="color: #FAB387;">10</span><span>).</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">       01</span><span> WS-TABLE.</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">          05</span><span> WS-ITEM</span><span style="color: #CBA6F7;">              PIC 9</span><span>(</span><span style="color: #FAB387;">9</span><span>)</span><span style="color: #CBA6F7;"> COMP-5</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">                                  OCCURS</span><span style="color: #FAB387;"> 1000000</span><span style="color: #CBA6F7;"> TIMES</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">       PROCEDURE DIVISION</span><span>.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           PERFORM VARYING</span><span> I</span><span style="color: #CBA6F7;"> FROM</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> BY</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> UNTIL</span><span> I</span><span style="color: #94E2D5;"> &gt;</span><span> N</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               COMPUTE</span><span> SEED</span><span style="color: #94E2D5;"> =</span><span style="color: #CBA6F7;"> FUNCTION</span><span style="color: #89B4FA;font-style: italic;"> MOD</span><span>(SEED</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">                   4294967296</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               COMPUTE</span><span> VAL</span><span style="color: #94E2D5;"> =</span><span style="color: #CBA6F7;"> FUNCTION</span><span style="color: #89B4FA;font-style: italic;"> MOD</span><span>(SEED, </span><span style="color: #FAB387;">2147483648</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">               MOVE</span><span> VAL</span><span style="color: #CBA6F7;"> TO</span><span> WS-ITEM(I)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           END-PERFORM</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           SORT</span><span> WS-ITEM</span><span style="color: #CBA6F7;"> ASCENDING</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           MOVE</span><span> WS-ITEM(</span><span style="color: #FAB387;">1</span><span>) </span><span style="color: #CBA6F7;">TO</span><span> FIRST-D</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           MOVE</span><span> WS-ITEM(N) </span><span style="color: #CBA6F7;">TO</span><span> LAST-D</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           DISPLAY</span><span style="color: #A6E3A1;"> &quot;Sorted &quot;</span><span> N</span><span style="color: #A6E3A1;"> &quot; integers: first=&quot;</span><span> FIRST-D</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">               &quot;, last=&quot;</span><span> LAST-D</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">           STOP RUN</span><span>.</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

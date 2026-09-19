@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tcl · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Tcl</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">Tcl 8.6.16 · tclsh → Tcl bytecode · Tcl</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">11.9 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">11.8 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">781.3 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">829.5 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="11.9">11.9</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="21">21 B</td>
+        <td class="num" data-n="41">41 B</td>
+        <td class="num" data-n="64000">63 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="11.8">11.8</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="127">127 B</td>
+        <td class="num" data-n="113">113 B</td>
+        <td class="num" data-n="64000">63 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="781.3">781.3</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="409">409 B</td>
+        <td class="num" data-n="203">203 B</td>
+        <td class="num" data-n="64000">63 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="829.5">829.5</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="293">293 B</td>
+        <td class="num" data-n="199">199 B</td>
+        <td class="num" data-n="64000">63 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 67 (work table).
+   Sort rank 61.
+  Four-file source 850 B.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[848.6, 841.0, 823.8, 816.6, 829.5]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/tcl/hello.tcl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="tcl"><span class="giallo-l"><span style="color: #CBA6F7;">puts</span><span style="color: #A6E3A1;"> &quot;Hello, World!&quot;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/tcl/fibonacci.tcl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="tcl"><span class="giallo-l"><span style="color: #CBA6F7;">set</span><span> n </span><span style="color: #FAB387;">42</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">set</span><span> a </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">set</span><span> b </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> {</span><span style="color: #CBA6F7;">set</span><span> i </span><span style="color: #FAB387;">0</span><span>} {$</span><span style="color: #89B4FA;font-style: italic;">i</span><span style="color: #94E2D5;"> &lt;</span><span> $</span><span style="color: #89B4FA;font-style: italic;">n</span><span>} {</span><span style="color: #CBA6F7;">incr</span><span> i} {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    set</span><span> tmp [</span><span style="color: #CBA6F7;">expr</span><span> {$</span><span style="color: #89B4FA;font-style: italic;">a</span><span style="color: #94E2D5;"> +</span><span> $</span><span style="color: #89B4FA;font-style: italic;">b</span><span>}]</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    set</span><span> a $</span><span style="color: #89B4FA;font-style: italic;">b</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    set</span><span> b $</span><span style="color: #89B4FA;font-style: italic;">tmp</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">puts</span><span> $</span><span style="color: #89B4FA;font-style: italic;">a</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/tcl/prime_sieve.tcl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="tcl"><span class="giallo-l"><span style="color: #CBA6F7;">set</span><span> limit </span><span style="color: #FAB387;">1000000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">set</span><span> sieve [lrepeat [</span><span style="color: #CBA6F7;">expr</span><span> {$</span><span style="color: #89B4FA;font-style: italic;">limit</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span>}] </span><span style="color: #FAB387;">1</span><span>]</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">lset</span><span> sieve </span><span style="color: #FAB387;">0 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">lset</span><span> sieve </span><span style="color: #FAB387;">1 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> {</span><span style="color: #CBA6F7;">set</span><span> i </span><span style="color: #FAB387;">2</span><span>} {$</span><span style="color: #89B4FA;font-style: italic;">i</span><span style="color: #94E2D5;"> *</span><span> $</span><span style="color: #89B4FA;font-style: italic;">i</span><span style="color: #94E2D5;"> &lt;=</span><span> $</span><span style="color: #89B4FA;font-style: italic;">limit</span><span>} {</span><span style="color: #CBA6F7;">incr</span><span> i} {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span> {[</span><span style="color: #CBA6F7;">lindex</span><span> $</span><span style="color: #89B4FA;font-style: italic;">sieve</span><span> $</span><span style="color: #89B4FA;font-style: italic;">i</span><span>]} {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> {</span><span style="color: #CBA6F7;">set</span><span> j [</span><span style="color: #CBA6F7;">expr</span><span> {$</span><span style="color: #89B4FA;font-style: italic;">i</span><span style="color: #94E2D5;"> *</span><span> $</span><span style="color: #89B4FA;font-style: italic;">i</span><span>}]} {$</span><span style="color: #89B4FA;font-style: italic;">j</span><span style="color: #94E2D5;"> &lt;=</span><span> $</span><span style="color: #89B4FA;font-style: italic;">limit</span><span>} {</span><span style="color: #CBA6F7;">incr</span><span> j $</span><span style="color: #89B4FA;font-style: italic;">i</span><span>} {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">            lset</span><span> sieve $</span><span style="color: #89B4FA;font-style: italic;">j</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">set</span><span> count </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> {</span><span style="color: #CBA6F7;">set</span><span> i </span><span style="color: #FAB387;">2</span><span>} {$</span><span style="color: #89B4FA;font-style: italic;">i</span><span style="color: #94E2D5;"> &lt;=</span><span> $</span><span style="color: #89B4FA;font-style: italic;">limit</span><span>} {</span><span style="color: #CBA6F7;">incr</span><span> i} {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span> {[</span><span style="color: #CBA6F7;">lindex</span><span> $</span><span style="color: #89B4FA;font-style: italic;">sieve</span><span> $</span><span style="color: #89B4FA;font-style: italic;">i</span><span>]} {</span><span style="color: #CBA6F7;"> incr</span><span> count }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">puts</span><span style="color: #A6E3A1;"> &quot;Primes up to </span><span>$</span><span style="color: #89B4FA;font-style: italic;">limit</span><span style="color: #A6E3A1;">: </span><span>$</span><span style="color: #89B4FA;font-style: italic;">count</span><span style="color: #A6E3A1;">&quot;</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/tcl/sorting.tcl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="tcl"><span class="giallo-l"><span style="color: #CBA6F7;">set</span><span> n </span><span style="color: #FAB387;">1000000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">set</span><span> seed </span><span style="color: #FAB387;">42</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">set</span><span> data {}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> {</span><span style="color: #CBA6F7;">set</span><span> i </span><span style="color: #FAB387;">0</span><span>} {$</span><span style="color: #89B4FA;font-style: italic;">i</span><span style="color: #94E2D5;"> &lt;</span><span> $</span><span style="color: #89B4FA;font-style: italic;">n</span><span>} {</span><span style="color: #CBA6F7;">incr</span><span> i} {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    set</span><span> seed [</span><span style="color: #CBA6F7;">expr</span><span> {($</span><span style="color: #89B4FA;font-style: italic;">seed</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span>) </span><span style="color: #94E2D5;">&amp;</span><span> 0xffffffff}]</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    lappend</span><span> data [</span><span style="color: #CBA6F7;">expr</span><span> {$</span><span style="color: #89B4FA;font-style: italic;">seed</span><span style="color: #94E2D5;"> &amp;</span><span> 0x7fffffff}]</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">set</span><span> data [</span><span style="color: #CBA6F7;">lsort</span><span> -integer $</span><span style="color: #89B4FA;font-style: italic;">data</span><span>]</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">puts</span><span style="color: #A6E3A1;"> &quot;Sorted </span><span>$</span><span style="color: #89B4FA;font-style: italic;">n</span><span style="color: #A6E3A1;"> integers: first=</span><span style="color: #9399B2;">[</span><span style="color: #CBA6F7;">lindex</span><span> $</span><span style="color: #89B4FA;font-style: italic;">data</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">]</span><span style="color: #A6E3A1;">, last=</span><span style="color: #9399B2;">[</span><span style="color: #CBA6F7;">lindex</span><span> $</span><span style="color: #89B4FA;font-style: italic;">data</span><span> end</span><span style="color: #9399B2;">]</span><span style="color: #A6E3A1;">&quot;</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perl · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Perl</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">Strawberry 5.42.2 · perl → perl opcodes · perl</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">21.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">13.6 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">160.7 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">334.3 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="21.2">21.2</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="25">25 B</td>
+        <td class="num" data-n="45">45 B</td>
+        <td class="num" data-n="46592">46 KB</td>
+        <td class="num" data-n="2652">2652 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="13.6">13.6</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="96">96 B</td>
+        <td class="num" data-n="99">99 B</td>
+        <td class="num" data-n="46592">46 KB</td>
+        <td class="num" data-n="2652">2652 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="160.7">160.7</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="381">381 B</td>
+        <td class="num" data-n="221">221 B</td>
+        <td class="num" data-n="46592">46 KB</td>
+        <td class="num" data-n="2652">2652 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="334.3">334.3</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="311">311 B</td>
+        <td class="num" data-n="207">207 B</td>
+        <td class="num" data-n="46592">46 KB</td>
+        <td class="num" data-n="2656">2656 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 51 (work table).
+   Sort rank 48.
+  Four-file source 813 B.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[332.5, 328.0, 338.3, 350.6, 334.3]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/perl/hello.pl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="perl"><span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">print</span><span style="color: #A6E3A1;"> &quot;Hello, World!</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span>;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/perl/fibonacci.pl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="perl"><span class="giallo-l"><span style="color: #CBA6F7;">my</span><span> $n = 42;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">my</span><span> $a = 0;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">my</span><span> $b = 1;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> (1 .. $n) {</span></span>
+<span class="giallo-l"><span>    ($a, $b) = ($b, $a + $b);</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">print</span><span style="color: #A6E3A1;"> &quot;</span><span>$a</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span>;</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/perl/prime_sieve.pl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="perl"><span class="giallo-l"><span style="color: #CBA6F7;">use</span><span> strict;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">use</span><span> warnings;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">my</span><span> $limit = 1_000_000;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">my</span><span> @sieve = (1) x ($limit + 1);</span></span>
+<span class="giallo-l"><span>$sieve[0] = $sieve[1] = 0;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> (</span><span style="color: #CBA6F7;">my</span><span> $i = 2; $i * $i &lt;= $limit; $i++) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span> ($sieve[$i]) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> (</span><span style="color: #CBA6F7;">my</span><span> $j = $i * $i; $j &lt;= $limit; $j += $i) {</span></span>
+<span class="giallo-l"><span>            $sieve[$j] = 0;</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">my</span><span> $count = 0;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for my</span><span> $i (2 .. $limit) { $count++ </span><span style="color: #CBA6F7;">if</span><span> $sieve[$i]; }</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">print</span><span style="color: #A6E3A1;"> &quot;Primes up to </span><span>$limit</span><span style="color: #A6E3A1;">: </span><span>$count</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span>;</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/perl/sorting.pl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="perl"><span class="giallo-l"><span style="color: #CBA6F7;">use</span><span> strict;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">use</span><span> warnings;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">my</span><span> $n = 1_000_000;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">my</span><span> $seed = 42;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">my</span><span> @data;</span></span>
+<span class="giallo-l"><span>$#data = $n - 1;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> (</span><span style="color: #CBA6F7;">my</span><span> $i = 0; $i &lt; $n; $i++) {</span></span>
+<span class="giallo-l"><span>    $seed = ($seed * 1664525 + 1013904223) &amp; 0xffffffff;</span></span>
+<span class="giallo-l"><span>    $data[$i] = $seed &amp; 0x7fffffff;</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span>@data = </span><span style="color: #89B4FA;font-style: italic;">sort</span><span> { $a</span><span style="color: #94E2D5;"> &lt;=&gt;</span><span> $b } @data;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">print</span><span style="color: #A6E3A1;"> &quot;Sorted </span><span>$n</span><span style="color: #A6E3A1;"> integers: first=</span><span>$data</span><span style="color: #A6E3A1;">[0], last=</span><span>$data</span><span style="color: #A6E3A1;">[-1]</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span>;</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

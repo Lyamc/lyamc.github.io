@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Starlark · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Starlark</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">go.starlark.net · starlark → Starlark · Starlark-go</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">9.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">8 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">179 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">911.2 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="9.4">9.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="23">23 B</td>
+        <td class="num" data-n="43">43 B</td>
+        <td class="num" data-n="6143488">5.9 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="8">8</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="125">125 B</td>
+        <td class="num" data-n="101">101 B</td>
+        <td class="num" data-n="6143488">5.9 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="179">179</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="409">409 B</td>
+        <td class="num" data-n="203">203 B</td>
+        <td class="num" data-n="6143488">5.9 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="911.2">911.2</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="297">297 B</td>
+        <td class="num" data-n="195">195 B</td>
+        <td class="num" data-n="6143488">5.9 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 52 (work table).
+   Sort rank 62.
+  Four-file source 854 B.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[903.6, 911.2, 925.7, 909.9, 918.9]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/starlark/hello.star</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #FAB387;font-style: italic;">print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/starlark/fibonacci.star</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> fib</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span>    a</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>    b</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">42</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span>        tmp</span><span style="color: #94E2D5;"> =</span><span> a</span><span style="color: #94E2D5;"> +</span><span> b</span></span>
+<span class="giallo-l"><span>        a</span><span style="color: #94E2D5;"> =</span><span> b</span></span>
+<span class="giallo-l"><span>        b</span><span style="color: #94E2D5;"> =</span><span> tmp</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span>a</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;">fib</span><span style="color: #9399B2;">()</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/starlark/prime_sieve.star</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> sieve</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span>    limit</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span></span>
+<span class="giallo-l"><span>    flags</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> [</span><span style="color: #FAB387;">True</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> *</span><span style="color: #9399B2;"> (</span><span>limit</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">    flags</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;font-style: italic;">0</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> False</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">    flags</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;font-style: italic;">1</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> False</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">2</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1001</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        if</span><span style="color: #EBA0AC;font-style: italic;"> flags</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">i</span><span style="color: #9399B2;">]:</span></span>
+<span class="giallo-l"><span>            j</span><span style="color: #94E2D5;"> =</span><span> i</span><span style="color: #94E2D5;"> *</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">            for</span><span> k</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span>j</span><span style="color: #9399B2;">,</span><span> limit</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span> i</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">                flags</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">k</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> False</span></span>
+<span class="giallo-l"><span>    count</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">2</span><span style="color: #9399B2;">,</span><span> limit</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        if</span><span style="color: #EBA0AC;font-style: italic;"> flags</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">i</span><span style="color: #9399B2;">]:</span></span>
+<span class="giallo-l"><span>            count</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Primes up to </span><span style="color: #F5C2E7;">%d</span><span style="color: #A6E3A1;">: </span><span style="color: #F5C2E7;">%d</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #94E2D5;"> %</span><span style="color: #9399B2;"> (</span><span>limit</span><span style="color: #9399B2;">,</span><span> count</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;">sieve</span><span style="color: #9399B2;">()</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/starlark/sorting.star</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> sort_run</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span></span>
+<span class="giallo-l"><span>    seed</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span>    data</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> [</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> *</span><span> n</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span>n</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span>        seed</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> (</span><span>seed</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #CBA6F7;"> 0x</span><span style="color: #FAB387;">ffffffff</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">        data</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span> seed</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #CBA6F7;"> 0x</span><span style="color: #FAB387;">7fffffff</span></span>
+<span class="giallo-l"><span>    data</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;font-style: italic;"> sorted</span><span style="color: #9399B2;">(</span><span>data</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Sorted </span><span style="color: #F5C2E7;">%d</span><span style="color: #A6E3A1;"> integers: first=</span><span style="color: #F5C2E7;">%d</span><span style="color: #A6E3A1;">, last=</span><span style="color: #F5C2E7;">%d</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #94E2D5;"> %</span><span style="color: #9399B2;"> (</span><span>n</span><span style="color: #9399B2;">,</span><span style="color: #EBA0AC;font-style: italic;"> data</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;font-style: italic;">0</span><span style="color: #9399B2;">],</span><span style="color: #EBA0AC;font-style: italic;"> data</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">n</span><span style="color: #94E2D5;"> -</span><span style="color: #FAB387;font-style: italic;"> 1</span><span style="color: #9399B2;">]))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;">sort_run</span><span style="color: #9399B2;">()</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

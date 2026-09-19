@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jai · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Jai</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted"> · jai -release → x64 &#x2F; LLVM · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">— <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">— <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">— <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">— <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="63">63 B</td>
+        <td class="num" data-n="81">81 B</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="176">176 B</td>
+        <td class="num" data-n="139">139 B</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="561">561 B</td>
+        <td class="num" data-n="274">274 B</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="1033">1 KB</td>
+        <td class="num" data-n="450">450 B</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+
+<p class="note">Jai sources written; Jonathan Blow &#x2F; Thekla compiler is still closed beta (not on this machine, not public). Place jai in tools&#x2F;jai&#x2F;bin&#x2F; or PATH and re-run this script. LSD radix 4x8; Byte-array sieve.</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/jai/hello.jai</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="c"><span class="giallo-l"><span style="color: #F9E2AF;">#import</span><span style="color: #A6E3A1;"> &quot;Basic&quot;</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>main :: </span><span style="color: #9399B2;">() {</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Hello, World!</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/jai/fibonacci.jai</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="c"><span class="giallo-l"><span style="color: #F9E2AF;">#import</span><span style="color: #A6E3A1;"> &quot;Basic&quot;</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>main :: </span><span style="color: #9399B2;">() {</span></span>
+<span class="giallo-l"><span>    n :</span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 42</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    a: s64 </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    b: s64 </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> 0..n</span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span>        tmp :</span><span style="color: #94E2D5;">=</span><span> a </span><span style="color: #94E2D5;">+</span><span> b</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>        a </span><span style="color: #94E2D5;">=</span><span> b</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>        b </span><span style="color: #94E2D5;">=</span><span> tmp</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;%</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">,</span><span> a</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/jai/prime_sieve.jai</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="c"><span class="giallo-l"><span style="color: #F9E2AF;">#import</span><span style="color: #A6E3A1;"> &quot;Basic&quot;</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>main :: </span><span style="color: #9399B2;">() {</span></span>
+<span class="giallo-l"><span>    LIMIT :: 1_000_000</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    sieve :</span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> NewArray</span><span style="color: #9399B2;">(</span><span>LIMIT </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span> u8</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>    defer </span><span style="color: #89B4FA;font-style: italic;">array_free</span><span style="color: #9399B2;">(</span><span>sieve</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i: 0..LIMIT</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span>        sieve</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span>    sieve</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    sieve</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    i :</span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 2</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> i </span><span style="color: #94E2D5;">*</span><span> i </span><span style="color: #94E2D5;">&lt;=</span><span> LIMIT </span><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        if</span><span> sieve</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> !=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span>            j :</span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">*</span><span> i</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">            while</span><span> j </span><span style="color: #94E2D5;">&lt;=</span><span> LIMIT </span><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span>                sieve</span><span style="color: #9399B2;">[</span><span>j</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>                j </span><span style="color: #94E2D5;">+=</span><span> i</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">            }</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        }</span></span>
+<span class="giallo-l"><span>        i </span><span style="color: #94E2D5;">+=</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span>    count :</span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> k: 2..LIMIT</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        if</span><span> sieve</span><span style="color: #9399B2;">[</span><span>k</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> !=</span><span style="color: #FAB387;"> 0</span><span>  count </span><span style="color: #94E2D5;">+=</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Primes up to %: %</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">,</span><span> LIMIT</span><span style="color: #9399B2;">,</span><span> count</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/jai/sorting.jai</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="c"><span class="giallo-l"><span style="color: #F9E2AF;">#import</span><span style="color: #A6E3A1;"> &quot;Basic&quot;</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>radix_sort :: </span><span style="color: #9399B2;">(</span><span>a: </span><span style="color: #CBA6F7;">[]</span><span> u32</span><span style="color: #9399B2;">,</span><span> tmp: </span><span style="color: #CBA6F7;">[]</span><span> u32</span><span style="color: #9399B2;">,</span><span> n: </span><span style="color: #CBA6F7;">int</span><span style="color: #9399B2;">) {</span></span>
+<span class="giallo-l"><span>    src :</span><span style="color: #94E2D5;">=</span><span> a</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    dst :</span><span style="color: #94E2D5;">=</span><span> tmp</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> pass: 0..3</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span>        counts: </span><span style="color: #9399B2;">[</span><span style="color: #FAB387;">256</span><span style="color: #9399B2;">]</span><span style="color: #CBA6F7;"> int</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>        shift :</span><span style="color: #94E2D5;">=</span><span> pass </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 8</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> i: 0..n</span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span>            b :</span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> cast</span><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">int</span><span style="color: #9399B2;">) ((</span><span>src</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> &gt;&gt;</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>            counts</span><span style="color: #9399B2;">[</span><span>b</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        }</span></span>
+<span class="giallo-l"><span>        sum :</span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> b: 0..255</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span>            c :</span><span style="color: #94E2D5;">=</span><span> counts</span><span style="color: #9399B2;">[</span><span>b</span><span style="color: #9399B2;">];</span></span>
+<span class="giallo-l"><span>            counts</span><span style="color: #9399B2;">[</span><span>b</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span> sum</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>            sum </span><span style="color: #94E2D5;">+=</span><span> c</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        }</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> i: 0..n</span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span>            v :</span><span style="color: #94E2D5;">=</span><span> src</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">];</span></span>
+<span class="giallo-l"><span>            b :</span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> cast</span><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">int</span><span style="color: #9399B2;">) ((</span><span>v </span><span style="color: #94E2D5;">&gt;&gt;</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>            dst</span><span style="color: #9399B2;">[</span><span>counts</span><span style="color: #9399B2;">[</span><span>b</span><span style="color: #9399B2;">]]</span><span style="color: #94E2D5;"> =</span><span> v</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>            counts</span><span style="color: #9399B2;">[</span><span>b</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        }</span></span>
+<span class="giallo-l"><span>        t :</span><span style="color: #94E2D5;">=</span><span> src</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>        src </span><span style="color: #94E2D5;">=</span><span> dst</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>        dst </span><span style="color: #94E2D5;">=</span><span> t</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>main :: </span><span style="color: #9399B2;">() {</span></span>
+<span class="giallo-l"><span>    N :: 1_000_000</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    data :</span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> NewArray</span><span style="color: #9399B2;">(</span><span>N</span><span style="color: #9399B2;">,</span><span> u32</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>    tmp :</span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> NewArray</span><span style="color: #9399B2;">(</span><span>N</span><span style="color: #9399B2;">,</span><span> u32</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>    defer </span><span style="color: #89B4FA;font-style: italic;">array_free</span><span style="color: #9399B2;">(</span><span>data</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>    defer </span><span style="color: #89B4FA;font-style: italic;">array_free</span><span style="color: #9399B2;">(</span><span>tmp</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>    seed: u32 </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 42</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i: 0..N</span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span>        seed </span><span style="color: #94E2D5;">=</span><span> seed </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>        data</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span> seed </span><span style="color: #94E2D5;">&amp;</span><span> 0x7fff_ffff</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    radix_sort</span><span style="color: #9399B2;">(</span><span>data</span><span style="color: #9399B2;">,</span><span> tmp</span><span style="color: #9399B2;">,</span><span> N</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Sorted % integers: first=%, last=%</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">,</span><span> N</span><span style="color: #9399B2;">,</span><span> data</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">],</span><span> data</span><span style="color: #9399B2;">[</span><span>N </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">]);</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

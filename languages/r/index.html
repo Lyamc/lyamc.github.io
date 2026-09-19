@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>R · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>R</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">R 4.6.1 · Rscript → GNU R · R</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">134.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">143.1 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">148.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">354 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="134.4">134.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="23">23 B</td>
+        <td class="num" data-n="43">43 B</td>
+        <td class="num" data-n="154624">151 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="143.1">143.1</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="96">96 B</td>
+        <td class="num" data-n="98">98 B</td>
+        <td class="num" data-n="154624">151 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="148.4">148.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="254">254 B</td>
+        <td class="num" data-n="212">212 B</td>
+        <td class="num" data-n="154624">151 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="354">354</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="300">300 B</td>
+        <td class="num" data-n="152">152 B</td>
+        <td class="num" data-n="154624">151 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 50 (work table).
+  
+  Four-file source 673 B.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[361.4, 352.4, 354.0, 356.5, 352.0]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/r/hello.R</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="r"><span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">cat</span><span>(</span><span style="color: #A6E3A1;">&quot;Hello, World!</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span>)</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/r/fibonacci.R</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="r"><span class="giallo-l"><span>n</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span>a</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>b</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> (i</span><span style="color: #CBA6F7;"> in</span><span style="color: #89B4FA;font-style: italic;"> seq_len</span><span>(n)) {</span></span>
+<span class="giallo-l"><span>  tmp</span><span style="color: #94E2D5;"> &lt;-</span><span> a</span><span style="color: #94E2D5;"> +</span><span> b</span></span>
+<span class="giallo-l"><span>  a</span><span style="color: #94E2D5;"> &lt;-</span><span> b</span></span>
+<span class="giallo-l"><span>  b</span><span style="color: #94E2D5;"> &lt;-</span><span> tmp</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">cat</span><span>(a</span><span style="color: #94E2D5;">,</span><span style="color: #A6E3A1;"> &quot;</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span>)</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/r/prime_sieve.R</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="r"><span class="giallo-l"><span>limit</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #FAB387;"> 1000000L</span></span>
+<span class="giallo-l"><span>sieve</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #89B4FA;font-style: italic;"> rep</span><span>(</span><span style="color: #F38BA8;">TRUE</span><span style="color: #94E2D5;">,</span><span> limit)</span></span>
+<span class="giallo-l"><span>sieve[</span><span style="color: #FAB387;">1L</span><span>]</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #F38BA8;"> FALSE</span></span>
+<span class="giallo-l"><span>lim</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #89B4FA;font-style: italic;"> as.integer</span><span>(</span><span style="color: #89B4FA;font-style: italic;">sqrt</span><span>(limit))</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> (i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;"> 2</span><span style="color: #94E2D5;">:</span><span>lim) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span> (sieve[i]) {</span></span>
+<span class="giallo-l"><span>    sieve[</span><span style="color: #89B4FA;font-style: italic;">seq.int</span><span>(i</span><span style="color: #94E2D5;"> *</span><span> i</span><span style="color: #94E2D5;">,</span><span> limit</span><span style="color: #94E2D5;">,</span><span> i)]</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #F38BA8;"> FALSE</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span>count</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #89B4FA;font-style: italic;"> sum</span><span>(sieve)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">cat</span><span>(</span><span style="color: #89B4FA;font-style: italic;">sprintf</span><span>(</span><span style="color: #A6E3A1;">&quot;Primes up to %d: %d</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #94E2D5;">,</span><span> limit</span><span style="color: #94E2D5;">,</span><span> count))</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/r/sorting.R</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="r"><span class="giallo-l"><span>n</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #FAB387;"> 1000000L</span></span>
+<span class="giallo-l"><span>data</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #89B4FA;font-style: italic;"> integer</span><span>(n)</span></span>
+<span class="giallo-l"><span>seed</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span>a</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #FAB387;"> 1664525</span></span>
+<span class="giallo-l"><span>c</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #FAB387;"> 1013904223</span></span>
+<span class="giallo-l"><span>m32</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #FAB387;"> 4294967296</span></span>
+<span class="giallo-l"><span>m31</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #FAB387;"> 2147483648</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> (i</span><span style="color: #CBA6F7;"> in</span><span style="color: #89B4FA;font-style: italic;"> seq_len</span><span>(n)) {</span></span>
+<span class="giallo-l"><span>  seed</span><span style="color: #94E2D5;"> &lt;-</span><span> (seed</span><span style="color: #94E2D5;"> *</span><span> a</span><span style="color: #94E2D5;"> +</span><span> c)</span><span style="color: #94E2D5;"> %%</span><span> m32</span></span>
+<span class="giallo-l"><span>  data[i]</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #89B4FA;font-style: italic;"> as.integer</span><span>(seed</span><span style="color: #94E2D5;"> %%</span><span> m31)</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span>data</span><span style="color: #94E2D5;"> &lt;-</span><span style="color: #89B4FA;font-style: italic;"> sort</span><span>(data)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">cat</span><span>(</span><span style="color: #89B4FA;font-style: italic;">sprintf</span><span>(</span><span style="color: #A6E3A1;">&quot;Sorted %d integers: first=%d, last=%d</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #94E2D5;">,</span><span> n</span><span style="color: #94E2D5;">,</span><span> data[</span><span style="color: #FAB387;">1</span><span>]</span><span style="color: #94E2D5;">,</span><span> data[n]))</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

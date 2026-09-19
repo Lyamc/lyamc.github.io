@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+<h1>Methodology</h1>
+<h2 id="what-is-timed">What is timed</h2>
+<p>A single new process: start, do the work, print, exit. The clock is Python <code>time.perf_counter()</code> around <code>subprocess.run</code> (wait-for-exit). The reported number is the <strong>median of 5</strong> samples, except Octave / Groovy / Raku / GPU (3) and Forth sieve (1).</p>
+<p>Hello and Fibonacci(42) are a few dozen operations. They measure <strong>launch cost</strong> (OS spawn, CRT, VM/JIT init, print). The sieve to 1,000,000 and the sort of 1,000,000 LCG integers are the two programs that actually move memory.</p>
+<p>LCG: <code>seed = seed * 1664525 + 1013904223</code>, then often <code>&amp; 0x7fffffff</code>. Sorted first/last must be <strong>3842</strong> / <strong>2147480074</strong>. Sieve count must be <strong>78498</strong>.</p>
+<h2 id="fairness">Fairness</h2>
+<p>Not every row is the same problem. Compiled languages usually use a byte sieve and many use LSD radix for sort. Interpreters use whatever the language provides (<code>list.sort</code>, <code>table.sort</code>). Bend 2 uses a tree runtime; its sort is bitonic over 2^18 leaves rather than 1e6 <code>list.sort</code>. o3-monkey ran reduced n. GPU times include <code>vkCreateDevice</code> / wgpu instance setup.</p>
+<h2 id="jai">Jai</h2>
+<p>Sources live in <code>examples/jai/</code> (hello, Fibonacci, byte sieve, LSD radix sort). The Thekla / Jonathan Blow compiler is still an invite-only closed beta and was not present on this machine (home, PATH, Windows <code>C:\</code>, Downloads, <code>tools/</code>). There is no public Linux/Windows download to fetch. If you have the beta zip, unpack it so <code>jai</code> is on <code>PATH</code> or at <code>tools/jai/bin/jai</code>, then run <code>python scripts/bench_jai.py</code>.</p>
+<h2 id="lean-4">Lean 4</h2>
+<p>Added as <code>examples/lean/</code>. Built with <code>lake build</code> (Lean 4.33.1, C backend via leanc/clang <code>-O3</code>). Sieve uses <code>ByteArray</code>. Sort is LSD radix over packed little-endian <code>UInt32</code>s in a <code>ByteArray</code> (the unboxed array type; <code>Array UInt32</code> boxes). Timed on <strong>Linux NixOS</strong>, same i9-13900K as the Windows rows. Process spawn is cheaper on Linux: local <code>clang -O2</code> C hello is 0.8 ms here versus 3.7 ms on Windows. C sieve 4.3 ms / sort 12.6 ms on this box versus Windows clang 4.8 / 9.6. Lean numbers are therefore slightly optimistic on hello and in the same band on the work.</p>
+<h2 id="regenerating-the-site">Regenerating the site</h2>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>python scripts/build_website.py --build</span></span></code></pre>
+<p>That writes <code>website/data/results.json</code>, language/program pages, copies graphs, and runs Zola. Local preview:</p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>nix-shell -p zola --run &#39;zola --root website serve&#39;</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

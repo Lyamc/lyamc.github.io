@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Common Lisp (SBCL) · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Common Lisp (SBCL)</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">script+native</span>
+</div>
+<p class="muted">SBCL 2.6.7 · sbcl --script → SBCL native · SBCL</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">24.5 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">24.5 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">35 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">37.5 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="24.5">24.5</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="29">29 B</td>
+        <td class="num" data-n="49">49 B</td>
+        <td class="num" data-n="2555987">2.4 MB</td>
+        <td class="num" data-n="44768">44768 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="24.5">24.5</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="144">144 B</td>
+        <td class="num" data-n="120">120 B</td>
+        <td class="num" data-n="2555987">2.4 MB</td>
+        <td class="num" data-n="5416">5416 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="35">35</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="471">471 B</td>
+        <td class="num" data-n="243">243 B</td>
+        <td class="num" data-n="2555987">2.4 MB</td>
+        <td class="num" data-n="2636">2636 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="37.5">37.5</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="1793">2 KB</td>
+        <td class="num" data-n="259">259 B</td>
+        <td class="num" data-n="2555987">2.4 MB</td>
+        <td class="num" data-n="2636">2636 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 36 (work table).
+   Sort rank 32.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">typed ub32 introsort; generic sort ~394ms (csv 42ms was spawn floor); rerun median n=5 samples=[79.9, 81.8, 77.5, 78.3, 75.7]; LSD radix 4x8; was comparison sort</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/lisp/hello.lisp</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="common-lisp"><span class="giallo-l"><span>(</span><span style="color: #89B4FA;font-style: italic;">write-line</span><span style="color: #A6E3A1;"> &quot;Hello, World!&quot;</span><span>)</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/lisp/fibonacci.lisp</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="common-lisp"><span class="giallo-l"><span>(</span><span style="color: #CBA6F7;">defun</span><span style="color: #89B4FA;font-style: italic;"> fib</span><span> (n)</span></span>
+<span class="giallo-l"><span>  (</span><span style="color: #CBA6F7;">let</span><span> ((a </span><span style="color: #FAB387;">0</span><span>) (b </span><span style="color: #FAB387;">1</span><span>))</span></span>
+<span class="giallo-l"><span>    (</span><span style="color: #CBA6F7;">dotimes</span><span> (i n)</span></span>
+<span class="giallo-l"><span>      (</span><span style="color: #CBA6F7;">let</span><span> ((tmp (</span><span style="color: #89B4FA;font-style: italic;">+</span><span> a b)))</span></span>
+<span class="giallo-l"><span>        (</span><span style="color: #CBA6F7;">setf</span><span> a b b tmp)))</span></span>
+<span class="giallo-l"><span>    a))</span></span>
+<span class="giallo-l"><span>(</span><span style="color: #89B4FA;font-style: italic;">format</span><span style="color: #F38BA8;"> t</span><span style="color: #A6E3A1;"> &quot;~A~%&quot;</span><span> (fib </span><span style="color: #FAB387;">42</span><span>))</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/lisp/prime_sieve.lisp</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="common-lisp"><span class="giallo-l"><span>(</span><span style="color: #CBA6F7;">defun</span><span style="color: #89B4FA;font-style: italic;"> sieve</span><span> (limit)</span></span>
+<span class="giallo-l"><span>  (</span><span style="color: #CBA6F7;">let</span><span> ((is-prime (</span><span style="color: #89B4FA;font-style: italic;">make-array</span><span> (</span><span style="color: #89B4FA;font-style: italic;">1+</span><span> limit) :element-type</span><span style="color: #FAB387;"> &#39;</span><span>bit :initial-element</span><span style="color: #FAB387;"> 1</span><span>)))</span></span>
+<span class="giallo-l"><span>    (</span><span style="color: #CBA6F7;">setf</span><span> (</span><span style="color: #89B4FA;font-style: italic;">sbit</span><span> is-prime </span><span style="color: #FAB387;">0</span><span>) </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span>          (</span><span style="color: #89B4FA;font-style: italic;">sbit</span><span> is-prime </span><span style="color: #FAB387;">1</span><span>) </span><span style="color: #FAB387;">0</span><span>)</span></span>
+<span class="giallo-l"><span>    (</span><span style="color: #CBA6F7;">loop</span><span> for i from </span><span style="color: #FAB387;">2</span><span> to (</span><span style="color: #89B4FA;font-style: italic;">isqrt</span><span> limit)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">          when</span><span> (</span><span style="color: #89B4FA;font-style: italic;">=</span><span> (</span><span style="color: #89B4FA;font-style: italic;">sbit</span><span> is-prime i) </span><span style="color: #FAB387;">1</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">            do</span><span> (</span><span style="color: #CBA6F7;">loop</span><span> for j from (</span><span style="color: #89B4FA;font-style: italic;">*</span><span> i i) to limit by i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">                     do</span><span> (</span><span style="color: #CBA6F7;">setf</span><span> (</span><span style="color: #89B4FA;font-style: italic;">sbit</span><span> is-prime j) </span><span style="color: #FAB387;">0</span><span>)))</span></span>
+<span class="giallo-l"><span>    (</span><span style="color: #CBA6F7;">loop</span><span> for i from </span><span style="color: #FAB387;">2</span><span> to limit </span><span style="color: #89B4FA;font-style: italic;">count</span><span> (</span><span style="color: #89B4FA;font-style: italic;">=</span><span> (</span><span style="color: #89B4FA;font-style: italic;">sbit</span><span> is-prime i) </span><span style="color: #FAB387;">1</span><span>))))</span></span>
+<span class="giallo-l"><span>(</span><span style="color: #89B4FA;font-style: italic;">format</span><span style="color: #F38BA8;"> t</span><span style="color: #A6E3A1;"> &quot;Primes up to 1000000: ~A~%&quot;</span><span> (sieve </span><span style="color: #FAB387;">1000000</span><span>))</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/lisp/sorting.lisp</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="common-lisp"><span class="giallo-l"><span>(</span><span style="color: #CBA6F7;">declaim</span><span> (</span><span style="color: #CBA6F7;">optimize</span><span> (</span><span style="color: #CBA6F7;">speed</span><span style="color: #FAB387;"> 3</span><span>) (</span><span style="color: #CBA6F7;">safety</span><span style="color: #FAB387;"> 0</span><span>) (</span><span style="color: #CBA6F7;">debug</span><span style="color: #FAB387;"> 0</span><span>)))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>(</span><span style="color: #CBA6F7;">deftype</span><span style="color: #F9E2AF;font-style: italic;"> u32</span><span> () </span><span style="color: #FAB387;">&#39;</span><span>(</span><span style="color: #F9E2AF;font-style: italic;">unsigned-byte</span><span style="color: #FAB387;"> 32</span><span>))</span></span>
+<span class="giallo-l"><span>(</span><span style="color: #CBA6F7;">deftype</span><span style="color: #F9E2AF;font-style: italic;"> u32vec</span><span> () </span><span style="color: #FAB387;">&#39;</span><span>(</span><span style="color: #F9E2AF;font-style: italic;">simple-array</span><span> u32 (</span><span style="color: #89B4FA;font-style: italic;">*</span><span>)))</span></span>
+<span class="giallo-l"><span>(</span><span style="color: #CBA6F7;">deftype</span><span style="color: #F9E2AF;font-style: italic;"> idx</span><span> () </span><span style="color: #FAB387;">&#39;</span><span>(</span><span style="color: #F9E2AF;font-style: italic;">integer</span><span style="color: #FAB387;"> 0 10000000</span><span>))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>(</span><span style="color: #CBA6F7;">defun</span><span style="color: #89B4FA;font-style: italic;"> lcg-fill</span><span> (n)</span></span>
+<span class="giallo-l"><span>  (</span><span style="color: #CBA6F7;">declare</span><span> (</span><span style="color: #CBA6F7;">type</span><span> idx n))</span></span>
+<span class="giallo-l"><span>  (</span><span style="color: #CBA6F7;">let</span><span> ((data (</span><span style="color: #89B4FA;font-style: italic;">make-array</span><span> n :element-type</span><span style="color: #FAB387;"> &#39;</span><span>u32))</span></span>
+<span class="giallo-l"><span>        (seed </span><span style="color: #FAB387;">42</span><span>))</span></span>
+<span class="giallo-l"><span>    (</span><span style="color: #CBA6F7;">declare</span><span> (</span><span style="color: #CBA6F7;">type</span><span> u32vec data) (</span><span style="color: #CBA6F7;">type</span><span> u32 seed))</span></span>
+<span class="giallo-l"><span>    (</span><span style="color: #CBA6F7;">dotimes</span><span> (i n)</span></span>
+<span class="giallo-l"><span>      (</span><span style="color: #CBA6F7;">declare</span><span> (</span><span style="color: #CBA6F7;">type</span><span> idx i))</span></span>
+<span class="giallo-l"><span>      (</span><span style="color: #CBA6F7;">setf</span><span> seed (</span><span style="color: #89B4FA;font-style: italic;">ldb</span><span> (</span><span style="color: #89B4FA;font-style: italic;">byte</span><span style="color: #FAB387;"> 32 0</span><span>) (</span><span style="color: #89B4FA;font-style: italic;">+</span><span> (</span><span style="color: #89B4FA;font-style: italic;">*</span><span> seed </span><span style="color: #FAB387;">1664525</span><span>) </span><span style="color: #FAB387;">1013904223</span><span>))</span></span>
+<span class="giallo-l"><span>            (</span><span style="color: #89B4FA;font-style: italic;">aref</span><span> data i) (</span><span style="color: #89B4FA;font-style: italic;">logand</span><span> seed </span><span style="color: #FAB387;">#x7fffffff</span><span>)))</span></span>
+<span class="giallo-l"><span>    data))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>(</span><span style="color: #CBA6F7;">defun</span><span style="color: #89B4FA;font-style: italic;"> radix-sort</span><span> (a)</span></span>
+<span class="giallo-l"><span>  (</span><span style="color: #CBA6F7;">declare</span><span> (</span><span style="color: #CBA6F7;">type</span><span> u32vec a))</span></span>
+<span class="giallo-l"><span>  (</span><span style="color: #CBA6F7;">let*</span><span> ((n (</span><span style="color: #89B4FA;font-style: italic;">length</span><span> a))</span></span>
+<span class="giallo-l"><span>         (tmp (</span><span style="color: #89B4FA;font-style: italic;">make-array</span><span> n :element-type</span><span style="color: #FAB387;"> &#39;</span><span>u32))</span></span>
+<span class="giallo-l"><span>         (</span><span style="color: #89B4FA;font-style: italic;">count</span><span> (</span><span style="color: #89B4FA;font-style: italic;">make-array</span><span style="color: #FAB387;"> 256</span><span> :element-type</span><span style="color: #FAB387;"> &#39;</span><span>u32 :initial-element</span><span style="color: #FAB387;"> 0</span><span>)))</span></span>
+<span class="giallo-l"><span>    (</span><span style="color: #CBA6F7;">declare</span><span> (</span><span style="color: #CBA6F7;">type</span><span> u32vec tmp) (</span><span style="color: #CBA6F7;">type</span><span> (</span><span style="color: #F9E2AF;font-style: italic;">simple-array</span><span> u32 (</span><span style="color: #FAB387;">256</span><span>)) </span><span style="color: #89B4FA;font-style: italic;">count</span><span>) (</span><span style="color: #CBA6F7;">type</span><span> idx n))</span></span>
+<span class="giallo-l"><span>    (</span><span style="color: #CBA6F7;">let</span><span> ((src a) (dst tmp))</span></span>
+<span class="giallo-l"><span>      (</span><span style="color: #CBA6F7;">declare</span><span> (</span><span style="color: #CBA6F7;">type</span><span> u32vec src dst))</span></span>
+<span class="giallo-l"><span>      (</span><span style="color: #CBA6F7;">dotimes</span><span> (pass </span><span style="color: #FAB387;">4</span><span>)</span></span>
+<span class="giallo-l"><span>        (</span><span style="color: #89B4FA;font-style: italic;">fill count</span><span style="color: #FAB387;"> 0</span><span>)</span></span>
+<span class="giallo-l"><span>        (</span><span style="color: #CBA6F7;">let</span><span> ((shift (</span><span style="color: #89B4FA;font-style: italic;">*</span><span> pass </span><span style="color: #FAB387;">8</span><span>)))</span></span>
+<span class="giallo-l"><span>          (</span><span style="color: #CBA6F7;">declare</span><span> (</span><span style="color: #CBA6F7;">type</span><span> (</span><span style="color: #F9E2AF;font-style: italic;">integer</span><span style="color: #FAB387;"> 0 24</span><span>) shift))</span></span>
+<span class="giallo-l"><span>          (</span><span style="color: #CBA6F7;">dotimes</span><span> (i n)</span></span>
+<span class="giallo-l"><span>            (</span><span style="color: #CBA6F7;">let</span><span> ((b (</span><span style="color: #89B4FA;font-style: italic;">ldb</span><span> (</span><span style="color: #89B4FA;font-style: italic;">byte</span><span style="color: #FAB387;"> 8</span><span> shift) (</span><span style="color: #89B4FA;font-style: italic;">aref</span><span> src i))))</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #CBA6F7;">incf</span><span> (</span><span style="color: #89B4FA;font-style: italic;">aref count</span><span> b))))</span></span>
+<span class="giallo-l"><span>          (</span><span style="color: #CBA6F7;">let</span><span> ((sum </span><span style="color: #FAB387;">0</span><span>))</span></span>
+<span class="giallo-l"><span>            (</span><span style="color: #CBA6F7;">declare</span><span> (</span><span style="color: #CBA6F7;">type</span><span> u32 sum))</span></span>
+<span class="giallo-l"><span>            (</span><span style="color: #CBA6F7;">dotimes</span><span> (i </span><span style="color: #FAB387;">256</span><span>)</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #CBA6F7;">let</span><span> ((c (</span><span style="color: #89B4FA;font-style: italic;">aref count</span><span> i)))</span></span>
+<span class="giallo-l"><span>                (</span><span style="color: #CBA6F7;">setf</span><span> (</span><span style="color: #89B4FA;font-style: italic;">aref count</span><span> i) sum)</span></span>
+<span class="giallo-l"><span>                (</span><span style="color: #CBA6F7;">incf</span><span> sum c))))</span></span>
+<span class="giallo-l"><span>          (</span><span style="color: #CBA6F7;">dotimes</span><span> (i n)</span></span>
+<span class="giallo-l"><span>            (</span><span style="color: #CBA6F7;">let*</span><span> ((v (</span><span style="color: #89B4FA;font-style: italic;">aref</span><span> src i))</span></span>
+<span class="giallo-l"><span>                   (b (</span><span style="color: #89B4FA;font-style: italic;">ldb</span><span> (</span><span style="color: #89B4FA;font-style: italic;">byte</span><span style="color: #FAB387;"> 8</span><span> shift) v)))</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #CBA6F7;">setf</span><span> (</span><span style="color: #89B4FA;font-style: italic;">aref</span><span> dst (</span><span style="color: #89B4FA;font-style: italic;">aref count</span><span> b)) v)</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #CBA6F7;">incf</span><span> (</span><span style="color: #89B4FA;font-style: italic;">aref count</span><span> b)))))</span></span>
+<span class="giallo-l"><span>        (</span><span style="color: #CBA6F7;">rotatef</span><span> src dst))</span></span>
+<span class="giallo-l"><span>      a)))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>(</span><span style="color: #CBA6F7;">let</span><span> ((data (radix-sort (lcg-fill </span><span style="color: #FAB387;">1000000</span><span>))))</span></span>
+<span class="giallo-l"><span>  (</span><span style="color: #89B4FA;font-style: italic;">format</span><span style="color: #F38BA8;"> t</span><span style="color: #A6E3A1;"> &quot;Sorted 1000000 integers: first=~A, last=~A~%&quot;</span></span>
+<span class="giallo-l"><span>          (</span><span style="color: #89B4FA;font-style: italic;">aref</span><span> data </span><span style="color: #FAB387;">0</span><span>)</span></span>
+<span class="giallo-l"><span>          (</span><span style="color: #89B4FA;font-style: italic;">aref</span><span> data </span><span style="color: #FAB387;">999999</span><span>)))</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

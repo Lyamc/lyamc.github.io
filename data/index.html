@@ -1,0 +1,3572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+<h1>Raw data</h1>
+<p>One row per language × program. Times are wait-for-exit wall-clock milliseconds, median of 5 cold processes (3 for a few slow / GPU rows).</p>
+
+<p>
+  Downloads:
+  <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a> ·
+  <a href="https://lyamc.github.io/data/results.json">results.json</a> ·
+  <a href="https://lyamc.github.io/data/bend_backend_results.tsv">bend_backend_results.tsv</a> ·
+  <a href="https://lyamc.github.io/data/gpu_bench_results.tsv">gpu_bench_results.tsv</a>
+</p>
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Language</th>
+      <th>Program</th>
+      <th class="num">ms</th>
+      <th class="num">Compile</th>
+      <th class="num">Source</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS KB</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ada/">Ada</a></td>
+          <td>hello</td>
+          <td class="num" data-n="4">4</td>
+          <td class="num" data-n="364.5">364.5</td>
+          <td class="num" data-n="102">102</td>
+          <td class="num" data-n="1586281">1586281</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[10.7, 4.0, 3.8, 3.7, 4.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ada/">Ada</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="4">4</td>
+          <td class="num" data-n="264.9">264.9</td>
+          <td class="num" data-n="301">301</td>
+          <td class="num" data-n="1728297">1728297</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[9.7, 4.1, 3.9, 4.0, 3.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ada/">Ada</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="6.2">6.2</td>
+          <td class="num" data-n="284.9">284.9</td>
+          <td class="num" data-n="715">715</td>
+          <td class="num" data-n="1586812">1586812</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[11.5, 5.6, 6.2, 5.7, 6.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ada/">Ada</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="12.8">12.8</td>
+          <td class="num" data-n="290.6">290.6</td>
+          <td class="num" data-n="1064">1064</td>
+          <td class="num" data-n="1587360">1587360</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[65.7, 60.9, 60.4, 61.2, 59.5]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+    
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/basic-freebasic/">BASIC (FreeBASIC)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="4">4</td>
+          <td class="num" data-n="76.7">76.7</td>
+          <td class="num" data-n="22">22</td>
+          <td class="num" data-n="29184">29184</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">win64 fbc; rerun median n=5 samples=[5.9, 4.1, 4.0, 4.0, 3.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/basic-freebasic/">BASIC (FreeBASIC)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.7">3.7</td>
+          <td class="num" data-n="53.6">53.6</td>
+          <td class="num" data-n="117">117</td>
+          <td class="num" data-n="28160">28160</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">win64 fbc; rerun median n=5 samples=[3.7, 3.7, 3.6, 3.6, 3.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/basic-freebasic/">BASIC (FreeBASIC)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="5">5</td>
+          <td class="num" data-n="53.6">53.6</td>
+          <td class="num" data-n="440">440</td>
+          <td class="num" data-n="31232">31232</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">win64 fbc; rerun median n=5 samples=[4.9, 5.0, 5.1, 5.2, 4.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/basic-freebasic/">BASIC (FreeBASIC)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="11.3">11.3</td>
+          <td class="num" data-n="146.2">146.2</td>
+          <td class="num" data-n="1125">1125</td>
+          <td class="num" data-n="31232">31232</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">LSD radix 4x8, ULong (32-bit keys), pointer walks, win64 gcc -O3; was 13.1ms win32 UInteger; median n=5 samples=[11.2, 11.3, 29.1, 11.6, 11.1]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-clang/">C (clang)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="3.7">3.7</td>
+          <td class="num" data-n="225.7">225.7</td>
+          <td class="num" data-n="84">84</td>
+          <td class="num" data-n="110080">110080</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">Swift clang targeting windows-msvc; LSD radix 4x8; rerun median n=5 samples=[5.5, 4.1, 3.7, 3.6, 3.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-clang/">C (clang)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.8">3.8</td>
+          <td class="num" data-n="106.8">106.8</td>
+          <td class="num" data-n="252">252</td>
+          <td class="num" data-n="139776">139776</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">Swift clang targeting windows-msvc; LSD radix 4x8; rerun median n=5 samples=[5.0, 3.8, 3.8, 3.6, 3.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-clang/">C (clang)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="4.8">4.8</td>
+          <td class="num" data-n="126.8">126.8</td>
+          <td class="num" data-n="585">585</td>
+          <td class="num" data-n="140800">140800</td>
+          <td class="num" data-n="2640">2640</td>
+          <td class="muted">Swift clang targeting windows-msvc; LSD radix 4x8; rerun median n=5 samples=[5.6, 4.9, 4.8, 4.6, 4.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-clang/">C (clang)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="9.6">9.6</td>
+          <td class="num" data-n="142.6">142.6</td>
+          <td class="num" data-n="1229">1229</td>
+          <td class="num" data-n="141312">141312</td>
+          <td class="num" data-n="7312">7312</td>
+          <td class="muted">Swift clang targeting windows-msvc; LSD radix 4x8; rerun median n=5 samples=[10.6, 9.3, 9.5, 9.8, 9.6]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-gcc/">C (gcc)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="4">4</td>
+          <td class="num" data-n="140.8">140.8</td>
+          <td class="num" data-n="84">84</td>
+          <td class="num" data-n="63746">63746</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Strawberry MinGW-w64 gcc; LSD radix 4x8; rerun median n=5 samples=[5.7, 4.4, 4.0, 3.9, 4.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-gcc/">C (gcc)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="4.2">4.2</td>
+          <td class="num" data-n="144.1">144.1</td>
+          <td class="num" data-n="252">252</td>
+          <td class="num" data-n="63380">63380</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Strawberry MinGW-w64 gcc; LSD radix 4x8; rerun median n=5 samples=[4.9, 4.0, 3.9, 4.5, 4.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-gcc/">C (gcc)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="5.2">5.2</td>
+          <td class="num" data-n="150.1">150.1</td>
+          <td class="num" data-n="585">585</td>
+          <td class="num" data-n="64067">64067</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Strawberry MinGW-w64 gcc; LSD radix 4x8; rerun median n=5 samples=[6.3, 5.2, 5.2, 5.2, 5.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-gcc/">C (gcc)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="10.6">10.6</td>
+          <td class="num" data-n="157.6">157.6</td>
+          <td class="num" data-n="1229">1229</td>
+          <td class="num" data-n="64005">64005</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Strawberry MinGW-w64 gcc; LSD radix 4x8; rerun median n=5 samples=[13.7, 10.6, 10.6, 10.7, 10.4]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-msvc/">C (MSVC)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="3.8">3.8</td>
+          <td class="num" data-n="84.7">84.7</td>
+          <td class="num" data-n="84">84</td>
+          <td class="num" data-n="139776">139776</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">MSVC 17.14 &#x2F;O2; LSD radix 4x8; rerun median n=5 samples=[5.1, 3.9, 3.8, 3.8, 3.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-msvc/">C (MSVC)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.8">3.8</td>
+          <td class="num" data-n="85.1">85.1</td>
+          <td class="num" data-n="252">252</td>
+          <td class="num" data-n="139776">139776</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">MSVC 17.14 &#x2F;O2; LSD radix 4x8; rerun median n=5 samples=[4.6, 4.0, 3.8, 3.5, 3.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-msvc/">C (MSVC)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="5">5</td>
+          <td class="num" data-n="88.8">88.8</td>
+          <td class="num" data-n="585">585</td>
+          <td class="num" data-n="140288">140288</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">MSVC 17.14 &#x2F;O2; LSD radix 4x8; rerun median n=5 samples=[6.2, 5.0, 4.8, 5.4, 5.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-msvc/">C (MSVC)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="10.7">10.7</td>
+          <td class="num" data-n="94.1">94.1</td>
+          <td class="num" data-n="1229">1229</td>
+          <td class="num" data-n="140800">140800</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">MSVC 17.14 &#x2F;O2; LSD radix 4x8; rerun median n=5 samples=[11.6, 10.5, 10.7, 10.5, 10.9]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-tcc/">C (tcc)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="3.5">3.5</td>
+          <td class="num" data-n="8.1">8.1</td>
+          <td class="num" data-n="84">84</td>
+          <td class="num" data-n="2048">2048</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">tcc 0.9.27; no real -O; LSD radix 4x8; rerun median n=5 samples=[5.2, 3.5, 3.6, 3.4, 3.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-tcc/">C (tcc)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.3">3.3</td>
+          <td class="num" data-n="8.3">8.3</td>
+          <td class="num" data-n="252">252</td>
+          <td class="num" data-n="2560">2560</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">tcc 0.9.27; no real -O; LSD radix 4x8; rerun median n=5 samples=[4.9, 5.3, 3.3, 3.2, 3.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-tcc/">C (tcc)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="6.9">6.9</td>
+          <td class="num" data-n="9.8">9.8</td>
+          <td class="num" data-n="585">585</td>
+          <td class="num" data-n="2560">2560</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">tcc 0.9.27; no real -O; LSD radix 4x8; rerun median n=5 samples=[7.9, 6.9, 6.8, 6.4, 7.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/c-tcc/">C (tcc)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="14.8">14.8</td>
+          <td class="num" data-n="8.3">8.3</td>
+          <td class="num" data-n="1229">1229</td>
+          <td class="num" data-n="3072">3072</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">tcc 0.9.27; no real -O; LSD radix 4x8; rerun median n=5 samples=[14.8, 14.5, 14.5, 19.3, 15.2]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/csharp-aot/">C# (AOT)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="7.1">7.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="112">112</td>
+          <td class="num" data-n="953344">953344</td>
+          <td class="num" data-n="13272">13272</td>
+          <td class="muted">JIT&#x2F;AOT pair; Hello, World!</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/csharp-aot/">C# (AOT)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="7.1">7.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="271">271</td>
+          <td class="num" data-n="955904">955904</td>
+          <td class="num" data-n="13876">13876</td>
+          <td class="muted">JIT&#x2F;AOT pair; 267914296</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/csharp-aot/">C# (AOT)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="8.6">8.6</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="659">659</td>
+          <td class="num" data-n="954880">954880</td>
+          <td class="num" data-n="18472">18472</td>
+          <td class="muted">JIT&#x2F;AOT pair; Primes up to 1000000: 78498</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/csharp-aot/">C# (AOT)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="15.1">15.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1248">1248</td>
+          <td class="num" data-n="956416">956416</td>
+          <td class="num" data-n="21996">21996</td>
+          <td class="muted">JIT&#x2F;AOT pair; Sorted 1000000 integers: first=3842, last=2147480074</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/csharp-jit/">C# (JIT)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="20.9">20.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="112">112</td>
+          <td class="num" data-n="162304">162304</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; Hello, World!</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/csharp-jit/">C# (JIT)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="21">21</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="271">271</td>
+          <td class="num" data-n="162304">162304</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; 267914296</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/csharp-jit/">C# (JIT)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="30.3">30.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="659">659</td>
+          <td class="num" data-n="162304">162304</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; Primes up to 1000000: 78498</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/csharp-jit/">C# (JIT)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="34">34</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1248">1248</td>
+          <td class="num" data-n="162304">162304</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; Sorted 1000000 integers: first=3842, last=2147480074</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/cpp/">C++</a></td>
+          <td>hello</td>
+          <td class="num" data-n="3.8">3.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="86">86</td>
+          <td class="num" data-n="209920">209920</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">MSVC not Swift clang; rerun median n=5 samples=[8.7, 4.0, 3.7, 3.8, 3.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/cpp/">C++</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.7">3.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="240">240</td>
+          <td class="num" data-n="259072">259072</td>
+          <td class="num" data-n="2640">2640</td>
+          <td class="muted">MSVC not Swift clang; rerun median n=5 samples=[9.1, 5.7, 3.6, 3.6, 3.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/cpp/">C++</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="5.1">5.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="491">491</td>
+          <td class="num" data-n="260608">260608</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">MSVC not Swift clang; rerun median n=5 samples=[8.1, 5.1, 4.9, 4.9, 5.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/cpp/">C++</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="9.8">9.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="494">494</td>
+          <td class="num" data-n="262656">262656</td>
+          <td class="num" data-n="7400">7400</td>
+          <td class="muted">MSVC not Swift clang; rerun median n=5 samples=[62.8, 61.1, 59.3, 59.3, 60.0]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/clojure/">Clojure</a></td>
+          <td>hello</td>
+          <td class="num" data-n="659.2">659.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="59">59</td>
+          <td class="num" data-n="24793088">24793088</td>
+          <td class="num" data-n="12508">12508</td>
+          <td class="muted">rerun median n=5 samples=[675.0, 659.2, 652.0, 676.5, 652.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/clojure/">Clojure</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="672.6">672.6</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="152">152</td>
+          <td class="num" data-n="24793088">24793088</td>
+          <td class="num" data-n="12468">12468</td>
+          <td class="muted">rerun median n=5 samples=[650.7, 653.5, 672.6, 680.8, 681.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/clojure/">Clojure</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="689.8">689.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="515">515</td>
+          <td class="num" data-n="24793088">24793088</td>
+          <td class="num" data-n="12488">12488</td>
+          <td class="muted">rerun median n=5 samples=[690.5, 683.0, 678.2, 689.8, 695.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/clojure/">Clojure</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="738.9">738.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="455">455</td>
+          <td class="num" data-n="24793088">24793088</td>
+          <td class="num" data-n="12832">12832</td>
+          <td class="muted">rerun median n=5 samples=[738.6, 735.6, 747.0, 738.9, 753.3]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/cobol/">COBOL</a></td>
+          <td>hello</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="142">142</td>
+          <td class="num" data-n="20795">20795</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">exe present but missing GnuCOBOL runtime (exit 0xC0000139 STATUS_ENTRYPOINT_NOT_FOUND)</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/cobol/">COBOL</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="513">513</td>
+          <td class="num" data-n="21548">21548</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">exe present but missing GnuCOBOL runtime (exit 0xC0000139 STATUS_ENTRYPOINT_NOT_FOUND)</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/cobol/">COBOL</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1070">1070</td>
+          <td class="num" data-n="22131">22131</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">exe present but missing GnuCOBOL runtime (exit 0xC0000139 STATUS_ENTRYPOINT_NOT_FOUND)</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/cobol/">COBOL</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1077">1077</td>
+          <td class="num" data-n="23286">23286</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">exe present but missing GnuCOBOL runtime (exit 0xC0000139 STATUS_ENTRYPOINT_NOT_FOUND)</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/common-lisp-sbcl/">Common Lisp (SBCL)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="24.5">24.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="29">29</td>
+          <td class="num" data-n="2555987">2555987</td>
+          <td class="num" data-n="44768">44768</td>
+          <td class="muted">rerun median n=5 samples=[24.5, 24.6, 24.2, 25.6, 23.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/common-lisp-sbcl/">Common Lisp (SBCL)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="24.5">24.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="144">144</td>
+          <td class="num" data-n="2555987">2555987</td>
+          <td class="num" data-n="5416">5416</td>
+          <td class="muted">rerun median n=5 samples=[25.1, 24.5, 24.5, 25.5, 24.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/common-lisp-sbcl/">Common Lisp (SBCL)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="35">35</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="471">471</td>
+          <td class="num" data-n="2555987">2555987</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">rerun median n=5 samples=[35.0, 34.7, 37.6, 36.2, 34.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/common-lisp-sbcl/">Common Lisp (SBCL)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="37.5">37.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1793">1793</td>
+          <td class="num" data-n="2555987">2555987</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">typed ub32 introsort; generic sort ~394ms (csv 42ms was spawn floor); rerun median n=5 samples=[79.9, 81.8, 77.5, 78.3, 75.7]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/crystal/">Crystal</a></td>
+          <td>hello</td>
+          <td class="num" data-n="9.1">9.1</td>
+          <td class="num" data-n="3820.1">3820.1</td>
+          <td class="num" data-n="21">21</td>
+          <td class="num" data-n="456192">456192</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">retimed; rerun median n=5 samples=[14.5, 9.1, 8.9, 8.7, 9.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/crystal/">Crystal</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="9.8">9.8</td>
+          <td class="num" data-n="3706.3">3706.3</td>
+          <td class="num" data-n="62">62</td>
+          <td class="num" data-n="457216">457216</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[16.8, 8.6, 10.7, 9.7, 9.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/crystal/">Crystal</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="11.5">11.5</td>
+          <td class="num" data-n="3731.6">3731.6</td>
+          <td class="num" data-n="316">316</td>
+          <td class="num" data-n="458240">458240</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">retimed; rerun median n=5 samples=[16.0, 11.4, 11.1, 11.5, 11.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/crystal/">Crystal</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="16.6">16.6</td>
+          <td class="num" data-n="3774.3">3774.3</td>
+          <td class="num" data-n="214">214</td>
+          <td class="num" data-n="460288">460288</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Array(Int32).sort! retimed; rerun median n=5 samples=[58.0, 54.4, 54.4, 54.6, 54.6]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/d/">D</a></td>
+          <td>hello</td>
+          <td class="num" data-n="8.4">8.4</td>
+          <td class="num" data-n="293.9">293.9</td>
+          <td class="num" data-n="65">65</td>
+          <td class="num" data-n="587264">587264</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">compile remesured (dmd -of= hung in batch); rerun median n=5 samples=[13.4, 9.1, 8.4, 7.9, 7.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/d/">D</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="8.1">8.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="191">191</td>
+          <td class="num" data-n="590336">590336</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">rerun median n=5 samples=[15.9, 7.9, 8.1, 8.1, 10.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/d/">D</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="9.7">9.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="456">456</td>
+          <td class="num" data-n="640512">640512</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">rerun median n=5 samples=[13.7, 9.5, 9.9, 9.6, 9.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/d/">D</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="11">11</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="491">491</td>
+          <td class="num" data-n="651776">651776</td>
+          <td class="num" data-n="11768">11768</td>
+          <td class="muted">LSD radix 4x8 via C-style loops; was phobos sort ~79ms</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/dart-aot/">Dart (AOT)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="12">12</td>
+          <td class="num" data-n="423.5">423.5</td>
+          <td class="num" data-n="42">42</td>
+          <td class="num" data-n="6358016">6358016</td>
+          <td class="num" data-n="2656">2656</td>
+          <td class="muted">JIT&#x2F;AOT pair; Hello, World!</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/dart-aot/">Dart (AOT)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="12.9">12.9</td>
+          <td class="num" data-n="288.5">288.5</td>
+          <td class="num" data-n="153">153</td>
+          <td class="num" data-n="6358016">6358016</td>
+          <td class="num" data-n="13000">13000</td>
+          <td class="muted">JIT&#x2F;AOT pair; 267914296</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/dart-aot/">Dart (AOT)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="14.6">14.6</td>
+          <td class="num" data-n="312.9">312.9</td>
+          <td class="num" data-n="426">426</td>
+          <td class="num" data-n="6358016">6358016</td>
+          <td class="num" data-n="2656">2656</td>
+          <td class="muted">JIT&#x2F;AOT pair; Primes up to 1000000: 78498</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/dart-aot/">Dart (AOT)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="22.1">22.1</td>
+          <td class="num" data-n="283.6">283.6</td>
+          <td class="num" data-n="957">957</td>
+          <td class="num" data-n="6358528">6358528</td>
+          <td class="num" data-n="20776">20776</td>
+          <td class="muted">JIT&#x2F;AOT pair; Sorted 1000000 integers: first=3842, last=2147480074</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/dart-jit/">Dart (JIT)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="499.3">499.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="42">42</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; Hello, World!</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/dart-jit/">Dart (JIT)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="479.7">479.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="153">153</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; 267914296</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/dart-jit/">Dart (JIT)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="509.7">509.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="426">426</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; Primes up to 1000000: 78498</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/dart-jit/">Dart (JIT)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="562.9">562.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="957">957</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; Sorted 1000000 integers: first=3842, last=2147480074</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/elixir/">Elixir</a></td>
+          <td>hello</td>
+          <td class="num" data-n="325.9">325.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="25">25</td>
+          <td class="num" data-n="6573">6573</td>
+          <td class="num" data-n="8880">8880</td>
+          <td class="muted">rerun median n=5 samples=[330.6, 317.7, 331.0, 325.9, 321.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/elixir/">Elixir</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="357.2">357.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="120">120</td>
+          <td class="num" data-n="6573">6573</td>
+          <td class="num" data-n="8872">8872</td>
+          <td class="muted">rerun median n=5 samples=[351.1, 355.9, 386.7, 357.2, 362.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/elixir/">Elixir</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="380.4">380.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="634">634</td>
+          <td class="num" data-n="6573">6573</td>
+          <td class="num" data-n="8868">8868</td>
+          <td class="muted">rerun median n=5 samples=[373.9, 376.3, 381.1, 382.6, 380.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/elixir/">Elixir</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="538.3">538.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="359">359</td>
+          <td class="num" data-n="6573">6573</td>
+          <td class="num" data-n="8872">8872</td>
+          <td class="muted">rerun median n=5 samples=[536.7, 538.9, 530.6, 538.5, 538.3]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/erlang/">Erlang</a></td>
+          <td>hello</td>
+          <td class="num" data-n="238.1">238.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="116">116</td>
+          <td class="num" data-n="50176">50176</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">rerun median n=5 samples=[263.4, 235.8, 245.4, 237.6, 238.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/erlang/">Erlang</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="248.9">248.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="201">201</td>
+          <td class="num" data-n="50176">50176</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">rerun median n=5 samples=[249.5, 279.3, 248.9, 238.7, 242.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/erlang/">Erlang</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="287">287</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="869">869</td>
+          <td class="num" data-n="50176">50176</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">rerun median n=5 samples=[292.6, 283.8, 281.3, 287.0, 289.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/erlang/">Erlang</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="439.8">439.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="432">432</td>
+          <td class="num" data-n="50176">50176</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">rerun median n=5 samples=[436.4, 446.0, 436.2, 440.6, 439.8]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fsharp-aot/">F# (AOT)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="7.5">7.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="86">86</td>
+          <td class="num" data-n="955392">955392</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; Hello, World!</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fsharp-aot/">F# (AOT)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="7.2">7.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="197">197</td>
+          <td class="num" data-n="956928">956928</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; 267914296</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fsharp-aot/">F# (AOT)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="8.8">8.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="760">760</td>
+          <td class="num" data-n="2171392">2171392</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; Primes up to 1000000: 78498</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fsharp-aot/">F# (AOT)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="14.7">14.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1033">1033</td>
+          <td class="num" data-n="2171904">2171904</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">JIT&#x2F;AOT pair; Sorted 1000000 integers: first=3842, last=2147480074</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fsharp-jit/">F# (JIT)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="23.6">23.6</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="86">86</td>
+          <td class="num" data-n="162304">162304</td>
+          <td class="num" data-n="52076">52076</td>
+          <td class="muted">JIT&#x2F;AOT pair; Hello, World!</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fsharp-jit/">F# (JIT)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="24.3">24.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="197">197</td>
+          <td class="num" data-n="162304">162304</td>
+          <td class="num" data-n="42972">42972</td>
+          <td class="muted">JIT&#x2F;AOT pair; 267914296</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fsharp-jit/">F# (JIT)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="28.4">28.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="760">760</td>
+          <td class="num" data-n="162304">162304</td>
+          <td class="num" data-n="52312">52312</td>
+          <td class="muted">JIT&#x2F;AOT pair; Primes up to 1000000: 78498</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fsharp-jit/">F# (JIT)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="32.7">32.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1033">1033</td>
+          <td class="num" data-n="162304">162304</td>
+          <td class="num" data-n="43132">43132</td>
+          <td class="muted">JIT&#x2F;AOT pair; Sorted 1000000 integers: first=3842, last=2147480074</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/forth/">Forth</a></td>
+          <td>hello</td>
+          <td class="num" data-n="27.3">27.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="25">25</td>
+          <td class="num" data-n="129424">129424</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[32.6, 27.3, 28.0, 26.4, 26.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/forth/">Forth</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="27.5">27.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="79">79</td>
+          <td class="num" data-n="129424">129424</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[28.6, 27.5, 30.6, 26.1, 26.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/forth/">Forth</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="46.1">46.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="489">489</td>
+          <td class="num" data-n="129424">129424</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[46.1, 46.0, 47.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/forth/">Forth</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="146.5">146.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1043">1043</td>
+          <td class="num" data-n="129424">129424</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">gforth hung on 1e6 sort; killed after ~10 min; sieve is 41.8ms; rerun median n=3 samples=[146.4, 147.5, 146.5]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fortran/">Fortran</a></td>
+          <td>hello</td>
+          <td class="num" data-n="6.4">6.4</td>
+          <td class="num" data-n="148.5">148.5</td>
+          <td class="num" data-n="59">59</td>
+          <td class="num" data-n="64783">64783</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">gfortran retimed; rerun median n=5 samples=[13.3, 7.5, 6.1, 6.4, 6.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fortran/">Fortran</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="6">6</td>
+          <td class="num" data-n="132.6">132.6</td>
+          <td class="num" data-n="204">204</td>
+          <td class="num" data-n="64779">64779</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[10.4, 6.0, 5.9, 6.0, 5.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fortran/">Fortran</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="9.6">9.6</td>
+          <td class="num" data-n="141.7">141.7</td>
+          <td class="num" data-n="595">595</td>
+          <td class="num" data-n="65669">65669</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">retimed; csv 29.8ms harness floor; rerun median n=5 samples=[15.3, 10.1, 9.1, 9.6, 9.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/fortran/">Fortran</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="19.3">19.3</td>
+          <td class="num" data-n="137.1">137.1</td>
+          <td class="num" data-n="1004">1004</td>
+          <td class="num" data-n="65702">65702</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">custom qsort retimed wait-for-exit; rerun median n=5 samples=[60.3, 56.8, 58.1, 57.6, 56.9]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/free-pascal/">Free Pascal</a></td>
+          <td>hello</td>
+          <td class="num" data-n="7.3">7.3</td>
+          <td class="num" data-n="111.9">111.9</td>
+          <td class="num" data-n="54">54</td>
+          <td class="num" data-n="34304">34304</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[15.3, 7.3, 6.9, 6.6, 7.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/free-pascal/">Free Pascal</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="6.9">6.9</td>
+          <td class="num" data-n="37.5">37.5</td>
+          <td class="num" data-n="181">181</td>
+          <td class="num" data-n="34816">34816</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[14.5, 6.8, 6.9, 7.1, 6.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/free-pascal/">Free Pascal</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="8.8">8.8</td>
+          <td class="num" data-n="38.4">38.4</td>
+          <td class="num" data-n="541">541</td>
+          <td class="num" data-n="34816">34816</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[15.4, 8.8, 9.3, 8.5, 8.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/free-pascal/">Free Pascal</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="15.5">15.5</td>
+          <td class="num" data-n="39">39</td>
+          <td class="num" data-n="799">799</td>
+          <td class="num" data-n="37888">37888</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[76.5, 69.5, 70.1, 69.1, 71.0]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/gleam/">Gleam</a></td>
+          <td>hello</td>
+          <td class="num" data-n="485.2">485.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="65">65</td>
+          <td class="num" data-n="23295832">23295832</td>
+          <td class="num" data-n="2000">2000</td>
+          <td class="muted">gleam run + escript; csv 34ms spawn floor; rerun median n=5 samples=[485.2, 488.8, 483.5, 483.4, 489.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/gleam/">Gleam</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="478.3">478.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="194">194</td>
+          <td class="num" data-n="23295832">23295832</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">rerun median n=5 samples=[476.9, 478.2, 481.4, 478.3, 480.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/gleam/">Gleam</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="493.4">493.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1303">1303</td>
+          <td class="num" data-n="23295832">23295832</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">erlang atomics FFI; was persistent Dict (csv 28ms spawn floor); rerun median n=5 samples=[512.2, 528.8, 493.4, 488.8, 483.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/gleam/">Gleam</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="800.1">800.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="683">683</td>
+          <td class="num" data-n="23295832">23295832</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">list.sort 1e6 cons; csv 28.5ms spawn floor; rerun median n=5 samples=[797.7, 803.8, 800.1, 792.1, 803.9]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/go/">Go</a></td>
+          <td>hello</td>
+          <td class="num" data-n="7">7</td>
+          <td class="num" data-n="137.4">137.4</td>
+          <td class="num" data-n="74">74</td>
+          <td class="num" data-n="1672704">1672704</td>
+          <td class="num" data-n="2628">2628</td>
+          <td class="muted">go build -ldflags -s -w; rerun median n=5 samples=[11.4, 7.7, 6.3, 7.0, 6.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/go/">Go</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="6.9">6.9</td>
+          <td class="num" data-n="99.6">99.6</td>
+          <td class="num" data-n="137">137</td>
+          <td class="num" data-n="2463232">2463232</td>
+          <td class="num" data-n="2628">2628</td>
+          <td class="muted">listed as not installed; actually run; rerun median n=5 samples=[17.4, 6.9, 6.3, 5.9, 7.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/go/">Go</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="9.6">9.6</td>
+          <td class="num" data-n="97.6">97.6</td>
+          <td class="num" data-n="403">403</td>
+          <td class="num" data-n="1682432">1682432</td>
+          <td class="num" data-n="2628">2628</td>
+          <td class="muted">go build -ldflags -s -w; rerun median n=5 samples=[13.6, 9.2, 9.6, 8.3, 10.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/go/">Go</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="14.7">14.7</td>
+          <td class="num" data-n="103.1">103.1</td>
+          <td class="num" data-n="316">316</td>
+          <td class="num" data-n="1690112">1690112</td>
+          <td class="num" data-n="15276">15276</td>
+          <td class="muted">sort.Ints; retimed wait-for-exit; rerun median n=5 samples=[66.7, 63.8, 63.6, 64.3, 62.8]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/gpu-assembly-ptx-sm-86/">GPU Assembly (PTX sm_86)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="91">91</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="767">767</td>
+          <td class="num" data-n="152064">152064</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[147.7, 85.9, 91.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/gpu-assembly-ptx-sm-86/">GPU Assembly (PTX sm_86)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="86.9">86.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="768">768</td>
+          <td class="num" data-n="152064">152064</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[85.7, 92.4, 86.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/gpu-assembly-ptx-sm-86/">GPU Assembly (PTX sm_86)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="93.7">93.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="2084">2084</td>
+          <td class="num" data-n="152064">152064</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[95.7, 88.5, 93.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/gpu-assembly-ptx-sm-86/">GPU Assembly (PTX sm_86)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="101.1">101.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1379">1379</td>
+          <td class="num" data-n="152064">152064</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[104.3, 99.1, 101.1]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/groovy/">Groovy</a></td>
+          <td>hello</td>
+          <td class="num" data-n="980">980</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="24">24</td>
+          <td class="num" data-n="1452">1452</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[967.7, 991.9, 980.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/groovy/">Groovy</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="1084.2">1084.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="97">97</td>
+          <td class="num" data-n="1452">1452</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[1112.4, 1074.7, 1084.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/groovy/">Groovy</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="1399.1">1399.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="353">353</td>
+          <td class="num" data-n="1452">1452</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[1397.6, 1399.1, 1403.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/groovy/">Groovy</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="1324">1324</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="245">245</td>
+          <td class="num" data-n="1452">1452</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[1288.4, 1342.8, 1324.0]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/haskell/">Haskell</a></td>
+          <td>hello</td>
+          <td class="num" data-n="8.7">8.7</td>
+          <td class="num" data-n="51.6">51.6</td>
+          <td class="num" data-n="46">46</td>
+          <td class="num" data-n="11392512">11392512</td>
+          <td class="num" data-n="2648">2648</td>
+          <td class="muted">ghc -O2 retimed; rerun median n=5 samples=[14.9, 8.7, 8.5, 9.1, 8.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/haskell/">Haskell</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="9.3">9.3</td>
+          <td class="num" data-n="57.1">57.1</td>
+          <td class="num" data-n="104">104</td>
+          <td class="num" data-n="11393536">11393536</td>
+          <td class="num" data-n="2648">2648</td>
+          <td class="muted">Data.List.sort; rerun median n=5 samples=[37.1, 8.9, 9.8, 9.3, 8.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/haskell/">Haskell</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="13.2">13.2</td>
+          <td class="num" data-n="52.1">52.1</td>
+          <td class="num" data-n="610">610</td>
+          <td class="num" data-n="11908608">11908608</td>
+          <td class="num" data-n="2648">2648</td>
+          <td class="muted">STUArray Bool retimed; rerun median n=5 samples=[16.5, 13.2, 14.4, 12.7, 12.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/haskell/">Haskell</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="17">17</td>
+          <td class="num" data-n="50.7">50.7</td>
+          <td class="num" data-n="4024">4024</td>
+          <td class="num" data-n="11908096">11908096</td>
+          <td class="num" data-n="152732">152732</td>
+          <td class="muted">STUArray introsort retimed; rerun median n=5 samples=[61.8, 55.4, 57.8, 56.2, 55.6]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-clang/">HolyC (clang)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="4.8">4.8</td>
+          <td class="num" data-n="223.7">223.7</td>
+          <td class="num" data-n="48">48</td>
+          <td class="num" data-n="110080">110080</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then clang -O2; LSD radix 4x8; MAlloc&#x2F;Free via libc; rerun median n=5 samples=[5.0, 3.8, 4.8, 3.8, 5.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-clang/">HolyC (clang)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.6">3.6</td>
+          <td class="num" data-n="221">221</td>
+          <td class="num" data-n="186">186</td>
+          <td class="num" data-n="139776">139776</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then clang -O2; LSD radix 4x8; MAlloc&#x2F;Free via libc; rerun median n=5 samples=[4.8, 3.6, 3.6, 3.6, 3.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-clang/">HolyC (clang)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="4.9">4.9</td>
+          <td class="num" data-n="241.1">241.1</td>
+          <td class="num" data-n="619">619</td>
+          <td class="num" data-n="141312">141312</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then clang -O2; LSD radix 4x8; MAlloc&#x2F;Free via libc; rerun median n=5 samples=[5.9, 4.8, 4.8, 5.1, 4.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-clang/">HolyC (clang)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="10">10</td>
+          <td class="num" data-n="252">252</td>
+          <td class="num" data-n="1279">1279</td>
+          <td class="num" data-n="141824">141824</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then clang -O2; LSD radix 4x8; MAlloc&#x2F;Free via libc; rerun median n=5 samples=[11.2, 9.9, 9.8, 10.0, 10.3]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-gcc/">HolyC (gcc)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="4.5">4.5</td>
+          <td class="num" data-n="252.9">252.9</td>
+          <td class="num" data-n="48">48</td>
+          <td class="num" data-n="63836">63836</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then gcc -O2; LSD radix 4x8; rerun median n=5 samples=[6.0, 4.2, 4.5, 4.2, 8.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-gcc/">HolyC (gcc)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.7">3.7</td>
+          <td class="num" data-n="254.8">254.8</td>
+          <td class="num" data-n="186">186</td>
+          <td class="num" data-n="63470">63470</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then gcc -O2; LSD radix 4x8; rerun median n=5 samples=[5.1, 3.7, 3.7, 3.8, 3.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-gcc/">HolyC (gcc)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="5.2">5.2</td>
+          <td class="num" data-n="263.3">263.3</td>
+          <td class="num" data-n="619">619</td>
+          <td class="num" data-n="64193">64193</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then gcc -O2; LSD radix 4x8; rerun median n=5 samples=[5.9, 5.2, 5.0, 5.0, 5.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-gcc/">HolyC (gcc)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="10.6">10.6</td>
+          <td class="num" data-n="263.6">263.6</td>
+          <td class="num" data-n="1279">1279</td>
+          <td class="num" data-n="64046">64046</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then gcc -O2; LSD radix 4x8; rerun median n=5 samples=[12.1, 10.8, 10.6, 10.5, 10.3]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-msvc/">HolyC (MSVC)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="3.8">3.8</td>
+          <td class="num" data-n="194.6">194.6</td>
+          <td class="num" data-n="48">48</td>
+          <td class="num" data-n="140288">140288</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then cl &#x2F;O2; LSD radix 4x8; rerun median n=5 samples=[5.0, 3.8, 5.8, 3.7, 3.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-msvc/">HolyC (MSVC)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.8">3.8</td>
+          <td class="num" data-n="193.6">193.6</td>
+          <td class="num" data-n="186">186</td>
+          <td class="num" data-n="139776">139776</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then cl &#x2F;O2; LSD radix 4x8; rerun median n=5 samples=[4.6, 3.9, 3.8, 3.6, 3.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-msvc/">HolyC (MSVC)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="4.9">4.9</td>
+          <td class="num" data-n="198">198</td>
+          <td class="num" data-n="619">619</td>
+          <td class="num" data-n="140288">140288</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then cl &#x2F;O2; LSD radix 4x8; rerun median n=5 samples=[6.3, 4.7, 4.9, 5.0, 4.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-msvc/">HolyC (MSVC)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="10.7">10.7</td>
+          <td class="num" data-n="205.8">205.8</td>
+          <td class="num" data-n="1279">1279</td>
+          <td class="num" data-n="140800">140800</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then cl &#x2F;O2; LSD radix 4x8; rerun median n=5 samples=[11.6, 10.9, 10.7, 10.6, 10.4]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-tcc/">HolyC (tcc)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="3.3">3.3</td>
+          <td class="num" data-n="117.4">117.4</td>
+          <td class="num" data-n="48">48</td>
+          <td class="num" data-n="2048">2048</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then tcc 0.9.27; LSD radix 4x8; rerun median n=5 samples=[4.7, 3.4, 3.3, 3.2, 3.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-tcc/">HolyC (tcc)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.3">3.3</td>
+          <td class="num" data-n="113.2">113.2</td>
+          <td class="num" data-n="186">186</td>
+          <td class="num" data-n="2560">2560</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then tcc 0.9.27; LSD radix 4x8; rerun median n=5 samples=[4.0, 3.3, 3.5, 3.2, 3.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-tcc/">HolyC (tcc)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="8.6">8.6</td>
+          <td class="num" data-n="113.8">113.8</td>
+          <td class="num" data-n="619">619</td>
+          <td class="num" data-n="3072">3072</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then tcc 0.9.27; LSD radix 4x8; rerun median n=5 samples=[8.9, 8.3, 8.5, 10.4, 8.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/holyc-tcc/">HolyC (tcc)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="26.3">26.3</td>
+          <td class="num" data-n="111.6">111.6</td>
+          <td class="num" data-n="1279">1279</td>
+          <td class="num" data-n="4608">4608</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Windows HolyC→C then tcc 0.9.27; LSD radix 4x8; rerun median n=5 samples=[27.8, 26.3, 26.3, 25.6, 26.0]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/jai/">Jai</a></td>
+          <td>hello</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="63">63</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Jai sources written; Jonathan Blow &#x2F; Thekla compiler is still closed beta (not on this machine, not public). Place jai in tools&#x2F;jai&#x2F;bin&#x2F; or PATH and re-run this script. LSD radix 4x8; Byte-array sieve.</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/jai/">Jai</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="176">176</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Jai sources written; Jonathan Blow &#x2F; Thekla compiler is still closed beta (not on this machine, not public). Place jai in tools&#x2F;jai&#x2F;bin&#x2F; or PATH and re-run this script. LSD radix 4x8; Byte-array sieve.</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/jai/">Jai</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="561">561</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Jai sources written; Jonathan Blow &#x2F; Thekla compiler is still closed beta (not on this machine, not public). Place jai in tools&#x2F;jai&#x2F;bin&#x2F; or PATH and re-run this script. LSD radix 4x8; Byte-array sieve.</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/jai/">Jai</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1033">1033</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Jai sources written; Jonathan Blow &#x2F; Thekla compiler is still closed beta (not on this machine, not public). Place jai in tools&#x2F;jai&#x2F;bin&#x2F; or PATH and re-run this script. LSD radix 4x8; Byte-array sieve.</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/java/">Java</a></td>
+          <td>hello</td>
+          <td class="num" data-n="43.2">43.2</td>
+          <td class="num" data-n="167.4">167.4</td>
+          <td class="num" data-n="119">119</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n="42812">42812</td>
+          <td class="muted">exec remesured (pipe hang in batch run); rerun median n=5 samples=[47.9, 42.5, 43.2, 43.2, 41.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/java/">Java</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="43.2">43.2</td>
+          <td class="num" data-n="156.2">156.2</td>
+          <td class="num" data-n="276">276</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n="42904">42904</td>
+          <td class="muted">exec remesured (pipe hang in batch run); rerun median n=5 samples=[44.2, 43.2, 42.8, 42.6, 44.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/java/">Java</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="54.3">54.3</td>
+          <td class="num" data-n="185.8">185.8</td>
+          <td class="num" data-n="616">616</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n="42860">42860</td>
+          <td class="muted">exec remesured (pipe hang in batch run); rerun median n=5 samples=[53.8, 54.3, 56.0, 57.8, 53.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/java/">Java</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="89.2">89.2</td>
+          <td class="num" data-n="158.1">158.1</td>
+          <td class="num" data-n="456">456</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n="42884">42884</td>
+          <td class="muted">LCG + Arrays.sort; was unseeded Random; rerun median n=5 samples=[149.3, 138.6, 156.8, 154.3, 154.4]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-boa/">JavaScript (Boa)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="9.2">9.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="30">30</td>
+          <td class="num" data-n="35119616">35119616</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Rust JS engine boa_cli 0.22; same examples&#x2F;javascript sources; rerun median n=5 samples=[12.1, 9.1, 9.2, 9.2, 9.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-boa/">JavaScript (Boa)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="9.2">9.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="207">207</td>
+          <td class="num" data-n="35119616">35119616</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Rust JS engine boa_cli 0.22; same examples&#x2F;javascript sources; rerun median n=5 samples=[8.8, 9.2, 8.9, 10.8, 9.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-boa/">JavaScript (Boa)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="190.8">190.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="479">479</td>
+          <td class="num" data-n="35119616">35119616</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Rust JS engine boa_cli 0.22; same examples&#x2F;javascript sources; rerun median n=5 samples=[190.4, 191.6, 194.0, 190.4, 190.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-boa/">JavaScript (Boa)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="1929.2">1929.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1042">1042</td>
+          <td class="num" data-n="35119616">35119616</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Rust JS engine boa_cli 0.22; same examples&#x2F;javascript sources; rerun median n=5 samples=[1929.8, 1929.2, 1929.6, 1921.3, 1908.2]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-bun/">JavaScript (Bun)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="39.9">39.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="30">30</td>
+          <td class="num" data-n="111662592">111662592</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Zig runtime + JSC; same examples&#x2F;javascript sources; rerun median n=5 samples=[43.3, 38.7, 38.3, 39.9, 42.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-bun/">JavaScript (Bun)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="39.9">39.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="207">207</td>
+          <td class="num" data-n="111662592">111662592</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Zig runtime + JSC; same examples&#x2F;javascript sources; rerun median n=5 samples=[39.9, 39.0, 39.4, 40.3, 42.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-bun/">JavaScript (Bun)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="45.9">45.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="479">479</td>
+          <td class="num" data-n="111662592">111662592</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Zig runtime + JSC; same examples&#x2F;javascript sources; rerun median n=5 samples=[45.9, 46.0, 46.7, 44.9, 45.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-bun/">JavaScript (Bun)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="55.3">55.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1042">1042</td>
+          <td class="num" data-n="111662592">111662592</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Zig runtime + JSC; same examples&#x2F;javascript sources; rerun median n=5 samples=[54.4, 55.3, 56.0, 54.9, 61.3]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-deno/">JavaScript (Deno)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="52.9">52.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="30">30</td>
+          <td class="num" data-n="97316640">97316640</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Rust host + V8 15.0; same examples&#x2F;javascript sources; rerun median n=5 samples=[56.2, 51.6, 53.0, 51.8, 52.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-deno/">JavaScript (Deno)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="51.8">51.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="207">207</td>
+          <td class="num" data-n="97316640">97316640</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Rust host + V8 15.0; same examples&#x2F;javascript sources; rerun median n=5 samples=[51.1, 51.4, 51.8, 53.7, 52.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-deno/">JavaScript (Deno)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="57.4">57.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="479">479</td>
+          <td class="num" data-n="97316640">97316640</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Rust host + V8 15.0; same examples&#x2F;javascript sources; rerun median n=5 samples=[58.2, 65.1, 56.7, 57.4, 56.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-deno/">JavaScript (Deno)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="68.4">68.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1042">1042</td>
+          <td class="num" data-n="97316640">97316640</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Rust host + V8 15.0; same examples&#x2F;javascript sources; rerun median n=5 samples=[68.8, 68.4, 67.0, 68.4, 66.6]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-node/">JavaScript (Node)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="34.9">34.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="30">30</td>
+          <td class="num" data-n="95120384">95120384</td>
+          <td class="num" data-n="22136">22136</td>
+          <td class="muted">V8; same examples&#x2F;javascript sources as the other JS engines; rerun median n=5 samples=[41.4, 33.7, 33.7, 35.8, 34.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-node/">JavaScript (Node)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="36.2">36.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="207">207</td>
+          <td class="num" data-n="95120384">95120384</td>
+          <td class="num" data-n="32452">32452</td>
+          <td class="muted">V8; same examples&#x2F;javascript sources as the other JS engines; rerun median n=5 samples=[35.3, 36.2, 38.7, 36.9, 36.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-node/">JavaScript (Node)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="41.4">41.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="479">479</td>
+          <td class="num" data-n="95120384">95120384</td>
+          <td class="num" data-n="33648">33648</td>
+          <td class="muted">V8; same examples&#x2F;javascript sources as the other JS engines; rerun median n=5 samples=[40.3, 41.4, 42.6, 40.2, 42.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-node/">JavaScript (Node)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="52.7">52.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1042">1042</td>
+          <td class="num" data-n="95120384">95120384</td>
+          <td class="num" data-n="27148">27148</td>
+          <td class="muted">V8; same examples&#x2F;javascript sources as the other JS engines; rerun median n=5 samples=[53.0, 51.6, 52.9, 52.7, 52.7]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-quickjs/">JavaScript (QuickJS)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="5.3">5.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="30">30</td>
+          <td class="num" data-n="2149746">2149746</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">quickjs-ng Windows x64; same examples&#x2F;javascript sources; rerun median n=5 samples=[7.9, 5.4, 5.0, 5.3, 5.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-quickjs/">JavaScript (QuickJS)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="5.4">5.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="207">207</td>
+          <td class="num" data-n="2149746">2149746</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">quickjs-ng Windows x64; same examples&#x2F;javascript sources; rerun median n=5 samples=[5.4, 5.2, 5.4, 5.5, 5.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-quickjs/">JavaScript (QuickJS)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="115.8">115.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="479">479</td>
+          <td class="num" data-n="2149746">2149746</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">quickjs-ng Windows x64; same examples&#x2F;javascript sources; rerun median n=5 samples=[115.7, 116.6, 115.7, 115.8, 116.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/javascript-quickjs/">JavaScript (QuickJS)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="548.7">548.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1042">1042</td>
+          <td class="num" data-n="2149746">2149746</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">quickjs-ng Windows x64; same examples&#x2F;javascript sources; rerun median n=5 samples=[548.1, 546.7, 548.7, 549.0, 549.0]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/julia/">Julia</a></td>
+          <td>hello</td>
+          <td class="num" data-n="158.8">158.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="25">25</td>
+          <td class="num" data-n="170952">170952</td>
+          <td class="num" data-n="214784">214784</td>
+          <td class="muted">rerun median n=5 samples=[1590.0, 162.6, 156.5, 152.1, 158.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/julia/">Julia</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="191.7">191.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="112">112</td>
+          <td class="num" data-n="170952">170952</td>
+          <td class="num" data-n="211388">211388</td>
+          <td class="muted">rerun median n=5 samples=[318.1, 187.5, 189.7, 200.1, 191.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/julia/">Julia</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="214.6">214.6</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="332">332</td>
+          <td class="num" data-n="170952">170952</td>
+          <td class="num" data-n="212544">212544</td>
+          <td class="muted">rerun median n=5 samples=[215.5, 212.6, 205.3, 214.6, 216.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/julia/">Julia</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="247.9">247.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="989">989</td>
+          <td class="num" data-n="170952">170952</td>
+          <td class="num" data-n="213072">213072</td>
+          <td class="muted">rerun median n=5 samples=[249.6, 251.9, 233.1, 247.9, 237.9]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/kotlin/">Kotlin</a></td>
+          <td>hello</td>
+          <td class="num" data-n="48.8">48.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="44">44</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n="42904">42904</td>
+          <td class="muted">fat JAR retimed; rerun median n=5 samples=[50.2, 48.8, 48.1, 50.1, 48.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/kotlin/">Kotlin</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="49.5">49.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="151">151</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n="42932">42932</td>
+          <td class="muted">fat JAR; exec remesured; rerun median n=5 samples=[52.1, 49.1, 48.7, 49.5, 62.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/kotlin/">Kotlin</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="77.3">77.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="463">463</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n="43068">43068</td>
+          <td class="muted">BooleanArray retimed; rerun median n=5 samples=[75.8, 79.9, 75.2, 78.0, 77.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/kotlin/">Kotlin</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="75.9">75.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="290">290</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n="43012">43012</td>
+          <td class="muted">IntArray.sort LCG retimed; rerun median n=5 samples=[161.8, 153.9, 162.1, 170.8, 146.7]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/lean-4/">Lean 4</a></td>
+          <td>hello</td>
+          <td class="num" data-n="2.6">2.6</td>
+          <td class="num" data-n="1088.6">1088.6</td>
+          <td class="num" data-n="51">51</td>
+          <td class="num" data-n="4074960">4074960</td>
+          <td class="num" data-n="13344">13344</td>
+          <td class="muted">Lean 4 AOT via lake; ByteArray sieve; LSD radix 4x8 packed UInt32 in ByteArray; timed on Linux NixOS, same i9-13900K as the Windows rows (local clang -O2 C sieve 4.3ms &#x2F; sort 12.6ms); gzip -9 not UPX; rerun median n=5 samples=[2.8, 2.6, 2.3, 1.9, 2.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/lean-4/">Lean 4</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="2.5">2.5</td>
+          <td class="num" data-n="1119.3">1119.3</td>
+          <td class="num" data-n="215">215</td>
+          <td class="num" data-n="4079520">4079520</td>
+          <td class="num" data-n="13740">13740</td>
+          <td class="muted">Lean 4 AOT via lake; ByteArray sieve; LSD radix 4x8 packed UInt32 in ByteArray; timed on Linux NixOS, same i9-13900K as the Windows rows (local clang -O2 C sieve 4.3ms &#x2F; sort 12.6ms); gzip -9 not UPX; rerun median n=5 samples=[2.5, 2.5, 2.7, 2.0, 2.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/lean-4/">Lean 4</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="24.9">24.9</td>
+          <td class="num" data-n="1344.6">1344.6</td>
+          <td class="num" data-n="677">677</td>
+          <td class="num" data-n="4084400">4084400</td>
+          <td class="num" data-n="13936">13936</td>
+          <td class="muted">Lean 4 AOT via lake; ByteArray sieve; LSD radix 4x8 packed UInt32 in ByteArray; timed on Linux NixOS, same i9-13900K as the Windows rows (local clang -O2 C sieve 4.3ms &#x2F; sort 12.6ms); gzip -9 not UPX; rerun median n=5 samples=[24.9, 24.0, 29.1, 28.5, 24.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/lean-4/">Lean 4</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="98.8">98.8</td>
+          <td class="num" data-n="1722.7">1722.7</td>
+          <td class="num" data-n="2231">2231</td>
+          <td class="num" data-n="4114768">4114768</td>
+          <td class="num" data-n="20980">20980</td>
+          <td class="muted">Lean 4 AOT via lake; ByteArray sieve; LSD radix 4x8 packed UInt32 in ByteArray; timed on Linux NixOS, same i9-13900K as the Windows rows (local clang -O2 C sieve 4.3ms &#x2F; sort 12.6ms); gzip -9 not UPX; rerun median n=5 samples=[100.5, 97.5, 98.8, 96.3, 104.8]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/lua/">Lua</a></td>
+          <td>hello</td>
+          <td class="num" data-n="7.1">7.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="23">23</td>
+          <td class="num" data-n="245760">245760</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">rerun median n=5 samples=[8.1, 6.9, 7.3, 7.1, 6.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/lua/">Lua</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="7">7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="78">78</td>
+          <td class="num" data-n="245760">245760</td>
+          <td class="num" data-n="2640">2640</td>
+          <td class="muted">rerun median n=5 samples=[7.0, 7.0, 7.6, 6.8, 7.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/lua/">Lua</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="39.2">39.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="354">354</td>
+          <td class="num" data-n="245760">245760</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">rerun median n=5 samples=[39.2, 37.9, 40.4, 38.9, 45.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/lua/">Lua</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="310.5">310.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="839">839</td>
+          <td class="num" data-n="245760">245760</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">rerun median n=5 samples=[307.8, 310.0, 310.5, 311.3, 315.1]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/luajit/">LuaJIT</a></td>
+          <td>hello</td>
+          <td class="num" data-n="8.5">8.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="23">23</td>
+          <td class="num" data-n="294912">294912</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[11.4, 14.1, 8.5, 5.4, 5.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/luajit/">LuaJIT</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="7.2">7.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="78">78</td>
+          <td class="num" data-n="294912">294912</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[15.6, 7.2, 5.1, 5.9, 12.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/luajit/">LuaJIT</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="14.4">14.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="354">354</td>
+          <td class="num" data-n="294912">294912</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[13.3, 15.4, 24.0, 14.4, 13.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/luajit/">LuaJIT</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="42.9">42.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="839">839</td>
+          <td class="num" data-n="294912">294912</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[39.3, 43.8, 42.9, 42.5, 43.8]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/mojo-aot/">Mojo (AOT)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="9.5">9.5</td>
+          <td class="num" data-n="2155">2155</td>
+          <td class="num" data-n="39">39</td>
+          <td class="num" data-n="18000">18000</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">open-source Mojo 1.0; timed inside Ubuntu 24.04 WSL2 (not wsl.exe spawn); AOT `mojo build`; LSD radix 4x8; rerun median n=5 samples=[13.4, 10.2, 9.2, 9.5, 9.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/mojo-aot/">Mojo (AOT)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="9.6">9.6</td>
+          <td class="num" data-n="1184">1184</td>
+          <td class="num" data-n="155">155</td>
+          <td class="num" data-n="20880">20880</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">open-source Mojo 1.0; timed inside Ubuntu 24.04 WSL2 (not wsl.exe spawn); AOT `mojo build`; LSD radix 4x8; rerun median n=5 samples=[10.8, 12.9, 9.6, 9.5, 8.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/mojo-aot/">Mojo (AOT)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="11">11</td>
+          <td class="num" data-n="1110">1110</td>
+          <td class="num" data-n="720">720</td>
+          <td class="num" data-n="27016">27016</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">open-source Mojo 1.0; timed inside Ubuntu 24.04 WSL2 (not wsl.exe spawn); AOT `mojo build`; LSD radix 4x8; rerun median n=5 samples=[12.2, 11.0, 12.3, 10.3, 10.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/mojo-aot/">Mojo (AOT)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="18.3">18.3</td>
+          <td class="num" data-n="1345">1345</td>
+          <td class="num" data-n="1398">1398</td>
+          <td class="num" data-n="28072">28072</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">open-source Mojo 1.0; timed inside Ubuntu 24.04 WSL2 (not wsl.exe spawn); AOT `mojo build`; LSD radix 4x8; rerun median n=5 samples=[18.3, 19.1, 20.6, 16.4, 17.5]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/mojo-run/">Mojo (run)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="929.2">929.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="39">39</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">open-source Mojo 1.0; timed inside Ubuntu 24.04 WSL2 (not wsl.exe spawn); cold `mojo run` compiles every process; rerun median n=5 samples=[929.2, 878.9, 957.8, 971.2, 897.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/mojo-run/">Mojo (run)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="951.8">951.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="155">155</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">open-source Mojo 1.0; timed inside Ubuntu 24.04 WSL2 (not wsl.exe spawn); cold `mojo run` compiles every process; rerun median n=5 samples=[951.8, 1013.9, 1075.4, 817.4, 862.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/mojo-run/">Mojo (run)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="940.1">940.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="720">720</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">open-source Mojo 1.0; timed inside Ubuntu 24.04 WSL2 (not wsl.exe spawn); cold `mojo run` compiles every process; rerun median n=5 samples=[983.9, 925.3, 909.2, 940.1, 1049.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/mojo-run/">Mojo (run)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="930">930</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1398">1398</td>
+          <td class="num" data-n=""></td>
+          <td class="num" data-n=""></td>
+          <td class="muted">open-source Mojo 1.0; timed inside Ubuntu 24.04 WSL2 (not wsl.exe spawn); cold `mojo run` compiles every process; rerun median n=5 samples=[942.7, 942.4, 930.0, 884.7, 899.9]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/monkey/">Monkey</a></td>
+          <td>hello</td>
+          <td class="num" data-n="7.8">7.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="22">22</td>
+          <td class="num" data-n="2710528">2710528</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Writing An Interpreter In Go subset; rerun median n=5 samples=[20.4, 7.8, 7.3, 7.4, 10.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/monkey/">Monkey</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="6.7">6.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="124">124</td>
+          <td class="num" data-n="2710528">2710528</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[7.4, 6.8, 6.3, 6.7, 6.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/monkey/">Monkey</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="322">322</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="425">425</td>
+          <td class="num" data-n="2710528">2710528</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[322.0, 322.8, 321.8, 319.2, 324.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/monkey/">Monkey</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="388.7">388.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="299">299</td>
+          <td class="num" data-n="2710528">2710528</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[392.6, 380.3, 383.2, 388.7, 393.4]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/nim/">Nim</a></td>
+          <td>hello</td>
+          <td class="num" data-n="3.9">3.9</td>
+          <td class="num" data-n="27.2">27.2</td>
+          <td class="num" data-n="21">21</td>
+          <td class="num" data-n="187392">187392</td>
+          <td class="num" data-n="2660">2660</td>
+          <td class="muted">--lib required; rerun median n=5 samples=[9.9, 4.1, 3.9, 3.7, 3.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/nim/">Nim</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.8">3.8</td>
+          <td class="num" data-n="16.2">16.2</td>
+          <td class="num" data-n="79">79</td>
+          <td class="num" data-n="187904">187904</td>
+          <td class="num" data-n="2660">2660</td>
+          <td class="muted">--lib required; rerun median n=5 samples=[8.2, 4.0, 3.8, 3.7, 3.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/nim/">Nim</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="6.5">6.5</td>
+          <td class="num" data-n="23.5">23.5</td>
+          <td class="num" data-n="356">356</td>
+          <td class="num" data-n="264597">264597</td>
+          <td class="num" data-n="2660">2660</td>
+          <td class="muted">seq[byte] + gcc -d:release; rerun median n=5 samples=[9.8, 6.1, 6.5, 6.1, 7.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/nim/">Nim</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="10.9">10.9</td>
+          <td class="num" data-n="24.1">24.1</td>
+          <td class="num" data-n="1138">1138</td>
+          <td class="num" data-n="264593">264593</td>
+          <td class="num" data-n="15332">15332</td>
+          <td class="muted">int32 introsort; was seq[int] mergesort ~169ms; rerun median n=5 samples=[61.1, 58.1, 58.1, 58.0, 59.2]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/o3-monkey/">o3-monkey</a></td>
+          <td>hello</td>
+          <td class="num" data-n="3.4">3.4</td>
+          <td class="num" data-n="1390">1390</td>
+          <td class="num" data-n="22">22</td>
+          <td class="num" data-n="109056">109056</td>
+          <td class="num" data-n="0">0</td>
+          <td class="muted">C:\Build\o3-monkey; while + assignment; rerun median n=5 samples=[7.3, 3.4, 3.2, 3.3, 3.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/o3-monkey/">o3-monkey</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.3">3.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="158">158</td>
+          <td class="num" data-n="109056">109056</td>
+          <td class="num" data-n="2652">2652</td>
+          <td class="muted">42 iterations via while; rerun median n=5 samples=[3.4, 3.3, 3.4, 3.2, 3.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/o3-monkey/">o3-monkey</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="7.1">7.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="471">471</td>
+          <td class="num" data-n="109056">109056</td>
+          <td class="num" data-n="2652">2652</td>
+          <td class="muted">n=400 trial division (not 1e6); rerun median n=5 samples=[7.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/o3-monkey/">o3-monkey</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="12.1">12.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1690">1690</td>
+          <td class="num" data-n="109056">109056</td>
+          <td class="num" data-n="2652">2652</td>
+          <td class="muted">n=100 mergesort (not 1e6); rerun median n=5</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/objective-c/">Objective-C</a></td>
+          <td>hello</td>
+          <td class="num" data-n="4">4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="83">83</td>
+          <td class="num" data-n="110080">110080</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">clang -O2 retimed; csv 118ms was harness; rerun median n=5 samples=[8.1, 4.1, 4.0, 3.6, 3.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/objective-c/">Objective-C</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.7">3.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="251">251</td>
+          <td class="num" data-n="139776">139776</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">C-style .m; rerun median n=5 samples=[8.3, 3.7, 3.7, 3.6, 3.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/objective-c/">Objective-C</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="4.6">4.6</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="530">530</td>
+          <td class="num" data-n="140800">140800</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">retimed; rerun median n=5 samples=[8.0, 4.6, 4.5, 4.6, 4.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/objective-c/">Objective-C</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="9.7">9.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1357">1357</td>
+          <td class="num" data-n="140800">140800</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">typed introsort; was libc qsort ~87ms; rerun median n=5 samples=[52.9, 50.4, 51.0, 50.1, 50.6]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ocaml/">OCaml</a></td>
+          <td>hello</td>
+          <td class="num" data-n="8.1">8.1</td>
+          <td class="num" data-n="3439.6">3439.6</td>
+          <td class="num" data-n="30">30</td>
+          <td class="num" data-n="3327357">3327357</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">ocamlopt 5.5.0 via opam default switch (mingw64 gcc); DkML ocamlopt 4.14 MSVC needs unmapped Y:&#x2F;VS&#x2F;ml64.exe; Bytes sieve; LSD radix 4x8; rerun median n=5 samples=[9.7, 8.2, 7.6, 8.1, 7.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ocaml/">OCaml</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="7.9">7.9</td>
+          <td class="num" data-n="67.2">67.2</td>
+          <td class="num" data-n="168">168</td>
+          <td class="num" data-n="4039349">4039349</td>
+          <td class="num" data-n="2640">2640</td>
+          <td class="muted">ocamlopt 5.5.0 via opam default switch (mingw64 gcc); DkML ocamlopt 4.14 MSVC needs unmapped Y:&#x2F;VS&#x2F;ml64.exe; Bytes sieve; LSD radix 4x8; rerun median n=5 samples=[7.9, 8.2, 7.4, 7.8, 7.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ocaml/">OCaml</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="10.7">10.7</td>
+          <td class="num" data-n="66.6">66.6</td>
+          <td class="num" data-n="544">544</td>
+          <td class="num" data-n="4040850">4040850</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">ocamlopt 5.5.0 via opam default switch (mingw64 gcc); DkML ocamlopt 4.14 MSVC needs unmapped Y:&#x2F;VS&#x2F;ml64.exe; Bytes sieve; LSD radix 4x8; rerun median n=5 samples=[10.7, 10.4, 13.5, 11.2, 10.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ocaml/">OCaml</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="21.2">21.2</td>
+          <td class="num" data-n="65.8">65.8</td>
+          <td class="num" data-n="1067">1067</td>
+          <td class="num" data-n="4041385">4041385</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">ocamlopt 5.5.0 via opam default switch (mingw64 gcc); DkML ocamlopt 4.14 MSVC needs unmapped Y:&#x2F;VS&#x2F;ml64.exe; Bytes sieve; LSD radix 4x8; rerun median n=5 samples=[20.1, 20.9, 23.2, 21.2, 21.3]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/octave/">Octave</a></td>
+          <td>hello</td>
+          <td class="num" data-n="533.5">533.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="27">27</td>
+          <td class="num" data-n="26112">26112</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">first-run startup; rerun median n=3 samples=[719.2, 528.8, 533.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/octave/">Octave</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="535.3">535.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="92">92</td>
+          <td class="num" data-n="26112">26112</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[545.9, 535.3, 524.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/octave/">Octave</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="535.7">535.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="264">264</td>
+          <td class="num" data-n="26112">26112</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[535.7, 528.0, 553.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/octave/">Octave</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="3848.4">3848.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="537">537</td>
+          <td class="num" data-n="26112">26112</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">uint32 LCG fill; first=3842 last=2147480074; was ~10817ms; rerun median n=3 samples=[3848.4, 3898.0, 3825.8]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/perl/">Perl</a></td>
+          <td>hello</td>
+          <td class="num" data-n="21.2">21.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="25">25</td>
+          <td class="num" data-n="46592">46592</td>
+          <td class="num" data-n="2652">2652</td>
+          <td class="muted">rerun median n=5 samples=[24.4, 22.5, 21.2, 12.9, 18.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/perl/">Perl</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="13.6">13.6</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="96">96</td>
+          <td class="num" data-n="46592">46592</td>
+          <td class="num" data-n="2652">2652</td>
+          <td class="muted">rerun median n=5 samples=[13.6, 15.0, 14.0, 11.3, 11.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/perl/">Perl</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="160.7">160.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="381">381</td>
+          <td class="num" data-n="46592">46592</td>
+          <td class="num" data-n="2652">2652</td>
+          <td class="muted">rerun median n=5 samples=[159.0, 158.0, 160.8, 160.7, 164.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/perl/">Perl</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="334.3">334.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="311">311</td>
+          <td class="num" data-n="46592">46592</td>
+          <td class="num" data-n="2656">2656</td>
+          <td class="muted">rerun median n=5 samples=[332.5, 328.0, 338.3, 350.6, 334.3]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/php/">PHP</a></td>
+          <td>hello</td>
+          <td class="num" data-n="32.4">32.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="30">30</td>
+          <td class="num" data-n="183296">183296</td>
+          <td class="num" data-n="2552">2552</td>
+          <td class="muted">rerun median n=5 samples=[29.4, 36.2, 34.1, 32.4, 31.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/php/">PHP</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="24.3">24.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="126">126</td>
+          <td class="num" data-n="183296">183296</td>
+          <td class="num" data-n="2684">2684</td>
+          <td class="muted">rerun median n=5 samples=[33.4, 24.3, 27.6, 24.1, 23.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/php/">PHP</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="70.1">70.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="386">386</td>
+          <td class="num" data-n="183296">183296</td>
+          <td class="num" data-n="2684">2684</td>
+          <td class="muted">rerun median n=5 samples=[63.2, 62.6, 75.9, 74.8, 70.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/php/">PHP</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="248.3">248.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="283">283</td>
+          <td class="num" data-n="183296">183296</td>
+          <td class="num" data-n="2684">2684</td>
+          <td class="muted">rerun median n=5 samples=[245.7, 248.3, 250.8, 244.1, 253.4]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/powershell/">PowerShell</a></td>
+          <td>hello</td>
+          <td class="num" data-n="165.4">165.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="29">29</td>
+          <td class="num" data-n="454656">454656</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[159.8, 162.9, 185.4, 165.4, 168.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/powershell/">PowerShell</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="173.2">173.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="131">131</td>
+          <td class="num" data-n="454656">454656</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[176.2, 162.1, 173.2, 162.1, 179.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/powershell/">PowerShell</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="213.9">213.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="609">609</td>
+          <td class="num" data-n="454656">454656</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[224.9, 211.4, 222.3, 213.3, 213.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/powershell/">PowerShell</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="237.1">237.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1357">1357</td>
+          <td class="num" data-n="454656">454656</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[231.8, 237.1, 227.5, 241.4, 238.1]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/prolog/">Prolog</a></td>
+          <td>hello</td>
+          <td class="num" data-n="52">52</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="71">71</td>
+          <td class="num" data-n="15872">15872</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[50.9, 53.5, 52.9, 51.9, 52.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/prolog/">Prolog</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="49.5">49.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="179">179</td>
+          <td class="num" data-n="15872">15872</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[47.8, 50.0, 49.5, 47.4, 51.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/prolog/">Prolog</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="737.8">737.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1838">1838</td>
+          <td class="num" data-n="15872">15872</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[737.8, 746.3, 732.3, 732.9, 739.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/prolog/">Prolog</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="648.8">648.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="428">428</td>
+          <td class="num" data-n="15872">15872</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[659.5, 634.5, 657.3, 644.3, 648.8]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/python/">Python</a></td>
+          <td>hello</td>
+          <td class="num" data-n="17.2">17.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="78">78</td>
+          <td class="num" data-n="105696">105696</td>
+          <td class="num" data-n="20900">20900</td>
+          <td class="muted">wait-for-exit; rerun median n=5 samples=[18.4, 16.1, 17.2, 17.0, 21.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/python/">Python</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="15.3">15.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="139">139</td>
+          <td class="num" data-n="105696">105696</td>
+          <td class="num" data-n="20236">20236</td>
+          <td class="muted">exec remesured (pipe hang in batch run); rerun median n=5 samples=[15.4, 15.2, 15.3, 15.2, 15.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/python/">Python</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="20">20</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="367">367</td>
+          <td class="num" data-n="105696">105696</td>
+          <td class="num" data-n="20212">20212</td>
+          <td class="muted">bytearray slice assign; rerun median n=5 samples=[20.0, 20.7, 19.9, 20.0, 20.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/python/">Python</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="273.4">273.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="303">303</td>
+          <td class="num" data-n="105696">105696</td>
+          <td class="num" data-n="20192">20192</td>
+          <td class="muted">LCG + list.sort; was random.randint ~482ms wrong answers; rerun median n=5 samples=[274.4, 273.4, 273.5, 272.7, 272.9]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/r/">R</a></td>
+          <td>hello</td>
+          <td class="num" data-n="134.4">134.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="23">23</td>
+          <td class="num" data-n="154624">154624</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[137.2, 139.1, 127.7, 134.4, 134.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/r/">R</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="143.1">143.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="96">96</td>
+          <td class="num" data-n="154624">154624</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[132.5, 143.1, 150.3, 139.5, 144.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/r/">R</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="148.4">148.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="254">254</td>
+          <td class="num" data-n="154624">154624</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[162.1, 149.2, 148.4, 142.7, 139.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/r/">R</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="354">354</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="300">300</td>
+          <td class="num" data-n="154624">154624</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[361.4, 352.4, 354.0, 356.5, 352.0]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/raku/">Raku</a></td>
+          <td>hello</td>
+          <td class="num" data-n="141.1">141.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="21">21</td>
+          <td class="num" data-n="150016">150016</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[145.6, 141.1, 141.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/raku/">Raku</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="150.1">150.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="82">82</td>
+          <td class="num" data-n="150016">150016</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[150.1, 149.3, 152.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/raku/">Raku</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="469.7">469.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="380">380</td>
+          <td class="num" data-n="150016">150016</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[469.7, 464.9, 474.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/raku/">Raku</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="1661.7">1661.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="243">243</td>
+          <td class="num" data-n="150016">150016</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[1662.0, 1644.2, 1661.7]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/red/">Red</a></td>
+          <td>hello</td>
+          <td class="num" data-n="138.4">138.4</td>
+          <td class="num" data-n="34847">34847</td>
+          <td class="num" data-n="43">43</td>
+          <td class="num" data-n="99328">99328</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">red-cli interpret 23ms; compiled exe 232ms; first toolchain compile includes libRedRT; rerun median n=5 samples=[168.0, 138.4, 125.0, 125.1, 139.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/red/">Red</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="126.6">126.6</td>
+          <td class="num" data-n="784">784</td>
+          <td class="num" data-n="90">90</td>
+          <td class="num" data-n="100352">100352</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">cli 20.7ms; exe 205ms; rerun median n=5 samples=[132.8, 123.8, 126.6, 122.9, 139.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/red/">Red</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="667.9">667.9</td>
+          <td class="num" data-n="923">923</td>
+          <td class="num" data-n="480">480</td>
+          <td class="num" data-n="102912">102912</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">vector! integer; compiled exe ~750ms 78498; cli ~1200ms; rerun median n=5 samples=[695.1, 666.9, 666.8, 667.9, 668.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/red/">Red</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="1873.5">1873.5</td>
+          <td class="num" data-n="917">917</td>
+          <td class="num" data-n="315">315</td>
+          <td class="num" data-n="101888">101888</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">vector! + sort; compiled ~1900ms first=3842 last=2147480074; rerun median n=5 samples=[1870.1, 1889.2, 1878.6, 1873.5, 1861.8]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/rhai/">Rhai</a></td>
+          <td>hello</td>
+          <td class="num" data-n="5.1">5.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="24">24</td>
+          <td class="num" data-n="3908096">3908096</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">tools\rhai_run; rerun median n=5 samples=[21.6, 5.4, 5.1, 5.0, 4.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/rhai/">Rhai</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="4.9">4.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="96">96</td>
+          <td class="num" data-n="3908096">3908096</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[7.4, 4.9, 4.7, 5.3, 4.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/rhai/">Rhai</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="546.8">546.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="414">414</td>
+          <td class="num" data-n="3908096">3908096</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[541.8, 545.5, 551.3, 546.8, 561.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/rhai/">Rhai</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="442.6">442.6</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="237">237</td>
+          <td class="num" data-n="3908096">3908096</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[441.4, 447.4, 439.8, 442.6, 448.8]</td>
+        </tr>
+      
+    
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ruby/">Ruby</a></td>
+          <td>hello</td>
+          <td class="num" data-n="102.8">102.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="21">21</td>
+          <td class="num" data-n="38400">38400</td>
+          <td class="num" data-n="18404">18404</td>
+          <td class="muted">rerun median n=5 samples=[109.8, 102.6, 101.6, 103.1, 102.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ruby/">Ruby</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="101.2">101.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="54">54</td>
+          <td class="num" data-n="38400">38400</td>
+          <td class="num" data-n="16904">16904</td>
+          <td class="muted">rerun median n=5 samples=[101.5, 100.8, 103.5, 101.2, 99.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ruby/">Ruby</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="134.7">134.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="309">309</td>
+          <td class="num" data-n="38400">38400</td>
+          <td class="num" data-n="16668">16668</td>
+          <td class="muted">rerun median n=5 samples=[135.9, 136.2, 133.8, 134.7, 133.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/ruby/">Ruby</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="816.6">816.6</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="205">205</td>
+          <td class="num" data-n="38400">38400</td>
+          <td class="num" data-n="16708">16708</td>
+          <td class="muted">rerun median n=5 samples=[816.6, 826.2, 807.6, 826.3, 806.9]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/rust/">Rust</a></td>
+          <td>hello</td>
+          <td class="num" data-n="4.4">4.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="45">45</td>
+          <td class="num" data-n="125440">125440</td>
+          <td class="num" data-n="2640">2640</td>
+          <td class="muted">rerun median n=5 samples=[9.6, 4.4, 4.4, 4.2, 4.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/rust/">Rust</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="4.2">4.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="189">189</td>
+          <td class="num" data-n="125952">125952</td>
+          <td class="num" data-n="2640">2640</td>
+          <td class="muted">rerun median n=5 samples=[9.2, 4.2, 4.2, 4.2, 4.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/rust/">Rust</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="5.5">5.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="486">486</td>
+          <td class="num" data-n="126464">126464</td>
+          <td class="num" data-n="2640">2640</td>
+          <td class="muted">rerun median n=5 samples=[10.7, 5.8, 5.5, 5.4, 5.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/rust/">Rust</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="10.5">10.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1104">1104</td>
+          <td class="num" data-n="1237556">1237556</td>
+          <td class="num" data-n="2640">2640</td>
+          <td class="muted">rerun median n=5 samples=[11.1, 10.6, 10.5, 10.4, 10.1]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/scala/">Scala</a></td>
+          <td>hello</td>
+          <td class="num" data-n="103">103</td>
+          <td class="num" data-n="35145.4">35145.4</td>
+          <td class="num" data-n="44">44</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">java -jar assembly; rerun median n=5 samples=[106.2, 101.9, 103.6, 102.6, 103.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/scala/">Scala</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="102.9">102.9</td>
+          <td class="num" data-n="777.2">777.2</td>
+          <td class="num" data-n="141">141</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">java -jar; csv 777ms included scala-cli compile; rerun median n=5 samples=[101.7, 101.5, 103.7, 102.9, 106.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/scala/">Scala</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="126.6">126.6</td>
+          <td class="num" data-n="772.4">772.4</td>
+          <td class="num" data-n="408">408</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">java -jar; csv 772ms included compile; rerun median n=5 samples=[126.6, 124.9, 127.2, 125.8, 127.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/scala/">Scala</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="128.2">128.2</td>
+          <td class="num" data-n="748.5">748.5</td>
+          <td class="num" data-n="297">297</td>
+          <td class="num" data-n="50344">50344</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">java -jar Arrays.sort; csv 748ms included compile; rerun median n=5 samples=[192.0, 192.2, 192.5, 194.7, 201.1]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/scheme/">Scheme</a></td>
+          <td>hello</td>
+          <td class="num" data-n="16.6">16.6</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="36">36</td>
+          <td class="num" data-n="263946">263946</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[27.3, 22.9, 16.2, 15.4, 16.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/scheme/">Scheme</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="19.4">19.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="97">97</td>
+          <td class="num" data-n="263946">263946</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[29.2, 19.8, 19.2, 19.4, 17.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/scheme/">Scheme</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="14.3">14.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="782">782</td>
+          <td class="num" data-n="72451">72451</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[17.3, 13.3, 15.1, 14.3, 13.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/scheme/">Scheme</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="54.9">54.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1593">1593</td>
+          <td class="num" data-n="76515">76515</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[55.9, 53.7, 62.5, 54.9, 53.4]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/sql-sqlite/">SQL (SQLite)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="15.9">15.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="24">24</td>
+          <td class="num" data-n="3897344">3897344</td>
+          <td class="num" data-n="3960">3960</td>
+          <td class="muted">rerun median n=5 samples=[16.8, 15.3, 20.8, 15.9, 11.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/sql-sqlite/">SQL (SQLite)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="10.4">10.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="143">143</td>
+          <td class="num" data-n="3897344">3897344</td>
+          <td class="num" data-n="3960">3960</td>
+          <td class="muted">rerun median n=5 samples=[10.8, 10.4, 10.2, 10.4, 11.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/sql-sqlite/">SQL (SQLite)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="1424.3">1424.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="951">951</td>
+          <td class="num" data-n="3897344">3897344</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[1426.9, 1423.5, 1424.3]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/sql-sqlite/">SQL (SQLite)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="454.3">454.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="526">526</td>
+          <td class="num" data-n="3897344">3897344</td>
+          <td class="num" data-n="3964">3964</td>
+          <td class="muted">rerun median n=5 samples=[447.4, 452.6, 456.7, 456.9, 454.3]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/starlark/">Starlark</a></td>
+          <td>hello</td>
+          <td class="num" data-n="9.4">9.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="23">23</td>
+          <td class="num" data-n="6143488">6143488</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[9.4, 14.2, 9.9, 8.3, 7.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/starlark/">Starlark</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="8">8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="125">125</td>
+          <td class="num" data-n="6143488">6143488</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[7.7, 10.5, 8.8, 7.3, 8.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/starlark/">Starlark</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="179">179</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="409">409</td>
+          <td class="num" data-n="6143488">6143488</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[178.7, 178.2, 179.4, 179.0, 179.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/starlark/">Starlark</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="911.2">911.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="297">297</td>
+          <td class="num" data-n="6143488">6143488</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[903.6, 911.2, 925.7, 909.9, 918.9]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/swift/">Swift</a></td>
+          <td>hello</td>
+          <td class="num" data-n="15.1">15.1</td>
+          <td class="num" data-n="1211.2">1211.2</td>
+          <td class="num" data-n="23">23</td>
+          <td class="num" data-n="20992">20992</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">swiftc -O retimed; rerun median n=5 samples=[20.4, 13.6, 14.6, 15.1, 17.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/swift/">Swift</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="13.9">13.9</td>
+          <td class="num" data-n="347.7">347.7</td>
+          <td class="num" data-n="105">105</td>
+          <td class="num" data-n="21504">21504</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[19.0, 13.9, 14.5, 13.5, 13.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/swift/">Swift</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="15.4">15.4</td>
+          <td class="num" data-n="408.2">408.2</td>
+          <td class="num" data-n="615">615</td>
+          <td class="num" data-n="22528">22528</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">[UInt8] sieve; rerun median n=5 samples=[23.8, 18.3, 18.2, 18.6, 18.4]; odd-only byte buffer via UnsafeMutablePointer; was [UInt8] Array ~18.4ms</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/swift/">Swift</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="21.9">21.9</td>
+          <td class="num" data-n="793.9">793.9</td>
+          <td class="num" data-n="263">263</td>
+          <td class="num" data-n="26112">26112</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">[Int32].sort; was [Int] 64-bit; rerun median n=5 samples=[83.8, 80.3, 78.4, 78.6, 80.1]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/tcl/">Tcl</a></td>
+          <td>hello</td>
+          <td class="num" data-n="11.9">11.9</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="21">21</td>
+          <td class="num" data-n="64000">64000</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[24.4, 14.1, 11.9, 11.6, 11.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/tcl/">Tcl</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="11.8">11.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="127">127</td>
+          <td class="num" data-n="64000">64000</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[11.9, 12.7, 11.8, 11.8, 11.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/tcl/">Tcl</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="781.3">781.3</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="409">409</td>
+          <td class="num" data-n="64000">64000</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[772.4, 781.3, 764.4, 837.2, 827.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/tcl/">Tcl</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="829.5">829.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="293">293</td>
+          <td class="num" data-n="64000">64000</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[848.6, 841.0, 823.8, 816.6, 829.5]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/typescript/">TypeScript</a></td>
+          <td>hello</td>
+          <td class="num" data-n="35.9">35.9</td>
+          <td class="num" data-n="549.8">549.8</td>
+          <td class="num" data-n="30">30</td>
+          <td class="num" data-n="95120384">95120384</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">tsc + node retimed; rerun median n=5 samples=[42.7, 42.2, 35.9, 34.9, 35.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/typescript/">TypeScript</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="36.9">36.9</td>
+          <td class="num" data-n="549.8">549.8</td>
+          <td class="num" data-n="123">123</td>
+          <td class="num" data-n="95120384">95120384</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[36.9, 35.4, 37.3, 36.4, 36.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/typescript/">TypeScript</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="42.4">42.4</td>
+          <td class="num" data-n="549.8">549.8</td>
+          <td class="num" data-n="324">324</td>
+          <td class="num" data-n="95120384">95120384</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Uint8Array; was boolean[]; rerun median n=5 samples=[42.0, 42.4, 42.1, 43.0, 43.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/typescript/">TypeScript</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="52.6">52.6</td>
+          <td class="num" data-n="549.8">549.8</td>
+          <td class="num" data-n="274">274</td>
+          <td class="num" data-n="95120384">95120384</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">Int32Array.sort; was boxed Array+compare ~226ms; rerun median n=5 samples=[91.8, 92.1, 92.1, 93.8, 94.9]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/v/">V</a></td>
+          <td>hello</td>
+          <td class="num" data-n="5.2">5.2</td>
+          <td class="num" data-n="688">688</td>
+          <td class="num" data-n="40">40</td>
+          <td class="num" data-n="29184">29184</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">GitHub windows zip; rerun median n=5 samples=[13.9, 6.0, 5.1, 5.2, 5.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/v/">V</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="5.4">5.4</td>
+          <td class="num" data-n="522">522</td>
+          <td class="num" data-n="116">116</td>
+          <td class="num" data-n="29184">29184</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[9.6, 5.4, 5.3, 5.5, 5.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/v/">V</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="6.8">6.8</td>
+          <td class="num" data-n="522">522</td>
+          <td class="num" data-n="378">378</td>
+          <td class="num" data-n="31232">31232</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[11.5, 6.8, 6.8, 6.8, 6.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/v/">V</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="17.9">17.9</td>
+          <td class="num" data-n="526">526</td>
+          <td class="num" data-n="257">257</td>
+          <td class="num" data-n="31232">31232</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[119.4, 112.0, 111.8, 115.0, 111.3]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/vulkan-compute/">Vulkan Compute</a></td>
+          <td>hello</td>
+          <td class="num" data-n="187.5">187.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="83">83</td>
+          <td class="num" data-n="243200">243200</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[173.9, 204.7, 187.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/vulkan-compute/">Vulkan Compute</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="185.5">185.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="602">602</td>
+          <td class="num" data-n="2372096">2372096</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[183.4, 185.5, 203.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/vulkan-compute/">Vulkan Compute</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="205.6">205.6</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="2007">2007</td>
+          <td class="num" data-n="2375680">2375680</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[258.3, 205.6, 186.4]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/vulkan-compute/">Vulkan Compute</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="297.5">297.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1776">1776</td>
+          <td class="num" data-n="2375168">2375168</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[305.9, 281.7, 297.5]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/wgpu/">wgpu</a></td>
+          <td>hello</td>
+          <td class="num" data-n="618.2">618.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="85">85</td>
+          <td class="num" data-n="5285376">5285376</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[811.1, 618.2, 611.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/wgpu/">wgpu</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="591.8">591.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="581">581</td>
+          <td class="num" data-n="6746624">6746624</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[825.7, 591.8, 575.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/wgpu/">wgpu</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="687.8">687.8</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="2232">2232</td>
+          <td class="num" data-n="6751232">6751232</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[838.8, 594.3, 687.8]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/wgpu/">wgpu</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="715.1">715.1</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1623">1623</td>
+          <td class="num" data-n="6750720">6750720</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=3 samples=[795.2, 665.8, 715.1]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/wren/">Wren</a></td>
+          <td>hello</td>
+          <td class="num" data-n="17.4">17.4</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="30">30</td>
+          <td class="num" data-n="849920">849920</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[26.4, 20.7, 17.4, 13.4, 13.6]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/wren/">Wren</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="12.7">12.7</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="94">94</td>
+          <td class="num" data-n="849920">849920</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[16.0, 15.1, 12.5, 11.5, 12.7]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/wren/">Wren</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="92.2">92.2</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="391">391</td>
+          <td class="num" data-n="849920">849920</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[92.2, 91.0, 102.4, 90.7, 92.5]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/wren/">Wren</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="752.5">752.5</td>
+          <td class="num" data-n="">—</td>
+          <td class="num" data-n="1100">1100</td>
+          <td class="num" data-n="849920">849920</td>
+          <td class="num" data-n=""></td>
+          <td class="muted">rerun median n=5 samples=[752.5, 756.7, 766.1, 748.7, 747.2]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/x86-assembly-nasm/">X86 Assembly (NASM)</a></td>
+          <td>hello</td>
+          <td class="num" data-n="3.2">3.2</td>
+          <td class="num" data-n="89.2">89.2</td>
+          <td class="num" data-n="475">475</td>
+          <td class="num" data-n="107520">107520</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">retimed; rerun median n=5 samples=[7.1, 3.4, 3.2, 3.2, 3.1]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/x86-assembly-nasm/">X86 Assembly (NASM)</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3.2">3.2</td>
+          <td class="num" data-n="50.2">50.2</td>
+          <td class="num" data-n="1022">1022</td>
+          <td class="num" data-n="107520">107520</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">heapsort; rerun median n=5 samples=[7.2, 3.1, 3.1, 3.4, 3.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/x86-assembly-nasm/">X86 Assembly (NASM)</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="5.1">5.1</td>
+          <td class="num" data-n="52.9">52.9</td>
+          <td class="num" data-n="1993">1993</td>
+          <td class="num" data-n="107520">107520</td>
+          <td class="num" data-n="2636">2636</td>
+          <td class="muted">retimed; rerun median n=5 samples=[8.0, 5.2, 5.1, 5.0, 4.9]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/x86-assembly-nasm/">X86 Assembly (NASM)</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="9.5">9.5</td>
+          <td class="num" data-n="51.6">51.6</td>
+          <td class="num" data-n="3536">3536</td>
+          <td class="num" data-n="108032">108032</td>
+          <td class="num" data-n="9288">9288</td>
+          <td class="muted">LSD radix retimed; rerun median n=5 samples=[12.0, 9.3, 10.2, 9.5, 9.5]</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/zig/">Zig</a></td>
+          <td>hello</td>
+          <td class="num" data-n="3.3">3.3</td>
+          <td class="num" data-n="47.7">47.7</td>
+          <td class="num" data-n="97">97</td>
+          <td class="num" data-n="556032">556032</td>
+          <td class="num" data-n="2640">2640</td>
+          <td class="muted">ReleaseFast retimed; rerun median n=5 samples=[8.0, 3.4, 3.2, 3.3, 3.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/zig/">Zig</a></td>
+          <td>fibonacci</td>
+          <td class="num" data-n="3">3</td>
+          <td class="num" data-n="25.6">25.6</td>
+          <td class="num" data-n="271">271</td>
+          <td class="num" data-n="803840">803840</td>
+          <td class="num" data-n="2644">2644</td>
+          <td class="muted">Zig 0.16 std; rerun median n=5 samples=[8.3, 3.0, 3.0, 3.0, 3.0]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/zig/">Zig</a></td>
+          <td>prime_sieve</td>
+          <td class="num" data-n="4.2">4.2</td>
+          <td class="num" data-n="26.3">26.3</td>
+          <td class="num" data-n="677">677</td>
+          <td class="num" data-n="563712">563712</td>
+          <td class="num" data-n="2640">2640</td>
+          <td class="muted">u8 sieve ReleaseFast; rerun median n=5 samples=[7.4, 4.2, 4.1, 4.1, 4.2]</td>
+        </tr>
+      
+        <tr>
+          <td><a href="https://lyamc.github.io/languages/zig/">Zig</a></td>
+          <td>sorting</td>
+          <td class="num" data-n="8.6">8.6</td>
+          <td class="num" data-n="25.5">25.5</td>
+          <td class="num" data-n="488">488</td>
+          <td class="num" data-n="567808">567808</td>
+          <td class="num" data-n="7068">7068</td>
+          <td class="muted">std.sort.pdq i32; was std.mem.sort ~92ms; rerun median n=5 samples=[67.1, 66.9, 66.9, 64.9, 64.1]; LSD radix 4x8; was comparison sort</td>
+        </tr>
+      
+    
+  </tbody>
+</table>
+</div>
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

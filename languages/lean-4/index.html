@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lean 4 · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Lean 4</h1>
+  <span class="pill native">native</span>
+  <span class="pill linux">linux</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">Lean 4.33.1 (elan stable, Linux x86_64) · lake build → Lean → C (leanc&#x2F;clang) · native (Linux ELF)</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">2.6 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">2.5 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">24.9 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">98.8 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="2.6">2.6</td>
+        <td class="num" data-n="1088.6">1088.6</td>
+        <td class="num" data-n="51">51 B</td>
+        <td class="num" data-n="69">69 B</td>
+        <td class="num" data-n="4074960">3.9 MB</td>
+        <td class="num" data-n="13344">13344 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="2.5">2.5</td>
+        <td class="num" data-n="1119.3">1119.3</td>
+        <td class="num" data-n="215">215 B</td>
+        <td class="num" data-n="158">158 B</td>
+        <td class="num" data-n="4079520">3.9 MB</td>
+        <td class="num" data-n="13740">13740 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="24.9">24.9</td>
+        <td class="num" data-n="1344.6">1344.6</td>
+        <td class="num" data-n="677">677 B</td>
+        <td class="num" data-n="306">306 B</td>
+        <td class="num" data-n="4084400">3.9 MB</td>
+        <td class="num" data-n="13936">13936 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="98.8">98.8</td>
+        <td class="num" data-n="1722.7">1722.7</td>
+        <td class="num" data-n="2231">2 KB</td>
+        <td class="num" data-n="762">762 B</td>
+        <td class="num" data-n="4114768">3.9 MB</td>
+        <td class="num" data-n="20980">20980 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 33 (work table).
+   Sort rank 41.
+  Four-file source 3 KB.
+</p>
+
+
+<p class="note">Lean 4 AOT via lake; ByteArray sieve; LSD radix 4x8 packed UInt32 in ByteArray; timed on Linux NixOS, same i9-13900K as the Windows rows (local clang -O2 C sieve 4.3ms &#x2F; sort 12.6ms); gzip -9 not UPX; rerun median n=5 samples=[100.5, 97.5, 98.8, 96.3, 104.8]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/lean/hello.lean</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="lean"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span> : IO Unit :=</span></span>
+<span class="giallo-l"><span>  IO.println </span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/lean/fibonacci.lean</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="lean"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> fib</span><span> (n : Nat) : Nat :=</span></span>
+<span class="giallo-l"><span>  Id.run </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> a := </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> b := </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> _ </span><span style="color: #CBA6F7;">in</span><span> [</span><span style="color: #FAB387;">0</span><span>:n] </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let</span><span> t := a + b</span></span>
+<span class="giallo-l"><span>      a := b</span></span>
+<span class="giallo-l"><span>      b := t</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    return</span><span> a</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span> : IO Unit :=</span></span>
+<span class="giallo-l"><span>  IO.println (toString (fib </span><span style="color: #FAB387;">42</span><span>))</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/lean/prime_sieve.lean</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="lean"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> countPrimes</span><span> (limit : Nat) : Nat :=</span></span>
+<span class="giallo-l"><span>  Id.run </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> s := ByteArray.emptyWithCapacity (limit + </span><span style="color: #FAB387;">1</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> k := </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> k &lt;= limit </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span>      s := s.push </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span>      k := k + </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span>    s := s.set! </span><span style="color: #FAB387;">0 0</span></span>
+<span class="giallo-l"><span>    s := s.set! </span><span style="color: #FAB387;">1 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> i := </span><span style="color: #FAB387;">2</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> i * i &lt;= limit </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      if</span><span> s.get! i != </span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> then</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        let mut</span><span> j := i * i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        while</span><span> j &lt;= limit </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span>          s := s.set! j </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span>          j := j + i</span></span>
+<span class="giallo-l"><span>      i := i + </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> count := </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span>    i := </span><span style="color: #FAB387;">2</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> i &lt;= limit </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      if</span><span> s.get! i != </span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> then</span></span>
+<span class="giallo-l"><span>        count := count + </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span>      i := i + </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    return</span><span> count</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span> : IO Unit := </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> limit := </span><span style="color: #FAB387;">1000000</span></span>
+<span class="giallo-l"><span>  IO.println </span><span style="color: #CBA6F7;">s!</span><span style="color: #A6E3A1;">&quot;Primes up to </span><span style="color: #CBA6F7;">{</span><span style="color: #A6E3A1;">limit</span><span style="color: #CBA6F7;">}</span><span style="color: #A6E3A1;">: </span><span style="color: #CBA6F7;">{</span><span style="color: #A6E3A1;">countPrimes limit</span><span style="color: #CBA6F7;">}</span><span style="color: #A6E3A1;">&quot;</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/lean/sorting.lean</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="lean"><span class="giallo-l"><span style="color: #9399B2;font-style: italic;">/-- Packed little-endian UInt32s in a ByteArray (the unboxed array type). -/</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">@[inline] def</span><span style="color: #89B4FA;font-style: italic;"> getU32</span><span> (a : ByteArray) (i : Nat) : UInt32 :=</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> off := i * </span><span style="color: #FAB387;">4</span></span>
+<span class="giallo-l"><span>  (a.get! off).toUInt32 |||</span></span>
+<span class="giallo-l"><span>  ((a.get! (off + </span><span style="color: #FAB387;">1</span><span>)).toUInt32 &lt;&lt;&lt; </span><span style="color: #FAB387;">8</span><span>) |||</span></span>
+<span class="giallo-l"><span>  ((a.get! (off + </span><span style="color: #FAB387;">2</span><span>)).toUInt32 &lt;&lt;&lt; </span><span style="color: #FAB387;">16</span><span>) |||</span></span>
+<span class="giallo-l"><span>  ((a.get! (off + </span><span style="color: #FAB387;">3</span><span>)).toUInt32 &lt;&lt;&lt; </span><span style="color: #FAB387;">24</span><span>)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">@[inline] def</span><span style="color: #89B4FA;font-style: italic;"> setU32</span><span> (a : ByteArray) (i : Nat) (v : UInt32) : ByteArray :=</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> off := i * </span><span style="color: #FAB387;">4</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> a := a.set! off v.toUInt8</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> a := a.set! (off + </span><span style="color: #FAB387;">1</span><span>) (v &gt;&gt;&gt; </span><span style="color: #FAB387;">8</span><span>).toUInt8</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> a := a.set! (off + </span><span style="color: #FAB387;">2</span><span>) (v &gt;&gt;&gt; </span><span style="color: #FAB387;">16</span><span>).toUInt8</span></span>
+<span class="giallo-l"><span>  a.set! (off + </span><span style="color: #FAB387;">3</span><span>) (v &gt;&gt;&gt; </span><span style="color: #FAB387;">24</span><span>).toUInt8</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> zeros</span><span> (nbytes : Nat) : ByteArray :=</span></span>
+<span class="giallo-l"><span>  Id.run </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> a := ByteArray.emptyWithCapacity nbytes</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> i := </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> i &lt; nbytes </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span>      a := a.push </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span>      i := i + </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    return</span><span> a</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> fillLCG</span><span> (n : Nat) : ByteArray :=</span></span>
+<span class="giallo-l"><span>  Id.run </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> a := zeros (n * </span><span style="color: #FAB387;">4</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> seed : UInt32 := </span><span style="color: #FAB387;">42</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> i := </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> i &lt; n </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span>      seed := seed * </span><span style="color: #FAB387;">1664525</span><span> + </span><span style="color: #FAB387;">1013904223</span></span>
+<span class="giallo-l"><span>      a := setU32 a i (seed &amp;&amp;&amp; (</span><span style="color: #FAB387;">0x7fffffff</span><span> : UInt32))</span></span>
+<span class="giallo-l"><span>      i := i + </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    return</span><span> a</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> radixSort</span><span> (src0 : ByteArray) (n : Nat) : ByteArray :=</span></span>
+<span class="giallo-l"><span>  Id.run </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> src := src0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> dst := zeros (n * </span><span style="color: #FAB387;">4</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let mut</span><span> pass := </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> pass &lt; </span><span style="color: #FAB387;">4</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let</span><span> shift : UInt32 := UInt32.ofNat (pass * </span><span style="color: #FAB387;">8</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let mut</span><span> counts := Array.replicate </span><span style="color: #FAB387;">256</span><span> (</span><span style="color: #FAB387;">0</span><span> : Nat)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let mut</span><span> i := </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      while</span><span> i &lt; n </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        let</span><span> b := (getU32 src i &gt;&gt;&gt; shift &amp;&amp;&amp; (</span><span style="color: #FAB387;">255</span><span> : UInt32)).toNat</span></span>
+<span class="giallo-l"><span>        counts := counts.set! b (counts[b]! + </span><span style="color: #FAB387;">1</span><span>)</span></span>
+<span class="giallo-l"><span>        i := i + </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let mut</span><span> sum := </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let mut</span><span> b := </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      while</span><span> b &lt; </span><span style="color: #FAB387;">256</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        let</span><span> c := counts[b]!</span></span>
+<span class="giallo-l"><span>        counts := counts.set! b sum</span></span>
+<span class="giallo-l"><span>        sum := sum + c</span></span>
+<span class="giallo-l"><span>        b := b + </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span>      i := </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      while</span><span> i &lt; n </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        let</span><span> v := getU32 src i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        let</span><span> bucket := (v &gt;&gt;&gt; shift &amp;&amp;&amp; (</span><span style="color: #FAB387;">255</span><span> : UInt32)).toNat</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        let</span><span> c := counts[bucket]!</span></span>
+<span class="giallo-l"><span>        dst := setU32 dst c v</span></span>
+<span class="giallo-l"><span>        counts := counts.set! bucket (c + </span><span style="color: #FAB387;">1</span><span>)</span></span>
+<span class="giallo-l"><span>        i := i + </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let</span><span> tmp := src</span></span>
+<span class="giallo-l"><span>      src := dst</span></span>
+<span class="giallo-l"><span>      dst := tmp</span></span>
+<span class="giallo-l"><span>      pass := pass + </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    return</span><span> src</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span> : IO Unit := </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> n := </span><span style="color: #FAB387;">1000000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> sorted := radixSort (fillLCG n) n</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> first := getU32 sorted </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> last := getU32 sorted (n - </span><span style="color: #FAB387;">1</span><span>)</span></span>
+<span class="giallo-l"><span>  IO.println </span><span style="color: #CBA6F7;">s!</span><span style="color: #A6E3A1;">&quot;Sorted </span><span style="color: #CBA6F7;">{</span><span style="color: #A6E3A1;">n</span><span style="color: #CBA6F7;">}</span><span style="color: #A6E3A1;"> integers: first=</span><span style="color: #CBA6F7;">{</span><span style="color: #A6E3A1;">first</span><span style="color: #CBA6F7;">}</span><span style="color: #A6E3A1;">, last=</span><span style="color: #CBA6F7;">{</span><span style="color: #A6E3A1;">last</span><span style="color: #CBA6F7;">}</span><span style="color: #A6E3A1;">&quot;</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

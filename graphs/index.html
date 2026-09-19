@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graphs · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+<h1>Graphs</h1>
+<p>Charts from <code>scripts/plot_results.py</code> over <code>results/languages.csv</code>. Lower is faster. GPU rows, o3-monkey, COBOL, and R sort are omitted from the work charts. Bar charts include every timed language. Use the <strong>Interactive charts</strong> link below to filter by family, search languages, switch metric, and hover for exact times.</p>
+
+<p><a class="button" href="https://lyamc.github.io/graphs/interactive.html">Interactive charts</a>
+  <span class="muted"> — filter, search, hover (Chart.js)</span></p>
+<div class="graphs">
+  
+  <figure>
+    <a href="https://lyamc.github.io/graphs/sieve_times.svg"><img src="https://lyamc.github.io/graphs/sieve_times.svg" alt="sieve_times"></a>
+    <figcaption>sieve times</figcaption>
+  </figure>
+  
+  <figure>
+    <a href="https://lyamc.github.io/graphs/sort_times.svg"><img src="https://lyamc.github.io/graphs/sort_times.svg" alt="sort_times"></a>
+    <figcaption>sort times</figcaption>
+  </figure>
+  
+  <figure>
+    <a href="https://lyamc.github.io/graphs/native_sieve_sort.svg"><img src="https://lyamc.github.io/graphs/native_sieve_sort.svg" alt="native_sieve_sort"></a>
+    <figcaption>native sieve sort</figcaption>
+  </figure>
+  
+  <figure>
+    <a href="https://lyamc.github.io/graphs/c_compilers.svg"><img src="https://lyamc.github.io/graphs/c_compilers.svg" alt="c_compilers"></a>
+    <figcaption>c compilers</figcaption>
+  </figure>
+  
+  <figure>
+    <a href="https://lyamc.github.io/graphs/sieve_vs_source.svg"><img src="https://lyamc.github.io/graphs/sieve_vs_source.svg" alt="sieve_vs_source"></a>
+    <figcaption>sieve vs source</figcaption>
+  </figure>
+  
+  <figure>
+    <a href="https://lyamc.github.io/graphs/sort_vs_binary.svg"><img src="https://lyamc.github.io/graphs/sort_vs_binary.svg" alt="sort_vs_binary"></a>
+    <figcaption>sort vs binary</figcaption>
+  </figure>
+  
+</div>
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clojure · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Clojure</h1>
+  <span class="pill jit">jit</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">JIT</span>
+</div>
+<p class="muted">Clojure CLI 1.12.0.1501 · clojure -M -m → Clojure bytecode · HotSpot JVM</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">659.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">672.6 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">689.8 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">738.9 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="659.2">659.2</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="59">59 B</td>
+        <td class="num" data-n="77">77 B</td>
+        <td class="num" data-n="24793088">23.6 MB</td>
+        <td class="num" data-n="12508">12508 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="672.6">672.6</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="152">152 B</td>
+        <td class="num" data-n="129">129 B</td>
+        <td class="num" data-n="24793088">23.6 MB</td>
+        <td class="num" data-n="12468">12468 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="689.8">689.8</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="515">515 B</td>
+        <td class="num" data-n="269">269 B</td>
+        <td class="num" data-n="24793088">23.6 MB</td>
+        <td class="num" data-n="12488">12488 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="738.9">738.9</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="455">455 B</td>
+        <td class="num" data-n="224">224 B</td>
+        <td class="num" data-n="24793088">23.6 MB</td>
+        <td class="num" data-n="12832">12832 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 65 (work table).
+   Sort rank 57.
+  Four-file source 1 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[738.6, 735.6, 747.0, 738.9, 753.3]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/clojure/hello.clj</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="clojure"><span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">ns</span><span> hello</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">defn</span><span> -main</span><span style="color: #9399B2;"> [</span><span>&amp; _</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span style="color: #89B4FA;font-style: italic;">println</span><span style="color: #A6E3A1;"> &quot;Hello, World!&quot;</span><span style="color: #9399B2;">))</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/clojure/fibonacci.clj</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="clojure"><span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">ns</span><span> fibonacci</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">defn</span><span> fib</span><span style="color: #9399B2;"> [</span><span>n</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span>loop</span><span style="color: #9399B2;"> [</span><span>i</span><span style="color: #FAB387;"> 0</span><span> a</span><span style="color: #FAB387;"> 0</span><span> b</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span>if</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">&lt;</span><span> i n</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">      (</span><span>recur</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">inc</span><span> i</span><span style="color: #9399B2;">)</span><span> b</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">+</span><span> a b</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span>      a</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">defn</span><span> -main</span><span style="color: #9399B2;"> [</span><span>&amp; _</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span style="color: #89B4FA;font-style: italic;">println</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">fib</span><span style="color: #FAB387;"> 42</span><span style="color: #9399B2;">)))</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/clojure/prime_sieve.clj</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="clojure"><span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">ns</span><span> prime-sieve</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">defn</span><span> sieve</span><span style="color: #9399B2;"> [</span><span>limit</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span>let</span><span style="color: #9399B2;"> [</span><span>is-prime</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">boolean-array</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">inc</span><span> limit</span><span style="color: #9399B2;">)</span><span style="color: #FAB387;"> true</span><span style="color: #9399B2;">)]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span style="color: #89B4FA;font-style: italic;">aset</span><span> is-prime</span><span style="color: #FAB387;"> 0 false</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span style="color: #89B4FA;font-style: italic;">aset</span><span> is-prime</span><span style="color: #FAB387;"> 1 false</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span style="color: #89B4FA;font-style: italic;">doseq</span><span style="color: #9399B2;"> [</span><span>i</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">range</span><span style="color: #FAB387;"> 2</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">inc</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">int</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">Math/sqrt</span><span> limit</span><span style="color: #9399B2;">))))]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">      (</span><span>when</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">aget</span><span> is-prime i</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        (</span><span>loop</span><span style="color: #9399B2;"> [</span><span>j</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">*</span><span> i i</span><span style="color: #9399B2;">)]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          (</span><span>when</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">&lt;=</span><span> j limit</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">            (</span><span style="color: #89B4FA;font-style: italic;">aset</span><span> is-prime j</span><span style="color: #FAB387;"> false</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">            (</span><span>recur</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">+</span><span> j i</span><span style="color: #9399B2;">))))))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span style="color: #89B4FA;font-style: italic;">areduce</span><span> is-prime i acc</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">             (</span><span>if</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">aget</span><span> is-prime i</span><span style="color: #9399B2;">) (</span><span style="color: #89B4FA;font-style: italic;">inc</span><span> acc</span><span style="color: #9399B2;">)</span><span> acc</span><span style="color: #9399B2;">))))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">defn</span><span> -main</span><span style="color: #9399B2;"> [</span><span>&amp; _</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span style="color: #89B4FA;font-style: italic;">println</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">str</span><span style="color: #A6E3A1;"> &quot;Primes up to 1000000: &quot;</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">sieve</span><span style="color: #FAB387;"> 1000000</span><span style="color: #9399B2;">))))</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/clojure/sorting.clj</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="clojure"><span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">ns</span><span> sorting</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">defn</span><span> -main</span><span style="color: #9399B2;"> [</span><span>&amp; _</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span>let</span><span style="color: #9399B2;"> [</span><span>data</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">int-array</span><span style="color: #FAB387;"> 1000000</span><span style="color: #9399B2;">)]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span>loop</span><span style="color: #9399B2;"> [</span><span>i</span><span style="color: #FAB387;"> 0</span><span> seed</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">int</span><span style="color: #FAB387;"> 42</span><span style="color: #9399B2;">)]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">      (</span><span>when</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">&lt;</span><span> i</span><span style="color: #FAB387;"> 1000000</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        (</span><span>let</span><span style="color: #9399B2;"> [</span><span>seed</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">unchecked-add</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">unchecked-multiply</span><span> seed</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">int</span><span style="color: #FAB387;"> 1664525</span><span style="color: #9399B2;">)) (</span><span style="color: #89B4FA;font-style: italic;">int</span><span style="color: #FAB387;"> 1013904223</span><span style="color: #9399B2;">))]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          (</span><span style="color: #89B4FA;font-style: italic;">aset</span><span> data i</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">bit-and</span><span> seed</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">int</span><span style="color: #FAB387;"> 0x7fffffff</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          (</span><span>recur</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">inc</span><span> i</span><span style="color: #9399B2;">)</span><span> seed</span><span style="color: #9399B2;">))))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span style="color: #89B4FA;font-style: italic;">java.util.Arrays/sort</span><span> data</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span style="color: #89B4FA;font-style: italic;">println</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">str</span><span style="color: #A6E3A1;"> &quot;Sorted 1000000 integers: first=&quot;</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">aget</span><span> data</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">                  &quot;, last=&quot;</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">aget</span><span> data</span><span style="color: #FAB387;"> 999999</span><span style="color: #9399B2;">)))))</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

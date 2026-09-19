@@ -1,0 +1,13 @@
+kind	backend	program	wall_ms	result
+gpu	wgpu	hello	618.2	Hello, World!
+gpu	wgpu	fibonacci	591.8	267914296
+gpu	wgpu	prime_sieve	687.8	Primes up to 1000000: 78498
+gpu	wgpu	sorting	715.1	Sorted 1000000 integers: first=3842, last=2147480074
+gpu	vulkan	hello	187.5	Hello, World!
+gpu	vulkan	fibonacci	185.5	267914296
+gpu	vulkan	prime_sieve	205.6	Primes up to 1000000: 78498
+gpu	vulkan	sorting	297.5	Sorted 1000000 integers: first=3842, last=2147480074
+gpu	ptx	hello	91.0	Hello, World!
+gpu	ptx	fibonacci	86.9	267914296
+gpu	ptx	prime_sieve	93.7	Primes up to 1000000: 78498
+gpu	ptx	sorting	101.1	Sorted 1000000 integers: first=3842, last=2147480074

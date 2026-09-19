@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mojo (AOT) · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Mojo (AOT)</h1>
+  <span class="pill native">native</span>
+  <span class="pill linux-wsl">linux-wsl</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">Mojo 1.0.0 (Ubuntu 24.04 WSL2) · mojo build → MLIR&#x2F;LLVM · native (Linux ELF via WSL2)</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">9.5 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">9.6 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">11 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">18.3 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="9.5">9.5</td>
+        <td class="num" data-n="2155">2155</td>
+        <td class="num" data-n="39">39 B</td>
+        <td class="num" data-n="57">57 B</td>
+        <td class="num" data-n="18000">18 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="9.6">9.6</td>
+        <td class="num" data-n="1184">1184</td>
+        <td class="num" data-n="155">155 B</td>
+        <td class="num" data-n="112">112 B</td>
+        <td class="num" data-n="20880">20 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="11">11</td>
+        <td class="num" data-n="1110">1110</td>
+        <td class="num" data-n="720">720 B</td>
+        <td class="num" data-n="322">322 B</td>
+        <td class="num" data-n="27016">26 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="18.3">18.3</td>
+        <td class="num" data-n="1345">1345</td>
+        <td class="num" data-n="1398">1 KB</td>
+        <td class="num" data-n="494">494 B</td>
+        <td class="num" data-n="28072">27 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 25 (work table).
+   Sort rank 24.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">open-source Mojo 1.0; timed inside Ubuntu 24.04 WSL2 (not wsl.exe spawn); AOT `mojo build`; LSD radix 4x8; rerun median n=5 samples=[18.3, 19.1, 20.6, 16.4, 17.5]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/mojo/hello.mojo</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/mojo/fibonacci.mojo</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span>    var n</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span>    var a</span><span style="color: #9399B2;">:</span><span> Int</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>    var b</span><span style="color: #9399B2;">:</span><span> Int</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> _</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span>n</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span>        var tmp</span><span style="color: #94E2D5;"> =</span><span> a</span><span style="color: #94E2D5;"> +</span><span> b</span></span>
+<span class="giallo-l"><span>        a</span><span style="color: #94E2D5;"> =</span><span> b</span></span>
+<span class="giallo-l"><span>        b</span><span style="color: #94E2D5;"> =</span><span> tmp</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span>a</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/mojo/prime_sieve.mojo</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">from</span><span> std</span><span style="color: #9399B2;">.</span><span>memory</span><span style="color: #9399B2;">.</span><span>alloc</span><span style="color: #CBA6F7;"> import</span><span> alloc</span><span style="color: #9399B2;">,</span><span> dealloc</span><span style="color: #9399B2;">,</span><span> Layout</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span>    comptime LIMIT</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span>    var allocation</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;"> alloc</span><span style="color: #9399B2;">(</span><span style="color: #EBA0AC;font-style: italic;">Layout</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">UInt8</span><span style="color: #9399B2;">](</span><span style="color: #EBA0AC;font-style: italic;">count</span><span style="color: #94E2D5;">=</span><span>LIMIT</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span>    var sieve</span><span style="color: #94E2D5;"> =</span><span> allocation</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;">unsafe_ptr</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span>LIMIT</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">        sieve</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">    sieve</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=</span><span style="color: #FAB387;font-style: italic;">0</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">    sieve</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=</span><span style="color: #FAB387;font-style: italic;">1</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>    var i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 2</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> i</span><span style="color: #94E2D5;"> *</span><span> i</span><span style="color: #94E2D5;"> &lt;=</span><span> LIMIT</span><span style="color: #9399B2;">:</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        if</span><span style="color: #EBA0AC;font-style: italic;"> sieve</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=i</span><span style="color: #9399B2;">]:</span></span>
+<span class="giallo-l"><span>            var j</span><span style="color: #94E2D5;"> =</span><span> i</span><span style="color: #94E2D5;"> *</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">            while</span><span> j</span><span style="color: #94E2D5;"> &lt;=</span><span> LIMIT</span><span style="color: #9399B2;">:</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">                sieve</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=j</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>                j</span><span style="color: #94E2D5;"> +=</span><span> i</span></span>
+<span class="giallo-l"><span>        i</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span>    var count</span><span style="color: #9399B2;">:</span><span> Int</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> k</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">2</span><span style="color: #9399B2;">,</span><span> LIMIT</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        if</span><span style="color: #EBA0AC;font-style: italic;"> sieve</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=k</span><span style="color: #9399B2;">]:</span></span>
+<span class="giallo-l"><span>            count</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span>t</span><span style="color: #A6E3A1;">&quot;Primes up to </span><span style="color: #F5C2E7;">{LIMIT}</span><span style="color: #A6E3A1;">: </span><span style="color: #F5C2E7;">{count}</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;">    dealloc</span><span style="color: #9399B2;">(</span><span>allocation</span><span style="color: #94E2D5;">^</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/mojo/sorting.mojo</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">from</span><span> std</span><span style="color: #9399B2;">.</span><span>memory</span><span style="color: #9399B2;">.</span><span>alloc</span><span style="color: #CBA6F7;"> import</span><span> alloc</span><span style="color: #9399B2;">,</span><span> dealloc</span><span style="color: #9399B2;">,</span><span> Layout</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span>    comptime N</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span>    var data_a</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;"> alloc</span><span style="color: #9399B2;">(</span><span style="color: #EBA0AC;font-style: italic;">Layout</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">UInt32</span><span style="color: #9399B2;">](</span><span style="color: #EBA0AC;font-style: italic;">count</span><span style="color: #94E2D5;">=</span><span>N</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span>    var tmp_a</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;"> alloc</span><span style="color: #9399B2;">(</span><span style="color: #EBA0AC;font-style: italic;">Layout</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">UInt32</span><span style="color: #9399B2;">](</span><span style="color: #EBA0AC;font-style: italic;">count</span><span style="color: #94E2D5;">=</span><span>N</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span>    var src</span><span style="color: #94E2D5;"> =</span><span> data_a</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;">unsafe_ptr</span><span style="color: #9399B2;">().</span><span style="color: #89B4FA;">as_unsafe_any_origin</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span>    var dst</span><span style="color: #94E2D5;"> =</span><span> tmp_a</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;">unsafe_ptr</span><span style="color: #9399B2;">().</span><span style="color: #89B4FA;">as_unsafe_any_origin</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span>    var seed</span><span style="color: #9399B2;">:</span><span> UInt32</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span>N</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span>        seed</span><span style="color: #94E2D5;"> =</span><span> seed</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">        src</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span> seed</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #CBA6F7;"> 0x</span><span style="color: #FAB387;">7FFFFFFF</span></span>
+<span class="giallo-l"><span>    var count</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;"> alloc</span><span style="color: #9399B2;">(</span><span style="color: #EBA0AC;font-style: italic;">Layout</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">UInt32</span><span style="color: #9399B2;">](</span><span style="color: #EBA0AC;font-style: italic;">count</span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;">256</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span>    var cptr</span><span style="color: #94E2D5;"> =</span><span> count</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;">unsafe_ptr</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> pass_i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">4</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> b</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">256</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">            cptr</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=b</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>        var shift</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;"> UInt32</span><span style="color: #9399B2;">(</span><span>pass_i</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 8</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span>N</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span>            var bucket</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;"> Int</span><span style="color: #9399B2;">((</span><span style="color: #EBA0AC;font-style: italic;">src</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> &gt;&gt;</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">            cptr</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=bucket</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span>        var</span><span style="color: #FAB387;font-style: italic;"> sum</span><span style="color: #9399B2;">:</span><span> UInt32</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> b</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">256</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span>            var c</span><span style="color: #94E2D5;"> =</span><span style="color: #EBA0AC;font-style: italic;"> cptr</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=b</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">            cptr</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=b</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;font-style: italic;"> sum</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">            sum</span><span style="color: #94E2D5;"> +=</span><span> c</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span>N</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span>            var v</span><span style="color: #94E2D5;"> =</span><span style="color: #EBA0AC;font-style: italic;"> src</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=i</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"><span>            var bucket</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;"> Int</span><span style="color: #9399B2;">((</span><span>v</span><span style="color: #94E2D5;"> &gt;&gt;</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">            dst</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=</span><span style="color: #89B4FA;font-style: italic;">Int</span><span style="color: #9399B2;">(</span><span style="color: #EBA0AC;font-style: italic;">cptr</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=bucket</span><span style="color: #9399B2;">])]</span><span style="color: #94E2D5;"> =</span><span> v</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">            cptr</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">unsafe_offset=bucket</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span>        var t</span><span style="color: #94E2D5;"> =</span><span> src</span></span>
+<span class="giallo-l"><span>        src</span><span style="color: #94E2D5;"> =</span><span> dst</span></span>
+<span class="giallo-l"><span>        dst</span><span style="color: #94E2D5;"> =</span><span> t</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span>t</span><span style="color: #A6E3A1;">&quot;Sorted </span><span style="color: #F5C2E7;">{N}</span><span style="color: #A6E3A1;"> integers: first=</span><span style="color: #F5C2E7;">{src[unsafe_offset=0]}</span><span style="color: #A6E3A1;">, last=</span><span style="color: #F5C2E7;">{src[unsafe_offset=N - 1]}</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;">    dealloc</span><span style="color: #9399B2;">(</span><span>count</span><span style="color: #94E2D5;">^</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;">    dealloc</span><span style="color: #9399B2;">(</span><span>tmp_a</span><span style="color: #94E2D5;">^</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;">    dealloc</span><span style="color: #9399B2;">(</span><span>data_a</span><span style="color: #94E2D5;">^</span><span style="color: #9399B2;">)</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

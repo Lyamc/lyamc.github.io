@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Objective-C · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Objective-C</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">clang 17 · clang -O2 → LLVM · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">3.7 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">4.6 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">9.7 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="4">4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="83">83 B</td>
+        <td class="num" data-n="97">97 B</td>
+        <td class="num" data-n="110080">108 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="3.7">3.7</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="251">251 B</td>
+        <td class="num" data-n="172">172 B</td>
+        <td class="num" data-n="139776">137 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="4.6">4.6</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="530">530 B</td>
+        <td class="num" data-n="275">275 B</td>
+        <td class="num" data-n="140800">138 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="9.7">9.7</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="1357">1 KB</td>
+        <td class="num" data-n="341">341 B</td>
+        <td class="num" data-n="140800">138 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 2 (work table).
+   Sort rank 4.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">typed introsort; was libc qsort ~87ms; rerun median n=5 samples=[52.9, 50.4, 51.0, 50.1, 50.6]; LSD radix 4x8; was comparison sort</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/objc/hello.m</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>#include &lt;stdio.h&gt;</span></span>
+<span class="giallo-l"><span>int main(void) {</span></span>
+<span class="giallo-l"><span>    printf(&quot;Hello, World!\n&quot;);</span></span>
+<span class="giallo-l"><span>    return 0;</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/objc/fibonacci.m</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>#include &lt;stdio.h&gt;</span></span>
+<span class="giallo-l"><span>#include &lt;stdint.h&gt;</span></span>
+<span class="giallo-l"><span>int main(void) {</span></span>
+<span class="giallo-l"><span>    int n = 42;</span></span>
+<span class="giallo-l"><span>    int64_t a = 0, b = 1;</span></span>
+<span class="giallo-l"><span>    for (int i = 0; i &lt; n; i++) {</span></span>
+<span class="giallo-l"><span>        int64_t tmp = a + b;</span></span>
+<span class="giallo-l"><span>        a = b;</span></span>
+<span class="giallo-l"><span>        b = tmp;</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>    printf(&quot;%lld\n&quot;, (long long)a);</span></span>
+<span class="giallo-l"><span>    return 0;</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/objc/prime_sieve.m</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>#include &lt;stdio.h&gt;</span></span>
+<span class="giallo-l"><span>#include &lt;stdlib.h&gt;</span></span>
+<span class="giallo-l"><span>#include &lt;string.h&gt;</span></span>
+<span class="giallo-l"><span>int main(void) {</span></span>
+<span class="giallo-l"><span>    const int LIMIT = 1000000;</span></span>
+<span class="giallo-l"><span>    char *sieve = malloc((size_t)LIMIT + 1);</span></span>
+<span class="giallo-l"><span>    memset(sieve, 1, (size_t)LIMIT + 1);</span></span>
+<span class="giallo-l"><span>    sieve[0] = sieve[1] = 0;</span></span>
+<span class="giallo-l"><span>    for (int i = 2; i * i &lt;= LIMIT; i++)</span></span>
+<span class="giallo-l"><span>        if (sieve[i])</span></span>
+<span class="giallo-l"><span>            for (int j = i * i; j &lt;= LIMIT; j += i)</span></span>
+<span class="giallo-l"><span>                sieve[j] = 0;</span></span>
+<span class="giallo-l"><span>    int count = 0;</span></span>
+<span class="giallo-l"><span>    for (int i = 2; i &lt;= LIMIT; i++) if (sieve[i]) count++;</span></span>
+<span class="giallo-l"><span>    printf(&quot;Primes up to %d: %d\n&quot;, LIMIT, count);</span></span>
+<span class="giallo-l"><span>    free(sieve);</span></span>
+<span class="giallo-l"><span>    return 0;</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/objc/sorting.m</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>#include &lt;stdio.h&gt;</span></span>
+<span class="giallo-l"><span>#include &lt;stdlib.h&gt;</span></span>
+<span class="giallo-l"><span>#include &lt;string.h&gt;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>static void radix_sort(unsigned *a, unsigned *tmp, int n) {</span></span>
+<span class="giallo-l"><span>    unsigned count[256];</span></span>
+<span class="giallo-l"><span>    unsigned *src = a, *dst = tmp;</span></span>
+<span class="giallo-l"><span>    for (int pass = 0; pass &lt; 4; pass++) {</span></span>
+<span class="giallo-l"><span>        memset(count, 0, sizeof count);</span></span>
+<span class="giallo-l"><span>        int shift = pass * 8;</span></span>
+<span class="giallo-l"><span>        for (int i = 0; i &lt; n; i++)</span></span>
+<span class="giallo-l"><span>            count[(src[i] &gt;&gt; shift) &amp; 255]++;</span></span>
+<span class="giallo-l"><span>        unsigned sum = 0;</span></span>
+<span class="giallo-l"><span>        for (int i = 0; i &lt; 256; i++) {</span></span>
+<span class="giallo-l"><span>            unsigned c = count[i];</span></span>
+<span class="giallo-l"><span>            count[i] = sum;</span></span>
+<span class="giallo-l"><span>            sum += c;</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span>        for (int i = 0; i &lt; n; i++) {</span></span>
+<span class="giallo-l"><span>            unsigned v = src[i];</span></span>
+<span class="giallo-l"><span>            dst[count[(v &gt;&gt; shift) &amp; 255]++] = v;</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span>        unsigned *t = src;</span></span>
+<span class="giallo-l"><span>        src = dst;</span></span>
+<span class="giallo-l"><span>        dst = t;</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>int main(void) {</span></span>
+<span class="giallo-l"><span>    const int N = 1000000;</span></span>
+<span class="giallo-l"><span>    unsigned *data = malloc((size_t)N * sizeof *data);</span></span>
+<span class="giallo-l"><span>    unsigned *tmp = malloc((size_t)N * sizeof *tmp);</span></span>
+<span class="giallo-l"><span>    if (!data || !tmp) return 1;</span></span>
+<span class="giallo-l"><span>    unsigned seed = 42;</span></span>
+<span class="giallo-l"><span>    for (int i = 0; i &lt; N; i++) {</span></span>
+<span class="giallo-l"><span>        seed = seed * 1664525u + 1013904223u;</span></span>
+<span class="giallo-l"><span>        data[i] = seed &amp; 0x7fffffffu;</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>    radix_sort(data, tmp, N);</span></span>
+<span class="giallo-l"><span>    printf(&quot;Sorted %d integers: first=%u, last=%u\n&quot;, N, data[0], data[N - 1]);</span></span>
+<span class="giallo-l"><span>    free(tmp);</span></span>
+<span class="giallo-l"><span>    free(data);</span></span>
+<span class="giallo-l"><span>    return 0;</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

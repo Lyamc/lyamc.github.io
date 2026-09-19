@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elixir · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Elixir</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">bytecode VM</span>
+</div>
+<p class="muted">Elixir 1.18.4 + OTP 29 · elixir → BEAM · BEAM</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">325.9 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">357.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">380.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">538.3 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="325.9">325.9</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="25">25 B</td>
+        <td class="num" data-n="45">45 B</td>
+        <td class="num" data-n="6573">6 KB</td>
+        <td class="num" data-n="8880">8880 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="357.2">357.2</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="120">120 B</td>
+        <td class="num" data-n="111">111 B</td>
+        <td class="num" data-n="6573">6 KB</td>
+        <td class="num" data-n="8872">8872 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="380.4">380.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="634">634 B</td>
+        <td class="num" data-n="334">334 B</td>
+        <td class="num" data-n="6573">6 KB</td>
+        <td class="num" data-n="8868">8868 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="538.3">538.3</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="359">359 B</td>
+        <td class="num" data-n="251">251 B</td>
+        <td class="num" data-n="6573">6 KB</td>
+        <td class="num" data-n="8872">8872 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 58 (work table).
+   Sort rank 53.
+  Four-file source 1 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[536.7, 538.9, 530.6, 538.5, 538.3]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/elixir/hello.exs</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="elixir"><span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">IO</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">puts</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/elixir/fibonacci.exs</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="elixir"><span class="giallo-l"><span style="color: #CBA6F7;">defmodule</span><span style="color: #F9E2AF;font-style: italic;"> Fib</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  def</span><span style="color: #89B4FA;font-style: italic;"> fib</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">,</span><span> a</span><span style="color: #9399B2;">,</span><span style="color: #9399B2;font-style: italic;"> _</span><span style="color: #9399B2;">),</span><span> do: a</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  def</span><span style="color: #89B4FA;font-style: italic;"> fib</span><span style="color: #9399B2;">(</span><span>n</span><span style="color: #9399B2;">,</span><span> a</span><span style="color: #9399B2;">,</span><span> b</span><span style="color: #9399B2;">),</span><span> do:</span><span style="color: #89B4FA;font-style: italic;"> fib</span><span style="color: #9399B2;">(</span><span>n </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span> b</span><span style="color: #9399B2;">,</span><span> a </span><span style="color: #94E2D5;">+</span><span> b</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">IO</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">puts</span><span style="color: #9399B2;">(</span><span style="color: #F9E2AF;font-style: italic;">Fib</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">fib</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">42</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">))</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/elixir/prime_sieve.exs</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="elixir"><span class="giallo-l"><span>limit </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;"># atomics is 1-based. 0 = candidate, 1 = composite.</span></span>
+<span class="giallo-l"><span>a </span><span style="color: #94E2D5;">=</span><span> :atomics</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">new</span><span style="color: #9399B2;">(</span><span>limit</span><span style="color: #9399B2;">,</span><span> signed</span><span style="color: #9399B2;">:</span><span style="color: #F38BA8;"> false</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>:atomics</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">put</span><span style="color: #9399B2;">(</span><span>a</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>mark </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> fn</span><span> mark</span><span style="color: #9399B2;">,</span><span> i </span><span style="color: #94E2D5;">-&gt;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span> i </span><span style="color: #94E2D5;">*</span><span> i </span><span style="color: #94E2D5;">&gt;</span><span> limit </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    :</span><span>ok</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  else</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span> :atomics</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">get</span><span style="color: #9399B2;">(</span><span>a</span><span style="color: #9399B2;">,</span><span> i</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> ==</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>      strike </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> fn</span><span> strike</span><span style="color: #9399B2;">,</span><span> j </span><span style="color: #94E2D5;">-&gt;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        if</span><span> j </span><span style="color: #94E2D5;">&gt;</span><span> limit </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          :</span><span>ok</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        else</span></span>
+<span class="giallo-l"><span>          :atomics</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">put</span><span style="color: #9399B2;">(</span><span>a</span><span style="color: #9399B2;">,</span><span> j</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">          strike</span><span style="color: #9399B2;">.(</span><span>strike</span><span style="color: #9399B2;">,</span><span> j </span><span style="color: #94E2D5;">+</span><span> i</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      end</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">      strike</span><span style="color: #9399B2;">.(</span><span>strike</span><span style="color: #9399B2;">,</span><span> i </span><span style="color: #94E2D5;">*</span><span> i</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    end</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    mark</span><span style="color: #9399B2;">.(</span><span>mark</span><span style="color: #9399B2;">,</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">mark</span><span style="color: #9399B2;">.(</span><span>mark</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 2</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>count </span><span style="color: #94E2D5;">=</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">  Enum</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">reduce</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">2</span><span style="color: #94E2D5;">..</span><span>limit</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">,</span><span style="color: #CBA6F7;"> fn</span><span> i</span><span style="color: #9399B2;">,</span><span> acc </span><span style="color: #94E2D5;">-&gt;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span> :atomics</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">get</span><span style="color: #9399B2;">(</span><span>a</span><span style="color: #9399B2;">,</span><span> i</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> ==</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">,</span><span> do</span><span style="color: #9399B2;">:</span><span> acc </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span> else</span><span style="color: #9399B2;">:</span><span> acc</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">IO</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">puts</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Primes up to </span><span style="color: #9399B2;">#{</span><span>limit</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;">: </span><span style="color: #9399B2;">#{</span><span>count</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/elixir/sorting.exs</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="elixir"><span class="giallo-l"><span>fill </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> fn</span><span> fill</span><span style="color: #9399B2;">,</span><span> n</span><span style="color: #9399B2;">,</span><span> seed</span><span style="color: #9399B2;">,</span><span> acc </span><span style="color: #94E2D5;">-&gt;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span> n </span><span style="color: #94E2D5;">==</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>    acc</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  else</span></span>
+<span class="giallo-l"><span>    seed2 </span><span style="color: #94E2D5;">=</span><span style="color: #F9E2AF;font-style: italic;"> Bitwise</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">band</span><span style="color: #9399B2;">(</span><span>seed </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0xFFFFFFFF</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    fill</span><span style="color: #9399B2;">.(</span><span>fill</span><span style="color: #9399B2;">,</span><span> n </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span> seed2</span><span style="color: #9399B2;">, [</span><span style="color: #F9E2AF;font-style: italic;">Bitwise</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">band</span><span style="color: #9399B2;">(</span><span>seed2</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0x7FFFFFFF</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> |</span><span> acc</span><span style="color: #9399B2;">])</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>n </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span>data </span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> fill</span><span style="color: #9399B2;">.(</span><span>fill</span><span style="color: #9399B2;">,</span><span> n</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 42</span><span style="color: #9399B2;">, [])</span></span>
+<span class="giallo-l"><span>sorted </span><span style="color: #94E2D5;">=</span><span style="color: #F9E2AF;font-style: italic;"> Enum</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">sort</span><span style="color: #9399B2;">(</span><span>data</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">IO</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">puts</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Sorted </span><span style="color: #9399B2;">#{</span><span>n</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;"> integers: first=</span><span style="color: #9399B2;">#{</span><span style="color: #89B4FA;font-style: italic;">hd</span><span style="color: #9399B2;">(</span><span>sorted</span><span style="color: #9399B2;">)}</span><span style="color: #A6E3A1;">, last=</span><span style="color: #9399B2;">#{</span><span style="color: #F9E2AF;font-style: italic;">List</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">last</span><span style="color: #9399B2;">(</span><span>sorted</span><span style="color: #9399B2;">)}</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">)</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

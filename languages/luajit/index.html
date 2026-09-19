@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LuaJIT · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>LuaJIT</h1>
+  <span class="pill jit">jit</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">JIT</span>
+</div>
+<p class="muted">LuaJIT 2.1.19907 · luajit → Lua bytecode · LuaJIT DynASM</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">8.5 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">7.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">14.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">42.9 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="8.5">8.5</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="23">23 B</td>
+        <td class="num" data-n="43">43 B</td>
+        <td class="num" data-n="294912">288 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="7.2">7.2</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="78">78 B</td>
+        <td class="num" data-n="85">85 B</td>
+        <td class="num" data-n="294912">288 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="14.4">14.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="354">354 B</td>
+        <td class="num" data-n="211">211 B</td>
+        <td class="num" data-n="294912">288 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="42.9">42.9</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="839">839 B</td>
+        <td class="num" data-n="198">198 B</td>
+        <td class="num" data-n="294912">288 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 29 (work table).
+   Sort rank 33.
+  Four-file source 1 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[39.3, 43.8, 42.9, 42.5, 43.8]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/lua/hello.lua</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="lua"><span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">print</span><span>(</span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span><span>)</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/lua/fibonacci.lua</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="lua"><span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> n</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> a, b</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span>, </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> _</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span><span>, n</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>  a, b</span><span style="color: #94E2D5;"> =</span><span> b, a</span><span style="color: #94E2D5;"> +</span><span> b</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">print</span><span>(a)</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/lua/prime_sieve.lua</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="lua"><span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> LIMIT</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> sieve</span><span style="color: #94E2D5;"> =</span><span> {}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 2</span><span>, LIMIT</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>  sieve[i] </span><span style="color: #94E2D5;">=</span><span style="color: #F38BA8;"> true</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 2</span><span>, </span><span style="color: #89B4FA;font-style: italic;">math.floor</span><span>(</span><span style="color: #89B4FA;font-style: italic;">math.sqrt</span><span>(LIMIT)) </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span> sieve[i] </span><span style="color: #CBA6F7;">then</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> j</span><span style="color: #94E2D5;"> =</span><span> i</span><span style="color: #94E2D5;"> *</span><span> i, LIMIT, i</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>      sieve[j] </span><span style="color: #94E2D5;">=</span><span style="color: #F38BA8;"> false</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> count</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 2</span><span>, LIMIT</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span> sieve[i] </span><span style="color: #CBA6F7;">then</span><span> count</span><span style="color: #94E2D5;"> =</span><span> count</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">print</span><span>(</span><span style="color: #89B4FA;font-style: italic;">string.format</span><span>(</span><span style="color: #A6E3A1;">&quot;Primes up to %d: %d&quot;</span><span>, LIMIT, count))</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/lua/sorting.lua</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="lua"><span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> N</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> data, tmp</span><span style="color: #94E2D5;"> =</span><span> {}, {}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> seed</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span><span>, N</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>  seed</span><span style="color: #94E2D5;"> =</span><span> (seed</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span>) </span><span style="color: #94E2D5;">%</span><span style="color: #FAB387;"> 4294967296</span></span>
+<span class="giallo-l"><span>  data[i] </span><span style="color: #94E2D5;">=</span><span> seed</span><span style="color: #94E2D5;"> %</span><span style="color: #FAB387;"> 2147483648</span></span>
+<span class="giallo-l"><span>  tmp[i] </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">-- Digit via / % so the same file parses on Lua 5.4 and LuaJIT 5.1.</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> DIV</span><span style="color: #94E2D5;"> =</span><span> {</span><span style="color: #FAB387;">1</span><span>, </span><span style="color: #FAB387;">256</span><span>, </span><span style="color: #FAB387;">65536</span><span>, </span><span style="color: #FAB387;">16777216</span><span>}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> count</span><span style="color: #94E2D5;"> =</span><span> {}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">local</span><span> src, dst</span><span style="color: #94E2D5;"> =</span><span> data, tmp</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> p</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span>, </span><span style="color: #FAB387;">3</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span>, </span><span style="color: #FAB387;">255</span><span style="color: #CBA6F7;"> do</span><span> count[i] </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  local</span><span> d</span><span style="color: #94E2D5;"> =</span><span> DIV[p</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span>]</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span><span>, N</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    local</span><span> b</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;font-style: italic;"> math.floor</span><span>(src[i] </span><span style="color: #94E2D5;">/</span><span> d) </span><span style="color: #94E2D5;">%</span><span style="color: #FAB387;"> 256</span></span>
+<span class="giallo-l"><span>    count[b] </span><span style="color: #94E2D5;">=</span><span> count[b] </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  local</span><span> sum</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span>, </span><span style="color: #FAB387;">255</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    local</span><span> c</span><span style="color: #94E2D5;"> =</span><span> count[i]</span></span>
+<span class="giallo-l"><span>    count[i] </span><span style="color: #94E2D5;">=</span><span> sum</span></span>
+<span class="giallo-l"><span>    sum</span><span style="color: #94E2D5;"> =</span><span> sum</span><span style="color: #94E2D5;"> +</span><span> c</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span><span>, N</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    local</span><span> v</span><span style="color: #94E2D5;"> =</span><span> src[i]</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    local</span><span> b</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;font-style: italic;"> math.floor</span><span>(v</span><span style="color: #94E2D5;"> /</span><span> d) </span><span style="color: #94E2D5;">%</span><span style="color: #FAB387;"> 256</span></span>
+<span class="giallo-l"><span>    count[b] </span><span style="color: #94E2D5;">=</span><span> count[b] </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span>    dst[count[b]] </span><span style="color: #94E2D5;">=</span><span> v</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span></span>
+<span class="giallo-l"><span>  src, dst</span><span style="color: #94E2D5;"> =</span><span> dst, src</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">print</span><span>(</span><span style="color: #89B4FA;font-style: italic;">string.format</span><span>(</span><span style="color: #A6E3A1;">&quot;Sorted %d integers: first=%d, last=%d&quot;</span><span>, N, src[</span><span style="color: #FAB387;">1</span><span>], src[N]))</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

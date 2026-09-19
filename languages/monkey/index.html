@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monkey · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Monkey</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">custom interpreter (Go) · monkey.exe → tree-walk · Go</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">7.8 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">6.7 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">322 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">388.7 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="7.8">7.8</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="22">22 B</td>
+        <td class="num" data-n="42">42 B</td>
+        <td class="num" data-n="2710528">2.6 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="6.7">6.7</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="124">124 B</td>
+        <td class="num" data-n="102">102 B</td>
+        <td class="num" data-n="2710528">2.6 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="322">322</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="425">425 B</td>
+        <td class="num" data-n="214">214 B</td>
+        <td class="num" data-n="2710528">2.6 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="388.7">388.7</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="299">299 B</td>
+        <td class="num" data-n="207">207 B</td>
+        <td class="num" data-n="2710528">2.6 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 57 (work table).
+   Sort rank 49.
+  Four-file source 870 B.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[392.6, 380.3, 383.2, 388.7, 393.4]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/monkey/hello.monkey</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="javascript"><span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span>(</span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span><span>)</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/monkey/fibonacci.monkey</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="javascript"><span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> a</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> b</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">while</span><span> (i</span><span style="color: #94E2D5;"> &lt;</span><span style="color: #FAB387;"> 42</span><span>)</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> tmp</span><span style="color: #94E2D5;"> =</span><span> a</span><span style="color: #94E2D5;"> +</span><span> b</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> a</span><span style="color: #94E2D5;"> =</span><span> b</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> b</span><span style="color: #94E2D5;"> =</span><span> tmp</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> i</span><span style="color: #94E2D5;"> =</span><span> i</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span>(a)</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/monkey/prime_sieve.monkey</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="javascript"><span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> limit</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> sieve</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;font-style: italic;"> make_bools</span><span>(</span><span style="color: #FAB387;">1000001</span><span>)</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">set</span><span>(sieve</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span>)</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">set</span><span>(sieve</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span>)</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 2</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">while</span><span> (i</span><span style="color: #94E2D5;"> *</span><span> i</span><span style="color: #94E2D5;"> &lt;</span><span style="color: #FAB387;"> 1000001</span><span>)</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span> (sieve[i])</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let</span><span> j</span><span style="color: #94E2D5;"> =</span><span> i</span><span style="color: #94E2D5;"> *</span><span> i</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> (j</span><span style="color: #94E2D5;"> &lt;</span><span style="color: #FAB387;"> 1000001</span><span>)</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">      set</span><span>(sieve</span><span style="color: #9399B2;">,</span><span> j</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span>)</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let</span><span> j</span><span style="color: #94E2D5;"> =</span><span> j</span><span style="color: #94E2D5;"> +</span><span> i</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  }</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> i</span><span style="color: #94E2D5;"> =</span><span> i</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> count</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> k</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 2</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">while</span><span> (k</span><span style="color: #94E2D5;"> &lt;</span><span style="color: #FAB387;"> 1000001</span><span>)</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span> (sieve[k])</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let</span><span> count</span><span style="color: #94E2D5;"> =</span><span> count</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  }</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> k</span><span style="color: #94E2D5;"> =</span><span> k</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span>(</span><span style="color: #A6E3A1;">&quot;Primes up to 1000000: &quot;</span><span>)</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span>(count)</span><span style="color: #9399B2;">;</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/monkey/sorting.monkey</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="javascript"><span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> n</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> data</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;font-style: italic;"> make_ints</span><span>(n)</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> seed</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">let</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">while</span><span> (i</span><span style="color: #94E2D5;"> &lt;</span><span> n)</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> seed</span><span style="color: #94E2D5;"> =</span><span> (seed</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span>)</span><span style="color: #94E2D5;"> %</span><span style="color: #FAB387;"> 4294967296</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">  set</span><span>(data</span><span style="color: #9399B2;">,</span><span> i</span><span style="color: #9399B2;">,</span><span> seed</span><span style="color: #94E2D5;"> %</span><span style="color: #FAB387;"> 2147483648</span><span>)</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> i</span><span style="color: #94E2D5;"> =</span><span> i</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">sort</span><span>(data)</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span>(</span><span style="color: #A6E3A1;">&quot;Sorted 1000000 integers: first=&quot;</span><span>)</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span>(data[</span><span style="color: #FAB387;">0</span><span>])</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span>(</span><span style="color: #A6E3A1;">&quot;, last=&quot;</span><span>)</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span>(data[n</span><span style="color: #94E2D5;"> -</span><span style="color: #FAB387;"> 1</span><span>])</span><span style="color: #9399B2;">;</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

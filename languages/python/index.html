@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Python</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">CPython 3.13.15 · python → CPython bytecode · CPython</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">17.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">15.3 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">20 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">273.4 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="17.2">17.2</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="78">78 B</td>
+        <td class="num" data-n="86">86 B</td>
+        <td class="num" data-n="105696">103 KB</td>
+        <td class="num" data-n="20900">20900 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="15.3">15.3</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="139">139 B</td>
+        <td class="num" data-n="117">117 B</td>
+        <td class="num" data-n="105696">103 KB</td>
+        <td class="num" data-n="20236">20236 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="20">20</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="367">367 B</td>
+        <td class="num" data-n="231">231 B</td>
+        <td class="num" data-n="105696">103 KB</td>
+        <td class="num" data-n="20212">20212 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="273.4">273.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="303">303 B</td>
+        <td class="num" data-n="179">179 B</td>
+        <td class="num" data-n="105696">103 KB</td>
+        <td class="num" data-n="20192">20192 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 32 (work table).
+   Sort rank 46.
+  Four-file source 887 B.
+</p>
+
+
+<p class="note">LCG + list.sort; was random.randint ~482ms wrong answers; rerun median n=5 samples=[274.4, 273.4, 273.5, 272.7, 272.9]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/python/hello.py</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">if</span><span> __name__</span><span style="color: #94E2D5;"> ==</span><span style="color: #A6E3A1;"> &quot;__main__&quot;</span><span style="color: #9399B2;">:</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;">    main</span><span style="color: #9399B2;">()</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/python/fibonacci.py</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span>    a</span><span style="color: #9399B2;">,</span><span> b</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> _</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span>n</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span>        a</span><span style="color: #9399B2;">,</span><span> b</span><span style="color: #94E2D5;"> =</span><span> b</span><span style="color: #9399B2;">,</span><span> a</span><span style="color: #94E2D5;"> +</span><span> b</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span>a</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">if</span><span> __name__</span><span style="color: #94E2D5;"> ==</span><span style="color: #A6E3A1;"> &quot;__main__&quot;</span><span style="color: #9399B2;">:</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;">    main</span><span style="color: #9399B2;">()</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/python/prime_sieve.py</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span>    LIMIT</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span>    sieve</span><span style="color: #94E2D5;"> =</span><span style="color: #CBA6F7;font-style: italic;"> bytearray</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;font-style: italic;">b</span><span style="color: #A6E3A1;">&#39;</span><span style="color: #F5C2E7;">\x01</span><span style="color: #A6E3A1;">&#39;</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> *</span><span style="color: #9399B2;"> (</span><span>LIMIT</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">    sieve</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;font-style: italic;">0</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">    sieve</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;font-style: italic;">1</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">2</span><span style="color: #9399B2;">,</span><span style="color: #CBA6F7;font-style: italic;"> int</span><span style="color: #9399B2;">(</span><span>LIMIT</span><span style="color: #94E2D5;">**</span><span style="color: #FAB387;">0.5</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        if</span><span style="color: #EBA0AC;font-style: italic;"> sieve</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">i</span><span style="color: #9399B2;">]:</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">            sieve</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">i</span><span style="color: #94E2D5;">*</span><span style="color: #EBA0AC;font-style: italic;">i</span><span style="color: #9399B2;"> :</span><span style="color: #EBA0AC;font-style: italic;"> LIMIT</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;font-style: italic;"> 1</span><span style="color: #9399B2;"> :</span><span style="color: #EBA0AC;font-style: italic;"> i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #A6E3A1;font-style: italic;"> b</span><span style="color: #A6E3A1;">&#39;</span><span style="color: #F5C2E7;">\x00</span><span style="color: #A6E3A1;">&#39;</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;font-style: italic;"> len</span><span style="color: #9399B2;">(</span><span style="color: #EBA0AC;font-style: italic;">sieve</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">i</span><span style="color: #94E2D5;">*</span><span style="color: #EBA0AC;font-style: italic;">i</span><span style="color: #9399B2;"> :</span><span style="color: #EBA0AC;font-style: italic;"> LIMIT</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;font-style: italic;"> 1</span><span style="color: #9399B2;"> :</span><span style="color: #EBA0AC;font-style: italic;"> i</span><span style="color: #9399B2;">])</span></span>
+<span class="giallo-l"><span>    count</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;font-style: italic;"> sum</span><span style="color: #9399B2;">(</span><span>sieve</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;font-style: italic;">f</span><span style="color: #A6E3A1;">&quot;Primes up to </span><span style="color: #F5C2E7;">{</span><span>LIMIT</span><span style="color: #F5C2E7;">}</span><span style="color: #A6E3A1;">: </span><span style="color: #F5C2E7;">{</span><span>count</span><span style="color: #F5C2E7;">}</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">if</span><span> __name__</span><span style="color: #94E2D5;"> ==</span><span style="color: #A6E3A1;"> &quot;__main__&quot;</span><span style="color: #9399B2;">:</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;">    main</span><span style="color: #9399B2;">()</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/python/sorting.py</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="python"><span class="giallo-l"><span style="color: #CBA6F7;">def</span><span style="color: #89B4FA;font-style: italic;"> main</span><span style="color: #9399B2;">():</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span>    data</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> [</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> *</span><span> n</span></span>
+<span class="giallo-l"><span>    seed</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;font-style: italic;"> range</span><span style="color: #9399B2;">(</span><span>n</span><span style="color: #9399B2;">):</span></span>
+<span class="giallo-l"><span>        seed</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> (</span><span>seed</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #CBA6F7;"> 0x</span><span style="color: #FAB387;">FFFFFFFF</span></span>
+<span class="giallo-l"><span style="color: #EBA0AC;font-style: italic;">        data</span><span style="color: #9399B2;">[</span><span style="color: #EBA0AC;font-style: italic;">i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span> seed</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #CBA6F7;"> 0x</span><span style="color: #FAB387;">7FFFFFFF</span></span>
+<span class="giallo-l"><span>    data</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;">sort</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    print</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;font-style: italic;">f</span><span style="color: #A6E3A1;">&quot;Sorted </span><span style="color: #F5C2E7;">{</span><span>n</span><span style="color: #F5C2E7;">}</span><span style="color: #A6E3A1;"> integers: first=</span><span style="color: #F5C2E7;">{</span><span style="color: #EBA0AC;font-style: italic;">data</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;font-style: italic;">0</span><span style="color: #9399B2;">]</span><span style="color: #F5C2E7;">}</span><span style="color: #A6E3A1;">, last=</span><span style="color: #F5C2E7;">{</span><span style="color: #EBA0AC;font-style: italic;">data</span><span style="color: #9399B2;">[</span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;font-style: italic;">1</span><span style="color: #9399B2;">]</span><span style="color: #F5C2E7;">}</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">if</span><span> __name__</span><span style="color: #94E2D5;"> ==</span><span style="color: #A6E3A1;"> &quot;__main__&quot;</span><span style="color: #9399B2;">:</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;">    main</span><span style="color: #9399B2;">()</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

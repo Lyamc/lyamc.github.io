@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gleam · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Gleam</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">bytecode VM</span>
+</div>
+<p class="muted">Gleam 1.18.1 · gleam run → Gleam-&gt;BEAM · BEAM</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">485.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">478.3 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">493.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">800.1 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="485.2">485.2</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="65">65 B</td>
+        <td class="num" data-n="85">85 B</td>
+        <td class="num" data-n="23295832">22.2 MB</td>
+        <td class="num" data-n="2000">2000 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="478.3">478.3</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="194">194 B</td>
+        <td class="num" data-n="153">153 B</td>
+        <td class="num" data-n="23295832">22.2 MB</td>
+        <td class="num" data-n="2644">2644 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="493.4">493.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="1303">1 KB</td>
+        <td class="num" data-n="400">400 B</td>
+        <td class="num" data-n="23295832">22.2 MB</td>
+        <td class="num" data-n="2644">2644 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="800.1">800.1</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="683">683 B</td>
+        <td class="num" data-n="352">352 B</td>
+        <td class="num" data-n="23295832">22.2 MB</td>
+        <td class="num" data-n="2644">2644 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 60 (work table).
+   Sort rank 59.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">list.sort 1e6 cons; csv 28.5ms spawn floor; rerun median n=5 samples=[797.7, 803.8, 800.1, 792.1, 803.9]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/gleam/hello/src/hello.gleam</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="gleam"><span class="giallo-l"><span style="color: #CBA6F7;">import</span><span> gleam</span><span style="color: #94E2D5;">/</span><span>io</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">pub fn</span><span style="color: #89B4FA;font-style: italic;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span>  io.</span><span style="color: #89B4FA;font-style: italic;">println</span><span>(</span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span><span>)</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/gleam/fibonacci/src/fibonacci.gleam</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="gleam"><span class="giallo-l"><span style="color: #CBA6F7;">import</span><span> gleam</span><span style="color: #94E2D5;">/</span><span>int</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span> gleam</span><span style="color: #94E2D5;">/</span><span>io</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">fn</span><span style="color: #89B4FA;font-style: italic;"> fib</span><span>(</span><span style="color: #EBA0AC;font-style: italic;">n: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">a: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">b: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>)</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #F9E2AF;font-style: italic;"> Int</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  case</span><span> n {</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">    0</span><span style="color: #94E2D5;"> -&gt;</span><span> a</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">    _</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #89B4FA;font-style: italic;"> fib</span><span>(n </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span>, b, a </span><span style="color: #94E2D5;">+</span><span> b)</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">pub fn</span><span style="color: #89B4FA;font-style: italic;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span>  io.</span><span style="color: #89B4FA;font-style: italic;">println</span><span>(int.</span><span style="color: #89B4FA;font-style: italic;">to_string</span><span>(</span><span style="color: #89B4FA;font-style: italic;">fib</span><span>(</span><span style="color: #FAB387;">42</span><span>, </span><span style="color: #FAB387;">0</span><span>, </span><span style="color: #FAB387;">1</span><span>)))</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/gleam/prime_sieve/src/prime_sieve.gleam</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="gleam"><span class="giallo-l"><span style="color: #CBA6F7;">import</span><span> gleam</span><span style="color: #94E2D5;">/</span><span>int</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span> gleam</span><span style="color: #94E2D5;">/</span><span>io</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span> gleam</span><span style="color: #94E2D5;">/</span><span>string</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">pub type</span><span style="color: #F9E2AF;font-style: italic;"> Atomics</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>@</span><span style="color: #89B4FA;font-style: italic;">external</span><span>(erlang, </span><span style="color: #A6E3A1;">&quot;atomics&quot;</span><span>, </span><span style="color: #A6E3A1;">&quot;new&quot;</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">fn</span><span style="color: #89B4FA;font-style: italic;"> atomics_new</span><span>(</span><span style="color: #EBA0AC;font-style: italic;">size: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">options: </span><span style="color: #F9E2AF;font-style: italic;">List</span><span>(a)) </span><span style="color: #94E2D5;">-&gt;</span><span style="color: #F9E2AF;font-style: italic;"> Atomics</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>@</span><span style="color: #89B4FA;font-style: italic;">external</span><span>(erlang, </span><span style="color: #A6E3A1;">&quot;atomics&quot;</span><span>, </span><span style="color: #A6E3A1;">&quot;put&quot;</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">fn</span><span style="color: #89B4FA;font-style: italic;"> atomics_put</span><span>(</span><span style="color: #EBA0AC;font-style: italic;">ref: </span><span style="color: #F9E2AF;font-style: italic;">Atomics</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">index: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">value: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>)</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #F9E2AF;font-style: italic;"> Nil</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>@</span><span style="color: #89B4FA;font-style: italic;">external</span><span>(erlang, </span><span style="color: #A6E3A1;">&quot;atomics&quot;</span><span>, </span><span style="color: #A6E3A1;">&quot;get&quot;</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">fn</span><span style="color: #89B4FA;font-style: italic;"> atomics_get</span><span>(</span><span style="color: #EBA0AC;font-style: italic;">ref: </span><span style="color: #F9E2AF;font-style: italic;">Atomics</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">index: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>)</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #F9E2AF;font-style: italic;"> Int</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">fn</span><span style="color: #89B4FA;font-style: italic;"> strike</span><span>(</span><span style="color: #EBA0AC;font-style: italic;">a: </span><span style="color: #F9E2AF;font-style: italic;">Atomics</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">j: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">i: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">limit: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>)</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #F9E2AF;font-style: italic;"> Nil</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  case</span><span> j </span><span style="color: #94E2D5;">&gt;</span><span> limit {</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    True</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #F9E2AF;font-style: italic;"> Nil</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    False</span><span style="color: #94E2D5;"> -&gt;</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">      atomics_put</span><span>(a, j, </span><span style="color: #FAB387;">1</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">      strike</span><span>(a, j </span><span style="color: #94E2D5;">+</span><span> i, i, limit)</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">fn</span><span style="color: #89B4FA;font-style: italic;"> mark</span><span>(</span><span style="color: #EBA0AC;font-style: italic;">a: </span><span style="color: #F9E2AF;font-style: italic;">Atomics</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">i: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">limit: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>)</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #F9E2AF;font-style: italic;"> Nil</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  case</span><span> i </span><span style="color: #94E2D5;">*</span><span> i </span><span style="color: #94E2D5;">&gt;</span><span> limit {</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    True</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #F9E2AF;font-style: italic;"> Nil</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    False</span><span style="color: #94E2D5;"> -&gt;</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      case</span><span style="color: #89B4FA;font-style: italic;"> atomics_get</span><span>(a, i) {</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">        0</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #89B4FA;font-style: italic;"> strike</span><span>(a, i </span><span style="color: #94E2D5;">*</span><span> i, i, limit)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">        _</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #F9E2AF;font-style: italic;"> Nil</span></span>
+<span class="giallo-l"><span>      }</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">      mark</span><span>(a, i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span>, limit)</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">fn</span><span style="color: #89B4FA;font-style: italic;"> count_primes</span><span>(</span><span style="color: #EBA0AC;font-style: italic;">a: </span><span style="color: #F9E2AF;font-style: italic;">Atomics</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">i: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">limit: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">acc: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>)</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #F9E2AF;font-style: italic;"> Int</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  case</span><span> i </span><span style="color: #94E2D5;">&gt;</span><span> limit {</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    True</span><span style="color: #94E2D5;"> -&gt;</span><span> acc</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    False</span><span style="color: #94E2D5;"> -&gt;</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let</span><span> add </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> case</span><span style="color: #89B4FA;font-style: italic;"> atomics_get</span><span>(a, i) {</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">        0</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">        _</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>      }</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">      count_primes</span><span>(a, i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span>, limit, acc </span><span style="color: #94E2D5;">+</span><span> add)</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">pub fn</span><span style="color: #89B4FA;font-style: italic;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> limit </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> a </span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> atomics_new</span><span>(limit, [])</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">  atomics_put</span><span>(a, </span><span style="color: #FAB387;">1</span><span>, </span><span style="color: #FAB387;">1</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">  mark</span><span>(a, </span><span style="color: #FAB387;">2</span><span>, limit)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> count </span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> count_primes</span><span>(a, </span><span style="color: #FAB387;">2</span><span>, limit, </span><span style="color: #FAB387;">0</span><span>)</span></span>
+<span class="giallo-l"><span>  io.</span><span style="color: #89B4FA;font-style: italic;">println</span><span>(string.</span><span style="color: #89B4FA;font-style: italic;">concat</span><span>([</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    &quot;Primes up to &quot;</span><span>,</span></span>
+<span class="giallo-l"><span>    int.</span><span style="color: #89B4FA;font-style: italic;">to_string</span><span>(limit),</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    &quot;: &quot;</span><span>,</span></span>
+<span class="giallo-l"><span>    int.</span><span style="color: #89B4FA;font-style: italic;">to_string</span><span>(count),</span></span>
+<span class="giallo-l"><span>  ]))</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/gleam/sorting/src/sorting.gleam</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="gleam"><span class="giallo-l"><span style="color: #CBA6F7;">import</span><span> gleam</span><span style="color: #94E2D5;">/</span><span>int</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span> gleam</span><span style="color: #94E2D5;">/</span><span>io</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span> gleam</span><span style="color: #94E2D5;">/</span><span>list</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span> gleam</span><span style="color: #94E2D5;">/</span><span>string</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">fn</span><span style="color: #89B4FA;font-style: italic;"> fill</span><span>(</span><span style="color: #EBA0AC;font-style: italic;">n: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">seed: </span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>, </span><span style="color: #EBA0AC;font-style: italic;">acc: </span><span style="color: #F9E2AF;font-style: italic;">List</span><span>(</span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>)) </span><span style="color: #94E2D5;">-&gt;</span><span style="color: #F9E2AF;font-style: italic;"> List</span><span>(</span><span style="color: #F9E2AF;font-style: italic;">Int</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  case</span><span> n {</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">    0</span><span style="color: #94E2D5;"> -&gt;</span><span> acc</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">    _</span><span style="color: #94E2D5;"> -&gt;</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let</span><span> seed2 </span><span style="color: #94E2D5;">=</span><span> int.</span><span style="color: #89B4FA;font-style: italic;">bitwise_and</span><span>(seed </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span>, </span><span style="color: #FAB387;">0xffffffff</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">      fill</span><span>(n </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span>, seed2, [int.</span><span style="color: #89B4FA;font-style: italic;">bitwise_and</span><span>(seed2, </span><span style="color: #FAB387;">0x7fffffff</span><span>), </span><span style="color: #94E2D5;">..</span><span>acc])</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">pub fn</span><span style="color: #89B4FA;font-style: italic;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> n </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> data </span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> fill</span><span>(n, </span><span style="color: #FAB387;">42</span><span>, [])</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> sorted </span><span style="color: #94E2D5;">=</span><span> list.</span><span style="color: #89B4FA;font-style: italic;">sort</span><span>(data, int.compare)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let assert</span><span style="color: #F9E2AF;font-style: italic;"> Ok</span><span>(first) </span><span style="color: #94E2D5;">=</span><span> list.</span><span style="color: #89B4FA;font-style: italic;">first</span><span>(sorted)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let assert</span><span style="color: #F9E2AF;font-style: italic;"> Ok</span><span>(last) </span><span style="color: #94E2D5;">=</span><span> list.</span><span style="color: #89B4FA;font-style: italic;">last</span><span>(sorted)</span></span>
+<span class="giallo-l"><span>  io.</span><span style="color: #89B4FA;font-style: italic;">println</span><span>(string.</span><span style="color: #89B4FA;font-style: italic;">concat</span><span>([</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    &quot;Sorted &quot;</span><span>,</span></span>
+<span class="giallo-l"><span>    int.</span><span style="color: #89B4FA;font-style: italic;">to_string</span><span>(n),</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    &quot; integers: first=&quot;</span><span>,</span></span>
+<span class="giallo-l"><span>    int.</span><span style="color: #89B4FA;font-style: italic;">to_string</span><span>(first),</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    &quot;, last=&quot;</span><span>,</span></span>
+<span class="giallo-l"><span>    int.</span><span style="color: #89B4FA;font-style: italic;">to_string</span><span>(last),</span></span>
+<span class="giallo-l"><span>  ]))</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

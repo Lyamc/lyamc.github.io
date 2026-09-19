@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kotlin · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Kotlin</h1>
+  <span class="pill jit">jit</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">JIT</span>
+</div>
+<p class="muted">kotlinc 2.2.21 + JDK 21 · kotlinc -include-runtime → JVM bytecode · HotSpot JVM</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">48.8 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">49.5 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">77.3 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">75.9 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="48.8">48.8</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="44">44 B</td>
+        <td class="num" data-n="62">62 B</td>
+        <td class="num" data-n="50344">49 KB</td>
+        <td class="num" data-n="42904">42904 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="49.5">49.5</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="151">151 B</td>
+        <td class="num" data-n="110">110 B</td>
+        <td class="num" data-n="50344">49 KB</td>
+        <td class="num" data-n="42932">42932 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="77.3">77.3</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="463">463 B</td>
+        <td class="num" data-n="240">240 B</td>
+        <td class="num" data-n="50344">49 KB</td>
+        <td class="num" data-n="43068">43068 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="75.9">75.9</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="290">290 B</td>
+        <td class="num" data-n="204">204 B</td>
+        <td class="num" data-n="50344">49 KB</td>
+        <td class="num" data-n="43012">43012 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 45 (work table).
+   Sort rank 39.
+  Four-file source 948 B.
+</p>
+
+
+<p class="note">IntArray.sort LCG retimed; rerun median n=5 samples=[161.8, 153.9, 162.1, 170.8, 146.7]; LSD radix 4x8; was comparison sort</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/kotlin/Hello.kt</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="kotlin"><span class="giallo-l"><span style="color: #CBA6F7;">fun</span><span style="color: #89B4FA;font-style: italic;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    println</span><span>(</span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span><span>)</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/kotlin/Fibonacci.kt</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="kotlin"><span class="giallo-l"><span style="color: #CBA6F7;">fun</span><span style="color: #89B4FA;font-style: italic;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    val</span><span> n </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    var</span><span> a </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0L</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    var</span><span> b </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1L</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    repeat</span><span>(n) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        val</span><span> tmp </span><span style="color: #94E2D5;">=</span><span> a </span><span style="color: #94E2D5;">+</span><span> b</span></span>
+<span class="giallo-l"><span>        a </span><span style="color: #94E2D5;">=</span><span> b</span></span>
+<span class="giallo-l"><span>        b </span><span style="color: #94E2D5;">=</span><span> tmp</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    println</span><span>(a)</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/kotlin/PrimeSieve.kt</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="kotlin"><span class="giallo-l"><span style="color: #CBA6F7;">fun</span><span style="color: #89B4FA;font-style: italic;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    val</span><span> limit </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    val</span><span> sieve </span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> BooleanArray</span><span>(limit </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span>) { </span><span style="color: #FAB387;">true</span><span> }</span></span>
+<span class="giallo-l"><span>    sieve[</span><span style="color: #FAB387;">0</span><span>] </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> false</span></span>
+<span class="giallo-l"><span>    sieve[</span><span style="color: #FAB387;">1</span><span>] </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> false</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    var</span><span> i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 2</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> (i </span><span style="color: #94E2D5;">*</span><span> i </span><span style="color: #94E2D5;">&lt;=</span><span> limit) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        if</span><span> (sieve[i]) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">            var</span><span> j </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">*</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">            while</span><span> (j </span><span style="color: #94E2D5;">&lt;=</span><span> limit) {</span></span>
+<span class="giallo-l"><span>                sieve[j] </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> false</span></span>
+<span class="giallo-l"><span>                j </span><span style="color: #94E2D5;">+=</span><span> i</span></span>
+<span class="giallo-l"><span>            }</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span>        i</span><span style="color: #94E2D5;">++</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    var</span><span> count </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> (k </span><span style="color: #CBA6F7;">in</span><span style="color: #FAB387;"> 2</span><span style="color: #94E2D5;">..</span><span>limit) </span><span style="color: #CBA6F7;">if</span><span> (sieve[k]) count</span><span style="color: #94E2D5;">++</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    println</span><span>(</span><span style="color: #A6E3A1;">&quot;Primes up to </span><span>$limit</span><span style="color: #A6E3A1;">: </span><span>$count</span><span style="color: #A6E3A1;">&quot;</span><span>)</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/kotlin/Sorting.kt</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="kotlin"><span class="giallo-l"><span style="color: #CBA6F7;">fun</span><span style="color: #89B4FA;font-style: italic;"> radixSort</span><span>(a: </span><span style="color: #F9E2AF;font-style: italic;">IntArray</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    val</span><span> n </span><span style="color: #94E2D5;">=</span><span> a.size</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    val</span><span> tmp </span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> IntArray</span><span>(n)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    var</span><span> src </span><span style="color: #94E2D5;">=</span><span> a</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    var</span><span> dst </span><span style="color: #94E2D5;">=</span><span> tmp</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    val</span><span> count </span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> IntArray</span><span>(</span><span style="color: #FAB387;">256</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> (pass </span><span style="color: #CBA6F7;">in</span><span style="color: #FAB387;"> 0</span><span> until </span><span style="color: #FAB387;">4</span><span>) {</span></span>
+<span class="giallo-l"><span>        count.</span><span style="color: #89B4FA;font-style: italic;">fill</span><span>(</span><span style="color: #FAB387;">0</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        val</span><span> shift </span><span style="color: #94E2D5;">=</span><span> pass </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 8</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> (i </span><span style="color: #CBA6F7;">in</span><span style="color: #FAB387;"> 0</span><span> until n) count[(src[i] ushr shift) and </span><span style="color: #FAB387;">255</span><span>]</span><span style="color: #94E2D5;">++</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        var</span><span> sum </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> (i </span><span style="color: #CBA6F7;">in</span><span style="color: #FAB387;"> 0</span><span> until </span><span style="color: #FAB387;">256</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">            val</span><span> c </span><span style="color: #94E2D5;">=</span><span> count[i]</span></span>
+<span class="giallo-l"><span>            count[i] </span><span style="color: #94E2D5;">=</span><span> sum</span></span>
+<span class="giallo-l"><span>            sum </span><span style="color: #94E2D5;">+=</span><span> c</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        for</span><span> (i </span><span style="color: #CBA6F7;">in</span><span style="color: #FAB387;"> 0</span><span> until n) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">            val</span><span> v </span><span style="color: #94E2D5;">=</span><span> src[i]</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">            val</span><span> b </span><span style="color: #94E2D5;">=</span><span> (v ushr shift) and </span><span style="color: #FAB387;">255</span></span>
+<span class="giallo-l"><span>            dst[count[b]</span><span style="color: #94E2D5;">++</span><span>] </span><span style="color: #94E2D5;">=</span><span> v</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        val</span><span> t </span><span style="color: #94E2D5;">=</span><span> src</span></span>
+<span class="giallo-l"><span>        src </span><span style="color: #94E2D5;">=</span><span> dst</span></span>
+<span class="giallo-l"><span>        dst </span><span style="color: #94E2D5;">=</span><span> t</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">fun</span><span style="color: #89B4FA;font-style: italic;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    val</span><span> n </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    val data</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;font-style: italic;"> IntArray</span><span>(n)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    var</span><span> seed </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> (i </span><span style="color: #CBA6F7;">in</span><span style="color: #FAB387;"> 0</span><span> until n) {</span></span>
+<span class="giallo-l"><span>        seed </span><span style="color: #94E2D5;">=</span><span> seed </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        data</span><span>[i] </span><span style="color: #94E2D5;">=</span><span> seed and </span><span style="color: #FAB387;">0x7fffffff</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    radixSort</span><span>(</span><span style="color: #CBA6F7;">data</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    println</span><span>(</span><span style="color: #A6E3A1;">&quot;Sorted </span><span>$n</span><span style="color: #A6E3A1;"> integers: first=</span><span style="color: #9399B2;">${</span><span style="color: #CBA6F7;">data</span><span style="color: #A6E3A1;">.</span><span style="color: #89B4FA;font-style: italic;">first</span><span style="color: #A6E3A1;">()</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;">, last=</span><span style="color: #9399B2;">${</span><span style="color: #CBA6F7;">data</span><span style="color: #A6E3A1;">.</span><span style="color: #89B4FA;font-style: italic;">last</span><span style="color: #A6E3A1;">()</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;">&quot;</span><span>)</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

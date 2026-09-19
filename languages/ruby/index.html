@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ruby · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Ruby</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">Ruby 3.4.10 · ruby → YARV · MRI YARV</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">102.8 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">101.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">134.7 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">816.6 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="102.8">102.8</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="21">21 B</td>
+        <td class="num" data-n="41">41 B</td>
+        <td class="num" data-n="38400">38 KB</td>
+        <td class="num" data-n="18404">18404 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="101.2">101.2</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="54">54 B</td>
+        <td class="num" data-n="68">68 B</td>
+        <td class="num" data-n="38400">38 KB</td>
+        <td class="num" data-n="16904">16904 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="134.7">134.7</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="309">309 B</td>
+        <td class="num" data-n="197">197 B</td>
+        <td class="num" data-n="38400">38 KB</td>
+        <td class="num" data-n="16668">16668 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="816.6">816.6</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="205">205 B</td>
+        <td class="num" data-n="168">168 B</td>
+        <td class="num" data-n="38400">38 KB</td>
+        <td class="num" data-n="16708">16708 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 49 (work table).
+   Sort rank 60.
+  Four-file source 589 B.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[816.6, 826.2, 807.6, 826.3, 806.9]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/ruby/hello.rb</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ruby"><span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span style="color: #A6E3A1;"> &quot;Hello, World!&quot;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/ruby/fibonacci.rb</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ruby"><span class="giallo-l"><span>n</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span>a</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>b</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span>n</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">times</span><span style="color: #9399B2;"> {</span><span> a</span><span style="color: #9399B2;">,</span><span> b </span><span style="color: #94E2D5;">=</span><span> b</span><span style="color: #9399B2;">,</span><span> a </span><span style="color: #94E2D5;">+</span><span> b </span><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span> a</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/ruby/prime_sieve.rb</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ruby"><span class="giallo-l"><span style="color: #FAB387;">LIMIT</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span>sieve</span><span style="color: #94E2D5;"> =</span><span style="color: #A6E3A1;"> &quot;</span><span style="color: #F5C2E7;">\x01</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #94E2D5;"> *</span><span style="color: #9399B2;"> (</span><span style="color: #FAB387;">LIMIT</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>sieve</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">setbyte</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>sieve</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">setbyte</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 2</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">while</span><span> i </span><span style="color: #94E2D5;">*</span><span> i </span><span style="color: #94E2D5;">&lt;=</span><span style="color: #FAB387;"> LIMIT</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span> sieve</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">getbyte</span><span style="color: #9399B2;">(</span><span>i</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> !=</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>    j</span><span style="color: #94E2D5;"> =</span><span> i </span><span style="color: #94E2D5;">*</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    while</span><span> j </span><span style="color: #94E2D5;">&lt;=</span><span style="color: #FAB387;"> LIMIT</span></span>
+<span class="giallo-l"><span>      sieve</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">setbyte</span><span style="color: #9399B2;">(</span><span>j</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>      j</span><span style="color: #94E2D5;"> +=</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span></span>
+<span class="giallo-l"><span>  i</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"><span>count</span><span style="color: #94E2D5;"> =</span><span> sieve</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">count</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #F5C2E7;">\x01</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span style="color: #A6E3A1;"> &quot;Primes up to </span><span style="color: #9399B2;">#{</span><span style="color: #FAB387;">LIMIT</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;">: </span><span style="color: #9399B2;">#{</span><span>count</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;">&quot;</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/ruby/sorting.rb</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ruby"><span class="giallo-l"><span style="color: #FAB387;">N</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1_000_000</span></span>
+<span class="giallo-l"><span>seed</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span>data</span><span style="color: #94E2D5;"> =</span><span style="color: #F9E2AF;font-style: italic;"> Array</span><span style="color: #9399B2;">.</span><span style="color: #CBA6F7;">new</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">N</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>  seed</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> (</span><span>seed </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1_013_904_223</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #FAB387;"> 0xffffffff</span></span>
+<span class="giallo-l"><span>  seed </span><span style="color: #94E2D5;">&amp;</span><span style="color: #FAB387;"> 0x7fffffff</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"><span>data</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">sort!</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">puts</span><span style="color: #A6E3A1;"> &quot;Sorted </span><span style="color: #9399B2;">#{</span><span style="color: #FAB387;">N</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;"> integers: first=</span><span style="color: #9399B2;">#{</span><span>data</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">first</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;">, last=</span><span style="color: #9399B2;">#{</span><span>data</span><span style="color: #9399B2;">.</span><span style="color: #89B4FA;font-style: italic;">last</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;">&quot;</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

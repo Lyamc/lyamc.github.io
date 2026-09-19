@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>X86 Assembly (NASM) · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>X86 Assembly (NASM)</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">nasm 3.02 · nasm -f win64 → nasm · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">3.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">3.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">5.1 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">9.5 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="3.2">3.2</td>
+        <td class="num" data-n="89.2">89.2</td>
+        <td class="num" data-n="475">475 B</td>
+        <td class="num" data-n="291">291 B</td>
+        <td class="num" data-n="107520">105 KB</td>
+        <td class="num" data-n="2636">2636 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="3.2">3.2</td>
+        <td class="num" data-n="50.2">50.2</td>
+        <td class="num" data-n="1022">1022 B</td>
+        <td class="num" data-n="448">448 B</td>
+        <td class="num" data-n="107520">105 KB</td>
+        <td class="num" data-n="2636">2636 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="5.1">5.1</td>
+        <td class="num" data-n="52.9">52.9</td>
+        <td class="num" data-n="1993">2 KB</td>
+        <td class="num" data-n="712">712 B</td>
+        <td class="num" data-n="107520">105 KB</td>
+        <td class="num" data-n="2636">2636 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="9.5">9.5</td>
+        <td class="num" data-n="51.6">51.6</td>
+        <td class="num" data-n="3536">3 KB</td>
+        <td class="num" data-n="1197">1 KB</td>
+        <td class="num" data-n="108032">106 KB</td>
+        <td class="num" data-n="9288">9288 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 9 (work table).
+   Sort rank 2.
+  Four-file source 7 KB.
+</p>
+
+
+<p class="note">LSD radix retimed; rerun median n=5 samples=[12.0, 9.3, 10.2, 9.5, 9.5]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/nasm/hello.asm</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>; Windows x64 hello world</span></span>
+<span class="giallo-l"><span>default rel</span></span>
+<span class="giallo-l"><span>extern GetStdHandle</span></span>
+<span class="giallo-l"><span>extern WriteFile</span></span>
+<span class="giallo-l"><span>extern ExitProcess</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .data</span></span>
+<span class="giallo-l"><span>msg db &quot;Hello, World!&quot;, 13, 10</span></span>
+<span class="giallo-l"><span>msg_len equ $ - msg</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .bss</span></span>
+<span class="giallo-l"><span>written resd 1</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .text</span></span>
+<span class="giallo-l"><span>global main</span></span>
+<span class="giallo-l"><span>main:</span></span>
+<span class="giallo-l"><span>    sub rsp, 40</span></span>
+<span class="giallo-l"><span>    mov ecx, -11                 ; STD_OUTPUT_HANDLE</span></span>
+<span class="giallo-l"><span>    call GetStdHandle</span></span>
+<span class="giallo-l"><span>    mov rcx, rax</span></span>
+<span class="giallo-l"><span>    lea rdx, [msg]</span></span>
+<span class="giallo-l"><span>    mov r8d, msg_len</span></span>
+<span class="giallo-l"><span>    lea r9, [written]</span></span>
+<span class="giallo-l"><span>    mov qword [rsp+32], 0</span></span>
+<span class="giallo-l"><span>    call WriteFile</span></span>
+<span class="giallo-l"><span>    xor ecx, ecx</span></span>
+<span class="giallo-l"><span>    call ExitProcess</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/nasm/fibonacci.asm</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>default rel</span></span>
+<span class="giallo-l"><span>extern GetStdHandle</span></span>
+<span class="giallo-l"><span>extern WriteFile</span></span>
+<span class="giallo-l"><span>extern ExitProcess</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .bss</span></span>
+<span class="giallo-l"><span>written resd 1</span></span>
+<span class="giallo-l"><span>buf     resb 32</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .text</span></span>
+<span class="giallo-l"><span>global main</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>; print unsigned rax followed by newline</span></span>
+<span class="giallo-l"><span>print_u64:</span></span>
+<span class="giallo-l"><span>    push rbx</span></span>
+<span class="giallo-l"><span>    sub rsp, 32</span></span>
+<span class="giallo-l"><span>    lea rdi, [buf+31]</span></span>
+<span class="giallo-l"><span>    mov byte [rdi], 10</span></span>
+<span class="giallo-l"><span>    dec rdi</span></span>
+<span class="giallo-l"><span>    mov byte [rdi], 13</span></span>
+<span class="giallo-l"><span>    mov rbx, 10</span></span>
+<span class="giallo-l"><span>.conv:</span></span>
+<span class="giallo-l"><span>    xor rdx, rdx</span></span>
+<span class="giallo-l"><span>    div rbx</span></span>
+<span class="giallo-l"><span>    add dl, &#39;0&#39;</span></span>
+<span class="giallo-l"><span>    dec rdi</span></span>
+<span class="giallo-l"><span>    mov [rdi], dl</span></span>
+<span class="giallo-l"><span>    test rax, rax</span></span>
+<span class="giallo-l"><span>    jnz .conv</span></span>
+<span class="giallo-l"><span>    lea rdx, [buf+32]</span></span>
+<span class="giallo-l"><span>    sub rdx, rdi</span></span>
+<span class="giallo-l"><span>    mov r8, rdx</span></span>
+<span class="giallo-l"><span>    mov ecx, -11</span></span>
+<span class="giallo-l"><span>    call GetStdHandle</span></span>
+<span class="giallo-l"><span>    mov rcx, rax</span></span>
+<span class="giallo-l"><span>    mov rdx, rdi</span></span>
+<span class="giallo-l"><span>    lea r9, [written]</span></span>
+<span class="giallo-l"><span>    mov qword [rsp+32], 0</span></span>
+<span class="giallo-l"><span>    call WriteFile</span></span>
+<span class="giallo-l"><span>    add rsp, 32</span></span>
+<span class="giallo-l"><span>    pop rbx</span></span>
+<span class="giallo-l"><span>    ret</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>main:</span></span>
+<span class="giallo-l"><span>    sub rsp, 40</span></span>
+<span class="giallo-l"><span>    mov ecx, 42</span></span>
+<span class="giallo-l"><span>    xor rax, rax          ; a = 0</span></span>
+<span class="giallo-l"><span>    mov rdx, 1            ; b = 1</span></span>
+<span class="giallo-l"><span>.loop:</span></span>
+<span class="giallo-l"><span>    test ecx, ecx</span></span>
+<span class="giallo-l"><span>    jz .done</span></span>
+<span class="giallo-l"><span>    mov r8, rax</span></span>
+<span class="giallo-l"><span>    add r8, rdx           ; tmp = a+b</span></span>
+<span class="giallo-l"><span>    mov rax, rdx          ; a = b</span></span>
+<span class="giallo-l"><span>    mov rdx, r8           ; b = tmp</span></span>
+<span class="giallo-l"><span>    dec ecx</span></span>
+<span class="giallo-l"><span>    jmp .loop</span></span>
+<span class="giallo-l"><span>.done:</span></span>
+<span class="giallo-l"><span>    call print_u64</span></span>
+<span class="giallo-l"><span>    xor ecx, ecx</span></span>
+<span class="giallo-l"><span>    call ExitProcess</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/nasm/prime_sieve.asm</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>default rel</span></span>
+<span class="giallo-l"><span>extern GetStdHandle</span></span>
+<span class="giallo-l"><span>extern WriteFile</span></span>
+<span class="giallo-l"><span>extern ExitProcess</span></span>
+<span class="giallo-l"><span>extern GetProcessHeap</span></span>
+<span class="giallo-l"><span>extern HeapAlloc</span></span>
+<span class="giallo-l"><span>extern HeapFree</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>LIMIT equ 1000000</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .data</span></span>
+<span class="giallo-l"><span>prefix db &quot;Primes up to 1000000: &quot;</span></span>
+<span class="giallo-l"><span>prefix_len equ $ - prefix</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .bss</span></span>
+<span class="giallo-l"><span>written resd 1</span></span>
+<span class="giallo-l"><span>buf     resb 32</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .text</span></span>
+<span class="giallo-l"><span>global main</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>print_u64:</span></span>
+<span class="giallo-l"><span>    push rbx</span></span>
+<span class="giallo-l"><span>    sub rsp, 32</span></span>
+<span class="giallo-l"><span>    lea rdi, [buf+31]</span></span>
+<span class="giallo-l"><span>    mov byte [rdi], 10</span></span>
+<span class="giallo-l"><span>    dec rdi</span></span>
+<span class="giallo-l"><span>    mov byte [rdi], 13</span></span>
+<span class="giallo-l"><span>    mov rbx, 10</span></span>
+<span class="giallo-l"><span>.conv:</span></span>
+<span class="giallo-l"><span>    xor rdx, rdx</span></span>
+<span class="giallo-l"><span>    div rbx</span></span>
+<span class="giallo-l"><span>    add dl, &#39;0&#39;</span></span>
+<span class="giallo-l"><span>    dec rdi</span></span>
+<span class="giallo-l"><span>    mov [rdi], dl</span></span>
+<span class="giallo-l"><span>    test rax, rax</span></span>
+<span class="giallo-l"><span>    jnz .conv</span></span>
+<span class="giallo-l"><span>    lea rdx, [buf+32]</span></span>
+<span class="giallo-l"><span>    sub rdx, rdi</span></span>
+<span class="giallo-l"><span>    mov r8, rdx</span></span>
+<span class="giallo-l"><span>    mov ecx, -11</span></span>
+<span class="giallo-l"><span>    call GetStdHandle</span></span>
+<span class="giallo-l"><span>    mov rcx, rax</span></span>
+<span class="giallo-l"><span>    mov rdx, rdi</span></span>
+<span class="giallo-l"><span>    lea r9, [written]</span></span>
+<span class="giallo-l"><span>    mov qword [rsp+32], 0</span></span>
+<span class="giallo-l"><span>    call WriteFile</span></span>
+<span class="giallo-l"><span>    add rsp, 32</span></span>
+<span class="giallo-l"><span>    pop rbx</span></span>
+<span class="giallo-l"><span>    ret</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>main:</span></span>
+<span class="giallo-l"><span>    push rbx</span></span>
+<span class="giallo-l"><span>    push rsi</span></span>
+<span class="giallo-l"><span>    push rdi</span></span>
+<span class="giallo-l"><span>    push r12</span></span>
+<span class="giallo-l"><span>    push r13</span></span>
+<span class="giallo-l"><span>    sub rsp, 48</span></span>
+<span class="giallo-l"><span>    call GetProcessHeap</span></span>
+<span class="giallo-l"><span>    mov r12, rax</span></span>
+<span class="giallo-l"><span>    mov rcx, r12</span></span>
+<span class="giallo-l"><span>    mov edx, 8                ; HEAP_ZERO_MEMORY</span></span>
+<span class="giallo-l"><span>    mov r8, LIMIT+1</span></span>
+<span class="giallo-l"><span>    call HeapAlloc</span></span>
+<span class="giallo-l"><span>    test rax, rax</span></span>
+<span class="giallo-l"><span>    jz .fail</span></span>
+<span class="giallo-l"><span>    mov r13, rax              ; sieve</span></span>
+<span class="giallo-l"><span>    mov rdi, r13</span></span>
+<span class="giallo-l"><span>    mov rcx, LIMIT+1</span></span>
+<span class="giallo-l"><span>    mov al, 1</span></span>
+<span class="giallo-l"><span>    rep stosb</span></span>
+<span class="giallo-l"><span>    mov byte [r13], 0</span></span>
+<span class="giallo-l"><span>    mov byte [r13+1], 0</span></span>
+<span class="giallo-l"><span>    mov esi, 2</span></span>
+<span class="giallo-l"><span>.outer:</span></span>
+<span class="giallo-l"><span>    mov eax, esi</span></span>
+<span class="giallo-l"><span>    imul eax, esi</span></span>
+<span class="giallo-l"><span>    cmp eax, LIMIT</span></span>
+<span class="giallo-l"><span>    jg .count</span></span>
+<span class="giallo-l"><span>    cmp byte [r13+rsi], 0</span></span>
+<span class="giallo-l"><span>    je .nexti</span></span>
+<span class="giallo-l"><span>    mov ebx, eax</span></span>
+<span class="giallo-l"><span>.inner:</span></span>
+<span class="giallo-l"><span>    cmp ebx, LIMIT</span></span>
+<span class="giallo-l"><span>    jg .nexti</span></span>
+<span class="giallo-l"><span>    mov byte [r13+rbx], 0</span></span>
+<span class="giallo-l"><span>    add ebx, esi</span></span>
+<span class="giallo-l"><span>    jmp .inner</span></span>
+<span class="giallo-l"><span>.nexti:</span></span>
+<span class="giallo-l"><span>    inc esi</span></span>
+<span class="giallo-l"><span>    jmp .outer</span></span>
+<span class="giallo-l"><span>.count:</span></span>
+<span class="giallo-l"><span>    xor ebx, ebx</span></span>
+<span class="giallo-l"><span>    mov esi, 2</span></span>
+<span class="giallo-l"><span>.cnt:</span></span>
+<span class="giallo-l"><span>    cmp esi, LIMIT</span></span>
+<span class="giallo-l"><span>    jg .print</span></span>
+<span class="giallo-l"><span>    cmp byte [r13+rsi], 0</span></span>
+<span class="giallo-l"><span>    je .cntn</span></span>
+<span class="giallo-l"><span>    inc ebx</span></span>
+<span class="giallo-l"><span>.cntn:</span></span>
+<span class="giallo-l"><span>    inc esi</span></span>
+<span class="giallo-l"><span>    jmp .cnt</span></span>
+<span class="giallo-l"><span>.print:</span></span>
+<span class="giallo-l"><span>    mov ecx, -11</span></span>
+<span class="giallo-l"><span>    call GetStdHandle</span></span>
+<span class="giallo-l"><span>    mov rcx, rax</span></span>
+<span class="giallo-l"><span>    lea rdx, [prefix]</span></span>
+<span class="giallo-l"><span>    mov r8d, prefix_len</span></span>
+<span class="giallo-l"><span>    lea r9, [written]</span></span>
+<span class="giallo-l"><span>    mov qword [rsp+32], 0</span></span>
+<span class="giallo-l"><span>    call WriteFile</span></span>
+<span class="giallo-l"><span>    mov eax, ebx</span></span>
+<span class="giallo-l"><span>    call print_u64</span></span>
+<span class="giallo-l"><span>    mov rcx, r12</span></span>
+<span class="giallo-l"><span>    xor edx, edx</span></span>
+<span class="giallo-l"><span>    mov r8, r13</span></span>
+<span class="giallo-l"><span>    call HeapFree</span></span>
+<span class="giallo-l"><span>    xor ecx, ecx</span></span>
+<span class="giallo-l"><span>    call ExitProcess</span></span>
+<span class="giallo-l"><span>.fail:</span></span>
+<span class="giallo-l"><span>    mov ecx, 1</span></span>
+<span class="giallo-l"><span>    call ExitProcess</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/nasm/sorting.asm</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>default rel</span></span>
+<span class="giallo-l"><span>extern GetStdHandle</span></span>
+<span class="giallo-l"><span>extern WriteFile</span></span>
+<span class="giallo-l"><span>extern ExitProcess</span></span>
+<span class="giallo-l"><span>extern GetProcessHeap</span></span>
+<span class="giallo-l"><span>extern HeapAlloc</span></span>
+<span class="giallo-l"><span>extern HeapFree</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>N equ 1000000</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .data</span></span>
+<span class="giallo-l"><span>p1 db &quot;Sorted 1000000 integers: first=&quot;</span></span>
+<span class="giallo-l"><span>p1_len equ $ - p1</span></span>
+<span class="giallo-l"><span>p2 db &quot;, last=&quot;</span></span>
+<span class="giallo-l"><span>p2_len equ $ - p2</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .bss</span></span>
+<span class="giallo-l"><span>written resd 1</span></span>
+<span class="giallo-l"><span>buf     resb 32</span></span>
+<span class="giallo-l"><span>counts  resd 256</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>section .text</span></span>
+<span class="giallo-l"><span>global main</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>print_u64_raw:</span></span>
+<span class="giallo-l"><span>    push rbx</span></span>
+<span class="giallo-l"><span>    sub rsp, 32</span></span>
+<span class="giallo-l"><span>    lea rdi, [buf+31]</span></span>
+<span class="giallo-l"><span>    mov byte [rdi], 0</span></span>
+<span class="giallo-l"><span>    mov rbx, 10</span></span>
+<span class="giallo-l"><span>.conv:</span></span>
+<span class="giallo-l"><span>    xor rdx, rdx</span></span>
+<span class="giallo-l"><span>    div rbx</span></span>
+<span class="giallo-l"><span>    add dl, &#39;0&#39;</span></span>
+<span class="giallo-l"><span>    dec rdi</span></span>
+<span class="giallo-l"><span>    mov [rdi], dl</span></span>
+<span class="giallo-l"><span>    test rax, rax</span></span>
+<span class="giallo-l"><span>    jnz .conv</span></span>
+<span class="giallo-l"><span>    lea rdx, [buf+32]</span></span>
+<span class="giallo-l"><span>    sub rdx, rdi</span></span>
+<span class="giallo-l"><span>    dec rdx</span></span>
+<span class="giallo-l"><span>    mov r8, rdx</span></span>
+<span class="giallo-l"><span>    mov ecx, -11</span></span>
+<span class="giallo-l"><span>    call GetStdHandle</span></span>
+<span class="giallo-l"><span>    mov rcx, rax</span></span>
+<span class="giallo-l"><span>    mov rdx, rdi</span></span>
+<span class="giallo-l"><span>    lea r9, [written]</span></span>
+<span class="giallo-l"><span>    mov qword [rsp+32], 0</span></span>
+<span class="giallo-l"><span>    call WriteFile</span></span>
+<span class="giallo-l"><span>    add rsp, 32</span></span>
+<span class="giallo-l"><span>    pop rbx</span></span>
+<span class="giallo-l"><span>    ret</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>write_str:</span></span>
+<span class="giallo-l"><span>    ; rcx unused, rdx=ptr, r8=len</span></span>
+<span class="giallo-l"><span>    push r8</span></span>
+<span class="giallo-l"><span>    push rdx</span></span>
+<span class="giallo-l"><span>    sub rsp, 40</span></span>
+<span class="giallo-l"><span>    mov ecx, -11</span></span>
+<span class="giallo-l"><span>    call GetStdHandle</span></span>
+<span class="giallo-l"><span>    add rsp, 40</span></span>
+<span class="giallo-l"><span>    pop rdx</span></span>
+<span class="giallo-l"><span>    pop r8</span></span>
+<span class="giallo-l"><span>    sub rsp, 40</span></span>
+<span class="giallo-l"><span>    mov rcx, rax</span></span>
+<span class="giallo-l"><span>    lea r9, [written]</span></span>
+<span class="giallo-l"><span>    mov qword [rsp+32], 0</span></span>
+<span class="giallo-l"><span>    call WriteFile</span></span>
+<span class="giallo-l"><span>    add rsp, 40</span></span>
+<span class="giallo-l"><span>    ret</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>; LSD radix sort, 4 passes of 8 bits, 256 buckets</span></span>
+<span class="giallo-l"><span>; r12 = src (starts as data), r13 = dst (scratch)</span></span>
+<span class="giallo-l"><span>; after 4 pointer swaps, r12 holds the sorted array</span></span>
+<span class="giallo-l"><span>; %1 = byte offset 0..3 (little-endian)</span></span>
+<span class="giallo-l"><span>%macro RADIX_PASS 1</span></span>
+<span class="giallo-l"><span>    lea rdi, [rel counts]</span></span>
+<span class="giallo-l"><span>    mov ecx, 256</span></span>
+<span class="giallo-l"><span>    xor eax, eax</span></span>
+<span class="giallo-l"><span>    cld</span></span>
+<span class="giallo-l"><span>    rep stosd</span></span>
+<span class="giallo-l"><span>    lea r8, [rel counts]</span></span>
+<span class="giallo-l"><span>    mov rsi, r12</span></span>
+<span class="giallo-l"><span>    lea r9, [r12+N*4]</span></span>
+<span class="giallo-l"><span>%%hist:</span></span>
+<span class="giallo-l"><span>    movzx eax, byte [rsi+%1]</span></span>
+<span class="giallo-l"><span>    add rsi, 4</span></span>
+<span class="giallo-l"><span>    inc dword [r8+rax*4]</span></span>
+<span class="giallo-l"><span>    cmp rsi, r9</span></span>
+<span class="giallo-l"><span>    jne %%hist</span></span>
+<span class="giallo-l"><span>    xor eax, eax</span></span>
+<span class="giallo-l"><span>    xor ebx, ebx</span></span>
+<span class="giallo-l"><span>%%prefix:</span></span>
+<span class="giallo-l"><span>    mov edx, [r8+rbx*4]</span></span>
+<span class="giallo-l"><span>    mov [r8+rbx*4], eax</span></span>
+<span class="giallo-l"><span>    add eax, edx</span></span>
+<span class="giallo-l"><span>    inc ebx</span></span>
+<span class="giallo-l"><span>    cmp ebx, 256</span></span>
+<span class="giallo-l"><span>    jb %%prefix</span></span>
+<span class="giallo-l"><span>    mov rsi, r12</span></span>
+<span class="giallo-l"><span>    lea r9, [r12+N*4]</span></span>
+<span class="giallo-l"><span>%%scatter:</span></span>
+<span class="giallo-l"><span>    mov eax, [rsi]</span></span>
+<span class="giallo-l"><span>    movzx ebx, byte [rsi+%1]</span></span>
+<span class="giallo-l"><span>    add rsi, 4</span></span>
+<span class="giallo-l"><span>    mov edx, [r8+rbx*4]</span></span>
+<span class="giallo-l"><span>    mov [r13+rdx*4], eax</span></span>
+<span class="giallo-l"><span>    inc edx</span></span>
+<span class="giallo-l"><span>    mov [r8+rbx*4], edx</span></span>
+<span class="giallo-l"><span>    cmp rsi, r9</span></span>
+<span class="giallo-l"><span>    jne %%scatter</span></span>
+<span class="giallo-l"><span>    xchg r12, r13</span></span>
+<span class="giallo-l"><span>%endmacro</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>radix_sort:</span></span>
+<span class="giallo-l"><span>    push rbx</span></span>
+<span class="giallo-l"><span>    push rsi</span></span>
+<span class="giallo-l"><span>    push rdi</span></span>
+<span class="giallo-l"><span>    RADIX_PASS 0</span></span>
+<span class="giallo-l"><span>    RADIX_PASS 1</span></span>
+<span class="giallo-l"><span>    RADIX_PASS 2</span></span>
+<span class="giallo-l"><span>    RADIX_PASS 3</span></span>
+<span class="giallo-l"><span>    pop rdi</span></span>
+<span class="giallo-l"><span>    pop rsi</span></span>
+<span class="giallo-l"><span>    pop rbx</span></span>
+<span class="giallo-l"><span>    ret</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>main:</span></span>
+<span class="giallo-l"><span>    push rbx</span></span>
+<span class="giallo-l"><span>    push rsi</span></span>
+<span class="giallo-l"><span>    push rdi</span></span>
+<span class="giallo-l"><span>    push r12</span></span>
+<span class="giallo-l"><span>    push r13</span></span>
+<span class="giallo-l"><span>    push r14</span></span>
+<span class="giallo-l"><span>    push r15</span></span>
+<span class="giallo-l"><span>    sub rsp, 32</span></span>
+<span class="giallo-l"><span>    call GetProcessHeap</span></span>
+<span class="giallo-l"><span>    mov r14, rax</span></span>
+<span class="giallo-l"><span>    mov rcx, r14</span></span>
+<span class="giallo-l"><span>    xor edx, edx</span></span>
+<span class="giallo-l"><span>    mov r8, N*4</span></span>
+<span class="giallo-l"><span>    call HeapAlloc</span></span>
+<span class="giallo-l"><span>    test rax, rax</span></span>
+<span class="giallo-l"><span>    jz .fail</span></span>
+<span class="giallo-l"><span>    mov r12, rax</span></span>
+<span class="giallo-l"><span>    mov rcx, r14</span></span>
+<span class="giallo-l"><span>    xor edx, edx</span></span>
+<span class="giallo-l"><span>    mov r8, N*4</span></span>
+<span class="giallo-l"><span>    call HeapAlloc</span></span>
+<span class="giallo-l"><span>    test rax, rax</span></span>
+<span class="giallo-l"><span>    jz .fail</span></span>
+<span class="giallo-l"><span>    mov r13, rax</span></span>
+<span class="giallo-l"><span>    mov r15, r12                    ; keep original data pointer for free</span></span>
+<span class="giallo-l"><span>    xor esi, esi</span></span>
+<span class="giallo-l"><span>    mov edi, 42                     ; seed</span></span>
+<span class="giallo-l"><span>.fill:</span></span>
+<span class="giallo-l"><span>    imul edi, edi, 1664525</span></span>
+<span class="giallo-l"><span>    add edi, 1013904223</span></span>
+<span class="giallo-l"><span>    mov eax, edi</span></span>
+<span class="giallo-l"><span>    and eax, 0x7fffffff</span></span>
+<span class="giallo-l"><span>    mov [r12+rsi*4], eax</span></span>
+<span class="giallo-l"><span>    inc esi</span></span>
+<span class="giallo-l"><span>    cmp esi, N</span></span>
+<span class="giallo-l"><span>    jb .fill</span></span>
+<span class="giallo-l"><span>    call radix_sort</span></span>
+<span class="giallo-l"><span>    lea rdx, [p1]</span></span>
+<span class="giallo-l"><span>    mov r8d, p1_len</span></span>
+<span class="giallo-l"><span>    call write_str</span></span>
+<span class="giallo-l"><span>    mov eax, [r12]</span></span>
+<span class="giallo-l"><span>    call print_u64_raw</span></span>
+<span class="giallo-l"><span>    lea rdx, [p2]</span></span>
+<span class="giallo-l"><span>    mov r8d, p2_len</span></span>
+<span class="giallo-l"><span>    call write_str</span></span>
+<span class="giallo-l"><span>    mov eax, [r12+(N-1)*4]</span></span>
+<span class="giallo-l"><span>    call print_u64_raw</span></span>
+<span class="giallo-l"><span>    mov ecx, -11</span></span>
+<span class="giallo-l"><span>    call GetStdHandle</span></span>
+<span class="giallo-l"><span>    mov rcx, rax</span></span>
+<span class="giallo-l"><span>    mov byte [buf], 13</span></span>
+<span class="giallo-l"><span>    mov byte [buf+1], 10</span></span>
+<span class="giallo-l"><span>    lea rdx, [buf]</span></span>
+<span class="giallo-l"><span>    mov r8d, 2</span></span>
+<span class="giallo-l"><span>    lea r9, [written]</span></span>
+<span class="giallo-l"><span>    mov qword [rsp+32], 0</span></span>
+<span class="giallo-l"><span>    call WriteFile</span></span>
+<span class="giallo-l"><span>    mov rcx, r14</span></span>
+<span class="giallo-l"><span>    xor edx, edx</span></span>
+<span class="giallo-l"><span>    mov r8, r15</span></span>
+<span class="giallo-l"><span>    call HeapFree</span></span>
+<span class="giallo-l"><span>    mov rcx, r14</span></span>
+<span class="giallo-l"><span>    xor edx, edx</span></span>
+<span class="giallo-l"><span>    ; r13 is the other buffer after even swaps (r12=data, r13=scratch)</span></span>
+<span class="giallo-l"><span>    mov r8, r13</span></span>
+<span class="giallo-l"><span>    call HeapFree</span></span>
+<span class="giallo-l"><span>    xor ecx, ecx</span></span>
+<span class="giallo-l"><span>    call ExitProcess</span></span>
+<span class="giallo-l"><span>.fail:</span></span>
+<span class="giallo-l"><span>    mov ecx, 1</span></span>
+<span class="giallo-l"><span>    call ExitProcess</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

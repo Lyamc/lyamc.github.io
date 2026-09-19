@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programs · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+<h1>Programs</h1>
+<p class="lede">Every language implements these four. Expected output is exact unless a row’s notes say otherwise.</p>
+<div class="programs">
+  
+  <a class="prog" href="https://lyamc.github.io/programs/hello/">
+    <strong>Hello</strong>
+    <small>Print a greeting and exit.</small>
+    <code>Hello, World!</code>
+  </a>
+  
+  <a class="prog" href="https://lyamc.github.io/programs/fibonacci/">
+    <strong>Fibonacci</strong>
+    <small>Iterative Fibonacci, n = 42.</small>
+    <code>267914296</code>
+  </a>
+  
+  <a class="prog" href="https://lyamc.github.io/programs/prime-sieve/">
+    <strong>Prime sieve</strong>
+    <small>Sieve of Eratosthenes to 1,000,000.</small>
+    <code>Primes up to 1000000: 78498</code>
+  </a>
+  
+  <a class="prog" href="https://lyamc.github.io/programs/sorting/">
+    <strong>Sorting</strong>
+    <small>Generate 1,000,000 LCG integers, sort, print first and last.</small>
+    <code>Sorted 1000000 integers: first=3842, last=2147480074</code>
+  </a>
+  
+</div>
+<p>The four programs are identical in spec. Implementations are idiomatic for the language; several compiled languages use LSD radix (4 passes × 8 bits) on the sort.</p>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

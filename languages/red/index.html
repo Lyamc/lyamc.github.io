@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Red · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Red</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">Red 0.6.6 toolchain · red-toolchain -c → Red&#x2F;System · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">138.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">126.6 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">667.9 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">1873.5 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="138.4">138.4</td>
+        <td class="num" data-n="34847">34847</td>
+        <td class="num" data-n="43">43 B</td>
+        <td class="num" data-n="60">60 B</td>
+        <td class="num" data-n="99328">97 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="126.6">126.6</td>
+        <td class="num" data-n="784">784</td>
+        <td class="num" data-n="90">90 B</td>
+        <td class="num" data-n="98">98 B</td>
+        <td class="num" data-n="100352">98 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="667.9">667.9</td>
+        <td class="num" data-n="923">923</td>
+        <td class="num" data-n="480">480 B</td>
+        <td class="num" data-n="263">263 B</td>
+        <td class="num" data-n="102912">101 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="1873.5">1873.5</td>
+        <td class="num" data-n="917">917</td>
+        <td class="num" data-n="315">315 B</td>
+        <td class="num" data-n="229">229 B</td>
+        <td class="num" data-n="101888">100 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 64 (work table).
+   Sort rank 66.
+  Four-file source 928 B.
+</p>
+
+
+<p class="note">vector! + sort; compiled ~1900ms first=3842 last=2147480074; rerun median n=5 samples=[1870.1, 1889.2, 1878.6, 1873.5, 1861.8]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/red/hello.red</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>Red [Title: &quot;hello&quot;]</span></span>
+<span class="giallo-l"><span>print &quot;Hello, World!&quot;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/red/fibonacci.red</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>Red [Title: &quot;fibonacci&quot;]</span></span>
+<span class="giallo-l"><span>a: 0</span></span>
+<span class="giallo-l"><span>b: 1</span></span>
+<span class="giallo-l"><span>loop 42 [</span></span>
+<span class="giallo-l"><span>    tmp: a + b</span></span>
+<span class="giallo-l"><span>    a: b</span></span>
+<span class="giallo-l"><span>    b: tmp</span></span>
+<span class="giallo-l"><span>]</span></span>
+<span class="giallo-l"><span>print a</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/red/prime_sieve.red</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>Red [Title: &quot;prime_sieve&quot;]</span></span>
+<span class="giallo-l"><span>limit: 1000000</span></span>
+<span class="giallo-l"><span>; 0 = candidate/prime, 1 = composite. Size must be a reduced integer.</span></span>
+<span class="giallo-l"><span>sieve: make vector! reduce [&#39;integer! 32 limit]</span></span>
+<span class="giallo-l"><span>sieve/1: 1</span></span>
+<span class="giallo-l"><span>i: 2</span></span>
+<span class="giallo-l"><span>while [i * i &lt;= limit] [</span></span>
+<span class="giallo-l"><span>    if zero? sieve/:i [</span></span>
+<span class="giallo-l"><span>        j: i * i</span></span>
+<span class="giallo-l"><span>        while [j &lt;= limit] [</span></span>
+<span class="giallo-l"><span>            poke sieve j 1</span></span>
+<span class="giallo-l"><span>            j: j + i</span></span>
+<span class="giallo-l"><span>        ]</span></span>
+<span class="giallo-l"><span>    ]</span></span>
+<span class="giallo-l"><span>    i: i + 1</span></span>
+<span class="giallo-l"><span>]</span></span>
+<span class="giallo-l"><span>count: 0</span></span>
+<span class="giallo-l"><span>i: 2</span></span>
+<span class="giallo-l"><span>while [i &lt;= limit] [</span></span>
+<span class="giallo-l"><span>    if zero? sieve/:i [count: count + 1]</span></span>
+<span class="giallo-l"><span>    i: i + 1</span></span>
+<span class="giallo-l"><span>]</span></span>
+<span class="giallo-l"><span>print [&quot;Primes up to&quot; limit &quot;:&quot; count]</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/red/sorting.red</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>Red [Title: &quot;sorting&quot;]</span></span>
+<span class="giallo-l"><span>n: 1000000</span></span>
+<span class="giallo-l"><span>data: make vector! reduce [&#39;integer! 32 n]</span></span>
+<span class="giallo-l"><span>seed: 42.0</span></span>
+<span class="giallo-l"><span>i: 1</span></span>
+<span class="giallo-l"><span>loop n [</span></span>
+<span class="giallo-l"><span>    seed: seed * 1664525.0 + 1013904223.0</span></span>
+<span class="giallo-l"><span>    seed: seed // 4294967296.0</span></span>
+<span class="giallo-l"><span>    poke data i to-integer (seed // 2147483648.0)</span></span>
+<span class="giallo-l"><span>    i: i + 1</span></span>
+<span class="giallo-l"><span>]</span></span>
+<span class="giallo-l"><span>sort data</span></span>
+<span class="giallo-l"><span>print [&quot;Sorted&quot; n &quot;integers: first=&quot; data/1 &quot;, last=&quot; last data]</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

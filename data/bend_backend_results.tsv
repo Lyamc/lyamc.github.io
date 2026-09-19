@@ -1,0 +1,9 @@
+kind	backend	program	wall_ms	compile_ms	exit	itrs	time_s	mips	result_line	notes
+interpreted	js	hello	142	0	0				Hello, World!	
+interpreted	js	fibonacci	140	0	0				267914296	
+interpreted	js	prime_sieve	2158	0	0				78498	
+interpreted	js	sorting	7386	0	0				(3842, 2147471270)	
+compiled	native	hello	8	1047	0				Hello, World!	
+compiled	native	fibonacci	6	1020	0				267914296	
+compiled	native	prime_sieve	21	1049	0				78498	
+compiled	native	sorting	139225	1172	3221225725					stack_overflow 

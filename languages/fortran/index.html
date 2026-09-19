@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fortran · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Fortran</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">gfortran (Strawberry) · gfortran -O2 → GCC · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">6.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">6 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">9.6 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">19.3 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="6.4">6.4</td>
+        <td class="num" data-n="148.5">148.5</td>
+        <td class="num" data-n="59">59 B</td>
+        <td class="num" data-n="66">66 B</td>
+        <td class="num" data-n="64783">63 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="6">6</td>
+        <td class="num" data-n="132.6">132.6</td>
+        <td class="num" data-n="204">204 B</td>
+        <td class="num" data-n="144">144 B</td>
+        <td class="num" data-n="64779">63 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="9.6">9.6</td>
+        <td class="num" data-n="141.7">141.7</td>
+        <td class="num" data-n="595">595 B</td>
+        <td class="num" data-n="292">292 B</td>
+        <td class="num" data-n="65669">64 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="19.3">19.3</td>
+        <td class="num" data-n="137.1">137.1</td>
+        <td class="num" data-n="1004">1004 B</td>
+        <td class="num" data-n="468">468 B</td>
+        <td class="num" data-n="65702">64 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 21 (work table).
+   Sort rank 25.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">custom qsort retimed wait-for-exit; rerun median n=5 samples=[60.3, 56.8, 58.1, 57.6, 56.9]; LSD radix 4x8; was comparison sort</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/fortran/hello.f90</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>program hello</span></span>
+<span class="giallo-l"><span>  print *, &#39;Hello, World!&#39;</span></span>
+<span class="giallo-l"><span>end program hello</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/fortran/fibonacci.f90</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>program fibonacci</span></span>
+<span class="giallo-l"><span>  implicit none</span></span>
+<span class="giallo-l"><span>  integer :: i, n</span></span>
+<span class="giallo-l"><span>  integer(kind=8) :: a, b, tmp</span></span>
+<span class="giallo-l"><span>  n = 42</span></span>
+<span class="giallo-l"><span>  a = 0</span></span>
+<span class="giallo-l"><span>  b = 1</span></span>
+<span class="giallo-l"><span>  do i = 1, n</span></span>
+<span class="giallo-l"><span>    tmp = a + b</span></span>
+<span class="giallo-l"><span>    a = b</span></span>
+<span class="giallo-l"><span>    b = tmp</span></span>
+<span class="giallo-l"><span>  end do</span></span>
+<span class="giallo-l"><span>  print *, a</span></span>
+<span class="giallo-l"><span>end program fibonacci</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/fortran/prime_sieve.f90</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>program prime_sieve</span></span>
+<span class="giallo-l"><span>  implicit none</span></span>
+<span class="giallo-l"><span>  integer, parameter :: limit = 1000000</span></span>
+<span class="giallo-l"><span>  logical, allocatable :: sieve(:)</span></span>
+<span class="giallo-l"><span>  integer :: i, j, count</span></span>
+<span class="giallo-l"><span>  allocate(sieve(0:limit))</span></span>
+<span class="giallo-l"><span>  sieve = .true.</span></span>
+<span class="giallo-l"><span>  sieve(0) = .false.</span></span>
+<span class="giallo-l"><span>  sieve(1) = .false.</span></span>
+<span class="giallo-l"><span>  i = 2</span></span>
+<span class="giallo-l"><span>  do while (i * i &lt;= limit)</span></span>
+<span class="giallo-l"><span>    if (sieve(i)) then</span></span>
+<span class="giallo-l"><span>      j = i * i</span></span>
+<span class="giallo-l"><span>      do while (j &lt;= limit)</span></span>
+<span class="giallo-l"><span>        sieve(j) = .false.</span></span>
+<span class="giallo-l"><span>        j = j + i</span></span>
+<span class="giallo-l"><span>      end do</span></span>
+<span class="giallo-l"><span>    end if</span></span>
+<span class="giallo-l"><span>    i = i + 1</span></span>
+<span class="giallo-l"><span>  end do</span></span>
+<span class="giallo-l"><span>  count = 0</span></span>
+<span class="giallo-l"><span>  do i = 2, limit</span></span>
+<span class="giallo-l"><span>    if (sieve(i)) count = count + 1</span></span>
+<span class="giallo-l"><span>  end do</span></span>
+<span class="giallo-l"><span>  print &#39;(A,I0,A,I0)&#39;, &#39;Primes up to &#39;, limit, &#39;: &#39;, count</span></span>
+<span class="giallo-l"><span>  deallocate(sieve)</span></span>
+<span class="giallo-l"><span>end program prime_sieve</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/fortran/sorting.f90</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>program sorting</span></span>
+<span class="giallo-l"><span>  implicit none</span></span>
+<span class="giallo-l"><span>  integer, parameter :: n = 1000000</span></span>
+<span class="giallo-l"><span>  integer, allocatable :: data(:), tmp(:), cnt(:)</span></span>
+<span class="giallo-l"><span>  integer :: i, pass, shift, b, c, sum, v</span></span>
+<span class="giallo-l"><span>  integer(kind=8) :: seed</span></span>
+<span class="giallo-l"><span>  allocate(data(n), tmp(n), cnt(0:255))</span></span>
+<span class="giallo-l"><span>  seed = 42</span></span>
+<span class="giallo-l"><span>  do i = 1, n</span></span>
+<span class="giallo-l"><span>    seed = iand(seed * 1664525_8 + 1013904223_8, 4294967295_8)</span></span>
+<span class="giallo-l"><span>    data(i) = int(iand(seed, 2147483647_8))</span></span>
+<span class="giallo-l"><span>  end do</span></span>
+<span class="giallo-l"><span>  do pass = 0, 3</span></span>
+<span class="giallo-l"><span>    cnt = 0</span></span>
+<span class="giallo-l"><span>    shift = pass * 8</span></span>
+<span class="giallo-l"><span>    do i = 1, n</span></span>
+<span class="giallo-l"><span>      b = iand(ishft(data(i), -shift), 255)</span></span>
+<span class="giallo-l"><span>      cnt(b) = cnt(b) + 1</span></span>
+<span class="giallo-l"><span>    end do</span></span>
+<span class="giallo-l"><span>    sum = 1</span></span>
+<span class="giallo-l"><span>    do i = 0, 255</span></span>
+<span class="giallo-l"><span>      c = cnt(i)</span></span>
+<span class="giallo-l"><span>      cnt(i) = sum</span></span>
+<span class="giallo-l"><span>      sum = sum + c</span></span>
+<span class="giallo-l"><span>    end do</span></span>
+<span class="giallo-l"><span>    do i = 1, n</span></span>
+<span class="giallo-l"><span>      v = data(i)</span></span>
+<span class="giallo-l"><span>      b = iand(ishft(v, -shift), 255)</span></span>
+<span class="giallo-l"><span>      tmp(cnt(b)) = v</span></span>
+<span class="giallo-l"><span>      cnt(b) = cnt(b) + 1</span></span>
+<span class="giallo-l"><span>    end do</span></span>
+<span class="giallo-l"><span>    data = tmp</span></span>
+<span class="giallo-l"><span>  end do</span></span>
+<span class="giallo-l"><span>  print &#39;(A,I0,A,I0,A,I0)&#39;, &#39;Sorted &#39;, n, &#39; integers: first=&#39;, data(1), &#39;, last=&#39;, data(n)</span></span>
+<span class="giallo-l"><span>  deallocate(data, tmp, cnt)</span></span>
+<span class="giallo-l"><span>end program sorting</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

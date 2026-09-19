@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ada · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Ada</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">GNAT FSF 15.3 · gnatmake -O2 → GCC · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">6.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">12.8 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="4">4</td>
+        <td class="num" data-n="364.5">364.5</td>
+        <td class="num" data-n="102">102 B</td>
+        <td class="num" data-n="104">104 B</td>
+        <td class="num" data-n="1586281">1.5 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="4">4</td>
+        <td class="num" data-n="264.9">264.9</td>
+        <td class="num" data-n="301">301 B</td>
+        <td class="num" data-n="196">196 B</td>
+        <td class="num" data-n="1728297">1.6 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="6.2">6.2</td>
+        <td class="num" data-n="284.9">284.9</td>
+        <td class="num" data-n="715">715 B</td>
+        <td class="num" data-n="343">343 B</td>
+        <td class="num" data-n="1586812">1.5 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="12.8">12.8</td>
+        <td class="num" data-n="290.6">290.6</td>
+        <td class="num" data-n="1064">1 KB</td>
+        <td class="num" data-n="481">481 B</td>
+        <td class="num" data-n="1587360">1.5 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 13 (work table).
+   Sort rank 15.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[65.7, 60.9, 60.4, 61.2, 59.5]; LSD radix 4x8; was comparison sort</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/ada/hello.adb</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ada"><span class="giallo-l"><span style="color: #CBA6F7;">with</span><span> Ada.Text_IO</span><span style="color: #9399B2;">;</span><span style="color: #CBA6F7;"> use</span><span> Ada.Text_IO</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">procedure</span><span style="color: #89B4FA;font-style: italic;"> Hello</span><span style="color: #CBA6F7;"> is</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">begin</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">   Put_Line</span><span style="color: #9399B2;"> (</span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span><span style="color: #89B4FA;font-style: italic;"> Hello</span><span style="color: #9399B2;">;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/ada/fibonacci.adb</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ada"><span class="giallo-l"><span style="color: #CBA6F7;">with</span><span> Ada.Text_IO</span><span style="color: #9399B2;">;</span><span style="color: #CBA6F7;"> use</span><span> Ada.Text_IO</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">with</span><span> Ada.Integer_Text_IO</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">procedure</span><span style="color: #89B4FA;font-style: italic;"> Fibonacci</span><span style="color: #CBA6F7;"> is</span></span>
+<span class="giallo-l"><span>   A</span><span style="color: #9399B2;">,</span><span> B</span><span style="color: #9399B2;">,</span><span> Tmp</span><span style="color: #9399B2;"> :</span><span style="color: #F9E2AF;font-style: italic;"> Long</span><span style="color: #9399B2;">_</span><span style="color: #F9E2AF;font-style: italic;">Long</span><span style="color: #9399B2;">_</span><span style="color: #F9E2AF;font-style: italic;">Integer</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">begin</span></span>
+<span class="giallo-l"><span>   A</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span><span> B</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   for</span><span> I</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> ..</span><span style="color: #FAB387;"> 42</span><span style="color: #CBA6F7;"> loop</span></span>
+<span class="giallo-l"><span>      Tmp</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> A </span><span style="color: #94E2D5;">+</span><span> B</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>      A</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> B</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>      B</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Tmp</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   end loop</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">   Ada.Integer_Text_IO.Put</span><span style="color: #9399B2;"> (</span><span>Integer </span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">));</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">   New_Line</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span><span style="color: #89B4FA;font-style: italic;"> Fibonacci</span><span style="color: #9399B2;">;</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/ada/prime_sieve.adb</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ada"><span class="giallo-l"><span style="color: #CBA6F7;">with</span><span> Ada.Text_IO</span><span style="color: #9399B2;">;</span><span style="color: #CBA6F7;"> use</span><span> Ada.Text_IO</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">procedure</span><span style="color: #89B4FA;font-style: italic;"> Prime_Sieve</span><span style="color: #CBA6F7;"> is</span></span>
+<span class="giallo-l"><span>   Limit</span><span style="color: #9399B2;"> :</span><span style="color: #CBA6F7;"> constant</span><span style="color: #F9E2AF;font-style: italic;"> Integer</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span style="color: #FAB387;"> 1_000</span><span style="color: #9399B2;">_</span><span style="color: #FAB387;">000</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   type</span><span style="color: #F9E2AF;font-style: italic;"> Bool</span><span style="color: #9399B2;">_</span><span style="color: #F9E2AF;font-style: italic;">Arr</span><span style="color: #CBA6F7;"> is array</span><span style="color: #9399B2;"> (</span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> ..</span><span style="color: #F9E2AF;font-style: italic;"> Limit</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> of</span><span style="color: #F9E2AF;font-style: italic;"> Boolean</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>   Sieve</span><span style="color: #9399B2;"> :</span><span style="color: #F9E2AF;font-style: italic;"> Bool</span><span style="color: #9399B2;">_</span><span style="color: #F9E2AF;font-style: italic;">Arr</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span style="color: #9399B2;"> (</span><span>others </span><span style="color: #CBA6F7;">=&gt;</span><span> True</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>   Count</span><span style="color: #9399B2;"> :</span><span style="color: #F9E2AF;font-style: italic;"> Integer</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>   I</span><span style="color: #9399B2;">,</span><span> J</span><span style="color: #9399B2;"> :</span><span style="color: #F9E2AF;font-style: italic;"> Integer</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">begin</span></span>
+<span class="giallo-l"><span>   Sieve</span><span style="color: #9399B2;"> (</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> False</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>   Sieve</span><span style="color: #9399B2;"> (</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> False</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>   I</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span style="color: #FAB387;"> 2</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   while</span><span> I </span><span style="color: #94E2D5;">*</span><span> I </span><span style="color: #94E2D5;">&lt;=</span><span> Limit </span><span style="color: #CBA6F7;">loop</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      if</span><span> Sieve </span><span style="color: #9399B2;">(</span><span>I</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> then</span></span>
+<span class="giallo-l"><span>         J</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> I </span><span style="color: #94E2D5;">*</span><span> I</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">         while</span><span> J </span><span style="color: #94E2D5;">&lt;=</span><span> Limit </span><span style="color: #CBA6F7;">loop</span></span>
+<span class="giallo-l"><span>            Sieve</span><span style="color: #9399B2;"> (</span><span>J</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> False</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>            J</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> J </span><span style="color: #94E2D5;">+</span><span> I</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">         end loop</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      end if</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>      I</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> I </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   end loop</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   for</span><span> K</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;"> 2</span><span style="color: #CBA6F7;"> ..</span><span> Limit </span><span style="color: #CBA6F7;">loop</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      if</span><span> Sieve </span><span style="color: #9399B2;">(</span><span>K</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> then</span></span>
+<span class="giallo-l"><span>         Count</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Count </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      end if</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   end loop</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">   Put_Line</span><span style="color: #9399B2;"> (</span><span style="color: #A6E3A1;">&quot;Primes up to 1000000: &quot;</span><span style="color: #94E2D5;"> &amp;</span><span> Integer</span><span style="color: #9399B2;">&#39;</span><span style="color: #F9E2AF;">Image</span><span style="color: #9399B2;"> (</span><span>Count</span><span style="color: #9399B2;">));</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span><span style="color: #89B4FA;font-style: italic;"> Prime_Sieve</span><span style="color: #9399B2;">;</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/ada/sorting.adb</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ada"><span class="giallo-l"><span style="color: #CBA6F7;">with</span><span> Ada.Text_IO</span><span style="color: #9399B2;">;</span><span style="color: #CBA6F7;"> use</span><span> Ada.Text_IO</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">with</span><span> Interfaces</span><span style="color: #9399B2;">;</span><span style="color: #CBA6F7;"> use</span><span> Interfaces</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">procedure</span><span style="color: #89B4FA;font-style: italic;"> Sorting</span><span style="color: #CBA6F7;"> is</span></span>
+<span class="giallo-l"><span>   N</span><span style="color: #9399B2;"> :</span><span style="color: #CBA6F7;"> constant</span><span style="color: #F9E2AF;font-style: italic;"> Integer</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span style="color: #FAB387;"> 1_000</span><span style="color: #9399B2;">_</span><span style="color: #FAB387;">000</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   type</span><span style="color: #F9E2AF;font-style: italic;"> Arr</span><span style="color: #CBA6F7;"> is array</span><span style="color: #9399B2;"> (</span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> ..</span><span style="color: #F9E2AF;font-style: italic;"> N</span><span style="color: #94E2D5;"> -</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> of</span><span style="color: #F9E2AF;font-style: italic;"> Unsigned</span><span style="color: #9399B2;">_</span><span style="color: #F9E2AF;font-style: italic;">32</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>   Data</span><span style="color: #9399B2;">,</span><span> Tmp</span><span style="color: #9399B2;"> :</span><span style="color: #F9E2AF;font-style: italic;"> Arr</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>   Count</span><span style="color: #9399B2;"> :</span><span style="color: #F9E2AF;font-style: italic;"> array</span><span style="color: #9399B2;"> (</span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> ..</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">)</span><span style="color: #F9E2AF;font-style: italic;"> of Unsigned</span><span style="color: #9399B2;">_</span><span style="color: #F9E2AF;font-style: italic;">32</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>   Seed</span><span style="color: #9399B2;"> :</span><span style="color: #F9E2AF;font-style: italic;"> Unsigned</span><span style="color: #9399B2;">_</span><span style="color: #F9E2AF;font-style: italic;">32</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span style="color: #FAB387;"> 42</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>   Sum</span><span style="color: #9399B2;">,</span><span> C</span><span style="color: #9399B2;">,</span><span> V</span><span style="color: #9399B2;"> :</span><span style="color: #F9E2AF;font-style: italic;"> Unsigned</span><span style="color: #9399B2;">_</span><span style="color: #F9E2AF;font-style: italic;">32</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>   B</span><span style="color: #9399B2;">,</span><span> Shift</span><span style="color: #9399B2;"> :</span><span style="color: #F9E2AF;font-style: italic;"> Integer</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">begin</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   for</span><span> I</span><span style="color: #CBA6F7;"> in</span><span> Data</span><span style="color: #9399B2;">&#39;</span><span style="color: #F9E2AF;">Range</span><span style="color: #CBA6F7;"> loop</span></span>
+<span class="giallo-l"><span>      Seed</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Seed </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>      Data</span><span style="color: #9399B2;"> (</span><span>I</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Seed </span><span style="color: #CBA6F7;">and</span><span style="color: #FAB387;"> 16#7FFFFFFF#</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   end loop</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   for</span><span> Pass</span><span style="color: #CBA6F7;"> in</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> ..</span><span style="color: #FAB387;"> 3</span><span style="color: #CBA6F7;"> loop</span></span>
+<span class="giallo-l"><span>      Count</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span style="color: #9399B2;"> (</span><span>others </span><span style="color: #CBA6F7;">=&gt;</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>      Shift</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Pass </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 8</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      for</span><span> I</span><span style="color: #CBA6F7;"> in</span><span> Data</span><span style="color: #9399B2;">&#39;</span><span style="color: #F9E2AF;">Range</span><span style="color: #CBA6F7;"> loop</span></span>
+<span class="giallo-l"><span>         B</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Integer </span><span style="color: #9399B2;">(</span><span>Shift_Right </span><span style="color: #9399B2;">(</span><span>Data </span><span style="color: #9399B2;">(</span><span>I</span><span style="color: #9399B2;">),</span><span> Shift</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> and</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>         Count</span><span style="color: #9399B2;"> (</span><span>B</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Count </span><span style="color: #9399B2;">(</span><span>B</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      end loop</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>      Sum</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      for</span><span> I</span><span style="color: #CBA6F7;"> in</span><span> Count</span><span style="color: #9399B2;">&#39;</span><span style="color: #F9E2AF;">Range</span><span style="color: #CBA6F7;"> loop</span></span>
+<span class="giallo-l"><span>         C</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Count </span><span style="color: #9399B2;">(</span><span>I</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>         Count</span><span style="color: #9399B2;"> (</span><span>I</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Sum</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>         Sum</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Sum </span><span style="color: #94E2D5;">+</span><span> C</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      end loop</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      for</span><span> I</span><span style="color: #CBA6F7;"> in</span><span> Data</span><span style="color: #9399B2;">&#39;</span><span style="color: #F9E2AF;">Range</span><span style="color: #CBA6F7;"> loop</span></span>
+<span class="giallo-l"><span>         V</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Data </span><span style="color: #9399B2;">(</span><span>I</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>         B</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Integer </span><span style="color: #9399B2;">(</span><span>Shift_Right </span><span style="color: #9399B2;">(</span><span>V</span><span style="color: #9399B2;">,</span><span> Shift</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> and</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>         Tmp</span><span style="color: #9399B2;"> (</span><span>Integer </span><span style="color: #9399B2;">(</span><span>Count </span><span style="color: #9399B2;">(</span><span>B</span><span style="color: #9399B2;">)))</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> V</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>         Count</span><span style="color: #9399B2;"> (</span><span>B</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Count </span><span style="color: #9399B2;">(</span><span>B</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      end loop</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>      Data</span><span style="color: #CBA6F7;font-weight: bold;"> :=</span><span> Tmp</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">   end loop</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">   Put_Line</span><span style="color: #9399B2;"> (</span><span style="color: #A6E3A1;">&quot;Sorted 1000000 integers: first=&quot;</span><span style="color: #94E2D5;"> &amp;</span><span> Unsigned_</span><span style="color: #FAB387;">32</span><span style="color: #9399B2;">&#39;</span><span style="color: #F9E2AF;">Image</span><span style="color: #9399B2;"> (</span><span>Data </span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">             &amp;</span><span style="color: #A6E3A1;"> &quot;, last=&quot;</span><span style="color: #94E2D5;"> &amp;</span><span> Unsigned_</span><span style="color: #FAB387;">32</span><span style="color: #9399B2;">&#39;</span><span style="color: #F9E2AF;">Image</span><span style="color: #9399B2;"> (</span><span>Data </span><span style="color: #9399B2;">(</span><span>N </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)));</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span><span style="color: #89B4FA;font-style: italic;"> Sorting</span><span style="color: #9399B2;">;</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

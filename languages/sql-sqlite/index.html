@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQL (SQLite) · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>SQL (SQLite)</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">bytecode VM</span>
+</div>
+<p class="muted">sqlite3 3.51.1 · sqlite3 → SQLite bytecode · SQLite VDBE</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">15.9 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">10.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">1424.3 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">454.3 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="15.9">15.9</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="24">24 B</td>
+        <td class="num" data-n="44">44 B</td>
+        <td class="num" data-n="3897344">3.7 MB</td>
+        <td class="num" data-n="3960">3960 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="10.4">10.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="143">143 B</td>
+        <td class="num" data-n="123">123 B</td>
+        <td class="num" data-n="3897344">3.7 MB</td>
+        <td class="num" data-n="3960">3960 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="1424.3">1424.3</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="951">951 B</td>
+        <td class="num" data-n="445">445 B</td>
+        <td class="num" data-n="3897344">3.7 MB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="454.3">454.3</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="526">526 B</td>
+        <td class="num" data-n="313">313 B</td>
+        <td class="num" data-n="3897344">3.7 MB</td>
+        <td class="num" data-n="3964">3964 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 70 (work table).
+   Sort rank 52.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[447.4, 452.6, 456.7, 456.9, 454.3]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/sql/hello.sql</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="sql"><span class="giallo-l"><span style="color: #CBA6F7;">SELECT</span><span style="color: #A6E3A1;"> &#39;Hello, World!&#39;</span><span>;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/sql/fibonacci.sql</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="sql"><span class="giallo-l"><span style="color: #CBA6F7;">WITH RECURSIVE</span><span> fib(i, a, b) </span><span style="color: #CBA6F7;">AS</span><span> (</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span style="color: #FAB387;"> 0</span><span>, </span><span style="color: #FAB387;">0</span><span>, </span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  UNION ALL</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span>, b, a </span><span style="color: #94E2D5;">+</span><span> b </span><span style="color: #CBA6F7;">FROM</span><span> fib </span><span style="color: #CBA6F7;">WHERE</span><span> i </span><span style="color: #94E2D5;">&lt;</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">SELECT</span><span> a </span><span style="color: #CBA6F7;">FROM</span><span> fib </span><span style="color: #CBA6F7;">WHERE</span><span> i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 42</span><span>;</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/sql/prime_sieve.sql</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="sql"><span class="giallo-l"><span style="color: #9399B2;font-style: italic;">-- Sieve of Eratosthenes up to 1_000_000:</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">-- generate 2..N, then mark composites as p^2, p^2+p, p^2+2p, ...</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">DROP TABLE IF EXISTS</span><span> nums;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">CREATE TABLE</span><span style="color: #89B4FA;font-style: italic;"> nums</span><span>(n </span><span style="color: #CBA6F7;">INTEGER PRIMARY KEY</span><span>, is_prime </span><span style="color: #CBA6F7;">INTEGER NOT NULL</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">WITH RECURSIVE</span><span> seq(n) </span><span style="color: #CBA6F7;">AS</span><span> (</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span style="color: #FAB387;"> 2</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  UNION ALL</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span> n </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> FROM</span><span> seq </span><span style="color: #CBA6F7;">WHERE</span><span> n </span><span style="color: #94E2D5;">&lt;</span><span style="color: #FAB387;"> 1000000</span></span>
+<span class="giallo-l"><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">INSERT INTO</span><span> nums </span><span style="color: #CBA6F7;">SELECT</span><span> n, </span><span style="color: #FAB387;">1</span><span style="color: #CBA6F7;"> FROM</span><span> seq;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">WITH RECURSIVE</span></span>
+<span class="giallo-l"><span>small(n) </span><span style="color: #CBA6F7;">AS</span><span> (</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span style="color: #FAB387;"> 2</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  UNION ALL</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span> n </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> FROM</span><span> small </span><span style="color: #CBA6F7;">WHERE</span><span> n </span><span style="color: #94E2D5;">&lt;</span><span style="color: #FAB387;"> 1000</span></span>
+<span class="giallo-l"><span>),</span></span>
+<span class="giallo-l"><span>small_mark(p, m) </span><span style="color: #CBA6F7;">AS</span><span> (</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span> n, n </span><span style="color: #94E2D5;">*</span><span> n </span><span style="color: #CBA6F7;">FROM</span><span> small </span><span style="color: #CBA6F7;">WHERE</span><span> n </span><span style="color: #94E2D5;">*</span><span> n </span><span style="color: #94E2D5;">&lt;=</span><span style="color: #FAB387;"> 1000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  UNION ALL</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span> p, m </span><span style="color: #94E2D5;">+</span><span> p </span><span style="color: #CBA6F7;">FROM</span><span> small_mark </span><span style="color: #CBA6F7;">WHERE</span><span> m </span><span style="color: #94E2D5;">+</span><span> p </span><span style="color: #94E2D5;">&lt;=</span><span style="color: #FAB387;"> 1000</span></span>
+<span class="giallo-l"><span>),</span></span>
+<span class="giallo-l"><span>prime_p(p) </span><span style="color: #CBA6F7;">AS</span><span> (</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span> s.n</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  FROM</span><span> small s</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  LEFT JOIN</span><span> small_mark sm </span><span style="color: #CBA6F7;">ON</span><span> s.n</span><span style="color: #94E2D5;"> =</span><span> sm.m</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  WHERE</span><span> sm.m</span><span style="color: #CBA6F7;"> IS NULL</span></span>
+<span class="giallo-l"><span>),</span></span>
+<span class="giallo-l"><span>composites(p, m) </span><span style="color: #CBA6F7;">AS</span><span> (</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span> p, p </span><span style="color: #94E2D5;">*</span><span> p </span><span style="color: #CBA6F7;">FROM</span><span> prime_p</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  UNION ALL</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span> p, m </span><span style="color: #94E2D5;">+</span><span> p </span><span style="color: #CBA6F7;">FROM</span><span> composites </span><span style="color: #CBA6F7;">WHERE</span><span> m </span><span style="color: #94E2D5;">+</span><span> p </span><span style="color: #94E2D5;">&lt;=</span><span style="color: #FAB387;"> 1000000</span></span>
+<span class="giallo-l"><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">UPDATE</span><span> nums </span><span style="color: #CBA6F7;">SET</span><span> is_prime </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;"> WHERE</span><span> n </span><span style="color: #CBA6F7;">IN</span><span> (</span><span style="color: #CBA6F7;">SELECT</span><span> m </span><span style="color: #CBA6F7;">FROM</span><span> composites);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">SELECT</span><span style="color: #A6E3A1;"> &#39;Primes up to 1000000: &#39;</span><span style="color: #94E2D5;"> ||</span><span style="color: #89B4FA;font-style: italic;"> COUNT</span><span>(</span><span style="color: #94E2D5;">*</span><span>) </span><span style="color: #CBA6F7;">FROM</span><span> nums </span><span style="color: #CBA6F7;">WHERE</span><span> is_prime </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1</span><span>;</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/sql/sorting.sql</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="sql"><span class="giallo-l"><span style="color: #CBA6F7;">DROP TABLE IF EXISTS</span><span> vals;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">DROP TABLE IF EXISTS</span><span> sorted;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">CREATE TABLE</span><span style="color: #89B4FA;font-style: italic;"> vals</span><span>(v </span><span style="color: #CBA6F7;">INTEGER</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">WITH RECURSIVE</span><span> seq(i, seed) </span><span style="color: #CBA6F7;">AS</span><span> (</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span style="color: #FAB387;"> 0</span><span>, (</span><span style="color: #FAB387;">42</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span>) &amp; </span><span style="color: #FAB387;">4294967295</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  UNION ALL</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  SELECT</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span>, (seed </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span>) &amp; </span><span style="color: #FAB387;">4294967295</span><span style="color: #CBA6F7;"> FROM</span><span> seq </span><span style="color: #CBA6F7;">WHERE</span><span> i </span><span style="color: #94E2D5;">&lt;</span><span style="color: #FAB387;"> 999999</span></span>
+<span class="giallo-l"><span>)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">INSERT INTO</span><span> vals </span><span style="color: #CBA6F7;">SELECT</span><span> (seed &amp; </span><span style="color: #FAB387;">2147483647</span><span>) </span><span style="color: #CBA6F7;">FROM</span><span> seq;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">CREATE TABLE</span><span style="color: #89B4FA;font-style: italic;"> sorted</span><span style="color: #CBA6F7;"> AS SELECT</span><span> v </span><span style="color: #CBA6F7;">FROM</span><span> vals </span><span style="color: #CBA6F7;">ORDER BY</span><span> v;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">SELECT</span><span style="color: #A6E3A1;"> &#39;Sorted 1000000 integers: first=&#39;</span><span style="color: #94E2D5;"> ||</span><span> (</span><span style="color: #CBA6F7;">SELECT</span><span> v </span><span style="color: #CBA6F7;">FROM</span><span> sorted </span><span style="color: #CBA6F7;">WHERE</span><span> rowid </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">  ||</span><span style="color: #A6E3A1;"> &#39;, last=&#39;</span><span style="color: #94E2D5;"> ||</span><span> (</span><span style="color: #CBA6F7;">SELECT</span><span> v </span><span style="color: #CBA6F7;">FROM</span><span> sorted </span><span style="color: #CBA6F7;">WHERE</span><span> rowid </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1000000</span><span>);</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<h1>Same four programs, seventy languages</h1>
+<p class="lede">
+  Each language implements hello, Fibonacci(42), a sieve to one million, and a sort of one million LCG integers.
+  Times are <strong>cold process wall-clock milliseconds</strong>: start, work, print, exit. No warmup loop.
+</p>
+
+<h2>Top 5</h2>
+<div class="tops">
+  <section>
+    <h3>Sieve to 1e6</h3>
+    <ol>
+      
+      <li><a href="https://lyamc.github.io/languages/zig/">Zig</a> <b>4.2 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/objective-c/">Objective-C</a> <b>4.6 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/c-clang/">C (clang)</a> <b>4.8 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/holyc-clang/">HolyC (clang)</a> <b>4.9 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/holyc-msvc/">HolyC (MSVC)</a> <b>4.9 ms</b></li>
+      
+    </ol>
+  </section>
+  <section>
+    <h3>Sort 1e6 LCG ints</h3>
+    <ol>
+      
+      <li><a href="https://lyamc.github.io/languages/zig/">Zig</a> <b>8.6 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/x86-assembly-nasm/">X86 Assembly (NASM)</a> <b>9.5 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/c-clang/">C (clang)</a> <b>9.6 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/objective-c/">Objective-C</a> <b>9.7 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/cpp/">C++</a> <b>9.8 ms</b></li>
+      
+    </ol>
+  </section>
+  <section>
+    <h3>Startup (hello)</h3>
+    <ol>
+      
+      <li><a href="https://lyamc.github.io/languages/lean-4/">Lean 4</a> <b>2.6 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/x86-assembly-nasm/">X86 Assembly (NASM)</a> <b>3.2 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/holyc-tcc/">HolyC (tcc)</a> <b>3.3 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/zig/">Zig</a> <b>3.3 ms</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/c-tcc/">C (tcc)</a> <b>3.5 ms</b></li>
+      
+    </ol>
+  </section>
+  <section>
+    <h3>Smallest source</h3>
+    <ol>
+      
+      <li><a href="https://lyamc.github.io/languages/ruby/">Ruby</a> <b>589 B</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/crystal/">Crystal</a> <b>613 B</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/r/">R</a> <b>673 B</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/groovy/">Groovy</a> <b>719 B</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/raku/">Raku</a> <b>726 B</b></li>
+      
+    </ol>
+  </section>
+  <section>
+    <h3>Smallest native exe</h3>
+    <ol>
+      
+      <li><a href="https://lyamc.github.io/languages/c-tcc/">C (tcc)</a> <b>3 KB</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/holyc-tcc/">HolyC (tcc)</a> <b>5 KB</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/swift/">Swift</a> <b>26 KB</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/mojo-aot/">Mojo (AOT)</a> <b>27 KB</b></li>
+      
+      <li><a href="https://lyamc.github.io/languages/basic-freebasic/">BASIC (FreeBASIC)</a> <b>31 KB</b></li>
+      
+    </ol>
+  </section>
+</div>
+
+<div class="stats">
+  <div class="stat"><b>74</b><span>timed language variants</span></div>
+  <div class="stat"><b>79</b><span>labels in the table</span></div>
+  <div class="stat"><b>4</b><span>programs</span></div>
+  <div class="stat"><b>13th Gen Intel Core i9-13900K</b><span>same CPU for every row</span></div>
+</div>
+
+<p class="note">
+  Most rows are cold Windows process times (median of 5). Lean 4 and Mojo were timed on Linux (NixOS &#x2F; WSL2) on the same CPU.
+  Hello and Fibonacci mostly measure launch. Sieve and sort are the two programs that move memory.
+  GPU rows, o3-monkey (reduced n), COBOL, Forth sort, and R sort are omitted from the work rankings.
+  Newest AOT row: <a href="https://lyamc.github.io/languages/lean-4/">Lean 4</a> (sieve 24.9 ms, sort 98.8 ms).
+</p>
+
+<div class="programs">
+  
+  <a class="prog" href="https://lyamc.github.io/programs/hello/">
+    <strong>Hello</strong>
+    <small>Print a greeting and exit.</small>
+    <code>Hello, World!</code>
+  </a>
+  
+  <a class="prog" href="https://lyamc.github.io/programs/fibonacci/">
+    <strong>Fibonacci</strong>
+    <small>Iterative Fibonacci, n = 42.</small>
+    <code>267914296</code>
+  </a>
+  
+  <a class="prog" href="https://lyamc.github.io/programs/prime-sieve/">
+    <strong>Prime sieve</strong>
+    <small>Sieve of Eratosthenes to 1,000,000.</small>
+    <code>Primes up to 1000000: 78498</code>
+  </a>
+  
+  <a class="prog" href="https://lyamc.github.io/programs/sorting/">
+    <strong>Sorting</strong>
+    <small>Generate 1,000,000 LCG integers, sort, print first and last.</small>
+    <code>Sorted 1000000 integers: first=3842, last=2147480074</code>
+  </a>
+  
+</div>
+
+<h2>Prime sieve to 1e6</h2>
+
+<p class="legend">
+  <span><i class="native"></i>AOT native</span>
+  <span><i class="jit"></i>JIT / VM</span>
+  <span><i class="interp"></i>interpreter</span>
+  <span><i class="gpu"></i>GPU host</span>
+</p>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th class="num">#</th>
+      <th>Language</th>
+      <th>Family</th>
+      <th class="num">ms</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        <td class="num" data-n="1">1</td>
+        <td><a href="https://lyamc.github.io/languages/zig/">Zig</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="4.2">4.2</td>
+        <td><span class="bar native" style="width: 4px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="2">2</td>
+        <td><a href="https://lyamc.github.io/languages/objective-c/">Objective-C</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="4.6">4.6</td>
+        <td><span class="bar native" style="width: 4px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="3">3</td>
+        <td><a href="https://lyamc.github.io/languages/c-clang/">C (clang)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="4.8">4.8</td>
+        <td><span class="bar native" style="width: 4px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="4">4</td>
+        <td><a href="https://lyamc.github.io/languages/holyc-clang/">HolyC (clang)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="4.9">4.9</td>
+        <td><span class="bar native" style="width: 4px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="5">5</td>
+        <td><a href="https://lyamc.github.io/languages/holyc-msvc/">HolyC (MSVC)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="4.9">4.9</td>
+        <td><span class="bar native" style="width: 4px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="6">6</td>
+        <td><a href="https://lyamc.github.io/languages/basic-freebasic/">BASIC (FreeBASIC)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="5">5</td>
+        <td><span class="bar native" style="width: 5px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="7">7</td>
+        <td><a href="https://lyamc.github.io/languages/c-msvc/">C (MSVC)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="5">5</td>
+        <td><span class="bar native" style="width: 5px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="8">8</td>
+        <td><a href="https://lyamc.github.io/languages/cpp/">C++</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="5.1">5.1</td>
+        <td><span class="bar native" style="width: 5px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="9">9</td>
+        <td><a href="https://lyamc.github.io/languages/x86-assembly-nasm/">X86 Assembly (NASM)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="5.1">5.1</td>
+        <td><span class="bar native" style="width: 5px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="10">10</td>
+        <td><a href="https://lyamc.github.io/languages/c-gcc/">C (gcc)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="5.2">5.2</td>
+        <td><span class="bar native" style="width: 5px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="11">11</td>
+        <td><a href="https://lyamc.github.io/languages/holyc-gcc/">HolyC (gcc)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="5.2">5.2</td>
+        <td><span class="bar native" style="width: 5px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="12">12</td>
+        <td><a href="https://lyamc.github.io/languages/rust/">Rust</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="5.5">5.5</td>
+        <td><span class="bar native" style="width: 5px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="13">13</td>
+        <td><a href="https://lyamc.github.io/languages/ada/">Ada</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="6.2">6.2</td>
+        <td><span class="bar native" style="width: 6px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="14">14</td>
+        <td><a href="https://lyamc.github.io/languages/nim/">Nim</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="6.5">6.5</td>
+        <td><span class="bar native" style="width: 6px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="15">15</td>
+        <td><a href="https://lyamc.github.io/languages/v/">V</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="6.8">6.8</td>
+        <td><span class="bar native" style="width: 6px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="16">16</td>
+        <td><a href="https://lyamc.github.io/languages/c-tcc/">C (tcc)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="6.9">6.9</td>
+        <td><span class="bar native" style="width: 6px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="17">17</td>
+        <td><a href="https://lyamc.github.io/languages/csharp-aot/">C# (AOT)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="8.6">8.6</td>
+        <td><span class="bar native" style="width: 8px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="18">18</td>
+        <td><a href="https://lyamc.github.io/languages/holyc-tcc/">HolyC (tcc)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="8.6">8.6</td>
+        <td><span class="bar native" style="width: 8px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="19">19</td>
+        <td><a href="https://lyamc.github.io/languages/fsharp-aot/">F# (AOT)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="8.8">8.8</td>
+        <td><span class="bar native" style="width: 8px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="20">20</td>
+        <td><a href="https://lyamc.github.io/languages/free-pascal/">Free Pascal</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="8.8">8.8</td>
+        <td><span class="bar native" style="width: 8px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="21">21</td>
+        <td><a href="https://lyamc.github.io/languages/fortran/">Fortran</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="9.6">9.6</td>
+        <td><span class="bar native" style="width: 9px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="22">22</td>
+        <td><a href="https://lyamc.github.io/languages/go/">Go</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="9.6">9.6</td>
+        <td><span class="bar native" style="width: 9px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="23">23</td>
+        <td><a href="https://lyamc.github.io/languages/d/">D</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="9.7">9.7</td>
+        <td><span class="bar native" style="width: 9px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="24">24</td>
+        <td><a href="https://lyamc.github.io/languages/ocaml/">OCaml</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="10.7">10.7</td>
+        <td><span class="bar native" style="width: 10px"></span></td>
+      </tr>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </tbody>
+</table>
+</div>
+<p class="muted"><a href="https://lyamc.github.io/programs/prime-sieve/">Full sieve table</a></p>
+
+<h2>Sort of 1e6 LCG ints</h2>
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th class="num">#</th>
+      <th>Language</th>
+      <th>Family</th>
+      <th class="num">ms</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        <td class="num" data-n="1">1</td>
+        <td><a href="https://lyamc.github.io/languages/zig/">Zig</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="8.6">8.6</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="2">2</td>
+        <td><a href="https://lyamc.github.io/languages/x86-assembly-nasm/">X86 Assembly (NASM)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="9.5">9.5</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="3">3</td>
+        <td><a href="https://lyamc.github.io/languages/c-clang/">C (clang)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="9.6">9.6</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="4">4</td>
+        <td><a href="https://lyamc.github.io/languages/objective-c/">Objective-C</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="9.7">9.7</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="5">5</td>
+        <td><a href="https://lyamc.github.io/languages/cpp/">C++</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="9.8">9.8</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="6">6</td>
+        <td><a href="https://lyamc.github.io/languages/holyc-clang/">HolyC (clang)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="10">10</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="7">7</td>
+        <td><a href="https://lyamc.github.io/languages/rust/">Rust</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="10.5">10.5</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="8">8</td>
+        <td><a href="https://lyamc.github.io/languages/c-gcc/">C (gcc)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="10.6">10.6</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="9">9</td>
+        <td><a href="https://lyamc.github.io/languages/holyc-gcc/">HolyC (gcc)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="10.6">10.6</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="10">10</td>
+        <td><a href="https://lyamc.github.io/languages/c-msvc/">C (MSVC)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="10.7">10.7</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="11">11</td>
+        <td><a href="https://lyamc.github.io/languages/holyc-msvc/">HolyC (MSVC)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="10.7">10.7</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="12">12</td>
+        <td><a href="https://lyamc.github.io/languages/nim/">Nim</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="10.9">10.9</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="13">13</td>
+        <td><a href="https://lyamc.github.io/languages/d/">D</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="11">11</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="14">14</td>
+        <td><a href="https://lyamc.github.io/languages/basic-freebasic/">BASIC (FreeBASIC)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="11.3">11.3</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="15">15</td>
+        <td><a href="https://lyamc.github.io/languages/ada/">Ada</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="12.8">12.8</td>
+        <td><span class="bar native" style="width: 2px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="16">16</td>
+        <td><a href="https://lyamc.github.io/languages/fsharp-aot/">F# (AOT)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="14.7">14.7</td>
+        <td><span class="bar native" style="width: 3px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="17">17</td>
+        <td><a href="https://lyamc.github.io/languages/go/">Go</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="14.7">14.7</td>
+        <td><span class="bar native" style="width: 3px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="18">18</td>
+        <td><a href="https://lyamc.github.io/languages/c-tcc/">C (tcc)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="14.8">14.8</td>
+        <td><span class="bar native" style="width: 3px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="19">19</td>
+        <td><a href="https://lyamc.github.io/languages/csharp-aot/">C# (AOT)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="15.1">15.1</td>
+        <td><span class="bar native" style="width: 3px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="20">20</td>
+        <td><a href="https://lyamc.github.io/languages/free-pascal/">Free Pascal</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="15.5">15.5</td>
+        <td><span class="bar native" style="width: 3px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="21">21</td>
+        <td><a href="https://lyamc.github.io/languages/crystal/">Crystal</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="16.6">16.6</td>
+        <td><span class="bar native" style="width: 3px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="22">22</td>
+        <td><a href="https://lyamc.github.io/languages/haskell/">Haskell</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="17">17</td>
+        <td><span class="bar native" style="width: 3px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="23">23</td>
+        <td><a href="https://lyamc.github.io/languages/v/">V</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="17.9">17.9</td>
+        <td><span class="bar native" style="width: 3px"></span></td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td class="num" data-n="24">24</td>
+        <td><a href="https://lyamc.github.io/languages/mojo-aot/">Mojo (AOT)</a></td>
+        <td><span class="pill native">native</span></td>
+        <td class="num" data-n="18.3">18.3</td>
+        <td><span class="bar native" style="width: 3px"></span></td>
+      </tr>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </tbody>
+</table>
+</div>
+<p class="muted"><a href="https://lyamc.github.io/programs/sorting/">Full sort table</a></p>
+
+<h2>Charts</h2>
+<div class="graphs">
+  <figure>
+    <a href="https://lyamc.github.io/graphs/sieve_times.svg"><img src="https://lyamc.github.io/graphs/sieve_times.svg" alt="Sieve times"></a>
+    <figcaption>Sieve wall ms (lower is faster)</figcaption>
+  </figure>
+  <figure>
+    <a href="https://lyamc.github.io/graphs/sort_times.svg"><img src="https://lyamc.github.io/graphs/sort_times.svg" alt="Sort times"></a>
+    <figcaption>Sort wall ms (lower is faster)</figcaption>
+  </figure>
+</div>
+<p class="muted"><a href="https://lyamc.github.io/graphs/interactive.html">Interactive charts</a> · <a href="https://lyamc.github.io/graphs/">All graphs</a> · generated 2026-09-19 03:43 UTC</p>
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

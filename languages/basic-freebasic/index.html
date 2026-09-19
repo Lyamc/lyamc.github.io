@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BASIC (FreeBASIC) · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>BASIC (FreeBASIC)</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">FreeBASIC 1.10.1 · fbc64 -gen gcc -O 3 → C (MinGW-w64 gcc 9.3) · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">3.7 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">5 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">11.3 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="4">4</td>
+        <td class="num" data-n="76.7">76.7</td>
+        <td class="num" data-n="22">22 B</td>
+        <td class="num" data-n="42">42 B</td>
+        <td class="num" data-n="29184">29 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="3.7">3.7</td>
+        <td class="num" data-n="53.6">53.6</td>
+        <td class="num" data-n="117">117 B</td>
+        <td class="num" data-n="108">108 B</td>
+        <td class="num" data-n="28160">28 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="5">5</td>
+        <td class="num" data-n="53.6">53.6</td>
+        <td class="num" data-n="440">440 B</td>
+        <td class="num" data-n="230">230 B</td>
+        <td class="num" data-n="31232">31 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="11.3">11.3</td>
+        <td class="num" data-n="146.2">146.2</td>
+        <td class="num" data-n="1125">1 KB</td>
+        <td class="num" data-n="524">524 B</td>
+        <td class="num" data-n="31232">31 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 6 (work table).
+   Sort rank 14.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">LSD radix 4x8, ULong (32-bit keys), pointer walks, win64 gcc -O3; was 13.1ms win32 UInteger; median n=5 samples=[11.2, 11.3, 29.1, 11.6, 11.1]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/freebasic/hello.bas</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="vb"><span class="giallo-l"><span>Print </span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/freebasic/fibonacci.bas</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="vb"><span class="giallo-l"><span style="color: #CBA6F7;">Dim</span><span> As</span><span style="color: #F9E2AF;font-style: italic;"> LongInt</span><span> a</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span>, b</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span><span>, tmp</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Dim</span><span> As</span><span style="color: #F9E2AF;font-style: italic;"> Integer</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">For</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> To</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span>    tmp</span><span style="color: #94E2D5;"> =</span><span> a</span><span style="color: #94E2D5;"> +</span><span> b</span></span>
+<span class="giallo-l"><span>    a</span><span style="color: #94E2D5;"> =</span><span> b</span></span>
+<span class="giallo-l"><span>    b</span><span style="color: #94E2D5;"> =</span><span> tmp</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Next</span></span>
+<span class="giallo-l"><span>Print a</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/freebasic/prime_sieve.bas</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="vb"><span class="giallo-l"><span style="color: #CBA6F7;">Const </span><span>LIMIT </span><span style="color: #94E2D5;">As</span><span style="color: #F9E2AF;font-style: italic;"> Integer</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Dim</span><span> sieve</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> To</span><span> LIMIT</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> As</span><span style="color: #F9E2AF;font-style: italic;"> Byte</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Dim</span><span> As</span><span style="color: #F9E2AF;font-style: italic;"> Integer</span><span> i, j, count</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">For</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> To</span><span> LIMIT</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    sieve</span><span style="color: #9399B2;">(</span><span>i</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Next</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">sieve</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">sieve</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 2</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">While</span><span> i </span><span style="color: #94E2D5;">*</span><span> i</span><span style="color: #94E2D5;"> &lt;=</span><span> LIMIT</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    If</span><span style="color: #89B4FA;font-style: italic;"> sieve</span><span style="color: #9399B2;">(</span><span>i</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> Then</span></span>
+<span class="giallo-l"><span>        j</span><span style="color: #94E2D5;"> =</span><span> i</span><span style="color: #94E2D5;"> *</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        While</span><span> j</span><span style="color: #94E2D5;"> &lt;=</span><span> LIMIT</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">            sieve</span><span style="color: #9399B2;">(</span><span>j</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span>            j</span><span style="color: #94E2D5;"> +=</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        Wend</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    End If</span></span>
+<span class="giallo-l"><span>    i</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Wend</span></span>
+<span class="giallo-l"><span>count</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">For</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 2</span><span style="color: #CBA6F7;"> To</span><span> LIMIT</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    If</span><span style="color: #89B4FA;font-style: italic;"> sieve</span><span style="color: #9399B2;">(</span><span>i</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> Then</span><span> count</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Next</span></span>
+<span class="giallo-l"><span>Print </span><span style="color: #A6E3A1;">&quot;Primes up to &quot;</span><span>; LIMIT; </span><span style="color: #A6E3A1;">&quot;: &quot;</span><span>; count</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/freebasic/sorting.bas</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="vb"><span class="giallo-l"><span style="color: #9399B2;font-style: italic;">&#39; LSD radix sort, 4 passes of 8 bits. ULong is 32-bit on both win32 and win64</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">&#39; (UInteger is pointer-sized and doubled the traffic on 64-bit).</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Const </span><span>N </span><span style="color: #94E2D5;">As</span><span style="color: #F9E2AF;font-style: italic;"> Integer</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Dim</span><span> Shared</span><span style="color: #89B4FA;font-style: italic;"> vals</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> To</span><span> N</span><span style="color: #94E2D5;"> -</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> As</span><span style="color: #F9E2AF;font-style: italic;"> ULong</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Dim</span><span> Shared</span><span style="color: #89B4FA;font-style: italic;"> tmp</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> To</span><span> N</span><span style="color: #94E2D5;"> -</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> As</span><span style="color: #F9E2AF;font-style: italic;"> ULong</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Dim</span><span> Shared</span><span style="color: #89B4FA;font-style: italic;"> hist</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> To</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> As</span><span style="color: #F9E2AF;font-style: italic;"> ULong</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Dim</span><span> As</span><span style="color: #F9E2AF;font-style: italic;"> ULong</span><span> seed</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span><span>, sumv, c, v</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Dim</span><span> As</span><span style="color: #F9E2AF;font-style: italic;"> Integer</span><span> i, pass, shift, b</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Dim</span><span> As</span><span style="color: #F9E2AF;font-style: italic;"> ULong</span><span> Ptr src, dst, t, hp, p, e</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>src</span><span style="color: #94E2D5;"> =</span><span> @</span><span style="color: #89B4FA;font-style: italic;">vals</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>dst</span><span style="color: #94E2D5;"> =</span><span> @</span><span style="color: #89B4FA;font-style: italic;">tmp</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>hp</span><span style="color: #94E2D5;"> =</span><span> @</span><span style="color: #89B4FA;font-style: italic;">hist</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>e</span><span style="color: #94E2D5;"> =</span><span> src</span><span style="color: #94E2D5;"> +</span><span> N</span></span>
+<span class="giallo-l"><span>p</span><span style="color: #94E2D5;"> =</span><span> src</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">While</span><span> p</span><span style="color: #94E2D5;"> &lt;</span><span> e</span></span>
+<span class="giallo-l"><span>    seed</span><span style="color: #94E2D5;"> =</span><span> seed</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 1664525ul</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223ul</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">    *</span><span>p</span><span style="color: #94E2D5;"> =</span><span> seed</span><span style="color: #94E2D5;"> And &amp;</span><span>h7FFFFFFFul</span></span>
+<span class="giallo-l"><span>    p</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Wend</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">For</span><span> pass</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> To</span><span style="color: #FAB387;"> 3</span></span>
+<span class="giallo-l"><span>    shift</span><span style="color: #94E2D5;"> =</span><span> pass</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 8</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    For</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> To</span><span style="color: #FAB387;"> 255</span></span>
+<span class="giallo-l"><span>        hp[i] </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    Next</span></span>
+<span class="giallo-l"><span>    p</span><span style="color: #94E2D5;"> =</span><span> src</span></span>
+<span class="giallo-l"><span>    e</span><span style="color: #94E2D5;"> =</span><span> src</span><span style="color: #94E2D5;"> +</span><span> N</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    While</span><span> p</span><span style="color: #94E2D5;"> &lt;</span><span> e</span></span>
+<span class="giallo-l"><span>        hp[</span><span style="color: #9399B2;">(</span><span style="color: #94E2D5;">*</span><span>p Shr shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> And</span><span style="color: #FAB387;"> 255</span><span>] </span><span style="color: #94E2D5;">+=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span>        p</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    Wend</span></span>
+<span class="giallo-l"><span>    sumv</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    For</span><span> i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> To</span><span style="color: #FAB387;"> 255</span></span>
+<span class="giallo-l"><span>        c</span><span style="color: #94E2D5;"> =</span><span> hp[i]</span></span>
+<span class="giallo-l"><span>        hp[i] </span><span style="color: #94E2D5;">=</span><span> sumv</span></span>
+<span class="giallo-l"><span>        sumv</span><span style="color: #94E2D5;"> +=</span><span> c</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    Next</span></span>
+<span class="giallo-l"><span>    p</span><span style="color: #94E2D5;"> =</span><span> src</span></span>
+<span class="giallo-l"><span>    e</span><span style="color: #94E2D5;"> =</span><span> src</span><span style="color: #94E2D5;"> +</span><span> N</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    While</span><span> p</span><span style="color: #94E2D5;"> &lt;</span><span> e</span></span>
+<span class="giallo-l"><span>        v</span><span style="color: #94E2D5;"> = *</span><span>p</span></span>
+<span class="giallo-l"><span>        b</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> (</span><span>v Shr shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> And</span><span style="color: #FAB387;"> 255</span></span>
+<span class="giallo-l"><span>        dst[hp[b]] </span><span style="color: #94E2D5;">=</span><span> v</span></span>
+<span class="giallo-l"><span>        hp[b] </span><span style="color: #94E2D5;">+=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span>        p</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    Wend</span></span>
+<span class="giallo-l"><span>    t</span><span style="color: #94E2D5;"> =</span><span> src</span></span>
+<span class="giallo-l"><span>    src</span><span style="color: #94E2D5;"> =</span><span> dst</span></span>
+<span class="giallo-l"><span>    dst</span><span style="color: #94E2D5;"> =</span><span> t</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">Next</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Print </span><span style="color: #A6E3A1;">&quot;Sorted &quot;</span><span>; N; </span><span style="color: #A6E3A1;">&quot; integers: first=&quot;</span><span>; </span><span style="color: #89B4FA;font-style: italic;">vals</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">)</span><span>; </span><span style="color: #A6E3A1;">&quot;, last=&quot;</span><span>; </span><span style="color: #89B4FA;font-style: italic;">vals</span><span style="color: #9399B2;">(</span><span>N</span><span style="color: #94E2D5;"> -</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prolog · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Prolog</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">SWI-Prolog 10.0.2 · swipl → WAM · SWI-Prolog</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">52 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">49.5 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">737.8 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">648.8 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="52">52</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="71">71 B</td>
+        <td class="num" data-n="84">84 B</td>
+        <td class="num" data-n="15872">16 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="49.5">49.5</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="179">179 B</td>
+        <td class="num" data-n="143">143 B</td>
+        <td class="num" data-n="15872">16 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="737.8">737.8</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="1838">2 KB</td>
+        <td class="num" data-n="641">641 B</td>
+        <td class="num" data-n="15872">16 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="648.8">648.8</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="428">428 B</td>
+        <td class="num" data-n="290">290 B</td>
+        <td class="num" data-n="15872">16 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 66 (work table).
+   Sort rank 56.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[659.5, 634.5, 657.3, 644.3, 648.8]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/prolog/hello.pl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="perl"><span class="giallo-l"><span>:- initialization(main, main).</span></span>
+<span class="giallo-l"><span>main :-</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    write</span><span>(</span><span style="color: #A6E3A1;">&#39;Hello, World!&#39;</span><span>), nl.</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/prolog/fibonacci.pl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="perl"><span class="giallo-l"><span>:- initialization(main, main).</span></span>
+<span class="giallo-l"><span>fib(0, A, _, A).</span></span>
+<span class="giallo-l"><span>fib(N, A, B, R) :-</span></span>
+<span class="giallo-l"><span>    N &gt; 0,</span></span>
+<span class="giallo-l"><span>    N1 is N - 1,</span></span>
+<span class="giallo-l"><span>    S is A + B,</span></span>
+<span class="giallo-l"><span>    fib(N1, B, S, R).</span></span>
+<span class="giallo-l"><span>main :-</span></span>
+<span class="giallo-l"><span>    fib(42, 0, 1, R),</span></span>
+<span class="giallo-l"><span>    writeln(R).</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/prolog/prime_sieve.pl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="perl"><span class="giallo-l"><span>:- initialization(main, main).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>% SWI cannot allocate a 1e6-arity term. Store flags in chunks </span><span style="color: #94E2D5;">and</span></span>
+<span class="giallo-l"><span>% update them in place with nb_setarg/3. Unbound = prime candidate.</span></span>
+<span class="giallo-l"><span>chunk_arity(1024).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>main :-</span></span>
+<span class="giallo-l"><span>    Limit = 1000000,</span></span>
+<span class="giallo-l"><span>    sieve_count(Limit, Count),</span></span>
+<span class="giallo-l"><span>    format(</span><span style="color: #A6E3A1;">&#39;Primes up to ~w: ~w~n&#39;</span><span>, [Limit, Count]).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>sieve_count(Limit, Count) :-</span></span>
+<span class="giallo-l"><span>    chunk_arity(A),</span></span>
+<span class="giallo-l"><span>    NChunks is Limit // A + 1,</span></span>
+<span class="giallo-l"><span>    functor(Chunks, chunks, NChunks),</span></span>
+<span class="giallo-l"><span>    init_chunks(1, NChunks, A, Chunks),</span></span>
+<span class="giallo-l"><span>    mark_composite(Chunks, A, 0),</span></span>
+<span class="giallo-l"><span>    mark_composite(Chunks, A, 1),</span></span>
+<span class="giallo-l"><span>    Root is integer(</span><span style="color: #89B4FA;font-style: italic;">sqrt</span><span>(Limit)),</span></span>
+<span class="giallo-l"><span>    sieve_from(2, Root, Limit, Chunks, A),</span></span>
+<span class="giallo-l"><span>    count_from(2, Limit, Chunks, A, 0, Count).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>init_chunks(I, N, _, _) :- I &gt; N, !.</span></span>
+<span class="giallo-l"><span>init_chunks(I, N, A, Chunks) :-</span></span>
+<span class="giallo-l"><span>    functor(C, c, A),</span></span>
+<span class="giallo-l"><span>    nb_setarg(I, Chunks, C),</span></span>
+<span class="giallo-l"><span>    I1 is I + 1,</span></span>
+<span class="giallo-l"><span>    init_chunks(I1, N, A, Chunks).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>slot(I, A, ChunkI, ArgI) :-</span></span>
+<span class="giallo-l"><span>    ChunkI is I // A + 1,</span></span>
+<span class="giallo-l"><span>    ArgI is I mod A + 1.</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>mark_composite(Chunks, A, I) :-</span></span>
+<span class="giallo-l"><span>    slot(I, A, CI, AI),</span></span>
+<span class="giallo-l"><span>    arg(CI, Chunks, Chunk),</span></span>
+<span class="giallo-l"><span>    nb_setarg(AI, Chunk, 0).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>open_slot(Chunks, A, I) :-</span></span>
+<span class="giallo-l"><span>    slot(I, A, CI, AI),</span></span>
+<span class="giallo-l"><span>    arg(CI, Chunks, Chunk),</span></span>
+<span class="giallo-l"><span>    arg(AI, Chunk, V),</span></span>
+<span class="giallo-l"><span>    var(V).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>sieve_from(I, Root, _, _, _) :- I &gt; Root, !.</span></span>
+<span class="giallo-l"><span>sieve_from(I, Root, Limit, Chunks, A) :-</span></span>
+<span class="giallo-l"><span>    (   open_slot(Chunks, A, I)</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">    -&gt;</span><span>  Start is I * I,</span></span>
+<span class="giallo-l"><span>        mark_from(Start, I, Limit, Chunks, A)</span></span>
+<span class="giallo-l"><span>    ;   true</span></span>
+<span class="giallo-l"><span>    ),</span></span>
+<span class="giallo-l"><span>    I1 is I + 1,</span></span>
+<span class="giallo-l"><span>    sieve_from(I1, Root, Limit, Chunks, A).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>mark_from(J, _, Limit, _, _) :- J &gt; Limit, !.</span></span>
+<span class="giallo-l"><span>mark_from(J, Step, Limit, Chunks, A) :-</span></span>
+<span class="giallo-l"><span>    mark_composite(Chunks, A, J),</span></span>
+<span class="giallo-l"><span>    J1 is J + Step,</span></span>
+<span class="giallo-l"><span>    mark_from(J1, Step, Limit, Chunks, A).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>count_from(I, Limit, _, _, Acc, Acc) :- I &gt; Limit, !.</span></span>
+<span class="giallo-l"><span>count_from(I, Limit, Chunks, A, Acc, Count) :-</span></span>
+<span class="giallo-l"><span>    (   open_slot(Chunks, A, I)</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">    -&gt;</span><span>  Acc1 is Acc + 1</span></span>
+<span class="giallo-l"><span>    ;   Acc1 = Acc</span></span>
+<span class="giallo-l"><span>    ),</span></span>
+<span class="giallo-l"><span>    I1 is I + 1,</span></span>
+<span class="giallo-l"><span>    count_from(I1, Limit, Chunks, A, Acc1, Count).</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/prolog/sorting.pl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="perl"><span class="giallo-l"><span>:- initialization(main, main).</span></span>
+<span class="giallo-l"><span>main :-</span></span>
+<span class="giallo-l"><span>    N = 1000000,</span></span>
+<span class="giallo-l"><span>    fill(N, 42, [], Data),</span></span>
+<span class="giallo-l"><span>    msort(Data, Sorted),</span></span>
+<span class="giallo-l"><span>    Sorted = [First|_],</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    last</span><span>(Sorted, Last),</span></span>
+<span class="giallo-l"><span>    format(</span><span style="color: #A6E3A1;">&#39;Sorted ~w integers: first=~w, last=~w~n&#39;</span><span>, [N, First, Last]).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>fill(0, _, Acc, Acc) :- !.</span></span>
+<span class="giallo-l"><span>fill(I, Seed, Acc, Out) :-</span></span>
+<span class="giallo-l"><span>    Seed2 is (Seed * 1664525 + 1013904223) /\ 4294967295,</span></span>
+<span class="giallo-l"><span>    Val is Seed2 /\ 2147483647,</span></span>
+<span class="giallo-l"><span>    I1 is I - 1,</span></span>
+<span class="giallo-l"><span>    fill(I1, Seed2, [Val|Acc], Out).</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

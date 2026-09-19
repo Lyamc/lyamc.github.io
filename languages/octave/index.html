@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Octave · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Octave</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">Octave 11.3.0 portable · octave-cli → Octave · Octave</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">533.5 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">535.3 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">535.7 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">3848.4 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="533.5">533.5</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="27">27 B</td>
+        <td class="num" data-n="47">47 B</td>
+        <td class="num" data-n="26112">26 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="535.3">535.3</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="92">92 B</td>
+        <td class="num" data-n="96">96 B</td>
+        <td class="num" data-n="26112">26 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="535.7">535.7</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="264">264 B</td>
+        <td class="num" data-n="180">180 B</td>
+        <td class="num" data-n="26112">26 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="3848.4">3848.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="537">537 B</td>
+        <td class="num" data-n="370">370 B</td>
+        <td class="num" data-n="26112">26 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 62 (work table).
+   Sort rank 68.
+  Four-file source 920 B.
+</p>
+
+
+<p class="note">uint32 LCG fill; first=3842 last=2147480074; was ~10817ms; rerun median n=3 samples=[3848.4, 3898.0, 3825.8]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/octave/hello.m</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="matlab"><span class="giallo-l"><span>printf(</span><span style="color: #A6E3A1;">&quot;Hello, World!\n&quot;</span><span>);</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/octave/fibonacci.m</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="matlab"><span class="giallo-l"><span>n = </span><span style="color: #FAB387;">42</span><span>;</span></span>
+<span class="giallo-l"><span>a = </span><span style="color: #FAB387;">0</span><span>;</span></span>
+<span class="giallo-l"><span>b = </span><span style="color: #FAB387;">1</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> i = </span><span style="color: #FAB387;">1</span><span>:n</span></span>
+<span class="giallo-l"><span>  tmp = a </span><span style="color: #94E2D5;">+</span><span> b;</span></span>
+<span class="giallo-l"><span>  a = b;</span></span>
+<span class="giallo-l"><span>  b = tmp;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"><span>printf(</span><span style="color: #A6E3A1;">&quot;%d\n&quot;</span><span>, a);</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/octave/prime_sieve.m</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="matlab"><span class="giallo-l"><span>limit = </span><span style="color: #FAB387;">1000000</span><span>;</span></span>
+<span class="giallo-l"><span>sieve = </span><span style="color: #F38BA8;">true</span><span>(</span><span style="color: #FAB387;">1</span><span>, limit </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span>);</span></span>
+<span class="giallo-l"><span>sieve(</span><span style="color: #FAB387;">1</span><span>) = </span><span style="color: #F38BA8;">false</span><span>;</span></span>
+<span class="giallo-l"><span>sieve(</span><span style="color: #FAB387;">2</span><span>) = </span><span style="color: #F38BA8;">false</span><span>;</span></span>
+<span class="giallo-l"><span>i = </span><span style="color: #FAB387;">2</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">while</span><span> i </span><span style="color: #94E2D5;">*</span><span> i </span><span style="color: #94E2D5;">&lt;=</span><span> limit</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span> sieve(i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span>)</span></span>
+<span class="giallo-l"><span>    sieve((i*i+</span><span style="color: #FAB387;">1</span><span>):i:(limit+</span><span style="color: #FAB387;">1</span><span>)) = </span><span style="color: #F38BA8;">false</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span></span>
+<span class="giallo-l"><span>  i = i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"><span>count = sum(sieve(</span><span style="color: #FAB387;">3</span><span>:</span><span style="color: #94E2D5;">end</span><span>));</span></span>
+<span class="giallo-l"><span>printf(</span><span style="color: #A6E3A1;">&quot;Primes up to %d: %d\n&quot;</span><span>, limit, count);</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/octave/sorting.m</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="matlab"><span class="giallo-l"><span style="color: #9399B2;font-style: italic;">% LCG wrap is mod 2^32. Seed stays a double (product &lt; 2^53, exact);</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">% results go into a preallocated uint32 vector (no per-iter uint32&lt;-&gt;double).</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">% first/last match other uint32-wrap LCGs, not Octave&#39;s saturating uint32 arithmetic.</span></span>
+<span class="giallo-l"><span>n = </span><span style="color: #FAB387;">1000000</span><span>;</span></span>
+<span class="giallo-l"><span>a = </span><span style="color: #FAB387;">1664525</span><span>;</span></span>
+<span class="giallo-l"><span>c = </span><span style="color: #FAB387;">1013904223</span><span>;</span></span>
+<span class="giallo-l"><span>two32 = </span><span style="color: #FAB387;">4294967296</span><span>;</span></span>
+<span class="giallo-l"><span>seed = </span><span style="color: #FAB387;">42</span><span>;</span></span>
+<span class="giallo-l"><span>data = zeros(</span><span style="color: #FAB387;">1</span><span>, n, </span><span style="color: #A6E3A1;">&quot;uint32&quot;</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span> i = </span><span style="color: #FAB387;">1</span><span>:n</span></span>
+<span class="giallo-l"><span>  seed = mod(seed </span><span style="color: #94E2D5;">*</span><span> a </span><span style="color: #94E2D5;">+</span><span> c, two32);</span></span>
+<span class="giallo-l"><span>  data(i) = seed;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span></span>
+<span class="giallo-l"><span>data = bitand(data, uint32(</span><span style="color: #FAB387;">2147483647</span><span>));</span></span>
+<span class="giallo-l"><span>data = sort(data);</span></span>
+<span class="giallo-l"><span>printf(</span><span style="color: #A6E3A1;">&quot;Sorted %d integers: first=%d, last=%d\n&quot;</span><span>, n, data(</span><span style="color: #FAB387;">1</span><span>), data(n));</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

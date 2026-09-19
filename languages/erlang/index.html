@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Erlang · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Erlang</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">bytecode VM</span>
+</div>
+<p class="muted">OTP 29.0.5 · escript → BEAM · BEAM</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">238.1 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">248.9 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">287 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">439.8 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="238.1">238.1</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="116">116 B</td>
+        <td class="num" data-n="125">125 B</td>
+        <td class="num" data-n="50176">49 KB</td>
+        <td class="num" data-n="2644">2644 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="248.9">248.9</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="201">201 B</td>
+        <td class="num" data-n="170">170 B</td>
+        <td class="num" data-n="50176">49 KB</td>
+        <td class="num" data-n="2644">2644 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="287">287</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="869">869 B</td>
+        <td class="num" data-n="385">385 B</td>
+        <td class="num" data-n="50176">49 KB</td>
+        <td class="num" data-n="2644">2644 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="439.8">439.8</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="432">432 B</td>
+        <td class="num" data-n="289">289 B</td>
+        <td class="num" data-n="50176">49 KB</td>
+        <td class="num" data-n="2644">2644 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 56 (work table).
+   Sort rank 50.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[436.4, 446.0, 436.2, 440.6, 439.8]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/erlang/hello.erl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="erlang"><span class="giallo-l"><span>#</span><span style="color: #94E2D5;">!/</span><span>usr</span><span style="color: #94E2D5;">/</span><span>bin</span><span style="color: #94E2D5;">/</span><span>env escript</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">%%! -noshell</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">-</span><span style="color: #F9E2AF;">module</span><span style="color: #9399B2;">(</span><span style="color: #F9E2AF;font-style: italic;">hello</span><span style="color: #9399B2;">).</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">-</span><span style="color: #F9E2AF;">export</span><span style="color: #9399B2;">([</span><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #9399B2;">/</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">]).</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #9399B2;">(</span><span>_</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    io</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">format</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Hello, World!</span><span style="color: #9399B2;">~</span><span style="color: #A6E3A1;">n&quot;</span><span style="color: #9399B2;">).</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/erlang/fibonacci.erl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="erlang"><span class="giallo-l"><span>#</span><span style="color: #94E2D5;">!/</span><span>usr</span><span style="color: #94E2D5;">/</span><span>bin</span><span style="color: #94E2D5;">/</span><span>env escript</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">%%! -noshell</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">-</span><span style="color: #F9E2AF;">module</span><span style="color: #9399B2;">(</span><span style="color: #F9E2AF;font-style: italic;">fibonacci</span><span style="color: #9399B2;">).</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">-</span><span style="color: #F9E2AF;">export</span><span style="color: #9399B2;">([</span><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #9399B2;">/</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">]).</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #9399B2;">(</span><span>_</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    io</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">format</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">~</span><span style="color: #A6E3A1;">p</span><span style="color: #9399B2;">~</span><span style="color: #A6E3A1;">n&quot;</span><span style="color: #9399B2;">, [</span><span style="color: #89B4FA;font-style: italic;">fib</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">42</span><span style="color: #9399B2;">)]).</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">fib</span><span style="color: #9399B2;">(</span><span>N</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #89B4FA;font-style: italic;"> fib</span><span style="color: #9399B2;">(</span><span>N</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">).</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">fib</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span>, A, _</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span><span> A</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">fib</span><span style="color: #9399B2;">(</span><span>N, A, B</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #89B4FA;font-style: italic;"> fib</span><span style="color: #9399B2;">(</span><span>N</span><span style="color: #94E2D5;"> -</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span> B</span><span style="color: #9399B2;">,</span><span> A</span><span style="color: #94E2D5;"> +</span><span> B</span><span style="color: #9399B2;">).</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/erlang/prime_sieve.erl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="erlang"><span class="giallo-l"><span>#</span><span style="color: #94E2D5;">!/</span><span>usr</span><span style="color: #94E2D5;">/</span><span>bin</span><span style="color: #94E2D5;">/</span><span>env escript</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">%%! -noshell</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">-</span><span style="color: #F9E2AF;">module</span><span style="color: #9399B2;">(</span><span style="color: #F9E2AF;font-style: italic;">prime_sieve</span><span style="color: #9399B2;">).</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">-</span><span style="color: #F9E2AF;">export</span><span style="color: #9399B2;">([</span><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #9399B2;">/</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">]).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">%% atomics is 1-based. 0 = candidate, 1 = composite. Skip a million ETS inserts.</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #9399B2;">(</span><span>_</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span></span>
+<span class="giallo-l"><span>    Limit</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span><span style="color: #9399B2;">,</span></span>
+<span class="giallo-l"><span>    A</span><span style="color: #94E2D5;"> =</span><span style="color: #F9E2AF;font-style: italic;"> atomics</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">new</span><span style="color: #9399B2;">(</span><span>Limit</span><span style="color: #9399B2;">, [{</span><span>signed</span><span style="color: #9399B2;">,</span><span style="color: #F38BA8;"> false</span><span style="color: #9399B2;">}]),</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    atomics</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">put</span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">),</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    mark</span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 2</span><span style="color: #9399B2;">,</span><span> Limit</span><span style="color: #9399B2;">),</span></span>
+<span class="giallo-l"><span>    Count</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;font-style: italic;"> count</span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 2</span><span style="color: #9399B2;">,</span><span> Limit</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">),</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    io</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">format</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Primes up to </span><span style="color: #9399B2;">~</span><span style="color: #A6E3A1;">p: </span><span style="color: #9399B2;">~</span><span style="color: #A6E3A1;">p</span><span style="color: #9399B2;">~</span><span style="color: #A6E3A1;">n&quot;</span><span style="color: #9399B2;">, [</span><span>Limit</span><span style="color: #9399B2;">,</span><span> Count</span><span style="color: #9399B2;">]).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">mark</span><span style="color: #9399B2;">(</span><span>_A, I, Limit</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> when</span><span> I</span><span style="color: #94E2D5;"> *</span><span> I</span><span style="color: #94E2D5;"> &gt;</span><span> Limit</span><span style="color: #94E2D5;"> -&gt;</span><span> ok</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">mark</span><span style="color: #9399B2;">(</span><span>A, I, Limit</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    case</span><span style="color: #F9E2AF;font-style: italic;"> atomics</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">get</span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">,</span><span> I</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> of</span></span>
+<span class="giallo-l"><span style="color: #FAB387;">        0</span><span style="color: #9399B2;"> -&gt;</span><span style="color: #89B4FA;font-style: italic;"> strike</span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">,</span><span> I</span><span style="color: #94E2D5;"> *</span><span> I</span><span style="color: #9399B2;">,</span><span> I</span><span style="color: #9399B2;">,</span><span> Limit</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>        _</span><span style="color: #9399B2;"> -&gt;</span><span> ok</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    end</span><span style="color: #9399B2;">,</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    mark</span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">,</span><span> I</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span> Limit</span><span style="color: #9399B2;">).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">strike</span><span style="color: #9399B2;">(</span><span>_A, J, _I, Limit</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> when</span><span> J</span><span style="color: #94E2D5;"> &gt;</span><span> Limit</span><span style="color: #94E2D5;"> -&gt;</span><span> ok</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">strike</span><span style="color: #9399B2;">(</span><span>A, J, I, Limit</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    atomics</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">put</span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">,</span><span> J</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">),</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    strike</span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">,</span><span> J</span><span style="color: #94E2D5;"> +</span><span> I</span><span style="color: #9399B2;">,</span><span> I</span><span style="color: #9399B2;">,</span><span> Limit</span><span style="color: #9399B2;">).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">count</span><span style="color: #9399B2;">(</span><span>_A, I, Limit, Acc</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> when</span><span> I</span><span style="color: #94E2D5;"> &gt;</span><span> Limit</span><span style="color: #94E2D5;"> -&gt;</span><span> Acc</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">count</span><span style="color: #9399B2;">(</span><span>A, I, Limit, Acc</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span></span>
+<span class="giallo-l"><span>    N</span><span style="color: #94E2D5;"> =</span><span style="color: #CBA6F7;"> case</span><span style="color: #F9E2AF;font-style: italic;"> atomics</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">get</span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">,</span><span> I</span><span style="color: #9399B2;">)</span><span style="color: #CBA6F7;"> of</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;"> -&gt;</span><span> Acc</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span><span> _</span><span style="color: #9399B2;"> -&gt;</span><span> Acc</span><span style="color: #CBA6F7;"> end</span><span style="color: #9399B2;">,</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    count</span><span style="color: #9399B2;">(</span><span>A</span><span style="color: #9399B2;">,</span><span> I</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span> Limit</span><span style="color: #9399B2;">,</span><span> N</span><span style="color: #9399B2;">).</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/erlang/sorting.erl</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="erlang"><span class="giallo-l"><span>#</span><span style="color: #94E2D5;">!/</span><span>usr</span><span style="color: #94E2D5;">/</span><span>bin</span><span style="color: #94E2D5;">/</span><span>env escript</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">%%! -noshell</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">-</span><span style="color: #F9E2AF;">module</span><span style="color: #9399B2;">(</span><span style="color: #F9E2AF;font-style: italic;">sorting</span><span style="color: #9399B2;">).</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">-</span><span style="color: #F9E2AF;">export</span><span style="color: #9399B2;">([</span><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #9399B2;">/</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">]).</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #9399B2;">(</span><span>_</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span></span>
+<span class="giallo-l"><span>    N</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span><span style="color: #9399B2;">,</span></span>
+<span class="giallo-l"><span>    Data</span><span style="color: #94E2D5;"> =</span><span style="color: #89B4FA;font-style: italic;"> fill</span><span style="color: #9399B2;">(</span><span>N</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 42</span><span style="color: #9399B2;">, []),</span></span>
+<span class="giallo-l"><span>    Sorted</span><span style="color: #94E2D5;"> =</span><span style="color: #F9E2AF;font-style: italic;"> lists</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">sort</span><span style="color: #9399B2;">(</span><span>Data</span><span style="color: #9399B2;">),</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    io</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">format</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Sorted </span><span style="color: #9399B2;">~</span><span style="color: #A6E3A1;">p integers: first=</span><span style="color: #9399B2;">~</span><span style="color: #A6E3A1;">p, last=</span><span style="color: #9399B2;">~</span><span style="color: #A6E3A1;">p</span><span style="color: #9399B2;">~</span><span style="color: #A6E3A1;">n&quot;</span><span style="color: #9399B2;">,</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">              [</span><span>N</span><span style="color: #9399B2;">,</span><span style="color: #89B4FA;font-style: italic;"> hd</span><span style="color: #9399B2;">(</span><span>Sorted</span><span style="color: #9399B2;">),</span><span style="color: #F9E2AF;font-style: italic;"> lists</span><span style="color: #9399B2;">:</span><span style="color: #89B4FA;font-style: italic;">last</span><span style="color: #9399B2;">(</span><span>Sorted</span><span style="color: #9399B2;">)]).</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">fill</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span>, _, Acc</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span><span> Acc</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">fill</span><span style="color: #9399B2;">(</span><span>I, Seed, Acc</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span></span>
+<span class="giallo-l"><span>    Seed2</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> (</span><span>Seed</span><span style="color: #94E2D5;"> *</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> band</span><span style="color: #FAB387;"> 16</span><span style="color: #9399B2;">#</span><span style="color: #FAB387;">ffffffff</span><span style="color: #9399B2;">,</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">    fill</span><span style="color: #9399B2;">(</span><span>I</span><span style="color: #94E2D5;"> -</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">,</span><span> Seed2</span><span style="color: #9399B2;">, [</span><span>Seed2</span><span style="color: #94E2D5;"> band</span><span style="color: #FAB387;"> 16</span><span style="color: #9399B2;">#</span><span style="color: #FAB387;">7fffffff</span><span style="color: #9399B2;"> |</span><span> Acc</span><span style="color: #9399B2;">]).</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

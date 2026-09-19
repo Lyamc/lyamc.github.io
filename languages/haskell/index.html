@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haskell · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Haskell</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">GHC 9.8.2 · ghc -O2 → GHC NCG · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">8.7 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">9.3 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">13.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">17 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="8.7">8.7</td>
+        <td class="num" data-n="51.6">51.6</td>
+        <td class="num" data-n="46">46 B</td>
+        <td class="num" data-n="63">63 B</td>
+        <td class="num" data-n="11392512">10.9 MB</td>
+        <td class="num" data-n="2648">2648 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="9.3">9.3</td>
+        <td class="num" data-n="57.1">57.1</td>
+        <td class="num" data-n="104">104 B</td>
+        <td class="num" data-n="103">103 B</td>
+        <td class="num" data-n="11393536">10.9 MB</td>
+        <td class="num" data-n="2648">2648 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="13.2">13.2</td>
+        <td class="num" data-n="52.1">52.1</td>
+        <td class="num" data-n="610">610 B</td>
+        <td class="num" data-n="332">332 B</td>
+        <td class="num" data-n="11908608">11.4 MB</td>
+        <td class="num" data-n="2648">2648 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="17">17</td>
+        <td class="num" data-n="50.7">50.7</td>
+        <td class="num" data-n="4024">4 KB</td>
+        <td class="num" data-n="1260">1 KB</td>
+        <td class="num" data-n="11908096">11.4 MB</td>
+        <td class="num" data-n="152732">152732 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 27 (work table).
+   Sort rank 22.
+  Four-file source 5 KB.
+</p>
+
+
+<p class="note">STUArray introsort retimed; rerun median n=5 samples=[61.8, 55.4, 57.8, 56.2, 55.6]; LSD radix 4x8; was comparison sort</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/haskell/hello.hs</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="haskell"><span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> IO</span><span style="color: #9399B2;"> ()</span></span>
+<span class="giallo-l"><span>main </span><span style="color: #94E2D5;">=</span><span> putStrLn </span><span style="color: #A6E3A1;">&quot;Hello, World!&quot;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/haskell/fibonacci.hs</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="haskell"><span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> IO</span><span style="color: #9399B2;"> ()</span></span>
+<span class="giallo-l"><span>main </span><span style="color: #94E2D5;">=</span><span> print </span><span style="color: #9399B2;">(</span><span>fib </span><span style="color: #FAB387;">42 0 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  where</span></span>
+<span class="giallo-l"><span>    fib </span><span style="color: #FAB387;">0</span><span> a _ </span><span style="color: #94E2D5;">=</span><span> a</span></span>
+<span class="giallo-l"><span>    fib n a b </span><span style="color: #94E2D5;">=</span><span> fib </span><span style="color: #9399B2;">(</span><span>n </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span><span> b </span><span style="color: #9399B2;">(</span><span>a </span><span style="color: #94E2D5;">+</span><span> b</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/haskell/prime_sieve.hs</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="haskell"><span class="giallo-l"><span style="color: #CBA6F7;">import</span><span style="color: #F9E2AF;"> Data.Array.ST</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span style="color: #F9E2AF;"> Data.Array.Unboxed</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span style="color: #F9E2AF;"> Control.Monad</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">sieve</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> Int</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #CBA6F7;"> Int</span></span>
+<span class="giallo-l"><span>sieve limit </span><span style="color: #94E2D5;">=</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span> arr </span><span style="color: #94E2D5;">=</span><span> runSTUArray </span><span style="color: #94E2D5;">$</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>        a </span><span style="color: #94E2D5;">&lt;-</span><span> newArray </span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">,</span><span> limit</span><span style="color: #9399B2;">)</span><span> True</span></span>
+<span class="giallo-l"><span>        writeArray a </span><span style="color: #FAB387;">0</span><span> False</span></span>
+<span class="giallo-l"><span>        writeArray a </span><span style="color: #FAB387;">1</span><span> False</span></span>
+<span class="giallo-l"><span>        forM_ </span><span style="color: #9399B2;">[</span><span style="color: #FAB387;">2</span><span style="color: #94E2D5;"> ..</span><span> isqrt limit</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> $ \</span><span>i </span><span style="color: #94E2D5;">-&gt;</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>          p </span><span style="color: #94E2D5;">&lt;-</span><span> readArray a i</span></span>
+<span class="giallo-l"><span>          when p </span><span style="color: #94E2D5;">$</span></span>
+<span class="giallo-l"><span>            forM_ </span><span style="color: #9399B2;">[</span><span>i </span><span style="color: #94E2D5;">*</span><span> i</span><span style="color: #9399B2;">,</span><span> i </span><span style="color: #94E2D5;">*</span><span> i </span><span style="color: #94E2D5;">+</span><span> i </span><span style="color: #94E2D5;">..</span><span> limit</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> $ \</span><span>j </span><span style="color: #94E2D5;">-&gt;</span></span>
+<span class="giallo-l"><span>              writeArray a j False</span></span>
+<span class="giallo-l"><span>        return a</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  in</span><span> length </span><span style="color: #9399B2;">[</span><span>i </span><span style="color: #94E2D5;">|</span><span> i </span><span style="color: #94E2D5;">&lt;-</span><span style="color: #9399B2;"> [</span><span style="color: #FAB387;">2</span><span style="color: #94E2D5;"> ..</span><span> limit</span><span style="color: #9399B2;">],</span><span> arr </span><span style="color: #94E2D5;">!</span><span> i</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">isqrt</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> Int</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #CBA6F7;"> Int</span></span>
+<span class="giallo-l"><span>isqrt </span><span style="color: #94E2D5;">=</span><span> floor </span><span style="color: #94E2D5;">.</span><span> sqrt </span><span style="color: #94E2D5;">.</span><span> fromIntegral</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> IO</span><span style="color: #9399B2;"> ()</span></span>
+<span class="giallo-l"><span>main </span><span style="color: #94E2D5;">=</span><span> putStrLn </span><span style="color: #94E2D5;">$</span><span style="color: #A6E3A1;"> &quot;Primes up to 1000000: &quot;</span><span style="color: #94E2D5;"> ++</span><span> show </span><span style="color: #9399B2;">(</span><span>sieve </span><span style="color: #FAB387;">1000000</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/haskell/sorting.hs</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="haskell"><span class="giallo-l"><span>{-#</span><span style="color: #CBA6F7;"> LANGUAGE BangPatterns</span><span> #-}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span style="color: #F9E2AF;"> Control.Monad.ST</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span style="color: #F9E2AF;"> Data.Array.Base</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">unsafeRead</span><span style="color: #9399B2;">,</span><span style="color: #89B4FA;font-style: italic;"> unsafeWrite</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span style="color: #F9E2AF;"> Data.Array.ST</span><span style="color: #9399B2;"> (</span><span style="color: #CBA6F7;">STUArray</span><span style="color: #9399B2;">,</span><span style="color: #89B4FA;font-style: italic;"> newArray</span><span style="color: #9399B2;">,</span><span style="color: #89B4FA;font-style: italic;"> newArray_</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span style="color: #F9E2AF;"> Data.Bits</span><span style="color: #9399B2;"> ((</span><span style="color: #89B4FA;font-style: italic;">.&amp;.</span><span style="color: #9399B2;">),</span><span style="color: #89B4FA;font-style: italic;"> unsafeShiftR</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">import</span><span style="color: #F9E2AF;"> Data.Word</span><span style="color: #9399B2;"> (</span><span style="color: #CBA6F7;">Word32</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">n</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> Int</span></span>
+<span class="giallo-l"><span>n </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1000000</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">radix</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> STUArray</span><span> s</span><span style="color: #CBA6F7;"> Int Word32</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #CBA6F7;"> STUArray</span><span> s</span><span style="color: #CBA6F7;"> Int Word32</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #CBA6F7;"> ST</span><span> s</span><span style="color: #9399B2;"> ()</span></span>
+<span class="giallo-l"><span>radix a tmp </span><span style="color: #94E2D5;">=</span><span> go </span><span style="color: #FAB387;">0</span><span> True</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  where</span></span>
+<span class="giallo-l"><span>    go </span><span style="color: #94E2D5;">!</span><span>pass srcIsA</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">      |</span><span> pass </span><span style="color: #94E2D5;">==</span><span style="color: #FAB387;"> 4</span><span style="color: #94E2D5;"> =</span><span> return </span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">      |</span><span> otherwise </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>          counts </span><span style="color: #94E2D5;">&lt;-</span><span> newArray </span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">,</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">) (</span><span style="color: #FAB387;">0</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> Int</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> ST</span><span> s</span><span style="color: #9399B2;"> (</span><span style="color: #CBA6F7;">STUArray</span><span> s</span><span style="color: #CBA6F7;"> Int Int</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">          let</span><span> shift </span><span style="color: #94E2D5;">=</span><span> pass </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 8</span></span>
+<span class="giallo-l"><span>              src </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> if</span><span> srcIsA </span><span style="color: #CBA6F7;">then</span><span> a </span><span style="color: #CBA6F7;">else</span><span> tmp</span></span>
+<span class="giallo-l"><span>              dst </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> if</span><span> srcIsA </span><span style="color: #CBA6F7;">then</span><span> tmp </span><span style="color: #CBA6F7;">else</span><span> a</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">          let</span><span> hist </span><span style="color: #94E2D5;">!</span><span>i</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">                |</span><span> i </span><span style="color: #94E2D5;">&gt;=</span><span> n </span><span style="color: #94E2D5;">=</span><span> return </span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">                |</span><span> otherwise </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>                    v </span><span style="color: #94E2D5;">&lt;-</span><span> unsafeRead src i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">                    let</span><span> b </span><span style="color: #94E2D5;">=</span><span> fromIntegral </span><span style="color: #9399B2;">((</span><span>v </span><span style="color: #9399B2;">`</span><span style="color: #94E2D5;">unsafeShiftR</span><span style="color: #9399B2;">`</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> .&amp;.</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>                    c </span><span style="color: #94E2D5;">&lt;-</span><span> unsafeRead counts b</span></span>
+<span class="giallo-l"><span>                    unsafeWrite counts b </span><span style="color: #9399B2;">(</span><span>c </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>                    hist </span><span style="color: #9399B2;">(</span><span>i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>          hist </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">          let</span><span> prefix </span><span style="color: #94E2D5;">!</span><span>i </span><span style="color: #94E2D5;">!</span><span>s</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">                |</span><span> i </span><span style="color: #94E2D5;">&gt;=</span><span style="color: #FAB387;"> 256</span><span style="color: #94E2D5;"> =</span><span> return </span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">                |</span><span> otherwise </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>                    c </span><span style="color: #94E2D5;">&lt;-</span><span> unsafeRead counts i</span></span>
+<span class="giallo-l"><span>                    unsafeWrite counts i s</span></span>
+<span class="giallo-l"><span>                    prefix </span><span style="color: #9399B2;">(</span><span>i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">) (</span><span>s </span><span style="color: #94E2D5;">+</span><span> c</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>          prefix </span><span style="color: #FAB387;">0 0</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">          let</span><span> scatter </span><span style="color: #94E2D5;">!</span><span>i</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">                |</span><span> i </span><span style="color: #94E2D5;">&gt;=</span><span> n </span><span style="color: #94E2D5;">=</span><span> return </span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">                |</span><span> otherwise </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>                    v </span><span style="color: #94E2D5;">&lt;-</span><span> unsafeRead src i</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">                    let</span><span> b </span><span style="color: #94E2D5;">=</span><span> fromIntegral </span><span style="color: #9399B2;">((</span><span>v </span><span style="color: #9399B2;">`</span><span style="color: #94E2D5;">unsafeShiftR</span><span style="color: #9399B2;">`</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> .&amp;.</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>                    c </span><span style="color: #94E2D5;">&lt;-</span><span> unsafeRead counts b</span></span>
+<span class="giallo-l"><span>                    unsafeWrite dst c v</span></span>
+<span class="giallo-l"><span>                    unsafeWrite counts b </span><span style="color: #9399B2;">(</span><span>c </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>                    scatter </span><span style="color: #9399B2;">(</span><span>i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>          scatter </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span>          go </span><span style="color: #9399B2;">(</span><span>pass </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">) (</span><span>not srcIsA</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">fillLCG</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> STUArray</span><span> s</span><span style="color: #CBA6F7;"> Int Word32</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #CBA6F7;"> ST</span><span> s</span><span style="color: #9399B2;"> ()</span></span>
+<span class="giallo-l"><span>fillLCG a </span><span style="color: #94E2D5;">=</span><span> loop </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;"> (</span><span style="color: #FAB387;">42</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> Word32</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  where</span></span>
+<span class="giallo-l"><span>    loop </span><span style="color: #94E2D5;">!</span><span>i </span><span style="color: #94E2D5;">!</span><span>seed</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">      |</span><span> i </span><span style="color: #94E2D5;">&gt;=</span><span> n </span><span style="color: #94E2D5;">=</span><span> return </span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #94E2D5;">      |</span><span> otherwise </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">          let</span><span> seed&#39; </span><span style="color: #94E2D5;">=</span><span> seed </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span></span>
+<span class="giallo-l"><span>          unsafeWrite a i </span><span style="color: #9399B2;">(</span><span>seed&#39; </span><span style="color: #94E2D5;">.&amp;.</span><span style="color: #FAB387;"> 0x7fffffff</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>          loop </span><span style="color: #9399B2;">(</span><span>i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span><span> seed&#39;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">runSort</span><span style="color: #94E2D5;"> ::</span><span style="color: #9399B2;"> (</span><span style="color: #CBA6F7;">Word32</span><span style="color: #9399B2;">,</span><span style="color: #CBA6F7;"> Word32</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>runSort </span><span style="color: #94E2D5;">=</span><span> runST </span><span style="color: #94E2D5;">$</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>  a </span><span style="color: #94E2D5;">&lt;-</span><span> newArray_ </span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">,</span><span> n </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>  tmp </span><span style="color: #94E2D5;">&lt;-</span><span> newArray_ </span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">,</span><span> n </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>  fillLCG a</span></span>
+<span class="giallo-l"><span>  radix a tmp</span></span>
+<span class="giallo-l"><span>  first </span><span style="color: #94E2D5;">&lt;-</span><span> unsafeRead a </span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span>  last_ </span><span style="color: #94E2D5;">&lt;-</span><span> unsafeRead a </span><span style="color: #9399B2;">(</span><span>n </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>  return </span><span style="color: #9399B2;">(</span><span>first</span><span style="color: #9399B2;">,</span><span> last_</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">main</span><span style="color: #94E2D5;"> ::</span><span style="color: #CBA6F7;"> IO</span><span style="color: #9399B2;"> ()</span></span>
+<span class="giallo-l"><span>main </span><span style="color: #94E2D5;">=</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #9399B2;"> (</span><span>first</span><span style="color: #9399B2;">,</span><span> last_</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> =</span><span> runSort</span></span>
+<span class="giallo-l"><span>  putStrLn </span><span style="color: #94E2D5;">$</span><span style="color: #A6E3A1;"> &quot;Sorted &quot;</span><span style="color: #94E2D5;"> ++</span><span> show n </span><span style="color: #94E2D5;">++</span><span style="color: #A6E3A1;"> &quot; integers: first=&quot;</span><span style="color: #94E2D5;"> ++</span><span> show first </span><span style="color: #94E2D5;">++</span><span style="color: #A6E3A1;"> &quot;, last=&quot;</span><span style="color: #94E2D5;"> ++</span><span> show last_</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

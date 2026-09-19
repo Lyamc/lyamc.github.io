@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Pascal · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Free Pascal</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">FPC 3.2.2 · fpc -O2 → FPC · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">7.3 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">6.9 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">8.8 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">15.5 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="7.3">7.3</td>
+        <td class="num" data-n="111.9">111.9</td>
+        <td class="num" data-n="54">54 B</td>
+        <td class="num" data-n="71">71 B</td>
+        <td class="num" data-n="34304">34 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="6.9">6.9</td>
+        <td class="num" data-n="37.5">37.5</td>
+        <td class="num" data-n="181">181 B</td>
+        <td class="num" data-n="141">141 B</td>
+        <td class="num" data-n="34816">34 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="8.8">8.8</td>
+        <td class="num" data-n="38.4">38.4</td>
+        <td class="num" data-n="541">541 B</td>
+        <td class="num" data-n="276">276 B</td>
+        <td class="num" data-n="34816">34 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="15.5">15.5</td>
+        <td class="num" data-n="39">39</td>
+        <td class="num" data-n="799">799 B</td>
+        <td class="num" data-n="414">414 B</td>
+        <td class="num" data-n="37888">37 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 20 (work table).
+   Sort rank 20.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[76.5, 69.5, 70.1, 69.1, 71.0]; LSD radix 4x8; was comparison sort</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/pascal/hello.pas</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="pascal"><span class="giallo-l"><span style="color: #CBA6F7;">program</span><span> Hello;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">begin</span></span>
+<span class="giallo-l"><span>  writeln(</span><span style="color: #A6E3A1;">&#39;Hello, World!&#39;</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span><span>.</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/pascal/fibonacci.pas</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="pascal"><span class="giallo-l"><span style="color: #CBA6F7;">program</span><span> Fibonacci;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">var</span></span>
+<span class="giallo-l"><span>  i: integer;</span></span>
+<span class="giallo-l"><span>  a, b, tmp: int64;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">begin</span></span>
+<span class="giallo-l"><span>  a := </span><span style="color: #FAB387;">0</span><span>; b := </span><span style="color: #FAB387;">1</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span> i := </span><span style="color: #FAB387;">1</span><span style="color: #CBA6F7;"> to</span><span style="color: #FAB387;"> 42</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  begin</span></span>
+<span class="giallo-l"><span>    tmp := a + b;</span></span>
+<span class="giallo-l"><span>    a := b;</span></span>
+<span class="giallo-l"><span>    b := tmp;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span><span>;</span></span>
+<span class="giallo-l"><span>  writeln(a);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span><span>.</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/pascal/prime_sieve.pas</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="pascal"><span class="giallo-l"><span style="color: #CBA6F7;">program</span><span> PrimeSieve;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">const</span></span>
+<span class="giallo-l"><span>  Limit = </span><span style="color: #FAB387;">1000000</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">var</span></span>
+<span class="giallo-l"><span>  sieve: </span><span style="color: #CBA6F7;">array</span><span>[</span><span style="color: #FAB387;">0</span><span>..Limit] </span><span style="color: #CBA6F7;">of</span><span> boolean;</span></span>
+<span class="giallo-l"><span>  i, j, count: longint;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">begin</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span> i := </span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> to</span><span> Limit </span><span style="color: #CBA6F7;">do</span><span> sieve[i] := </span><span style="color: #F38BA8;">true</span><span>;</span></span>
+<span class="giallo-l"><span>  sieve[</span><span style="color: #FAB387;">0</span><span>] := </span><span style="color: #F38BA8;">false</span><span>; sieve[</span><span style="color: #FAB387;">1</span><span>] := </span><span style="color: #F38BA8;">false</span><span>;</span></span>
+<span class="giallo-l"><span>  i := </span><span style="color: #FAB387;">2</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  while</span><span> i * i &lt;= Limit </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  begin</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span> sieve[i] </span><span style="color: #CBA6F7;">then</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    begin</span></span>
+<span class="giallo-l"><span>      j := i * i;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      while</span><span> j &lt;= Limit </span><span style="color: #CBA6F7;">do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      begin</span></span>
+<span class="giallo-l"><span>        sieve[j] := </span><span style="color: #F38BA8;">false</span><span>;</span></span>
+<span class="giallo-l"><span>        j := j + i;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      end</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    end</span><span>;</span></span>
+<span class="giallo-l"><span>    i := i + </span><span style="color: #FAB387;">1</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span><span>;</span></span>
+<span class="giallo-l"><span>  count := </span><span style="color: #FAB387;">0</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span> i := </span><span style="color: #FAB387;">2</span><span style="color: #CBA6F7;"> to</span><span> Limit </span><span style="color: #CBA6F7;">do if</span><span> sieve[i] </span><span style="color: #CBA6F7;">then</span><span> inc(count);</span></span>
+<span class="giallo-l"><span>  writeln(</span><span style="color: #A6E3A1;">&#39;Primes up to &#39;</span><span>, Limit, </span><span style="color: #A6E3A1;">&#39;: &#39;</span><span>, count);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span><span>.</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/pascal/sorting.pas</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="pascal"><span class="giallo-l"><span style="color: #CBA6F7;">program</span><span> Sorting;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">const</span></span>
+<span class="giallo-l"><span>  N = </span><span style="color: #FAB387;">1000000</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">var</span></span>
+<span class="giallo-l"><span>  data, tmp: </span><span style="color: #CBA6F7;">array of</span><span> longword;</span></span>
+<span class="giallo-l"><span>  count: </span><span style="color: #CBA6F7;">array</span><span>[</span><span style="color: #FAB387;">0</span><span>.</span><span style="color: #FAB387;">.255</span><span>] </span><span style="color: #CBA6F7;">of</span><span> longword;</span></span>
+<span class="giallo-l"><span>  i, pass, shift: longint;</span></span>
+<span class="giallo-l"><span>  seed, sum, c, v, b: longword;</span></span>
+<span class="giallo-l"><span>  srcIsData: boolean;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">begin</span></span>
+<span class="giallo-l"><span>  setlength(data, N);</span></span>
+<span class="giallo-l"><span>  setlength(tmp, N);</span></span>
+<span class="giallo-l"><span>  seed := </span><span style="color: #FAB387;">42</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span> i := </span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> to</span><span> N - </span><span style="color: #FAB387;">1</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  begin</span></span>
+<span class="giallo-l"><span>    seed := longword(qword(seed) * </span><span style="color: #FAB387;">1664525</span><span> + </span><span style="color: #FAB387;">1013904223</span><span>);</span></span>
+<span class="giallo-l"><span>    data[i] := seed </span><span style="color: #94E2D5;">and</span><span style="color: #FAB387;"> $7fffffff</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span><span>;</span></span>
+<span class="giallo-l"><span>  srcIsData := </span><span style="color: #F38BA8;">true</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span> pass := </span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> to</span><span style="color: #FAB387;"> 3</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  begin</span></span>
+<span class="giallo-l"><span>    fillchar(count, sizeof(count), </span><span style="color: #FAB387;">0</span><span>);</span></span>
+<span class="giallo-l"><span>    shift := pass * </span><span style="color: #FAB387;">8</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span> srcIsData </span><span style="color: #CBA6F7;">then</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      for</span><span> i := </span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> to</span><span> N - </span><span style="color: #FAB387;">1</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>        inc(count[(data[i] </span><span style="color: #CBA6F7;">shr</span><span> shift) </span><span style="color: #94E2D5;">and</span><span style="color: #FAB387;"> 255</span><span>])</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    else</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      for</span><span> i := </span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> to</span><span> N - </span><span style="color: #FAB387;">1</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>        inc(count[(tmp[i] </span><span style="color: #CBA6F7;">shr</span><span> shift) </span><span style="color: #94E2D5;">and</span><span style="color: #FAB387;"> 255</span><span>]);</span></span>
+<span class="giallo-l"><span>    sum := </span><span style="color: #FAB387;">0</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span> i := </span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> to</span><span style="color: #FAB387;"> 255</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    begin</span></span>
+<span class="giallo-l"><span>      c := count[i];</span></span>
+<span class="giallo-l"><span>      count[i] := sum;</span></span>
+<span class="giallo-l"><span>      inc(sum, c);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    end</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span> srcIsData </span><span style="color: #CBA6F7;">then</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      for</span><span> i := </span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> to</span><span> N - </span><span style="color: #FAB387;">1</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      begin</span></span>
+<span class="giallo-l"><span>        v := data[i];</span></span>
+<span class="giallo-l"><span>        b := (v </span><span style="color: #CBA6F7;">shr</span><span> shift) </span><span style="color: #94E2D5;">and</span><span style="color: #FAB387;"> 255</span><span>;</span></span>
+<span class="giallo-l"><span>        tmp[count[b]] := v;</span></span>
+<span class="giallo-l"><span>        inc(count[b]);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      end</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    else</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      for</span><span> i := </span><span style="color: #FAB387;">0</span><span style="color: #CBA6F7;"> to</span><span> N - </span><span style="color: #FAB387;">1</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      begin</span></span>
+<span class="giallo-l"><span>        v := tmp[i];</span></span>
+<span class="giallo-l"><span>        b := (v </span><span style="color: #CBA6F7;">shr</span><span> shift) </span><span style="color: #94E2D5;">and</span><span style="color: #FAB387;"> 255</span><span>;</span></span>
+<span class="giallo-l"><span>        data[count[b]] := v;</span></span>
+<span class="giallo-l"><span>        inc(count[b]);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      end</span><span>;</span></span>
+<span class="giallo-l"><span>    srcIsData := </span><span style="color: #CBA6F7;">not</span><span> srcIsData;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  end</span><span>;</span></span>
+<span class="giallo-l"><span>  writeln(</span><span style="color: #A6E3A1;">&#39;Sorted &#39;</span><span>, N, </span><span style="color: #A6E3A1;">&#39; integers: first=&#39;</span><span>, data[</span><span style="color: #FAB387;">0</span><span>], </span><span style="color: #A6E3A1;">&#39;, last=&#39;</span><span>, data[N - </span><span style="color: #FAB387;">1</span><span>]);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">end</span><span>.</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

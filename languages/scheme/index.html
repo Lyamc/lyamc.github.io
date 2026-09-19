@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scheme · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>Scheme</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">CHICKEN 5.4.0 csi · csc -O5 -fixnum-arithmetic → C (CHICKEN) · CHICKEN</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">16.6 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">19.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">14.3 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">54.9 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="16.6">16.6</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="36">36 B</td>
+        <td class="num" data-n="56">56 B</td>
+        <td class="num" data-n="263946">258 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="19.4">19.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="97">97 B</td>
+        <td class="num" data-n="98">98 B</td>
+        <td class="num" data-n="263946">258 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="14.3">14.3</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="782">782 B</td>
+        <td class="num" data-n="341">341 B</td>
+        <td class="num" data-n="72451">71 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="54.9">54.9</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="1593">2 KB</td>
+        <td class="num" data-n="336">336 B</td>
+        <td class="num" data-n="76515">75 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 28 (work table).
+   Sort rank 36.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[55.9, 53.7, 62.5, 54.9, 53.4]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/scheme/hello.scm</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="scheme"><span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span style="color: #A6E3A1;"> &quot;Hello, World!&quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span>newline</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/scheme/fibonacci.scm</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="scheme"><span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">define</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">fib</span><span style="color: #EBA0AC;font-style: italic;"> n a b</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span style="color: #CBA6F7;">if</span><span style="color: #9399B2;"> (</span><span style="color: #89B4FA;font-style: italic;">zero?</span><span> n</span><span style="color: #9399B2;">)</span><span> a </span><span style="color: #9399B2;">(</span><span>fib </span><span style="color: #9399B2;">(</span><span style="color: #94E2D5;">-</span><span> n </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)</span><span> b </span><span style="color: #9399B2;">(</span><span style="color: #94E2D5;">+</span><span> a b</span><span style="color: #9399B2;">))))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span style="color: #9399B2;"> (</span><span>fib </span><span style="color: #FAB387;">42 0 1</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span>newline</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/scheme/prime_sieve.scm</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="scheme"><span class="giallo-l"><span style="color: #9399B2;">(</span><span>import </span><span style="color: #9399B2;">(</span><span>chicken base</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        (</span><span>chicken fixnum</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>        srfi-4</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span>declare </span><span style="color: #9399B2;">(</span><span>block</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">         (</span><span>fixnum-arithmetic</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">         (</span><span>usual-integrations</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">         (</span><span>disable-interrupts</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">define</span><span> limit 1000000</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">define</span><span> sieve</span><span style="color: #9399B2;"> (</span><span>make-u8vector </span><span style="color: #9399B2;">(</span><span>fx+ limit </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span>u8vector-set! sieve </span><span style="color: #FAB387;">0 0</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span>u8vector-set! sieve </span><span style="color: #FAB387;">1 0</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">let</span><span> loop </span><span style="color: #9399B2;">((</span><span>i </span><span style="color: #FAB387;">2</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span>when </span><span style="color: #9399B2;">(</span><span>fx&lt;= </span><span style="color: #9399B2;">(</span><span>fx* i i</span><span style="color: #9399B2;">)</span><span> limit</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span>when </span><span style="color: #9399B2;">(</span><span>fx= </span><span style="color: #9399B2;">(</span><span>u8vector-ref sieve i</span><span style="color: #9399B2;">)</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">      (</span><span style="color: #CBA6F7;">let</span><span> loop2 </span><span style="color: #9399B2;">((</span><span>j </span><span style="color: #9399B2;">(</span><span>fx* i i</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        (</span><span>when </span><span style="color: #9399B2;">(</span><span>fx&lt;= j limit</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          (</span><span>u8vector-set! sieve j </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          (</span><span>loop2 </span><span style="color: #9399B2;">(</span><span>fx+ j i</span><span style="color: #9399B2;">)))))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span>loop </span><span style="color: #9399B2;">(</span><span>fx+ i </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">))))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">define</span><span> count</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span style="color: #CBA6F7;">let</span><span> loop </span><span style="color: #9399B2;">((</span><span>i </span><span style="color: #FAB387;">2</span><span style="color: #9399B2;">) (</span><span>c </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span style="color: #CBA6F7;">if</span><span style="color: #9399B2;"> (</span><span>fx&gt; i limit</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>        c</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        (</span><span>loop </span><span style="color: #9399B2;">(</span><span>fx+ i </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">              (</span><span style="color: #CBA6F7;">if</span><span style="color: #9399B2;"> (</span><span>fx= </span><span style="color: #9399B2;">(</span><span>u8vector-ref sieve i</span><span style="color: #9399B2;">)</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">) (</span><span>fx+ c </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)</span><span> c</span><span style="color: #9399B2;">)))))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span style="color: #A6E3A1;"> &quot;Primes up to &quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span> limit</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span style="color: #A6E3A1;"> &quot;: &quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span> count</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span>newline</span><span style="color: #9399B2;">)</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/scheme/sorting.scm</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="scheme"><span class="giallo-l"><span style="color: #9399B2;">(</span><span>import </span><span style="color: #9399B2;">(</span><span>chicken base</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        (</span><span>chicken fixnum</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>        srfi-4</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span>declare </span><span style="color: #9399B2;">(</span><span>block</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">         (</span><span>fixnum-arithmetic</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">         (</span><span>usual-integrations</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">         (</span><span>disable-interrupts</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">define</span><span> n 1000000</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">define</span><span> mask32</span><span style="color: #9399B2;"> (</span><span>fx- </span><span style="color: #9399B2;">(</span><span>fxshl </span><span style="color: #FAB387;">1 32</span><span style="color: #9399B2;">)</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">define</span><span> mask31</span><span style="color: #9399B2;"> (</span><span>fx- </span><span style="color: #9399B2;">(</span><span>fxshl </span><span style="color: #FAB387;">1 31</span><span style="color: #9399B2;">)</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">define</span><span> data</span><span style="color: #9399B2;"> (</span><span>make-u32vector n </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">define</span><span> tmp</span><span style="color: #9399B2;"> (</span><span>make-u32vector n </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">define</span><span> count</span><span style="color: #9399B2;"> (</span><span>make-u32vector </span><span style="color: #FAB387;">256 0</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">let</span><span> loop </span><span style="color: #9399B2;">((</span><span>i </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">) (</span><span>seed </span><span style="color: #FAB387;">42</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span>when </span><span style="color: #9399B2;">(</span><span>fx&lt; i n</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span style="color: #CBA6F7;">let</span><span style="color: #9399B2;"> ((</span><span>s </span><span style="color: #9399B2;">(</span><span>fxand </span><span style="color: #9399B2;">(</span><span>fx+ </span><span style="color: #9399B2;">(</span><span>fx* seed </span><span style="color: #FAB387;">1664525</span><span style="color: #9399B2;">)</span><span style="color: #FAB387;"> 1013904223</span><span style="color: #9399B2;">)</span><span> mask32</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">      (</span><span>u32vector-set! data i </span><span style="color: #9399B2;">(</span><span>fxand s mask31</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">      (</span><span>loop </span><span style="color: #9399B2;">(</span><span>fx+ i </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)</span><span> s</span><span style="color: #9399B2;">))))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">let</span><span> loop </span><span style="color: #9399B2;">((</span><span>pass </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">) (</span><span>src data</span><span style="color: #9399B2;">) (</span><span>dst tmp</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  (</span><span>when </span><span style="color: #9399B2;">(</span><span>fx&lt; pass </span><span style="color: #FAB387;">4</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span style="color: #CBA6F7;">let</span><span style="color: #9399B2;"> ((</span><span>shift </span><span style="color: #9399B2;">(</span><span>fx* pass </span><span style="color: #FAB387;">8</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">      (</span><span style="color: #CBA6F7;">do</span><span style="color: #9399B2;"> ((</span><span>i </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;"> (</span><span>fx+ i </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          ((</span><span>fx= i </span><span style="color: #FAB387;">256</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        (</span><span>u32vector-set! count i </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">      (</span><span style="color: #CBA6F7;">do</span><span style="color: #9399B2;"> ((</span><span>i </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;"> (</span><span>fx+ i </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          ((</span><span>fx= i n</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        (</span><span style="color: #CBA6F7;">let</span><span style="color: #9399B2;"> ((</span><span>b </span><span style="color: #9399B2;">(</span><span>fxand </span><span style="color: #9399B2;">(</span><span>fxshr </span><span style="color: #9399B2;">(</span><span>u32vector-ref src i</span><span style="color: #9399B2;">)</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          (</span><span>u32vector-set! count b </span><span style="color: #9399B2;">(</span><span>fx+ </span><span style="color: #9399B2;">(</span><span>u32vector-ref count b</span><span style="color: #9399B2;">)</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">))))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">      (</span><span style="color: #CBA6F7;">let</span><span> loop-sum </span><span style="color: #9399B2;">((</span><span>i </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">) (</span><span>sum </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        (</span><span>when </span><span style="color: #9399B2;">(</span><span>fx&lt; i </span><span style="color: #FAB387;">256</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          (</span><span style="color: #CBA6F7;">let</span><span style="color: #9399B2;"> ((</span><span>c </span><span style="color: #9399B2;">(</span><span>u32vector-ref count i</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">            (</span><span>u32vector-set! count i sum</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">            (</span><span>loop-sum </span><span style="color: #9399B2;">(</span><span>fx+ i </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">) (</span><span>fx+ sum c</span><span style="color: #9399B2;">)))))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">      (</span><span style="color: #CBA6F7;">do</span><span style="color: #9399B2;"> ((</span><span>i </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;"> (</span><span>fx+ i </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          ((</span><span>fx= i n</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        (</span><span style="color: #CBA6F7;">let*</span><span style="color: #9399B2;"> ((</span><span>v </span><span style="color: #9399B2;">(</span><span>u32vector-ref src i</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">               (</span><span>b </span><span style="color: #9399B2;">(</span><span>fxand </span><span style="color: #9399B2;">(</span><span>fxshr v shift</span><span style="color: #9399B2;">)</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">               (</span><span>p </span><span style="color: #9399B2;">(</span><span>u32vector-ref count b</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          (</span><span>u32vector-set! dst p v</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">          (</span><span>u32vector-set! count b </span><span style="color: #9399B2;">(</span><span>fx+ p </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)))))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    (</span><span>loop </span><span style="color: #9399B2;">(</span><span>fx+ pass </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)</span><span> dst src</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span style="color: #A6E3A1;"> &quot;Sorted &quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span> n</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span style="color: #A6E3A1;"> &quot; integers: first=&quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span style="color: #9399B2;"> (</span><span>u32vector-ref data </span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span style="color: #A6E3A1;"> &quot;, last=&quot;</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">display</span><span style="color: #9399B2;"> (</span><span>u32vector-ref data </span><span style="color: #9399B2;">(</span><span>fx- n </span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">)))</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">(</span><span>newline</span><span style="color: #9399B2;">)</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

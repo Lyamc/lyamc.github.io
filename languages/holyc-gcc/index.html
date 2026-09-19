@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HolyC (gcc) · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>HolyC (gcc)</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">transpiled AOT</span>
+</div>
+<p class="muted">hcc + MinGW-w64 gcc 13.2.0 · hcc --no-run -O2; gcc -O2 → GCC · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">4.5 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">3.7 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">5.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">10.6 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="4.5">4.5</td>
+        <td class="num" data-n="252.9">252.9</td>
+        <td class="num" data-n="48">48 B</td>
+        <td class="num" data-n="67">67 B</td>
+        <td class="num" data-n="63836">62 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="3.7">3.7</td>
+        <td class="num" data-n="254.8">254.8</td>
+        <td class="num" data-n="186">186 B</td>
+        <td class="num" data-n="139">139 B</td>
+        <td class="num" data-n="63470">62 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="5.2">5.2</td>
+        <td class="num" data-n="263.3">263.3</td>
+        <td class="num" data-n="619">619 B</td>
+        <td class="num" data-n="296">296 B</td>
+        <td class="num" data-n="64193">63 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="10.6">10.6</td>
+        <td class="num" data-n="263.6">263.6</td>
+        <td class="num" data-n="1279">1 KB</td>
+        <td class="num" data-n="522">522 B</td>
+        <td class="num" data-n="64046">63 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 11 (work table).
+   Sort rank 9.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">Windows HolyC→C then gcc -O2; LSD radix 4x8; rerun median n=5 samples=[12.1, 10.8, 10.6, 10.5, 10.3]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/holyc/hello.HC</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="c"><span class="giallo-l"><span>I64 </span><span style="color: #89B4FA;font-style: italic;">Main</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">  &quot;Hello, World!</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  return</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/holyc/fibonacci.HC</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="c"><span class="giallo-l"><span>I64 </span><span style="color: #89B4FA;font-style: italic;">Main</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span>  I64 n </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 42</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  I64 a </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  I64 b </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  I64 i</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  I64 tmp</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span style="color: #9399B2;"> (</span><span>i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">&lt;</span><span> n</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  {</span></span>
+<span class="giallo-l"><span>    tmp </span><span style="color: #94E2D5;">=</span><span> a </span><span style="color: #94E2D5;">+</span><span> b</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    a </span><span style="color: #94E2D5;">=</span><span> b</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    b </span><span style="color: #94E2D5;">=</span><span> tmp</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  }</span></span>
+<span class="giallo-l"><span>  $</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;%lld</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">,</span><span> a</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  return</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/holyc/prime_sieve.HC</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="c"><span class="giallo-l"><span>U8 </span><span style="color: #94E2D5;">*</span><span style="color: #89B4FA;font-style: italic;">MAlloc</span><span style="color: #9399B2;">(</span><span>I64 </span><span style="color: #EBA0AC;font-style: italic;">size</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  return</span><span style="color: #89B4FA;font-style: italic;"> malloc</span><span style="color: #9399B2;">(</span><span>size</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>U0 </span><span style="color: #89B4FA;font-style: italic;">Free</span><span style="color: #9399B2;">(</span><span>U8 </span><span style="color: #94E2D5;">*</span><span style="color: #EBA0AC;font-style: italic;">p</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">  free</span><span style="color: #9399B2;">(</span><span>p</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>I64 </span><span style="color: #89B4FA;font-style: italic;">Main</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span>  I64 LIMIT </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1000000</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  U8 </span><span style="color: #94E2D5;">*</span><span>sieve </span><span style="color: #94E2D5;">=</span><span style="color: #89B4FA;font-style: italic;"> MAlloc</span><span style="color: #9399B2;">(</span><span>LIMIT </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>  I64 i</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  I64 j</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  I64 count</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span style="color: #9399B2;"> (</span><span style="color: #94E2D5;">!</span><span>sieve</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    return</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span style="color: #9399B2;"> (</span><span>i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">&lt;=</span><span> LIMIT</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>    sieve</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  sieve</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  sieve</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span style="color: #9399B2;"> (</span><span>i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 2</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">*</span><span> i </span><span style="color: #94E2D5;">&lt;=</span><span> LIMIT</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span style="color: #9399B2;"> (</span><span>sieve</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">])</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      for</span><span style="color: #9399B2;"> (</span><span>j </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">*</span><span> i</span><span style="color: #9399B2;">;</span><span> j </span><span style="color: #94E2D5;">&lt;=</span><span> LIMIT</span><span style="color: #9399B2;">;</span><span> j </span><span style="color: #94E2D5;">=</span><span> j </span><span style="color: #94E2D5;">+</span><span> i</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>        sieve</span><span style="color: #9399B2;">[</span><span>j</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  }</span></span>
+<span class="giallo-l"><span>  count </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span style="color: #9399B2;"> (</span><span>i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 2</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">&lt;=</span><span> LIMIT</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span style="color: #9399B2;"> (</span><span>sieve</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">])</span></span>
+<span class="giallo-l"><span>      count </span><span style="color: #94E2D5;">=</span><span> count </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  }</span></span>
+<span class="giallo-l"><span>  $</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Primes up to %lld: %lld</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">,</span><span> LIMIT</span><span style="color: #9399B2;">,</span><span> count</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">  Free</span><span style="color: #9399B2;">(</span><span>sieve</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  return</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/holyc/sorting.HC</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="c"><span class="giallo-l"><span>U8 </span><span style="color: #94E2D5;">*</span><span style="color: #89B4FA;font-style: italic;">MAlloc</span><span style="color: #9399B2;">(</span><span>I64 </span><span style="color: #EBA0AC;font-style: italic;">size</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  return</span><span style="color: #89B4FA;font-style: italic;"> malloc</span><span style="color: #9399B2;">(</span><span>size</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>U0 </span><span style="color: #89B4FA;font-style: italic;">Free</span><span style="color: #9399B2;">(</span><span>U8 </span><span style="color: #94E2D5;">*</span><span style="color: #EBA0AC;font-style: italic;">p</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">  free</span><span style="color: #9399B2;">(</span><span>p</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>U0 </span><span style="color: #89B4FA;font-style: italic;">RadixSort</span><span style="color: #9399B2;">(</span><span>U32 </span><span style="color: #94E2D5;">*</span><span style="color: #EBA0AC;font-style: italic;">a</span><span style="color: #9399B2;">,</span><span> U32 </span><span style="color: #94E2D5;">*</span><span style="color: #EBA0AC;font-style: italic;">tmp</span><span style="color: #9399B2;">,</span><span> I64 </span><span style="color: #EBA0AC;font-style: italic;">n</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span>  U32</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;">256</span><span style="color: #9399B2;">]</span><span> count</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  U32 </span><span style="color: #94E2D5;">*</span><span>src </span><span style="color: #94E2D5;">=</span><span> a</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  U32 </span><span style="color: #94E2D5;">*</span><span>dst </span><span style="color: #94E2D5;">=</span><span> tmp</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  U32 </span><span style="color: #94E2D5;">*</span><span>t</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  I64 pass</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  I64 shift</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  I64 i</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  U32 sum</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  U32 c</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  U32 v</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span style="color: #9399B2;"> (</span><span>pass </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span><span> pass </span><span style="color: #94E2D5;">&lt;</span><span style="color: #FAB387;"> 4</span><span style="color: #9399B2;">;</span><span> pass </span><span style="color: #94E2D5;">=</span><span> pass </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span style="color: #9399B2;"> (</span><span>i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">&lt;</span><span style="color: #FAB387;"> 256</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>      count</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    shift </span><span style="color: #94E2D5;">=</span><span> pass </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 8</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span style="color: #9399B2;"> (</span><span>i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">&lt;</span><span> n</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span>      count</span><span style="color: #9399B2;">[(</span><span>src</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> &gt;&gt;</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span> count</span><span style="color: #9399B2;">[(</span><span>src</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> &gt;&gt;</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    sum </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span style="color: #9399B2;"> (</span><span>i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">&lt;</span><span style="color: #FAB387;"> 256</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    {</span></span>
+<span class="giallo-l"><span>      c </span><span style="color: #94E2D5;">=</span><span> count</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">];</span></span>
+<span class="giallo-l"><span>      count</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span> sum</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>      sum </span><span style="color: #94E2D5;">=</span><span> sum </span><span style="color: #94E2D5;">+</span><span> c</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span style="color: #9399B2;"> (</span><span>i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">&lt;</span><span> n</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    {</span></span>
+<span class="giallo-l"><span>      v </span><span style="color: #94E2D5;">=</span><span> src</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">];</span></span>
+<span class="giallo-l"><span>      dst</span><span style="color: #9399B2;">[</span><span>count</span><span style="color: #9399B2;">[(</span><span>v </span><span style="color: #94E2D5;">&gt;&gt;</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">]]</span><span style="color: #94E2D5;"> =</span><span> v</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>      count</span><span style="color: #9399B2;">[(</span><span>v </span><span style="color: #94E2D5;">&gt;&gt;</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span> count</span><span style="color: #9399B2;">[(</span><span>v </span><span style="color: #94E2D5;">&gt;&gt;</span><span> shift</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> &amp;</span><span style="color: #FAB387;"> 255</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span>    t </span><span style="color: #94E2D5;">=</span><span> src</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    src </span><span style="color: #94E2D5;">=</span><span> dst</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    dst </span><span style="color: #94E2D5;">=</span><span> t</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  }</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>I64 </span><span style="color: #89B4FA;font-style: italic;">Main</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">{</span></span>
+<span class="giallo-l"><span>  I64 N </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 1000000</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  U32 </span><span style="color: #94E2D5;">*</span><span>data </span><span style="color: #94E2D5;">=</span><span> U32 </span><span style="color: #94E2D5;">*</span><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">MAlloc</span><span style="color: #9399B2;">(</span><span>N </span><span style="color: #94E2D5;">* sizeof</span><span style="color: #9399B2;">(</span><span>U32</span><span style="color: #9399B2;">)));</span></span>
+<span class="giallo-l"><span>  U32 </span><span style="color: #94E2D5;">*</span><span>tmp </span><span style="color: #94E2D5;">=</span><span> U32 </span><span style="color: #94E2D5;">*</span><span style="color: #9399B2;">(</span><span style="color: #89B4FA;font-style: italic;">MAlloc</span><span style="color: #9399B2;">(</span><span>N </span><span style="color: #94E2D5;">* sizeof</span><span style="color: #9399B2;">(</span><span>U32</span><span style="color: #9399B2;">)));</span></span>
+<span class="giallo-l"><span>  U32 seed </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 42</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>  I64 i</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  if</span><span style="color: #9399B2;"> (</span><span style="color: #94E2D5;">!</span><span>data </span><span style="color: #94E2D5;">|| !</span><span>tmp</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    return</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span style="color: #9399B2;"> (</span><span>i </span><span style="color: #94E2D5;">=</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">&lt;</span><span> N</span><span style="color: #9399B2;">;</span><span> i </span><span style="color: #94E2D5;">=</span><span> i </span><span style="color: #94E2D5;">+</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  {</span></span>
+<span class="giallo-l"><span>    seed </span><span style="color: #94E2D5;">=</span><span> seed </span><span style="color: #94E2D5;">*</span><span style="color: #FAB387;"> 1664525</span><span style="color: #94E2D5;"> +</span><span style="color: #FAB387;"> 1013904223</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span>    data</span><span style="color: #9399B2;">[</span><span>i</span><span style="color: #9399B2;">]</span><span style="color: #94E2D5;"> =</span><span> seed </span><span style="color: #94E2D5;">&amp;</span><span style="color: #CBA6F7;"> 0x</span><span style="color: #FAB387;">7fffffff</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">  }</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">  RadixSort</span><span style="color: #9399B2;">(</span><span>data</span><span style="color: #9399B2;">,</span><span> tmp</span><span style="color: #9399B2;">,</span><span> N</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"><span>  $</span><span style="color: #9399B2;">(</span><span style="color: #A6E3A1;">&quot;Sorted %lld integers: first=%lld, last=%lld</span><span style="color: #F5C2E7;">\n</span><span style="color: #A6E3A1;">&quot;</span><span style="color: #9399B2;">,</span><span> N</span><span style="color: #9399B2;">,</span><span> data</span><span style="color: #9399B2;">[</span><span style="color: #FAB387;">0</span><span style="color: #9399B2;">],</span><span> data</span><span style="color: #9399B2;">[</span><span>N </span><span style="color: #94E2D5;">-</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">]);</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">  Free</span><span style="color: #9399B2;">(</span><span>U8 </span><span style="color: #94E2D5;">*</span><span style="color: #9399B2;">(</span><span>tmp</span><span style="color: #9399B2;">));</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">  Free</span><span style="color: #9399B2;">(</span><span>U8 </span><span style="color: #94E2D5;">*</span><span style="color: #9399B2;">(</span><span>data</span><span style="color: #9399B2;">));</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  return</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

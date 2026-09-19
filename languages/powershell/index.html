@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PowerShell · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>PowerShell</h1>
+  <span class="pill interp">interp</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">interpreted</span>
+</div>
+<p class="muted">Windows PowerShell 5.1 · powershell -File → CIL · CLR</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">165.4 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">173.2 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">213.9 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">237.1 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="165.4">165.4</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="29">29 B</td>
+        <td class="num" data-n="49">49 B</td>
+        <td class="num" data-n="454656">444 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="173.2">173.2</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="131">131 B</td>
+        <td class="num" data-n="116">116 B</td>
+        <td class="num" data-n="454656">444 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="213.9">213.9</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="609">609 B</td>
+        <td class="num" data-n="228">228 B</td>
+        <td class="num" data-n="454656">444 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="237.1">237.1</td>
+        <td class="num" data-n="">—</td>
+        <td class="num" data-n="1357">1 KB</td>
+        <td class="num" data-n="183">183 B</td>
+        <td class="num" data-n="454656">444 KB</td>
+        <td class="num" data-n="">—</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 54 (work table).
+   Sort rank 43.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">rerun median n=5 samples=[231.8, 237.1, 227.5, 241.4, 238.1]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/powershell/hello.ps1</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="powershell"><span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">Write-Output</span><span style="color: #A6E3A1;"> &quot;Hello, World!&quot;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/powershell/fibonacci.ps1</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="powershell"><span class="giallo-l"><span>$n</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 42</span></span>
+<span class="giallo-l"><span>$a</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> [</span><span style="color: #CBA6F7;">int64</span><span style="color: #9399B2;">]</span><span style="color: #FAB387;">0</span></span>
+<span class="giallo-l"><span>$b</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> [</span><span style="color: #CBA6F7;">int64</span><span style="color: #9399B2;">]</span><span style="color: #FAB387;">1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">for</span><span style="color: #9399B2;"> (</span><span>$i</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #9399B2;">;</span><span> $i</span><span style="color: #94E2D5;"> -lt</span><span> $n</span><span style="color: #9399B2;">;</span><span> $i</span><span style="color: #94E2D5;">++</span><span style="color: #9399B2;">) {</span></span>
+<span class="giallo-l"><span>    $tmp</span><span style="color: #94E2D5;"> =</span><span> $a</span><span style="color: #94E2D5;"> +</span><span> $b</span></span>
+<span class="giallo-l"><span>    $a</span><span style="color: #94E2D5;"> =</span><span> $b</span></span>
+<span class="giallo-l"><span>    $b</span><span style="color: #94E2D5;"> =</span><span> $tmp</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">Write-Output</span><span> $a</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/powershell/prime_sieve.ps1</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="powershell"><span class="giallo-l"><span style="color: #9399B2;font-style: italic;"># PS 5.1 loops over 1e6 are the old 2.5s outlier. Same Add-Type pattern as sorting.</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">Add-Type</span><span style="color: #94E2D5;"> -</span><span>TypeDefinition </span><span style="color: #A6E3A1;">@&quot;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">public static class Sieve {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    public static int Count(int limit) {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        bool[] comp = new bool[limit + 1];</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        for (int i = 2; i * i &lt;= limit; i++) {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            if (!comp[i]) {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">                for (int j = i * i; j &lt;= limit; j += i) comp[j] = true;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            }</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        }</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        int count = 0;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        for (int i = 2; i &lt;= limit; i++) if (!comp[i]) count++;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        return count;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    }</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">}</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">&quot;@</span></span>
+<span class="giallo-l"><span>$limit</span><span style="color: #94E2D5;"> =</span><span style="color: #FAB387;"> 1000000</span></span>
+<span class="giallo-l"><span>$count</span><span style="color: #94E2D5;"> =</span><span style="color: #9399B2;"> [</span><span style="color: #CBA6F7;">Sieve</span><span style="color: #9399B2;">]</span><span>::Count</span><span style="color: #9399B2;">(</span><span>$limit</span><span style="color: #9399B2;">)</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">Write-Output</span><span style="color: #A6E3A1;"> &quot;Primes up to </span><span>$</span><span style="color: #9399B2;">{</span><span>limit</span><span style="color: #9399B2;">}</span><span style="color: #A6E3A1;">: </span><span>$count</span><span style="color: #A6E3A1;">&quot;</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/powershell/sorting.ps1</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="powershell"><span class="giallo-l"><span style="color: #9399B2;font-style: italic;"># PS 5.1 promotes uint32 multiply to Double. Do fill+radix in C#.</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">Add-Type</span><span style="color: #94E2D5;"> -</span><span>TypeDefinition </span><span style="color: #A6E3A1;">@&quot;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">public static class LcgRadix {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    static void RadixSort(int[] a) {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        int n = a.Length;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        int[] tmp = new int[n];</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        int[] src = a, dst = tmp;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        int[] count = new int[256];</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        for (int pass = 0; pass &lt; 4; pass++) {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            System.Array.Clear(count, 0, 256);</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            int shift = pass * 8;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            for (int i = 0; i &lt; n; i++) count[(src[i] &gt;&gt; shift) &amp; 255]++;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            int sum = 0;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            for (int i = 0; i &lt; 256; i++) {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">                int c = count[i];</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">                count[i] = sum;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">                sum += c;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            }</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            for (int i = 0; i &lt; n; i++) {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">                int v = src[i];</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">                int b = (v &gt;&gt; shift) &amp; 255;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">                dst[count[b]++] = v;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            }</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            int[] t = src; src = dst; dst = t;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        }</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        if (src != a) System.Array.Copy(src, a, n);</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    }</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    public static string Run(int n) {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        int[] data = new int[n];</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        uint seed = 42;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        for (int i = 0; i &lt; n; i++) {</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            seed = seed * 1664525u + 1013904223u;</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">            data[i] = (int)(seed &amp; 0x7fffffffu);</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        }</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        RadixSort(data);</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">        return &quot;Sorted &quot; + n + &quot; integers: first=&quot; + data[0] + &quot;, last=&quot; + data[n - 1];</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">    }</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">}</span></span>
+<span class="giallo-l"><span style="color: #A6E3A1;">&quot;@</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">Write-Output</span><span style="color: #9399B2;"> ([</span><span style="color: #CBA6F7;">LcgRadix</span><span style="color: #9399B2;">]</span><span>::Run</span><span style="color: #9399B2;">(</span><span style="color: #FAB387;">1000000</span><span style="color: #9399B2;">))</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OCaml · Language bench</title>
+  <meta name="description" content="Cold-process timings of the same four programs across 70+ languages.">
+  <link rel="stylesheet" href="https://lyamc.github.io/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="https://lyamc.github.io/">Language bench</a>
+      <nav>
+        <a href="https://lyamc.github.io/programs/">Programs</a>
+        <a href="https://lyamc.github.io/languages/">Languages</a>
+        <a href="https://lyamc.github.io/graphs/">Graphs</a>
+        <a href="https://lyamc.github.io/bend/">Bend 2</a>
+        <a href="https://lyamc.github.io/data/">Data</a>
+        <a href="https://lyamc.github.io/methodology/">Method</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+
+
+
+
+<div class="lang-head">
+  <h1>OCaml</h1>
+  <span class="pill native">native</span>
+  <span class="pill windows">windows</span>
+  <span class="pill">AOT native</span>
+</div>
+<p class="muted">ocamlopt 5.5.0 (opam mingw64) · ocamlopt -O2 → OCaml native &#x2F; gcc (mingw64) · native</p>
+
+<div class="metrics">
+  <div class="metric"><div class="k">Hello</div><div class="v">8.1 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Fibonacci</div><div class="v">7.9 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sieve</div><div class="v">10.7 <small class="muted">ms</small></div></div>
+  <div class="metric"><div class="k">Sort</div><div class="v">21.2 <small class="muted">ms</small></div></div>
+</div>
+
+<div class="scroll">
+<table class="data">
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th class="num">Time ms</th>
+      <th class="num">Compile ms</th>
+      <th class="num">Source</th>
+      <th class="num">Gzip</th>
+      <th class="num">Binary</th>
+      <th class="num">RSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/hello/">hello</a></td>
+        <td class="num" data-n="8.1">8.1</td>
+        <td class="num" data-n="3439.6">3439.6</td>
+        <td class="num" data-n="30">30 B</td>
+        <td class="num" data-n="50">50 B</td>
+        <td class="num" data-n="3327357">3.2 MB</td>
+        <td class="num" data-n="2636">2636 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/fibonacci/">fibonacci</a></td>
+        <td class="num" data-n="7.9">7.9</td>
+        <td class="num" data-n="67.2">67.2</td>
+        <td class="num" data-n="168">168 B</td>
+        <td class="num" data-n="128">128 B</td>
+        <td class="num" data-n="4039349">3.9 MB</td>
+        <td class="num" data-n="2640">2640 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/prime-sieve/">prime_sieve</a></td>
+        <td class="num" data-n="10.7">10.7</td>
+        <td class="num" data-n="66.6">66.6</td>
+        <td class="num" data-n="544">544 B</td>
+        <td class="num" data-n="265">265 B</td>
+        <td class="num" data-n="4040850">3.9 MB</td>
+        <td class="num" data-n="2636">2636 KB</td>
+      </tr>
+    
+      <tr>
+        <td><a href="https://lyamc.github.io/programs/sorting/">sorting</a></td>
+        <td class="num" data-n="21.2">21.2</td>
+        <td class="num" data-n="65.8">65.8</td>
+        <td class="num" data-n="1067">1 KB</td>
+        <td class="num" data-n="431">431 B</td>
+        <td class="num" data-n="4041385">3.9 MB</td>
+        <td class="num" data-n="2636">2636 KB</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+
+
+<p class="muted">
+  Sieve rank 24 (work table).
+   Sort rank 26.
+  Four-file source 2 KB.
+</p>
+
+
+<p class="note">ocamlopt 5.5.0 via opam default switch (mingw64 gcc); DkML ocamlopt 4.14 MSVC needs unmapped Y:&#x2F;VS&#x2F;ml64.exe; Bytes sieve; LSD radix 4x8; rerun median n=5 samples=[20.1, 20.9, 23.2, 21.2, 21.3]</p>
+
+<h2 id="hello"><code>hello</code></h2>
+<p>Source: <code>examples/ocaml/hello.ml</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ocaml"><span class="giallo-l"><span>print_endline &quot;Hello, World!&quot;</span></span></code></pre><h2 id="fibonacci"><code>fibonacci</code></h2>
+<p>Source: <code>examples/ocaml/fibonacci.ml</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ocaml"><span class="giallo-l"><span style="color: #CBA6F7;">let</span><span style="color: #F9E2AF;"> ()</span><span style="color: #F9E2AF;font-style: italic;"> =</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> n</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;"> 42</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> a</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span> ref</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> b</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span> ref</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span style="color: #94E2D5;font-style: italic;"> _</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> to</span><span> n</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let</span><span style="color: #89B4FA;font-style: italic;"> tmp</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #A6E3A1;"> !</span><span>a</span><span style="color: #A6E3A1;"> + !</span><span>b</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span>    a</span><span style="color: #A6E3A1;"> := !</span><span>b</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span>    b</span><span style="color: #A6E3A1;"> :=</span><span> tmp</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  done</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">  Printf</span><span style="color: #CBA6F7;">.</span><span>printf</span><span style="color: #A6E3A1;"> &quot;%d\n&quot; !</span><span>a</span></span></code></pre><h2 id="prime-sieve"><code>prime_sieve</code></h2>
+<p>Source: <code>examples/ocaml/prime_sieve.ml</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ocaml"><span class="giallo-l"><span style="color: #CBA6F7;">let</span><span style="color: #F9E2AF;"> ()</span><span style="color: #F9E2AF;font-style: italic;"> =</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> limit</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;"> 1</span><span>_</span><span style="color: #FAB387;">000</span><span>_</span><span style="color: #FAB387;">000</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> sieve</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;font-style: italic;"> Bytes</span><span style="color: #CBA6F7;">.</span><span>make</span><span style="color: #94E2D5;"> (</span><span>limit</span><span style="color: #A6E3A1;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #94E2D5;">)</span><span> &#39;\001&#39;</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">  Bytes</span><span style="color: #CBA6F7;">.</span><span>set sieve</span><span style="color: #FAB387;"> 0</span><span> &#39;\000&#39;</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">  Bytes</span><span style="color: #CBA6F7;">.</span><span>set sieve</span><span style="color: #FAB387;"> 1</span><span> &#39;\000&#39;</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #A6E3A1;"> rec</span><span style="color: #89B4FA;font-style: italic;"> mark</span><span style="color: #EBA0AC;font-style: italic;"> i j</span><span style="color: #F9E2AF;font-style: italic;"> =</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span> j</span><span style="color: #A6E3A1;"> &lt;=</span><span> limit</span><span style="color: #CBA6F7;"> then</span><span style="color: #94E2D5;"> (</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">      Bytes</span><span style="color: #CBA6F7;">.</span><span>set sieve j &#39;\000&#39;</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span>      mark i</span><span style="color: #94E2D5;"> (</span><span>j</span><span style="color: #A6E3A1;"> +</span><span> i</span><span style="color: #94E2D5;">))</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #A6E3A1;"> rec</span><span style="color: #89B4FA;font-style: italic;"> loop</span><span style="color: #EBA0AC;font-style: italic;"> i</span><span style="color: #F9E2AF;font-style: italic;"> =</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span> i</span><span style="color: #A6E3A1;"> *</span><span> i</span><span style="color: #A6E3A1;"> &lt;=</span><span> limit</span><span style="color: #CBA6F7;"> then</span><span style="color: #94E2D5;"> (</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      if</span><span style="color: #FAB387;font-style: italic;"> Bytes</span><span style="color: #CBA6F7;">.</span><span>get sieve i</span><span style="color: #A6E3A1;"> &lt;&gt;</span><span> &#39;\000&#39;</span><span style="color: #CBA6F7;"> then</span><span> mark i</span><span style="color: #94E2D5;"> (</span><span>i</span><span style="color: #A6E3A1;"> *</span><span> i</span><span style="color: #94E2D5;">)</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span>      loop</span><span style="color: #94E2D5;"> (</span><span>i</span><span style="color: #A6E3A1;"> +</span><span style="color: #FAB387;"> 1</span><span style="color: #94E2D5;">))</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  in</span></span>
+<span class="giallo-l"><span>  loop</span><span style="color: #FAB387;"> 2</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> count</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span> ref</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span style="color: #EBA0AC;font-style: italic;"> i</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;"> 2</span><span style="color: #CBA6F7;"> to</span><span> limit</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    if</span><span style="color: #FAB387;font-style: italic;"> Bytes</span><span style="color: #CBA6F7;">.</span><span>get sieve i</span><span style="color: #A6E3A1;"> &lt;&gt;</span><span> &#39;\000&#39;</span><span style="color: #CBA6F7;"> then</span><span> incr count</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  done</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">  Printf</span><span style="color: #CBA6F7;">.</span><span>printf</span><span style="color: #A6E3A1;"> &quot;Primes up to %d: %d\n&quot;</span><span> limit</span><span style="color: #A6E3A1;"> !</span><span>count</span></span></code></pre><h2 id="sorting"><code>sorting</code></h2>
+<p>Source: <code>examples/ocaml/sorting.ml</code></p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="ocaml"><span class="giallo-l"><span style="color: #CBA6F7;">let</span><span style="color: #89B4FA;font-style: italic;"> radix_sort</span><span style="color: #94E2D5;"> (</span><span style="color: #EBA0AC;font-style: italic;">a</span><span style="color: #A6E3A1;"> :</span><span> int</span><span style="color: #89B4FA;font-style: italic;"> array</span><span style="color: #94E2D5;">)</span><span style="color: #F9E2AF;font-style: italic;"> =</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> n</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;font-style: italic;"> Array</span><span style="color: #CBA6F7;">.</span><span>length a</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> tmp</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;font-style: italic;"> Array</span><span style="color: #CBA6F7;">.</span><span>make n</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> src</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span> ref a</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> dst</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span> ref tmp</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> count</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;font-style: italic;"> Array</span><span style="color: #CBA6F7;">.</span><span>make</span><span style="color: #FAB387;"> 256 0</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span style="color: #EBA0AC;font-style: italic;"> pass</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> to</span><span style="color: #FAB387;"> 3</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">    Array</span><span style="color: #CBA6F7;">.</span><span>fill count</span><span style="color: #FAB387;"> 0 256 0</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let</span><span style="color: #89B4FA;font-style: italic;"> shift</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span> pass</span><span style="color: #A6E3A1;"> *</span><span style="color: #FAB387;"> 8</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let</span><span style="color: #89B4FA;font-style: italic;"> s</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #A6E3A1;"> !</span><span>src</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span style="color: #EBA0AC;font-style: italic;"> i</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> to</span><span> n</span><span style="color: #A6E3A1;"> -</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let</span><span style="color: #89B4FA;font-style: italic;"> b</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #94E2D5;"> (</span><span>s</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>i</span><span style="color: #A6E3A1;">) lsr</span><span> shift</span><span style="color: #94E2D5;">)</span><span style="color: #A6E3A1;"> land</span><span style="color: #FAB387;"> 255</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span>      count</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>b</span><span style="color: #A6E3A1;">)</span><span style="color: #CBA6F7;"> &lt;-</span><span> count</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>b</span><span style="color: #A6E3A1;">) +</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    done</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let</span><span style="color: #89B4FA;font-style: italic;"> sum</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span> ref</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span style="color: #EBA0AC;font-style: italic;"> i</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> to</span><span style="color: #FAB387;"> 255</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let</span><span style="color: #89B4FA;font-style: italic;"> c</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span> count</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>i</span><span style="color: #A6E3A1;">)</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span>      count</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>i</span><span style="color: #A6E3A1;">)</span><span style="color: #CBA6F7;"> &lt;-</span><span style="color: #A6E3A1;"> !</span><span>sum</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span>      sum</span><span style="color: #A6E3A1;"> := !</span><span>sum</span><span style="color: #A6E3A1;"> +</span><span> c</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    done</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let</span><span style="color: #89B4FA;font-style: italic;"> d</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #A6E3A1;"> !</span><span>dst</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    for</span><span style="color: #EBA0AC;font-style: italic;"> i</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> to</span><span> n</span><span style="color: #A6E3A1;"> -</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let</span><span style="color: #89B4FA;font-style: italic;"> v</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span> s</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>i</span><span style="color: #A6E3A1;">)</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">      let</span><span style="color: #89B4FA;font-style: italic;"> b</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #94E2D5;"> (</span><span>v</span><span style="color: #A6E3A1;"> lsr</span><span> shift</span><span style="color: #94E2D5;">)</span><span style="color: #A6E3A1;"> land</span><span style="color: #FAB387;"> 255</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span>      d</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>count</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>b</span><span style="color: #A6E3A1;">))</span><span style="color: #CBA6F7;"> &lt;-</span><span> v</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span>      count</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>b</span><span style="color: #A6E3A1;">)</span><span style="color: #CBA6F7;"> &lt;-</span><span> count</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>b</span><span style="color: #A6E3A1;">) +</span><span style="color: #FAB387;"> 1</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    done</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    let</span><span style="color: #89B4FA;font-style: italic;"> t</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #A6E3A1;"> !</span><span>src</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span>    src</span><span style="color: #A6E3A1;"> := !</span><span>dst</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span>    dst</span><span style="color: #A6E3A1;"> :=</span><span> t</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  done</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">let</span><span style="color: #F9E2AF;"> ()</span><span style="color: #F9E2AF;font-style: italic;"> =</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> n</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;"> 1</span><span>_</span><span style="color: #FAB387;">000</span><span>_</span><span style="color: #FAB387;">000</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> data</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;font-style: italic;"> Array</span><span style="color: #CBA6F7;">.</span><span>make n</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  let</span><span style="color: #89B4FA;font-style: italic;"> seed</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span> ref</span><span style="color: #FAB387;"> 42</span><span style="color: #CBA6F7;"> in</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  for</span><span style="color: #EBA0AC;font-style: italic;"> i</span><span style="color: #F9E2AF;font-style: italic;"> =</span><span style="color: #FAB387;"> 0</span><span style="color: #CBA6F7;"> to</span><span> n</span><span style="color: #A6E3A1;"> -</span><span style="color: #FAB387;"> 1</span><span style="color: #CBA6F7;"> do</span></span>
+<span class="giallo-l"><span>    seed</span><span style="color: #A6E3A1;"> :=</span><span style="color: #94E2D5;"> (</span><span style="color: #A6E3A1;">!</span><span>seed</span><span style="color: #A6E3A1;"> *</span><span style="color: #FAB387;"> 1664525</span><span style="color: #A6E3A1;"> +</span><span style="color: #FAB387;"> 1013904223</span><span style="color: #94E2D5;">)</span><span style="color: #A6E3A1;"> land</span><span style="color: #FAB387;"> 0</span><span>xffffffff</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span>    data</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>i</span><span style="color: #A6E3A1;">)</span><span style="color: #CBA6F7;"> &lt;-</span><span style="color: #A6E3A1;"> !</span><span>seed</span><span style="color: #A6E3A1;"> land</span><span style="color: #FAB387;"> 0</span><span>x7fffffff</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">  done</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span>  radix_sort data</span><span style="color: #A6E3A1;">;</span></span>
+<span class="giallo-l"><span style="color: #FAB387;font-style: italic;">  Printf</span><span style="color: #CBA6F7;">.</span><span>printf</span><span style="color: #A6E3A1;"> &quot;Sorted %d integers: first=%d, last=%d\n&quot;</span><span> n data</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span style="color: #FAB387;">0</span><span style="color: #A6E3A1;">)</span><span> data</span><span style="color: #CBA6F7;">.</span><span style="color: #A6E3A1;">(</span><span>n</span><span style="color: #A6E3A1;"> -</span><span style="color: #FAB387;"> 1</span><span style="color: #A6E3A1;">)</span></span></code></pre>
+
+
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      Cold wait-for-exit wall clock, median of 5 processes.
+      Machine: 13th Gen Intel Core i9-13900K.
+      Sources: <a href="https://github.com/Lyamc/language-bench">Lyamc/language-bench</a>.
+      Data: <a href="https://lyamc.github.io/data/languages.csv">languages.csv</a>.
+    </div>
+  </footer>
+  <script src="https://lyamc.github.io/js/sort.js"></script>
+</body>
+</html>
