@@ -54,6 +54,8 @@
       <th class="num">ms</th>
       <th></th>
       <th class="num">Source</th>
+      <th class="num">Compile ms</th>
+      <th class="num" title="Peak working set of the run">Memory</th>
       <th class="num">Binary</th>
       <th>Toolchain</th>
     </tr>
@@ -67,8 +69,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="4.2">4.2</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="1533">1 KB</td>
-      <td class="num" data-n="567808">555 KB</td>
+      <td class="num" data-n="677">677 B</td>
+      <td class="num" data-n="26.3">26.3</td>
+      <td class="num" data-n="2640">2.6 MB</td>
+      <td class="num" data-n="563712">551 KB</td>
       <td class="muted">zig 0.16.0</td>
     </tr>
     
@@ -79,7 +83,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="4.6">4.6</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2221">2 KB</td>
+      <td class="num" data-n="530">530 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="140800">138 KB</td>
       <td class="muted">clang 17</td>
     </tr>
@@ -91,8 +97,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="4.8">4.8</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2150">2 KB</td>
-      <td class="num" data-n="141312">138 KB</td>
+      <td class="num" data-n="585">585 B</td>
+      <td class="num" data-n="126.8">126.8</td>
+      <td class="num" data-n="2640">2.6 MB</td>
+      <td class="num" data-n="140800">138 KB</td>
       <td class="muted">clang 17.0.6</td>
     </tr>
     
@@ -103,8 +111,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="4.9">4.9</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2132">2 KB</td>
-      <td class="num" data-n="141824">139 KB</td>
+      <td class="num" data-n="619">619 B</td>
+      <td class="num" data-n="241.1">241.1</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="141312">138 KB</td>
       <td class="muted">hcc + clang 17.0.6</td>
     </tr>
     
@@ -115,8 +125,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="4.9">4.9</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2132">2 KB</td>
-      <td class="num" data-n="140800">138 KB</td>
+      <td class="num" data-n="619">619 B</td>
+      <td class="num" data-n="198">198</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="140288">137 KB</td>
       <td class="muted">hcc + MSVC cl 19.44</td>
     </tr>
     
@@ -127,7 +139,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="5">5</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="1704">2 KB</td>
+      <td class="num" data-n="440">440 B</td>
+      <td class="num" data-n="53.6">53.6</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="31232">31 KB</td>
       <td class="muted">FreeBASIC 1.10.1</td>
     </tr>
@@ -139,8 +153,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="5">5</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2150">2 KB</td>
-      <td class="num" data-n="140800">138 KB</td>
+      <td class="num" data-n="585">585 B</td>
+      <td class="num" data-n="88.8">88.8</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="140288">137 KB</td>
       <td class="muted">MSVC cl 19.44</td>
     </tr>
     
@@ -151,8 +167,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="5.1">5.1</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="1311">1 KB</td>
-      <td class="num" data-n="262656">257 KB</td>
+      <td class="num" data-n="491">491 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2636">2.6 MB</td>
+      <td class="num" data-n="260608">255 KB</td>
       <td class="muted">MSVC cl 17.14</td>
     </tr>
     
@@ -163,8 +181,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="5.1">5.1</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="7026">7 KB</td>
-      <td class="num" data-n="108032">106 KB</td>
+      <td class="num" data-n="1993">2 KB</td>
+      <td class="num" data-n="52.9">52.9</td>
+      <td class="num" data-n="2636">2.6 MB</td>
+      <td class="num" data-n="107520">105 KB</td>
       <td class="muted">nasm 3.02</td>
     </tr>
     
@@ -175,8 +195,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="5.2">5.2</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2150">2 KB</td>
-      <td class="num" data-n="64005">63 KB</td>
+      <td class="num" data-n="585">585 B</td>
+      <td class="num" data-n="150.1">150.1</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="64067">63 KB</td>
       <td class="muted">MinGW-w64 gcc 13.2.0</td>
     </tr>
     
@@ -187,8 +209,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="5.2">5.2</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2132">2 KB</td>
-      <td class="num" data-n="64046">63 KB</td>
+      <td class="num" data-n="619">619 B</td>
+      <td class="num" data-n="263.3">263.3</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="64193">63 KB</td>
       <td class="muted">hcc + MinGW-w64 gcc 13.2.0</td>
     </tr>
     
@@ -199,8 +223,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="5.5">5.5</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="1824">2 KB</td>
-      <td class="num" data-n="1237556">1.2 MB</td>
+      <td class="num" data-n="486">486 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2640">2.6 MB</td>
+      <td class="num" data-n="126464">124 KB</td>
       <td class="muted">rustc 1.96.0-nightly</td>
     </tr>
     
@@ -211,8 +237,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="6.2">6.2</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2182">2 KB</td>
-      <td class="num" data-n="1587360">1.5 MB</td>
+      <td class="num" data-n="715">715 B</td>
+      <td class="num" data-n="284.9">284.9</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="1586812">1.5 MB</td>
       <td class="muted">GNAT FSF 15.3</td>
     </tr>
     
@@ -223,8 +251,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="6.5">6.5</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="1594">2 KB</td>
-      <td class="num" data-n="264593">258 KB</td>
+      <td class="num" data-n="356">356 B</td>
+      <td class="num" data-n="23.5">23.5</td>
+      <td class="num" data-n="2660">2.6 MB</td>
+      <td class="num" data-n="264597">258 KB</td>
       <td class="muted">nim 2.0.8 + MSVC</td>
     </tr>
     
@@ -235,7 +265,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="6.8">6.8</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="791">791 B</td>
+      <td class="num" data-n="378">378 B</td>
+      <td class="num" data-n="522">522</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="31232">31 KB</td>
       <td class="muted">V</td>
     </tr>
@@ -247,8 +279,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="6.9">6.9</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2150">2 KB</td>
-      <td class="num" data-n="3072">3 KB</td>
+      <td class="num" data-n="585">585 B</td>
+      <td class="num" data-n="9.8">9.8</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2560">3 KB</td>
       <td class="muted">TinyCC 0.9.27</td>
     </tr>
     
@@ -259,8 +293,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="8.6">8.6</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2290">2 KB</td>
-      <td class="num" data-n="956416">934 KB</td>
+      <td class="num" data-n="659">659 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="18472">18 MB</td>
+      <td class="num" data-n="954880">933 KB</td>
       <td class="muted">.NET 10 Native AOT</td>
     </tr>
     
@@ -271,8 +307,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="8.6">8.6</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2132">2 KB</td>
-      <td class="num" data-n="4608">5 KB</td>
+      <td class="num" data-n="619">619 B</td>
+      <td class="num" data-n="113.8">113.8</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="3072">3 KB</td>
       <td class="muted">hcc + TinyCC 0.9.27</td>
     </tr>
     
@@ -283,8 +321,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="8.8">8.8</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="2076">2 KB</td>
-      <td class="num" data-n="2171904">2.1 MB</td>
+      <td class="num" data-n="760">760 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2171392">2.1 MB</td>
       <td class="muted">.NET 10 Native AOT</td>
     </tr>
     
@@ -295,8 +335,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="8.8">8.8</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="1575">2 KB</td>
-      <td class="num" data-n="37888">37 KB</td>
+      <td class="num" data-n="541">541 B</td>
+      <td class="num" data-n="38.4">38.4</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="34816">34 KB</td>
       <td class="muted">FPC 3.2.2</td>
     </tr>
     
@@ -307,8 +349,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="9.6">9.6</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="1862">2 KB</td>
-      <td class="num" data-n="65702">64 KB</td>
+      <td class="num" data-n="595">595 B</td>
+      <td class="num" data-n="141.7">141.7</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="65669">64 KB</td>
       <td class="muted">gfortran (Strawberry)</td>
     </tr>
     
@@ -319,8 +363,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="9.6">9.6</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="930">930 B</td>
-      <td class="num" data-n="1690112">1.6 MB</td>
+      <td class="num" data-n="403">403 B</td>
+      <td class="num" data-n="97.6">97.6</td>
+      <td class="num" data-n="2628">2.6 MB</td>
+      <td class="num" data-n="1682432">1.6 MB</td>
       <td class="muted">Go 1.26.5</td>
     </tr>
     
@@ -331,8 +377,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="9.7">9.7</td>
       <td><span class="bar native" style="width: 0px"></span></td>
-      <td class="num" data-n="1203">1 KB</td>
-      <td class="num" data-n="651776">637 KB</td>
+      <td class="num" data-n="456">456 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2644">2.6 MB</td>
+      <td class="num" data-n="640512">626 KB</td>
       <td class="muted">DMD 2.112.0</td>
     </tr>
     
@@ -343,8 +391,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="10.7">10.7</td>
       <td><span class="bar native" style="width: 1px"></span></td>
-      <td class="num" data-n="1809">2 KB</td>
-      <td class="num" data-n="4041385">3.9 MB</td>
+      <td class="num" data-n="544">544 B</td>
+      <td class="num" data-n="66.6">66.6</td>
+      <td class="num" data-n="2636">2.6 MB</td>
+      <td class="num" data-n="4040850">3.9 MB</td>
       <td class="muted">ocamlopt 5.5.0 (opam mingw64)</td>
     </tr>
     
@@ -355,8 +405,10 @@
       <td><span class="pill linux-wsl">linux-wsl</span></td>
       <td class="num" data-n="11">11</td>
       <td><span class="bar native" style="width: 1px"></span></td>
-      <td class="num" data-n="2312">2 KB</td>
-      <td class="num" data-n="28072">27 KB</td>
+      <td class="num" data-n="720">720 B</td>
+      <td class="num" data-n="1110">1110</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="27016">26 KB</td>
       <td class="muted">Mojo 1.0.0 (Ubuntu 24.04 WSL2)</td>
     </tr>
     
@@ -367,8 +419,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="11.5">11.5</td>
       <td><span class="bar native" style="width: 1px"></span></td>
-      <td class="num" data-n="613">613 B</td>
-      <td class="num" data-n="460288">450 KB</td>
+      <td class="num" data-n="316">316 B</td>
+      <td class="num" data-n="3731.6">3731.6</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="458240">448 KB</td>
       <td class="muted">Crystal 1.21.0</td>
     </tr>
     
@@ -379,8 +433,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="13.2">13.2</td>
       <td><span class="bar native" style="width: 1px"></span></td>
-      <td class="num" data-n="4784">5 KB</td>
-      <td class="num" data-n="11908096">11.4 MB</td>
+      <td class="num" data-n="610">610 B</td>
+      <td class="num" data-n="52.1">52.1</td>
+      <td class="num" data-n="2648">2.6 MB</td>
+      <td class="num" data-n="11908608">11.4 MB</td>
       <td class="muted">GHC 9.8.2</td>
     </tr>
     
@@ -391,8 +447,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="14.3">14.3</td>
       <td><span class="bar native" style="width: 1px"></span></td>
-      <td class="num" data-n="2508">2 KB</td>
-      <td class="num" data-n="76515">75 KB</td>
+      <td class="num" data-n="782">782 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="72451">71 KB</td>
       <td class="muted">CHICKEN 5.4.0 csi</td>
     </tr>
     
@@ -403,7 +461,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="14.4">14.4</td>
       <td><span class="bar jit" style="width: 1px"></span></td>
-      <td class="num" data-n="1294">1 KB</td>
+      <td class="num" data-n="354">354 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="294912">288 KB</td>
       <td class="muted">LuaJIT 2.1.19907</td>
     </tr>
@@ -415,8 +475,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="14.6">14.6</td>
       <td><span class="bar native" style="width: 1px"></span></td>
-      <td class="num" data-n="1578">2 KB</td>
-      <td class="num" data-n="6358528">6.1 MB</td>
+      <td class="num" data-n="426">426 B</td>
+      <td class="num" data-n="312.9">312.9</td>
+      <td class="num" data-n="2656">2.6 MB</td>
+      <td class="num" data-n="6358016">6.1 MB</td>
       <td class="muted">Dart 3.12.2 AOT</td>
     </tr>
     
@@ -427,8 +489,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="15.4">15.4</td>
       <td><span class="bar native" style="width: 1px"></span></td>
-      <td class="num" data-n="1006">1006 B</td>
-      <td class="num" data-n="26112">26 KB</td>
+      <td class="num" data-n="615">615 B</td>
+      <td class="num" data-n="408.2">408.2</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="22528">22 KB</td>
       <td class="muted">swiftc 6.0.2</td>
     </tr>
     
@@ -439,7 +503,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="20">20</td>
       <td><span class="bar interp" style="width: 1px"></span></td>
-      <td class="num" data-n="887">887 B</td>
+      <td class="num" data-n="367">367 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="20212">19.7 MB</td>
       <td class="num" data-n="105696">103 KB</td>
       <td class="muted">CPython 3.13.15</td>
     </tr>
@@ -451,8 +517,10 @@
       <td><span class="pill linux">linux</span></td>
       <td class="num" data-n="24.9">24.9</td>
       <td><span class="bar native" style="width: 1px"></span></td>
-      <td class="num" data-n="3174">3 KB</td>
-      <td class="num" data-n="4114768">3.9 MB</td>
+      <td class="num" data-n="677">677 B</td>
+      <td class="num" data-n="1344.6">1344.6</td>
+      <td class="num" data-n="13936">13.6 MB</td>
+      <td class="num" data-n="4084400">3.9 MB</td>
       <td class="muted">Lean 4.33.1 (elan stable, Linux x86_64)</td>
     </tr>
     
@@ -463,7 +531,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="28.4">28.4</td>
       <td><span class="bar jit" style="width: 1px"></span></td>
-      <td class="num" data-n="2076">2 KB</td>
+      <td class="num" data-n="760">760 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="52312">51.1 MB</td>
       <td class="num" data-n="162304">159 KB</td>
       <td class="muted">.NET 10 RyuJIT</td>
     </tr>
@@ -475,7 +545,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="30.3">30.3</td>
       <td><span class="bar jit" style="width: 2px"></span></td>
-      <td class="num" data-n="2290">2 KB</td>
+      <td class="num" data-n="659">659 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="162304">159 KB</td>
       <td class="muted">.NET 10 RyuJIT</td>
     </tr>
@@ -487,7 +559,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="35">35</td>
       <td><span class="bar interp" style="width: 2px"></span></td>
-      <td class="num" data-n="2437">2 KB</td>
+      <td class="num" data-n="471">471 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2636">2.6 MB</td>
       <td class="num" data-n="2555987">2.4 MB</td>
       <td class="muted">SBCL 2.6.7</td>
     </tr>
@@ -499,7 +573,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="39.2">39.2</td>
       <td><span class="bar interp" style="width: 2px"></span></td>
-      <td class="num" data-n="1294">1 KB</td>
+      <td class="num" data-n="354">354 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2644">2.6 MB</td>
       <td class="num" data-n="245760">240 KB</td>
       <td class="muted">Lua 5.4.6</td>
     </tr>
@@ -511,7 +587,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="41.4">41.4</td>
       <td><span class="bar jit" style="width: 2px"></span></td>
-      <td class="num" data-n="1758">2 KB</td>
+      <td class="num" data-n="479">479 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="33648">32.9 MB</td>
       <td class="num" data-n="95120384">90.7 MB</td>
       <td class="muted">Node 25.6.1</td>
     </tr>
@@ -523,7 +601,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="42.4">42.4</td>
       <td><span class="bar jit" style="width: 2px"></span></td>
-      <td class="num" data-n="751">751 B</td>
+      <td class="num" data-n="324">324 B</td>
+      <td class="num" data-n="549.8">549.8</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="95120384">90.7 MB</td>
       <td class="muted">tsc + Node 25.6.1</td>
     </tr>
@@ -535,7 +615,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="45.9">45.9</td>
       <td><span class="bar jit" style="width: 2px"></span></td>
-      <td class="num" data-n="1758">2 KB</td>
+      <td class="num" data-n="479">479 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="111662592">106.5 MB</td>
       <td class="muted">Bun 1.2.2</td>
     </tr>
@@ -547,7 +629,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="46.1">46.1</td>
       <td><span class="bar interp" style="width: 2px"></span></td>
-      <td class="num" data-n="1636">2 KB</td>
+      <td class="num" data-n="489">489 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="129424">126 KB</td>
       <td class="muted">Gforth 0.7.0</td>
     </tr>
@@ -559,7 +643,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="54.3">54.3</td>
       <td><span class="bar jit" style="width: 3px"></span></td>
-      <td class="num" data-n="1467">1 KB</td>
+      <td class="num" data-n="616">616 B</td>
+      <td class="num" data-n="185.8">185.8</td>
+      <td class="num" data-n="42860">41.9 MB</td>
       <td class="num" data-n="50344">49 KB</td>
       <td class="muted">OpenJDK 21.0.10</td>
     </tr>
@@ -571,7 +657,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="57.4">57.4</td>
       <td><span class="bar jit" style="width: 3px"></span></td>
-      <td class="num" data-n="1758">2 KB</td>
+      <td class="num" data-n="479">479 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="97316640">92.8 MB</td>
       <td class="muted">Deno 2.9.6</td>
     </tr>
@@ -583,7 +671,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="70.1">70.1</td>
       <td><span class="bar interp" style="width: 4px"></span></td>
-      <td class="num" data-n="825">825 B</td>
+      <td class="num" data-n="386">386 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2684">2.6 MB</td>
       <td class="num" data-n="183296">179 KB</td>
       <td class="muted">PHP 8.4.24 NTS</td>
     </tr>
@@ -595,7 +685,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="77.3">77.3</td>
       <td><span class="bar jit" style="width: 4px"></span></td>
-      <td class="num" data-n="948">948 B</td>
+      <td class="num" data-n="463">463 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="43068">42.1 MB</td>
       <td class="num" data-n="50344">49 KB</td>
       <td class="muted">kotlinc 2.2.21 + JDK 21</td>
     </tr>
@@ -607,7 +699,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="92.2">92.2</td>
       <td><span class="bar interp" style="width: 5px"></span></td>
-      <td class="num" data-n="1615">2 KB</td>
+      <td class="num" data-n="391">391 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="849920">830 KB</td>
       <td class="muted">wren-cli 0.4.0</td>
     </tr>
@@ -619,7 +713,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="115.8">115.8</td>
       <td><span class="bar interp" style="width: 6px"></span></td>
-      <td class="num" data-n="1758">2 KB</td>
+      <td class="num" data-n="479">479 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="2149746">2.1 MB</td>
       <td class="muted">QuickJS-ng 0.16.2</td>
     </tr>
@@ -631,7 +727,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="126.6">126.6</td>
       <td><span class="bar jit" style="width: 6px"></span></td>
-      <td class="num" data-n="890">890 B</td>
+      <td class="num" data-n="408">408 B</td>
+      <td class="num" data-n="772.4">772.4</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="50344">49 KB</td>
       <td class="muted">Scala CLI 1.15 &#x2F; Scala 3.8.4</td>
     </tr>
@@ -643,7 +741,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="134.7">134.7</td>
       <td><span class="bar interp" style="width: 7px"></span></td>
-      <td class="num" data-n="589">589 B</td>
+      <td class="num" data-n="309">309 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="16668">16.3 MB</td>
       <td class="num" data-n="38400">38 KB</td>
       <td class="muted">Ruby 3.4.10</td>
     </tr>
@@ -655,7 +755,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="148.4">148.4</td>
       <td><span class="bar interp" style="width: 8px"></span></td>
-      <td class="num" data-n="673">673 B</td>
+      <td class="num" data-n="254">254 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="154624">151 KB</td>
       <td class="muted">R 4.6.1</td>
     </tr>
@@ -667,7 +769,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="160.7">160.7</td>
       <td><span class="bar interp" style="width: 8px"></span></td>
-      <td class="num" data-n="813">813 B</td>
+      <td class="num" data-n="381">381 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2652">2.6 MB</td>
       <td class="num" data-n="46592">46 KB</td>
       <td class="muted">Strawberry 5.42.2</td>
     </tr>
@@ -679,7 +783,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="179">179</td>
       <td><span class="bar interp" style="width: 9px"></span></td>
-      <td class="num" data-n="854">854 B</td>
+      <td class="num" data-n="409">409 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="6143488">5.9 MB</td>
       <td class="muted">go.starlark.net</td>
     </tr>
@@ -691,7 +797,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="190.8">190.8</td>
       <td><span class="bar interp" style="width: 10px"></span></td>
-      <td class="num" data-n="1758">2 KB</td>
+      <td class="num" data-n="479">479 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="35119616">33.5 MB</td>
       <td class="muted">Boa 0.22.0</td>
     </tr>
@@ -703,7 +811,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="213.9">213.9</td>
       <td><span class="bar interp" style="width: 11px"></span></td>
-      <td class="num" data-n="2126">2 KB</td>
+      <td class="num" data-n="609">609 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="454656">444 KB</td>
       <td class="muted">Windows PowerShell 5.1</td>
     </tr>
@@ -715,7 +825,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="214.6">214.6</td>
       <td><span class="bar jit" style="width: 11px"></span></td>
-      <td class="num" data-n="1458">1 KB</td>
+      <td class="num" data-n="332">332 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="212544">207.6 MB</td>
       <td class="num" data-n="170952">167 KB</td>
       <td class="muted">Julia 1.12.6</td>
     </tr>
@@ -727,7 +839,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="287">287</td>
       <td><span class="bar interp" style="width: 15px"></span></td>
-      <td class="num" data-n="1618">2 KB</td>
+      <td class="num" data-n="869">869 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2644">2.6 MB</td>
       <td class="num" data-n="50176">49 KB</td>
       <td class="muted">OTP 29.0.5</td>
     </tr>
@@ -739,7 +853,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="322">322</td>
       <td><span class="bar interp" style="width: 16px"></span></td>
-      <td class="num" data-n="870">870 B</td>
+      <td class="num" data-n="425">425 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="2710528">2.6 MB</td>
       <td class="muted">custom interpreter (Go)</td>
     </tr>
@@ -751,7 +867,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="380.4">380.4</td>
       <td><span class="bar interp" style="width: 19px"></span></td>
-      <td class="num" data-n="1138">1 KB</td>
+      <td class="num" data-n="634">634 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="8868">8.7 MB</td>
       <td class="num" data-n="6573">6 KB</td>
       <td class="muted">Elixir 1.18.4 + OTP 29</td>
     </tr>
@@ -763,7 +881,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="469.7">469.7</td>
       <td><span class="bar interp" style="width: 24px"></span></td>
-      <td class="num" data-n="726">726 B</td>
+      <td class="num" data-n="380">380 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="150016">147 KB</td>
       <td class="muted">Rakudo 2026.07</td>
     </tr>
@@ -775,7 +895,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="493.4">493.4</td>
       <td><span class="bar interp" style="width: 25px"></span></td>
-      <td class="num" data-n="2245">2 KB</td>
+      <td class="num" data-n="1303">1 KB</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="2644">2.6 MB</td>
       <td class="num" data-n="23295832">22.2 MB</td>
       <td class="muted">Gleam 1.18.1</td>
     </tr>
@@ -787,7 +909,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="509.7">509.7</td>
       <td><span class="bar jit" style="width: 26px"></span></td>
-      <td class="num" data-n="1578">2 KB</td>
+      <td class="num" data-n="426">426 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="">—</td>
       <td class="muted">Dart 3.12.2 VM</td>
     </tr>
@@ -799,7 +923,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="535.7">535.7</td>
       <td><span class="bar interp" style="width: 27px"></span></td>
-      <td class="num" data-n="920">920 B</td>
+      <td class="num" data-n="264">264 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="26112">26 KB</td>
       <td class="muted">Octave 11.3.0 portable</td>
     </tr>
@@ -811,7 +937,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="546.8">546.8</td>
       <td><span class="bar interp" style="width: 28px"></span></td>
-      <td class="num" data-n="771">771 B</td>
+      <td class="num" data-n="414">414 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="3908096">3.7 MB</td>
       <td class="muted">rhai 1.25</td>
     </tr>
@@ -823,8 +951,10 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="667.9">667.9</td>
       <td><span class="bar native" style="width: 34px"></span></td>
-      <td class="num" data-n="928">928 B</td>
-      <td class="num" data-n="101888">100 KB</td>
+      <td class="num" data-n="480">480 B</td>
+      <td class="num" data-n="923">923</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="102912">101 KB</td>
       <td class="muted">Red 0.6.6 toolchain</td>
     </tr>
     
@@ -835,7 +965,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="689.8">689.8</td>
       <td><span class="bar jit" style="width: 35px"></span></td>
-      <td class="num" data-n="1181">1 KB</td>
+      <td class="num" data-n="515">515 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="12488">12.2 MB</td>
       <td class="num" data-n="24793088">23.6 MB</td>
       <td class="muted">Clojure CLI 1.12.0.1501</td>
     </tr>
@@ -847,7 +979,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="737.8">737.8</td>
       <td><span class="bar interp" style="width: 37px"></span></td>
-      <td class="num" data-n="2516">2 KB</td>
+      <td class="num" data-n="1838">2 KB</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="15872">16 KB</td>
       <td class="muted">SWI-Prolog 10.0.2</td>
     </tr>
@@ -859,7 +993,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="781.3">781.3</td>
       <td><span class="bar interp" style="width: 39px"></span></td>
-      <td class="num" data-n="850">850 B</td>
+      <td class="num" data-n="409">409 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="64000">63 KB</td>
       <td class="muted">Tcl 8.6.16</td>
     </tr>
@@ -871,7 +1007,9 @@
       <td><span class="pill linux-wsl">linux-wsl</span></td>
       <td class="num" data-n="940.1">940.1</td>
       <td><span class="bar jit" style="width: 48px"></span></td>
-      <td class="num" data-n="2312">2 KB</td>
+      <td class="num" data-n="720">720 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="">—</td>
       <td class="muted">Mojo 1.0.0 (Ubuntu 24.04 WSL2)</td>
     </tr>
@@ -883,7 +1021,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="1399.1">1399.1</td>
       <td><span class="bar jit" style="width: 71px"></span></td>
-      <td class="num" data-n="719">719 B</td>
+      <td class="num" data-n="353">353 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="1452">1 KB</td>
       <td class="muted">Groovy 4.0.32</td>
     </tr>
@@ -895,7 +1035,9 @@
       <td><span class="pill windows">windows</span></td>
       <td class="num" data-n="1424.3">1424.3</td>
       <td><span class="bar interp" style="width: 72px"></span></td>
-      <td class="num" data-n="1644">2 KB</td>
+      <td class="num" data-n="951">951 B</td>
+      <td class="num" data-n="">—</td>
+      <td class="num" data-n="">—</td>
       <td class="num" data-n="3897344">3.7 MB</td>
       <td class="muted">sqlite3 3.51.1</td>
     </tr>

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-09-19 03:43 UTC",
+    "generated": "2026-09-19 04:31 UTC",
     "n_labels": 79,
     "n_timed": 74,
     "n_rows": 307,
@@ -13054,8 +13054,11 @@
         "family": "native",
         "platform": "linux",
         "time_ms": 2.6,
+        "source_bytes": 51,
         "source_total": 3174,
-        "exe_bytes": 4114768,
+        "compile_time_ms": 1088.6,
+        "exec_peak_ws_kb": 13344,
+        "exe_bytes": 4074960,
         "toolchain": "Lean 4.33.1 (elan stable, Linux x86_64)"
       },
       {
@@ -13065,8 +13068,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.2,
+        "source_bytes": 475,
         "source_total": 7026,
-        "exe_bytes": 108032,
+        "compile_time_ms": 89.2,
+        "exec_peak_ws_kb": 2636,
+        "exe_bytes": 107520,
         "toolchain": "nasm 3.02"
       },
       {
@@ -13076,8 +13082,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.3,
+        "source_bytes": 48,
         "source_total": 2132,
-        "exe_bytes": 4608,
+        "compile_time_ms": 117.4,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 2048,
         "toolchain": "hcc + TinyCC 0.9.27"
       },
       {
@@ -13087,8 +13096,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.3,
+        "source_bytes": 97,
         "source_total": 1533,
-        "exe_bytes": 567808,
+        "compile_time_ms": 47.7,
+        "exec_peak_ws_kb": 2640,
+        "exe_bytes": 556032,
         "toolchain": "zig 0.16.0"
       },
       {
@@ -13098,7 +13110,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 3.4,
+        "source_bytes": 22,
         "source_total": 2341,
+        "compile_time_ms": 1390,
+        "exec_peak_ws_kb": 0,
         "exe_bytes": 109056,
         "toolchain": "o3-monkey (Rust tree-walk)"
       },
@@ -13109,8 +13124,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.5,
+        "source_bytes": 84,
         "source_total": 2150,
-        "exe_bytes": 3072,
+        "compile_time_ms": 8.1,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 2048,
         "toolchain": "TinyCC 0.9.27"
       },
       {
@@ -13120,8 +13138,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.7,
+        "source_bytes": 84,
         "source_total": 2150,
-        "exe_bytes": 141312,
+        "compile_time_ms": 225.7,
+        "exec_peak_ws_kb": 2636,
+        "exe_bytes": 110080,
         "toolchain": "clang 17.0.6"
       },
       {
@@ -13131,8 +13152,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.8,
+        "source_bytes": 84,
         "source_total": 2150,
-        "exe_bytes": 140800,
+        "compile_time_ms": 84.7,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 139776,
         "toolchain": "MSVC cl 19.44"
       },
       {
@@ -13142,8 +13166,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.8,
+        "source_bytes": 86,
         "source_total": 1311,
-        "exe_bytes": 262656,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2636,
+        "exe_bytes": 209920,
         "toolchain": "MSVC cl 17.14"
       },
       {
@@ -13153,8 +13180,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.8,
+        "source_bytes": 48,
         "source_total": 2132,
-        "exe_bytes": 140800,
+        "compile_time_ms": 194.6,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 140288,
         "toolchain": "hcc + MSVC cl 19.44"
       },
       {
@@ -13164,8 +13194,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.9,
+        "source_bytes": 21,
         "source_total": 1594,
-        "exe_bytes": 264593,
+        "compile_time_ms": 27.2,
+        "exec_peak_ws_kb": 2660,
+        "exe_bytes": 187392,
         "toolchain": "nim 2.0.8 + MSVC"
       },
       {
@@ -13175,8 +13208,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4,
+        "source_bytes": 102,
         "source_total": 2182,
-        "exe_bytes": 1587360,
+        "compile_time_ms": 364.5,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 1586281,
         "toolchain": "GNAT FSF 15.3"
       },
       {
@@ -13186,8 +13222,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4,
+        "source_bytes": 22,
         "source_total": 1704,
-        "exe_bytes": 31232,
+        "compile_time_ms": 76.7,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 29184,
         "toolchain": "FreeBASIC 1.10.1"
       },
       {
@@ -13197,8 +13236,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4,
+        "source_bytes": 84,
         "source_total": 2150,
-        "exe_bytes": 64005,
+        "compile_time_ms": 140.8,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 63746,
         "toolchain": "MinGW-w64 gcc 13.2.0"
       },
       {
@@ -13208,8 +13250,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4,
+        "source_bytes": 83,
         "source_total": 2221,
-        "exe_bytes": 140800,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 110080,
         "toolchain": "clang 17"
       },
       {
@@ -13219,8 +13264,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4.4,
+        "source_bytes": 45,
         "source_total": 1824,
-        "exe_bytes": 1237556,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2640,
+        "exe_bytes": 125440,
         "toolchain": "rustc 1.96.0-nightly"
       },
       {
@@ -13230,8 +13278,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4.5,
+        "source_bytes": 48,
         "source_total": 2132,
-        "exe_bytes": 64046,
+        "compile_time_ms": 252.9,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 63836,
         "toolchain": "hcc + MinGW-w64 gcc 13.2.0"
       },
       {
@@ -13241,8 +13292,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4.8,
+        "source_bytes": 48,
         "source_total": 2132,
-        "exe_bytes": 141824,
+        "compile_time_ms": 223.7,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 110080,
         "toolchain": "hcc + clang 17.0.6"
       },
       {
@@ -13252,7 +13306,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 5.1,
+        "source_bytes": 24,
         "source_total": 771,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 3908096,
         "toolchain": "rhai 1.25"
       },
@@ -13263,8 +13320,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 5.2,
+        "source_bytes": 40,
         "source_total": 791,
-        "exe_bytes": 31232,
+        "compile_time_ms": 688,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 29184,
         "toolchain": "V"
       },
       {
@@ -13274,7 +13334,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 5.3,
+        "source_bytes": 30,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 2149746,
         "toolchain": "QuickJS-ng 0.16.2"
       },
@@ -13285,8 +13348,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 6.4,
+        "source_bytes": 59,
         "source_total": 1862,
-        "exe_bytes": 65702,
+        "compile_time_ms": 148.5,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 64783,
         "toolchain": "gfortran (Strawberry)"
       },
       {
@@ -13296,8 +13362,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 7,
+        "source_bytes": 74,
         "source_total": 930,
-        "exe_bytes": 1690112,
+        "compile_time_ms": 137.4,
+        "exec_peak_ws_kb": 2628,
+        "exe_bytes": 1672704,
         "toolchain": "Go 1.26.5"
       },
       {
@@ -13307,8 +13376,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 7.1,
+        "source_bytes": 112,
         "source_total": 2290,
-        "exe_bytes": 956416,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 13272,
+        "exe_bytes": 953344,
         "toolchain": ".NET 10 Native AOT"
       },
       {
@@ -13318,7 +13390,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 7.1,
+        "source_bytes": 23,
         "source_total": 1294,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
         "exe_bytes": 245760,
         "toolchain": "Lua 5.4.6"
       },
@@ -13329,8 +13404,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 7.3,
+        "source_bytes": 54,
         "source_total": 1575,
-        "exe_bytes": 37888,
+        "compile_time_ms": 111.9,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 34304,
         "toolchain": "FPC 3.2.2"
       },
       {
@@ -13340,8 +13418,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 7.5,
+        "source_bytes": 86,
         "source_total": 2076,
-        "exe_bytes": 2171904,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 955392,
         "toolchain": ".NET 10 Native AOT"
       },
       {
@@ -13351,7 +13432,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 7.8,
+        "source_bytes": 22,
         "source_total": 870,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 2710528,
         "toolchain": "custom interpreter (Go)"
       },
@@ -13362,8 +13446,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 8.1,
+        "source_bytes": 30,
         "source_total": 1809,
-        "exe_bytes": 4041385,
+        "compile_time_ms": 3439.6,
+        "exec_peak_ws_kb": 2636,
+        "exe_bytes": 3327357,
         "toolchain": "ocamlopt 5.5.0 (opam mingw64)"
       },
       {
@@ -13373,8 +13460,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 8.4,
+        "source_bytes": 65,
         "source_total": 1203,
-        "exe_bytes": 651776,
+        "compile_time_ms": 293.9,
+        "exec_peak_ws_kb": 2644,
+        "exe_bytes": 587264,
         "toolchain": "DMD 2.112.0"
       },
       {
@@ -13384,7 +13474,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 8.5,
+        "source_bytes": 23,
         "source_total": 1294,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 294912,
         "toolchain": "LuaJIT 2.1.19907"
       },
@@ -13395,8 +13488,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 8.7,
+        "source_bytes": 46,
         "source_total": 4784,
-        "exe_bytes": 11908096,
+        "compile_time_ms": 51.6,
+        "exec_peak_ws_kb": 2648,
+        "exe_bytes": 11392512,
         "toolchain": "GHC 9.8.2"
       },
       {
@@ -13406,8 +13502,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 9.1,
+        "source_bytes": 21,
         "source_total": 613,
-        "exe_bytes": 460288,
+        "compile_time_ms": 3820.1,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 456192,
         "toolchain": "Crystal 1.21.0"
       },
       {
@@ -13417,7 +13516,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 9.2,
+        "source_bytes": 30,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 35119616,
         "toolchain": "Boa 0.22.0"
       },
@@ -13428,7 +13530,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 9.4,
+        "source_bytes": 23,
         "source_total": 854,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 6143488,
         "toolchain": "go.starlark.net"
       },
@@ -13439,8 +13544,11 @@
         "family": "native",
         "platform": "linux-wsl",
         "time_ms": 9.5,
+        "source_bytes": 39,
         "source_total": 2312,
-        "exe_bytes": 28072,
+        "compile_time_ms": 2155,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 18000,
         "toolchain": "Mojo 1.0.0 (Ubuntu 24.04 WSL2)"
       },
       {
@@ -13450,7 +13558,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 11.9,
+        "source_bytes": 21,
         "source_total": 850,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 64000,
         "toolchain": "Tcl 8.6.16"
       },
@@ -13461,8 +13572,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 12,
+        "source_bytes": 42,
         "source_total": 1578,
-        "exe_bytes": 6358528,
+        "compile_time_ms": 423.5,
+        "exec_peak_ws_kb": 2656,
+        "exe_bytes": 6358016,
         "toolchain": "Dart 3.12.2 AOT"
       },
       {
@@ -13472,8 +13586,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 15.1,
+        "source_bytes": 23,
         "source_total": 1006,
-        "exe_bytes": 26112,
+        "compile_time_ms": 1211.2,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 20992,
         "toolchain": "swiftc 6.0.2"
       },
       {
@@ -13483,7 +13600,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 15.9,
+        "source_bytes": 24,
         "source_total": 1644,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 3960,
         "exe_bytes": 3897344,
         "toolchain": "sqlite3 3.51.1"
       },
@@ -13494,8 +13614,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 16.6,
+        "source_bytes": 36,
         "source_total": 2508,
-        "exe_bytes": 76515,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 263946,
         "toolchain": "CHICKEN 5.4.0 csi"
       },
       {
@@ -13505,7 +13628,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 17.2,
+        "source_bytes": 78,
         "source_total": 887,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 20900,
         "exe_bytes": 105696,
         "toolchain": "CPython 3.13.15"
       },
@@ -13516,7 +13642,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 17.4,
+        "source_bytes": 30,
         "source_total": 1615,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 849920,
         "toolchain": "wren-cli 0.4.0"
       },
@@ -13527,7 +13656,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 20.9,
+        "source_bytes": 112,
         "source_total": 2290,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 162304,
         "toolchain": ".NET 10 RyuJIT"
       },
@@ -13538,7 +13670,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 21.2,
+        "source_bytes": 25,
         "source_total": 813,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2652,
         "exe_bytes": 46592,
         "toolchain": "Strawberry 5.42.2"
       },
@@ -13549,7 +13684,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 23.6,
+        "source_bytes": 86,
         "source_total": 2076,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 52076,
         "exe_bytes": 162304,
         "toolchain": ".NET 10 RyuJIT"
       },
@@ -13560,7 +13698,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 24.5,
+        "source_bytes": 29,
         "source_total": 2437,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 44768,
         "exe_bytes": 2555987,
         "toolchain": "SBCL 2.6.7"
       },
@@ -13571,7 +13712,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 27.3,
+        "source_bytes": 25,
         "source_total": 1636,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 129424,
         "toolchain": "Gforth 0.7.0"
       },
@@ -13582,7 +13726,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 32.4,
+        "source_bytes": 30,
         "source_total": 825,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2552,
         "exe_bytes": 183296,
         "toolchain": "PHP 8.4.24 NTS"
       },
@@ -13593,7 +13740,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 34.9,
+        "source_bytes": 30,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 22136,
         "exe_bytes": 95120384,
         "toolchain": "Node 25.6.1"
       },
@@ -13604,7 +13754,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 35.9,
+        "source_bytes": 30,
         "source_total": 751,
+        "compile_time_ms": 549.8,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 95120384,
         "toolchain": "tsc + Node 25.6.1"
       },
@@ -13615,7 +13768,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 39.9,
+        "source_bytes": 30,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 111662592,
         "toolchain": "Bun 1.2.2"
       },
@@ -13626,7 +13782,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 43.2,
+        "source_bytes": 119,
         "source_total": 1467,
+        "compile_time_ms": 167.4,
+        "exec_peak_ws_kb": 42812,
         "exe_bytes": 50344,
         "toolchain": "OpenJDK 21.0.10"
       },
@@ -13637,7 +13796,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 48.8,
+        "source_bytes": 44,
         "source_total": 948,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 42904,
         "exe_bytes": 50344,
         "toolchain": "kotlinc 2.2.21 + JDK 21"
       },
@@ -13648,7 +13810,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 52,
+        "source_bytes": 71,
         "source_total": 2516,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 15872,
         "toolchain": "SWI-Prolog 10.0.2"
       },
@@ -13659,7 +13824,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 52.9,
+        "source_bytes": 30,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 97316640,
         "toolchain": "Deno 2.9.6"
       },
@@ -13670,7 +13838,10 @@
         "family": "gpu",
         "platform": "windows",
         "time_ms": 91,
+        "source_bytes": 767,
         "source_total": 4998,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 152064,
         "toolchain": ""
       },
@@ -13681,7 +13852,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 102.8,
+        "source_bytes": 21,
         "source_total": 589,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 18404,
         "exe_bytes": 38400,
         "toolchain": "Ruby 3.4.10"
       },
@@ -13692,7 +13866,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 103,
+        "source_bytes": 44,
         "source_total": 890,
+        "compile_time_ms": 35145.4,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 50344,
         "toolchain": "Scala CLI 1.15 / Scala 3.8.4"
       },
@@ -13703,7 +13880,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 134.4,
+        "source_bytes": 23,
         "source_total": 673,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 154624,
         "toolchain": "R 4.6.1"
       },
@@ -13714,8 +13894,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 138.4,
+        "source_bytes": 43,
         "source_total": 928,
-        "exe_bytes": 101888,
+        "compile_time_ms": 34847,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 99328,
         "toolchain": "Red 0.6.6 toolchain"
       },
       {
@@ -13725,7 +13908,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 141.1,
+        "source_bytes": 21,
         "source_total": 726,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 150016,
         "toolchain": "Rakudo 2026.07"
       },
@@ -13736,7 +13922,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 158.8,
+        "source_bytes": 25,
         "source_total": 1458,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 214784,
         "exe_bytes": 170952,
         "toolchain": "Julia 1.12.6"
       },
@@ -13747,7 +13936,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 165.4,
+        "source_bytes": 29,
         "source_total": 2126,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 454656,
         "toolchain": "Windows PowerShell 5.1"
       },
@@ -13758,8 +13950,11 @@
         "family": "gpu",
         "platform": "windows",
         "time_ms": 187.5,
+        "source_bytes": 83,
         "source_total": 4468,
-        "exe_bytes": 2375168,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 243200,
         "toolchain": ""
       },
       {
@@ -13769,7 +13964,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 238.1,
+        "source_bytes": 116,
         "source_total": 1618,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
         "exe_bytes": 50176,
         "toolchain": "OTP 29.0.5"
       },
@@ -13780,7 +13978,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 325.9,
+        "source_bytes": 25,
         "source_total": 1138,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 8880,
         "exe_bytes": 6573,
         "toolchain": "Elixir 1.18.4 + OTP 29"
       },
@@ -13791,7 +13992,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 485.2,
+        "source_bytes": 65,
         "source_total": 2245,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2000,
         "exe_bytes": 23295832,
         "toolchain": "Gleam 1.18.1"
       },
@@ -13802,7 +14006,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 499.3,
+        "source_bytes": 42,
         "source_total": 1578,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": null,
         "toolchain": "Dart 3.12.2 VM"
       },
@@ -13813,7 +14020,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 533.5,
+        "source_bytes": 27,
         "source_total": 920,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 26112,
         "toolchain": "Octave 11.3.0 portable"
       },
@@ -13824,8 +14034,11 @@
         "family": "gpu",
         "platform": "windows",
         "time_ms": 618.2,
+        "source_bytes": 85,
         "source_total": 4521,
-        "exe_bytes": 6750720,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 5285376,
         "toolchain": ""
       },
       {
@@ -13835,7 +14048,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 659.2,
+        "source_bytes": 59,
         "source_total": 1181,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 12508,
         "exe_bytes": 24793088,
         "toolchain": "Clojure CLI 1.12.0.1501"
       },
@@ -13846,7 +14062,10 @@
         "family": "jit",
         "platform": "linux-wsl",
         "time_ms": 929.2,
+        "source_bytes": 39,
         "source_total": 2312,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": null,
         "toolchain": "Mojo 1.0.0 (Ubuntu 24.04 WSL2)"
       },
@@ -13857,7 +14076,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 980,
+        "source_bytes": 24,
         "source_total": 719,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 1452,
         "toolchain": "Groovy 4.0.32"
       }
@@ -13870,8 +14092,11 @@
         "family": "native",
         "platform": "linux",
         "time_ms": 2.5,
+        "source_bytes": 215,
         "source_total": 3174,
-        "exe_bytes": 4114768,
+        "compile_time_ms": 1119.3,
+        "exec_peak_ws_kb": 13740,
+        "exe_bytes": 4079520,
         "toolchain": "Lean 4.33.1 (elan stable, Linux x86_64)"
       },
       {
@@ -13881,8 +14106,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3,
+        "source_bytes": 271,
         "source_total": 1533,
-        "exe_bytes": 567808,
+        "compile_time_ms": 25.6,
+        "exec_peak_ws_kb": 2644,
+        "exe_bytes": 803840,
         "toolchain": "zig 0.16.0"
       },
       {
@@ -13892,8 +14120,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.2,
+        "source_bytes": 1022,
         "source_total": 7026,
-        "exe_bytes": 108032,
+        "compile_time_ms": 50.2,
+        "exec_peak_ws_kb": 2636,
+        "exe_bytes": 107520,
         "toolchain": "nasm 3.02"
       },
       {
@@ -13903,8 +14134,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.3,
+        "source_bytes": 252,
         "source_total": 2150,
-        "exe_bytes": 3072,
+        "compile_time_ms": 8.3,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 2560,
         "toolchain": "TinyCC 0.9.27"
       },
       {
@@ -13914,8 +14148,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.3,
+        "source_bytes": 186,
         "source_total": 2132,
-        "exe_bytes": 4608,
+        "compile_time_ms": 113.2,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 2560,
         "toolchain": "hcc + TinyCC 0.9.27"
       },
       {
@@ -13925,7 +14162,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 3.3,
+        "source_bytes": 158,
         "source_total": 2341,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2652,
         "exe_bytes": 109056,
         "toolchain": "o3-monkey (Rust tree-walk)"
       },
@@ -13936,8 +14176,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.6,
+        "source_bytes": 186,
         "source_total": 2132,
-        "exe_bytes": 141824,
+        "compile_time_ms": 221,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 139776,
         "toolchain": "hcc + clang 17.0.6"
       },
       {
@@ -13947,8 +14190,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.7,
+        "source_bytes": 117,
         "source_total": 1704,
-        "exe_bytes": 31232,
+        "compile_time_ms": 53.6,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 28160,
         "toolchain": "FreeBASIC 1.10.1"
       },
       {
@@ -13958,8 +14204,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.7,
+        "source_bytes": 240,
         "source_total": 1311,
-        "exe_bytes": 262656,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2640,
+        "exe_bytes": 259072,
         "toolchain": "MSVC cl 17.14"
       },
       {
@@ -13969,8 +14218,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.7,
+        "source_bytes": 186,
         "source_total": 2132,
-        "exe_bytes": 64046,
+        "compile_time_ms": 254.8,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 63470,
         "toolchain": "hcc + MinGW-w64 gcc 13.2.0"
       },
       {
@@ -13980,8 +14232,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.7,
+        "source_bytes": 251,
         "source_total": 2221,
-        "exe_bytes": 140800,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 139776,
         "toolchain": "clang 17"
       },
       {
@@ -13991,8 +14246,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.8,
+        "source_bytes": 252,
         "source_total": 2150,
-        "exe_bytes": 141312,
+        "compile_time_ms": 106.8,
+        "exec_peak_ws_kb": 2636,
+        "exe_bytes": 139776,
         "toolchain": "clang 17.0.6"
       },
       {
@@ -14002,8 +14260,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.8,
+        "source_bytes": 252,
         "source_total": 2150,
-        "exe_bytes": 140800,
+        "compile_time_ms": 85.1,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 139776,
         "toolchain": "MSVC cl 19.44"
       },
       {
@@ -14013,8 +14274,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.8,
+        "source_bytes": 186,
         "source_total": 2132,
-        "exe_bytes": 140800,
+        "compile_time_ms": 193.6,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 139776,
         "toolchain": "hcc + MSVC cl 19.44"
       },
       {
@@ -14024,8 +14288,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 3.8,
+        "source_bytes": 79,
         "source_total": 1594,
-        "exe_bytes": 264593,
+        "compile_time_ms": 16.2,
+        "exec_peak_ws_kb": 2660,
+        "exe_bytes": 187904,
         "toolchain": "nim 2.0.8 + MSVC"
       },
       {
@@ -14035,8 +14302,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4,
+        "source_bytes": 301,
         "source_total": 2182,
-        "exe_bytes": 1587360,
+        "compile_time_ms": 264.9,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 1728297,
         "toolchain": "GNAT FSF 15.3"
       },
       {
@@ -14046,8 +14316,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4.2,
+        "source_bytes": 252,
         "source_total": 2150,
-        "exe_bytes": 64005,
+        "compile_time_ms": 144.1,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 63380,
         "toolchain": "MinGW-w64 gcc 13.2.0"
       },
       {
@@ -14057,8 +14330,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4.2,
+        "source_bytes": 189,
         "source_total": 1824,
-        "exe_bytes": 1237556,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2640,
+        "exe_bytes": 125952,
         "toolchain": "rustc 1.96.0-nightly"
       },
       {
@@ -14068,7 +14344,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 4.9,
+        "source_bytes": 96,
         "source_total": 771,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 3908096,
         "toolchain": "rhai 1.25"
       },
@@ -14079,7 +14358,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 5.4,
+        "source_bytes": 207,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 2149746,
         "toolchain": "QuickJS-ng 0.16.2"
       },
@@ -14090,8 +14372,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 5.4,
+        "source_bytes": 116,
         "source_total": 791,
-        "exe_bytes": 31232,
+        "compile_time_ms": 522,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 29184,
         "toolchain": "V"
       },
       {
@@ -14101,8 +14386,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 6,
+        "source_bytes": 204,
         "source_total": 1862,
-        "exe_bytes": 65702,
+        "compile_time_ms": 132.6,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 64779,
         "toolchain": "gfortran (Strawberry)"
       },
       {
@@ -14112,7 +14400,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 6.7,
+        "source_bytes": 124,
         "source_total": 870,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 2710528,
         "toolchain": "custom interpreter (Go)"
       },
@@ -14123,8 +14414,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 6.9,
+        "source_bytes": 181,
         "source_total": 1575,
-        "exe_bytes": 37888,
+        "compile_time_ms": 37.5,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 34816,
         "toolchain": "FPC 3.2.2"
       },
       {
@@ -14134,8 +14428,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 6.9,
+        "source_bytes": 137,
         "source_total": 930,
-        "exe_bytes": 1690112,
+        "compile_time_ms": 99.6,
+        "exec_peak_ws_kb": 2628,
+        "exe_bytes": 2463232,
         "toolchain": "Go 1.26.5"
       },
       {
@@ -14145,7 +14442,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 7,
+        "source_bytes": 78,
         "source_total": 1294,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2640,
         "exe_bytes": 245760,
         "toolchain": "Lua 5.4.6"
       },
@@ -14156,8 +14456,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 7.1,
+        "source_bytes": 271,
         "source_total": 2290,
-        "exe_bytes": 956416,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 13876,
+        "exe_bytes": 955904,
         "toolchain": ".NET 10 Native AOT"
       },
       {
@@ -14167,8 +14470,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 7.2,
+        "source_bytes": 197,
         "source_total": 2076,
-        "exe_bytes": 2171904,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 956928,
         "toolchain": ".NET 10 Native AOT"
       },
       {
@@ -14178,7 +14484,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 7.2,
+        "source_bytes": 78,
         "source_total": 1294,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 294912,
         "toolchain": "LuaJIT 2.1.19907"
       },
@@ -14189,8 +14498,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 7.9,
+        "source_bytes": 168,
         "source_total": 1809,
-        "exe_bytes": 4041385,
+        "compile_time_ms": 67.2,
+        "exec_peak_ws_kb": 2640,
+        "exe_bytes": 4039349,
         "toolchain": "ocamlopt 5.5.0 (opam mingw64)"
       },
       {
@@ -14200,7 +14512,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 8,
+        "source_bytes": 125,
         "source_total": 854,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 6143488,
         "toolchain": "go.starlark.net"
       },
@@ -14211,8 +14526,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 8.1,
+        "source_bytes": 191,
         "source_total": 1203,
-        "exe_bytes": 651776,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
+        "exe_bytes": 590336,
         "toolchain": "DMD 2.112.0"
       },
       {
@@ -14222,7 +14540,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 9.2,
+        "source_bytes": 207,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 35119616,
         "toolchain": "Boa 0.22.0"
       },
@@ -14233,8 +14554,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 9.3,
+        "source_bytes": 104,
         "source_total": 4784,
-        "exe_bytes": 11908096,
+        "compile_time_ms": 57.1,
+        "exec_peak_ws_kb": 2648,
+        "exe_bytes": 11393536,
         "toolchain": "GHC 9.8.2"
       },
       {
@@ -14244,8 +14568,11 @@
         "family": "native",
         "platform": "linux-wsl",
         "time_ms": 9.6,
+        "source_bytes": 155,
         "source_total": 2312,
-        "exe_bytes": 28072,
+        "compile_time_ms": 1184,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 20880,
         "toolchain": "Mojo 1.0.0 (Ubuntu 24.04 WSL2)"
       },
       {
@@ -14255,8 +14582,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 9.8,
+        "source_bytes": 62,
         "source_total": 613,
-        "exe_bytes": 460288,
+        "compile_time_ms": 3706.3,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 457216,
         "toolchain": "Crystal 1.21.0"
       },
       {
@@ -14266,7 +14596,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 10.4,
+        "source_bytes": 143,
         "source_total": 1644,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 3960,
         "exe_bytes": 3897344,
         "toolchain": "sqlite3 3.51.1"
       },
@@ -14277,7 +14610,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 11.8,
+        "source_bytes": 127,
         "source_total": 850,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 64000,
         "toolchain": "Tcl 8.6.16"
       },
@@ -14288,7 +14624,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 12.7,
+        "source_bytes": 94,
         "source_total": 1615,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 849920,
         "toolchain": "wren-cli 0.4.0"
       },
@@ -14299,8 +14638,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 12.9,
+        "source_bytes": 153,
         "source_total": 1578,
-        "exe_bytes": 6358528,
+        "compile_time_ms": 288.5,
+        "exec_peak_ws_kb": 13000,
+        "exe_bytes": 6358016,
         "toolchain": "Dart 3.12.2 AOT"
       },
       {
@@ -14310,7 +14652,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 13.6,
+        "source_bytes": 96,
         "source_total": 813,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2652,
         "exe_bytes": 46592,
         "toolchain": "Strawberry 5.42.2"
       },
@@ -14321,8 +14666,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 13.9,
+        "source_bytes": 105,
         "source_total": 1006,
-        "exe_bytes": 26112,
+        "compile_time_ms": 347.7,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 21504,
         "toolchain": "swiftc 6.0.2"
       },
       {
@@ -14332,7 +14680,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 15.3,
+        "source_bytes": 139,
         "source_total": 887,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 20236,
         "exe_bytes": 105696,
         "toolchain": "CPython 3.13.15"
       },
@@ -14343,8 +14694,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 19.4,
+        "source_bytes": 97,
         "source_total": 2508,
-        "exe_bytes": 76515,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 263946,
         "toolchain": "CHICKEN 5.4.0 csi"
       },
       {
@@ -14354,7 +14708,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 21,
+        "source_bytes": 271,
         "source_total": 2290,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 162304,
         "toolchain": ".NET 10 RyuJIT"
       },
@@ -14365,7 +14722,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 24.3,
+        "source_bytes": 197,
         "source_total": 2076,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 42972,
         "exe_bytes": 162304,
         "toolchain": ".NET 10 RyuJIT"
       },
@@ -14376,7 +14736,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 24.3,
+        "source_bytes": 126,
         "source_total": 825,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2684,
         "exe_bytes": 183296,
         "toolchain": "PHP 8.4.24 NTS"
       },
@@ -14387,7 +14750,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 24.5,
+        "source_bytes": 144,
         "source_total": 2437,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 5416,
         "exe_bytes": 2555987,
         "toolchain": "SBCL 2.6.7"
       },
@@ -14398,7 +14764,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 27.5,
+        "source_bytes": 79,
         "source_total": 1636,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 129424,
         "toolchain": "Gforth 0.7.0"
       },
@@ -14409,7 +14778,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 36.2,
+        "source_bytes": 207,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 32452,
         "exe_bytes": 95120384,
         "toolchain": "Node 25.6.1"
       },
@@ -14420,7 +14792,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 36.9,
+        "source_bytes": 123,
         "source_total": 751,
+        "compile_time_ms": 549.8,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 95120384,
         "toolchain": "tsc + Node 25.6.1"
       },
@@ -14431,7 +14806,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 39.9,
+        "source_bytes": 207,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 111662592,
         "toolchain": "Bun 1.2.2"
       },
@@ -14442,7 +14820,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 43.2,
+        "source_bytes": 276,
         "source_total": 1467,
+        "compile_time_ms": 156.2,
+        "exec_peak_ws_kb": 42904,
         "exe_bytes": 50344,
         "toolchain": "OpenJDK 21.0.10"
       },
@@ -14453,7 +14834,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 49.5,
+        "source_bytes": 151,
         "source_total": 948,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 42932,
         "exe_bytes": 50344,
         "toolchain": "kotlinc 2.2.21 + JDK 21"
       },
@@ -14464,7 +14848,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 49.5,
+        "source_bytes": 179,
         "source_total": 2516,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 15872,
         "toolchain": "SWI-Prolog 10.0.2"
       },
@@ -14475,7 +14862,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 51.8,
+        "source_bytes": 207,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 97316640,
         "toolchain": "Deno 2.9.6"
       },
@@ -14486,7 +14876,10 @@
         "family": "gpu",
         "platform": "windows",
         "time_ms": 86.9,
+        "source_bytes": 768,
         "source_total": 4998,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 152064,
         "toolchain": ""
       },
@@ -14497,7 +14890,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 101.2,
+        "source_bytes": 54,
         "source_total": 589,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 16904,
         "exe_bytes": 38400,
         "toolchain": "Ruby 3.4.10"
       },
@@ -14508,7 +14904,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 102.9,
+        "source_bytes": 141,
         "source_total": 890,
+        "compile_time_ms": 777.2,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 50344,
         "toolchain": "Scala CLI 1.15 / Scala 3.8.4"
       },
@@ -14519,8 +14918,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 126.6,
+        "source_bytes": 90,
         "source_total": 928,
-        "exe_bytes": 101888,
+        "compile_time_ms": 784,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 100352,
         "toolchain": "Red 0.6.6 toolchain"
       },
       {
@@ -14530,7 +14932,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 143.1,
+        "source_bytes": 96,
         "source_total": 673,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 154624,
         "toolchain": "R 4.6.1"
       },
@@ -14541,7 +14946,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 150.1,
+        "source_bytes": 82,
         "source_total": 726,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 150016,
         "toolchain": "Rakudo 2026.07"
       },
@@ -14552,7 +14960,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 173.2,
+        "source_bytes": 131,
         "source_total": 2126,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 454656,
         "toolchain": "Windows PowerShell 5.1"
       },
@@ -14563,8 +14974,11 @@
         "family": "gpu",
         "platform": "windows",
         "time_ms": 185.5,
+        "source_bytes": 602,
         "source_total": 4468,
-        "exe_bytes": 2375168,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 2372096,
         "toolchain": ""
       },
       {
@@ -14574,7 +14988,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 191.7,
+        "source_bytes": 112,
         "source_total": 1458,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 211388,
         "exe_bytes": 170952,
         "toolchain": "Julia 1.12.6"
       },
@@ -14585,7 +15002,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 248.9,
+        "source_bytes": 201,
         "source_total": 1618,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
         "exe_bytes": 50176,
         "toolchain": "OTP 29.0.5"
       },
@@ -14596,7 +15016,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 357.2,
+        "source_bytes": 120,
         "source_total": 1138,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 8872,
         "exe_bytes": 6573,
         "toolchain": "Elixir 1.18.4 + OTP 29"
       },
@@ -14607,7 +15030,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 478.3,
+        "source_bytes": 194,
         "source_total": 2245,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
         "exe_bytes": 23295832,
         "toolchain": "Gleam 1.18.1"
       },
@@ -14618,7 +15044,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 479.7,
+        "source_bytes": 153,
         "source_total": 1578,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": null,
         "toolchain": "Dart 3.12.2 VM"
       },
@@ -14629,7 +15058,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 535.3,
+        "source_bytes": 92,
         "source_total": 920,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 26112,
         "toolchain": "Octave 11.3.0 portable"
       },
@@ -14640,8 +15072,11 @@
         "family": "gpu",
         "platform": "windows",
         "time_ms": 591.8,
+        "source_bytes": 581,
         "source_total": 4521,
-        "exe_bytes": 6750720,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 6746624,
         "toolchain": ""
       },
       {
@@ -14651,7 +15086,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 672.6,
+        "source_bytes": 152,
         "source_total": 1181,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 12468,
         "exe_bytes": 24793088,
         "toolchain": "Clojure CLI 1.12.0.1501"
       },
@@ -14662,7 +15100,10 @@
         "family": "jit",
         "platform": "linux-wsl",
         "time_ms": 951.8,
+        "source_bytes": 155,
         "source_total": 2312,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": null,
         "toolchain": "Mojo 1.0.0 (Ubuntu 24.04 WSL2)"
       },
@@ -14673,7 +15114,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 1084.2,
+        "source_bytes": 97,
         "source_total": 719,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 1452,
         "toolchain": "Groovy 4.0.32"
       }
@@ -14686,8 +15130,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4.2,
+        "source_bytes": 677,
         "source_total": 1533,
-        "exe_bytes": 567808,
+        "compile_time_ms": 26.3,
+        "exec_peak_ws_kb": 2640,
+        "exe_bytes": 563712,
         "toolchain": "zig 0.16.0"
       },
       {
@@ -14697,7 +15144,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4.6,
+        "source_bytes": 530,
         "source_total": 2221,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 140800,
         "toolchain": "clang 17"
       },
@@ -14708,8 +15158,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4.8,
+        "source_bytes": 585,
         "source_total": 2150,
-        "exe_bytes": 141312,
+        "compile_time_ms": 126.8,
+        "exec_peak_ws_kb": 2640,
+        "exe_bytes": 140800,
         "toolchain": "clang 17.0.6"
       },
       {
@@ -14719,8 +15172,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4.9,
+        "source_bytes": 619,
         "source_total": 2132,
-        "exe_bytes": 141824,
+        "compile_time_ms": 241.1,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 141312,
         "toolchain": "hcc + clang 17.0.6"
       },
       {
@@ -14730,8 +15186,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 4.9,
+        "source_bytes": 619,
         "source_total": 2132,
-        "exe_bytes": 140800,
+        "compile_time_ms": 198,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 140288,
         "toolchain": "hcc + MSVC cl 19.44"
       },
       {
@@ -14741,7 +15200,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 5,
+        "source_bytes": 440,
         "source_total": 1704,
+        "compile_time_ms": 53.6,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 31232,
         "toolchain": "FreeBASIC 1.10.1"
       },
@@ -14752,8 +15214,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 5,
+        "source_bytes": 585,
         "source_total": 2150,
-        "exe_bytes": 140800,
+        "compile_time_ms": 88.8,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 140288,
         "toolchain": "MSVC cl 19.44"
       },
       {
@@ -14763,8 +15228,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 5.1,
+        "source_bytes": 491,
         "source_total": 1311,
-        "exe_bytes": 262656,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2636,
+        "exe_bytes": 260608,
         "toolchain": "MSVC cl 17.14"
       },
       {
@@ -14774,8 +15242,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 5.1,
+        "source_bytes": 1993,
         "source_total": 7026,
-        "exe_bytes": 108032,
+        "compile_time_ms": 52.9,
+        "exec_peak_ws_kb": 2636,
+        "exe_bytes": 107520,
         "toolchain": "nasm 3.02"
       },
       {
@@ -14785,8 +15256,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 5.2,
+        "source_bytes": 585,
         "source_total": 2150,
-        "exe_bytes": 64005,
+        "compile_time_ms": 150.1,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 64067,
         "toolchain": "MinGW-w64 gcc 13.2.0"
       },
       {
@@ -14796,8 +15270,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 5.2,
+        "source_bytes": 619,
         "source_total": 2132,
-        "exe_bytes": 64046,
+        "compile_time_ms": 263.3,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 64193,
         "toolchain": "hcc + MinGW-w64 gcc 13.2.0"
       },
       {
@@ -14807,8 +15284,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 5.5,
+        "source_bytes": 486,
         "source_total": 1824,
-        "exe_bytes": 1237556,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2640,
+        "exe_bytes": 126464,
         "toolchain": "rustc 1.96.0-nightly"
       },
       {
@@ -14818,8 +15298,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 6.2,
+        "source_bytes": 715,
         "source_total": 2182,
-        "exe_bytes": 1587360,
+        "compile_time_ms": 284.9,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 1586812,
         "toolchain": "GNAT FSF 15.3"
       },
       {
@@ -14829,8 +15312,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 6.5,
+        "source_bytes": 356,
         "source_total": 1594,
-        "exe_bytes": 264593,
+        "compile_time_ms": 23.5,
+        "exec_peak_ws_kb": 2660,
+        "exe_bytes": 264597,
         "toolchain": "nim 2.0.8 + MSVC"
       },
       {
@@ -14840,7 +15326,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 6.8,
+        "source_bytes": 378,
         "source_total": 791,
+        "compile_time_ms": 522,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 31232,
         "toolchain": "V"
       },
@@ -14851,8 +15340,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 6.9,
+        "source_bytes": 585,
         "source_total": 2150,
-        "exe_bytes": 3072,
+        "compile_time_ms": 9.8,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 2560,
         "toolchain": "TinyCC 0.9.27"
       },
       {
@@ -14862,8 +15354,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 8.6,
+        "source_bytes": 659,
         "source_total": 2290,
-        "exe_bytes": 956416,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 18472,
+        "exe_bytes": 954880,
         "toolchain": ".NET 10 Native AOT"
       },
       {
@@ -14873,8 +15368,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 8.6,
+        "source_bytes": 619,
         "source_total": 2132,
-        "exe_bytes": 4608,
+        "compile_time_ms": 113.8,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 3072,
         "toolchain": "hcc + TinyCC 0.9.27"
       },
       {
@@ -14884,8 +15382,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 8.8,
+        "source_bytes": 760,
         "source_total": 2076,
-        "exe_bytes": 2171904,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 2171392,
         "toolchain": ".NET 10 Native AOT"
       },
       {
@@ -14895,8 +15396,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 8.8,
+        "source_bytes": 541,
         "source_total": 1575,
-        "exe_bytes": 37888,
+        "compile_time_ms": 38.4,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 34816,
         "toolchain": "FPC 3.2.2"
       },
       {
@@ -14906,8 +15410,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 9.6,
+        "source_bytes": 595,
         "source_total": 1862,
-        "exe_bytes": 65702,
+        "compile_time_ms": 141.7,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 65669,
         "toolchain": "gfortran (Strawberry)"
       },
       {
@@ -14917,8 +15424,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 9.6,
+        "source_bytes": 403,
         "source_total": 930,
-        "exe_bytes": 1690112,
+        "compile_time_ms": 97.6,
+        "exec_peak_ws_kb": 2628,
+        "exe_bytes": 1682432,
         "toolchain": "Go 1.26.5"
       },
       {
@@ -14928,8 +15438,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 9.7,
+        "source_bytes": 456,
         "source_total": 1203,
-        "exe_bytes": 651776,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
+        "exe_bytes": 640512,
         "toolchain": "DMD 2.112.0"
       },
       {
@@ -14939,8 +15452,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 10.7,
+        "source_bytes": 544,
         "source_total": 1809,
-        "exe_bytes": 4041385,
+        "compile_time_ms": 66.6,
+        "exec_peak_ws_kb": 2636,
+        "exe_bytes": 4040850,
         "toolchain": "ocamlopt 5.5.0 (opam mingw64)"
       },
       {
@@ -14950,8 +15466,11 @@
         "family": "native",
         "platform": "linux-wsl",
         "time_ms": 11,
+        "source_bytes": 720,
         "source_total": 2312,
-        "exe_bytes": 28072,
+        "compile_time_ms": 1110,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 27016,
         "toolchain": "Mojo 1.0.0 (Ubuntu 24.04 WSL2)"
       },
       {
@@ -14961,8 +15480,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 11.5,
+        "source_bytes": 316,
         "source_total": 613,
-        "exe_bytes": 460288,
+        "compile_time_ms": 3731.6,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 458240,
         "toolchain": "Crystal 1.21.0"
       },
       {
@@ -14972,8 +15494,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 13.2,
+        "source_bytes": 610,
         "source_total": 4784,
-        "exe_bytes": 11908096,
+        "compile_time_ms": 52.1,
+        "exec_peak_ws_kb": 2648,
+        "exe_bytes": 11908608,
         "toolchain": "GHC 9.8.2"
       },
       {
@@ -14983,8 +15508,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 14.3,
+        "source_bytes": 782,
         "source_total": 2508,
-        "exe_bytes": 76515,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 72451,
         "toolchain": "CHICKEN 5.4.0 csi"
       },
       {
@@ -14994,7 +15522,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 14.4,
+        "source_bytes": 354,
         "source_total": 1294,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 294912,
         "toolchain": "LuaJIT 2.1.19907"
       },
@@ -15005,8 +15536,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 14.6,
+        "source_bytes": 426,
         "source_total": 1578,
-        "exe_bytes": 6358528,
+        "compile_time_ms": 312.9,
+        "exec_peak_ws_kb": 2656,
+        "exe_bytes": 6358016,
         "toolchain": "Dart 3.12.2 AOT"
       },
       {
@@ -15016,8 +15550,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 15.4,
+        "source_bytes": 615,
         "source_total": 1006,
-        "exe_bytes": 26112,
+        "compile_time_ms": 408.2,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 22528,
         "toolchain": "swiftc 6.0.2"
       },
       {
@@ -15027,7 +15564,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 20,
+        "source_bytes": 367,
         "source_total": 887,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 20212,
         "exe_bytes": 105696,
         "toolchain": "CPython 3.13.15"
       },
@@ -15038,8 +15578,11 @@
         "family": "native",
         "platform": "linux",
         "time_ms": 24.9,
+        "source_bytes": 677,
         "source_total": 3174,
-        "exe_bytes": 4114768,
+        "compile_time_ms": 1344.6,
+        "exec_peak_ws_kb": 13936,
+        "exe_bytes": 4084400,
         "toolchain": "Lean 4.33.1 (elan stable, Linux x86_64)"
       },
       {
@@ -15049,7 +15592,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 28.4,
+        "source_bytes": 760,
         "source_total": 2076,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 52312,
         "exe_bytes": 162304,
         "toolchain": ".NET 10 RyuJIT"
       },
@@ -15060,7 +15606,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 30.3,
+        "source_bytes": 659,
         "source_total": 2290,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 162304,
         "toolchain": ".NET 10 RyuJIT"
       },
@@ -15071,7 +15620,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 35,
+        "source_bytes": 471,
         "source_total": 2437,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2636,
         "exe_bytes": 2555987,
         "toolchain": "SBCL 2.6.7"
       },
@@ -15082,7 +15634,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 39.2,
+        "source_bytes": 354,
         "source_total": 1294,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
         "exe_bytes": 245760,
         "toolchain": "Lua 5.4.6"
       },
@@ -15093,7 +15648,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 41.4,
+        "source_bytes": 479,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 33648,
         "exe_bytes": 95120384,
         "toolchain": "Node 25.6.1"
       },
@@ -15104,7 +15662,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 42.4,
+        "source_bytes": 324,
         "source_total": 751,
+        "compile_time_ms": 549.8,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 95120384,
         "toolchain": "tsc + Node 25.6.1"
       },
@@ -15115,7 +15676,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 45.9,
+        "source_bytes": 479,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 111662592,
         "toolchain": "Bun 1.2.2"
       },
@@ -15126,7 +15690,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 46.1,
+        "source_bytes": 489,
         "source_total": 1636,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 129424,
         "toolchain": "Gforth 0.7.0"
       },
@@ -15137,7 +15704,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 54.3,
+        "source_bytes": 616,
         "source_total": 1467,
+        "compile_time_ms": 185.8,
+        "exec_peak_ws_kb": 42860,
         "exe_bytes": 50344,
         "toolchain": "OpenJDK 21.0.10"
       },
@@ -15148,7 +15718,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 57.4,
+        "source_bytes": 479,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 97316640,
         "toolchain": "Deno 2.9.6"
       },
@@ -15159,7 +15732,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 70.1,
+        "source_bytes": 386,
         "source_total": 825,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2684,
         "exe_bytes": 183296,
         "toolchain": "PHP 8.4.24 NTS"
       },
@@ -15170,7 +15746,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 77.3,
+        "source_bytes": 463,
         "source_total": 948,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 43068,
         "exe_bytes": 50344,
         "toolchain": "kotlinc 2.2.21 + JDK 21"
       },
@@ -15181,7 +15760,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 92.2,
+        "source_bytes": 391,
         "source_total": 1615,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 849920,
         "toolchain": "wren-cli 0.4.0"
       },
@@ -15192,7 +15774,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 115.8,
+        "source_bytes": 479,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 2149746,
         "toolchain": "QuickJS-ng 0.16.2"
       },
@@ -15203,7 +15788,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 126.6,
+        "source_bytes": 408,
         "source_total": 890,
+        "compile_time_ms": 772.4,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 50344,
         "toolchain": "Scala CLI 1.15 / Scala 3.8.4"
       },
@@ -15214,7 +15802,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 134.7,
+        "source_bytes": 309,
         "source_total": 589,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 16668,
         "exe_bytes": 38400,
         "toolchain": "Ruby 3.4.10"
       },
@@ -15225,7 +15816,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 148.4,
+        "source_bytes": 254,
         "source_total": 673,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 154624,
         "toolchain": "R 4.6.1"
       },
@@ -15236,7 +15830,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 160.7,
+        "source_bytes": 381,
         "source_total": 813,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2652,
         "exe_bytes": 46592,
         "toolchain": "Strawberry 5.42.2"
       },
@@ -15247,7 +15844,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 179,
+        "source_bytes": 409,
         "source_total": 854,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 6143488,
         "toolchain": "go.starlark.net"
       },
@@ -15258,7 +15858,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 190.8,
+        "source_bytes": 479,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 35119616,
         "toolchain": "Boa 0.22.0"
       },
@@ -15269,7 +15872,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 213.9,
+        "source_bytes": 609,
         "source_total": 2126,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 454656,
         "toolchain": "Windows PowerShell 5.1"
       },
@@ -15280,7 +15886,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 214.6,
+        "source_bytes": 332,
         "source_total": 1458,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 212544,
         "exe_bytes": 170952,
         "toolchain": "Julia 1.12.6"
       },
@@ -15291,7 +15900,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 287,
+        "source_bytes": 869,
         "source_total": 1618,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
         "exe_bytes": 50176,
         "toolchain": "OTP 29.0.5"
       },
@@ -15302,7 +15914,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 322,
+        "source_bytes": 425,
         "source_total": 870,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 2710528,
         "toolchain": "custom interpreter (Go)"
       },
@@ -15313,7 +15928,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 380.4,
+        "source_bytes": 634,
         "source_total": 1138,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 8868,
         "exe_bytes": 6573,
         "toolchain": "Elixir 1.18.4 + OTP 29"
       },
@@ -15324,7 +15942,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 469.7,
+        "source_bytes": 380,
         "source_total": 726,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 150016,
         "toolchain": "Rakudo 2026.07"
       },
@@ -15335,7 +15956,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 493.4,
+        "source_bytes": 1303,
         "source_total": 2245,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
         "exe_bytes": 23295832,
         "toolchain": "Gleam 1.18.1"
       },
@@ -15346,7 +15970,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 509.7,
+        "source_bytes": 426,
         "source_total": 1578,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": null,
         "toolchain": "Dart 3.12.2 VM"
       },
@@ -15357,7 +15984,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 535.7,
+        "source_bytes": 264,
         "source_total": 920,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 26112,
         "toolchain": "Octave 11.3.0 portable"
       },
@@ -15368,7 +15998,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 546.8,
+        "source_bytes": 414,
         "source_total": 771,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 3908096,
         "toolchain": "rhai 1.25"
       },
@@ -15379,8 +16012,11 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 667.9,
+        "source_bytes": 480,
         "source_total": 928,
-        "exe_bytes": 101888,
+        "compile_time_ms": 923,
+        "exec_peak_ws_kb": null,
+        "exe_bytes": 102912,
         "toolchain": "Red 0.6.6 toolchain"
       },
       {
@@ -15390,7 +16026,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 689.8,
+        "source_bytes": 515,
         "source_total": 1181,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 12488,
         "exe_bytes": 24793088,
         "toolchain": "Clojure CLI 1.12.0.1501"
       },
@@ -15401,7 +16040,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 737.8,
+        "source_bytes": 1838,
         "source_total": 2516,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 15872,
         "toolchain": "SWI-Prolog 10.0.2"
       },
@@ -15412,7 +16054,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 781.3,
+        "source_bytes": 409,
         "source_total": 850,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 64000,
         "toolchain": "Tcl 8.6.16"
       },
@@ -15423,7 +16068,10 @@
         "family": "jit",
         "platform": "linux-wsl",
         "time_ms": 940.1,
+        "source_bytes": 720,
         "source_total": 2312,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": null,
         "toolchain": "Mojo 1.0.0 (Ubuntu 24.04 WSL2)"
       },
@@ -15434,7 +16082,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 1399.1,
+        "source_bytes": 353,
         "source_total": 719,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 1452,
         "toolchain": "Groovy 4.0.32"
       },
@@ -15445,7 +16096,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 1424.3,
+        "source_bytes": 951,
         "source_total": 1644,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 3897344,
         "toolchain": "sqlite3 3.51.1"
       }
@@ -15458,7 +16112,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 8.6,
+        "source_bytes": 488,
         "source_total": 1533,
+        "compile_time_ms": 25.5,
+        "exec_peak_ws_kb": 7068,
         "exe_bytes": 567808,
         "toolchain": "zig 0.16.0"
       },
@@ -15469,7 +16126,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 9.5,
+        "source_bytes": 3536,
         "source_total": 7026,
+        "compile_time_ms": 51.6,
+        "exec_peak_ws_kb": 9288,
         "exe_bytes": 108032,
         "toolchain": "nasm 3.02"
       },
@@ -15480,7 +16140,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 9.6,
+        "source_bytes": 1229,
         "source_total": 2150,
+        "compile_time_ms": 142.6,
+        "exec_peak_ws_kb": 7312,
         "exe_bytes": 141312,
         "toolchain": "clang 17.0.6"
       },
@@ -15491,7 +16154,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 9.7,
+        "source_bytes": 1357,
         "source_total": 2221,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 140800,
         "toolchain": "clang 17"
       },
@@ -15502,7 +16168,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 9.8,
+        "source_bytes": 494,
         "source_total": 1311,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 7400,
         "exe_bytes": 262656,
         "toolchain": "MSVC cl 17.14"
       },
@@ -15513,7 +16182,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 10,
+        "source_bytes": 1279,
         "source_total": 2132,
+        "compile_time_ms": 252,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 141824,
         "toolchain": "hcc + clang 17.0.6"
       },
@@ -15524,7 +16196,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 10.5,
+        "source_bytes": 1104,
         "source_total": 1824,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2640,
         "exe_bytes": 1237556,
         "toolchain": "rustc 1.96.0-nightly"
       },
@@ -15535,7 +16210,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 10.6,
+        "source_bytes": 1229,
         "source_total": 2150,
+        "compile_time_ms": 157.6,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 64005,
         "toolchain": "MinGW-w64 gcc 13.2.0"
       },
@@ -15546,7 +16224,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 10.6,
+        "source_bytes": 1279,
         "source_total": 2132,
+        "compile_time_ms": 263.6,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 64046,
         "toolchain": "hcc + MinGW-w64 gcc 13.2.0"
       },
@@ -15557,7 +16238,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 10.7,
+        "source_bytes": 1229,
         "source_total": 2150,
+        "compile_time_ms": 94.1,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 140800,
         "toolchain": "MSVC cl 19.44"
       },
@@ -15568,7 +16252,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 10.7,
+        "source_bytes": 1279,
         "source_total": 2132,
+        "compile_time_ms": 205.8,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 140800,
         "toolchain": "hcc + MSVC cl 19.44"
       },
@@ -15579,7 +16266,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 10.9,
+        "source_bytes": 1138,
         "source_total": 1594,
+        "compile_time_ms": 24.1,
+        "exec_peak_ws_kb": 15332,
         "exe_bytes": 264593,
         "toolchain": "nim 2.0.8 + MSVC"
       },
@@ -15590,7 +16280,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 11,
+        "source_bytes": 491,
         "source_total": 1203,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 11768,
         "exe_bytes": 651776,
         "toolchain": "DMD 2.112.0"
       },
@@ -15601,7 +16294,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 11.3,
+        "source_bytes": 1125,
         "source_total": 1704,
+        "compile_time_ms": 146.2,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 31232,
         "toolchain": "FreeBASIC 1.10.1"
       },
@@ -15612,7 +16308,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 12.8,
+        "source_bytes": 1064,
         "source_total": 2182,
+        "compile_time_ms": 290.6,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 1587360,
         "toolchain": "GNAT FSF 15.3"
       },
@@ -15623,7 +16322,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 14.7,
+        "source_bytes": 1033,
         "source_total": 2076,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 2171904,
         "toolchain": ".NET 10 Native AOT"
       },
@@ -15634,7 +16336,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 14.7,
+        "source_bytes": 316,
         "source_total": 930,
+        "compile_time_ms": 103.1,
+        "exec_peak_ws_kb": 15276,
         "exe_bytes": 1690112,
         "toolchain": "Go 1.26.5"
       },
@@ -15645,7 +16350,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 14.8,
+        "source_bytes": 1229,
         "source_total": 2150,
+        "compile_time_ms": 8.3,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 3072,
         "toolchain": "TinyCC 0.9.27"
       },
@@ -15656,7 +16364,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 15.1,
+        "source_bytes": 1248,
         "source_total": 2290,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 21996,
         "exe_bytes": 956416,
         "toolchain": ".NET 10 Native AOT"
       },
@@ -15667,7 +16378,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 15.5,
+        "source_bytes": 799,
         "source_total": 1575,
+        "compile_time_ms": 39,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 37888,
         "toolchain": "FPC 3.2.2"
       },
@@ -15678,7 +16392,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 16.6,
+        "source_bytes": 214,
         "source_total": 613,
+        "compile_time_ms": 3774.3,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 460288,
         "toolchain": "Crystal 1.21.0"
       },
@@ -15689,7 +16406,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 17,
+        "source_bytes": 4024,
         "source_total": 4784,
+        "compile_time_ms": 50.7,
+        "exec_peak_ws_kb": 152732,
         "exe_bytes": 11908096,
         "toolchain": "GHC 9.8.2"
       },
@@ -15700,7 +16420,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 17.9,
+        "source_bytes": 257,
         "source_total": 791,
+        "compile_time_ms": 526,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 31232,
         "toolchain": "V"
       },
@@ -15711,7 +16434,10 @@
         "family": "native",
         "platform": "linux-wsl",
         "time_ms": 18.3,
+        "source_bytes": 1398,
         "source_total": 2312,
+        "compile_time_ms": 1345,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 28072,
         "toolchain": "Mojo 1.0.0 (Ubuntu 24.04 WSL2)"
       },
@@ -15722,7 +16448,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 19.3,
+        "source_bytes": 1004,
         "source_total": 1862,
+        "compile_time_ms": 137.1,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 65702,
         "toolchain": "gfortran (Strawberry)"
       },
@@ -15733,7 +16462,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 21.2,
+        "source_bytes": 1067,
         "source_total": 1809,
+        "compile_time_ms": 65.8,
+        "exec_peak_ws_kb": 2636,
         "exe_bytes": 4041385,
         "toolchain": "ocamlopt 5.5.0 (opam mingw64)"
       },
@@ -15744,7 +16476,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 21.9,
+        "source_bytes": 263,
         "source_total": 1006,
+        "compile_time_ms": 793.9,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 26112,
         "toolchain": "swiftc 6.0.2"
       },
@@ -15755,7 +16490,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 22.1,
+        "source_bytes": 957,
         "source_total": 1578,
+        "compile_time_ms": 283.6,
+        "exec_peak_ws_kb": 20776,
         "exe_bytes": 6358528,
         "toolchain": "Dart 3.12.2 AOT"
       },
@@ -15766,7 +16504,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 26.3,
+        "source_bytes": 1279,
         "source_total": 2132,
+        "compile_time_ms": 111.6,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 4608,
         "toolchain": "hcc + TinyCC 0.9.27"
       },
@@ -15777,7 +16518,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 32.7,
+        "source_bytes": 1033,
         "source_total": 2076,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 43132,
         "exe_bytes": 162304,
         "toolchain": ".NET 10 RyuJIT"
       },
@@ -15788,7 +16532,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 34,
+        "source_bytes": 1248,
         "source_total": 2290,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 162304,
         "toolchain": ".NET 10 RyuJIT"
       },
@@ -15799,7 +16546,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 37.5,
+        "source_bytes": 1793,
         "source_total": 2437,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2636,
         "exe_bytes": 2555987,
         "toolchain": "SBCL 2.6.7"
       },
@@ -15810,7 +16560,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 42.9,
+        "source_bytes": 839,
         "source_total": 1294,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 294912,
         "toolchain": "LuaJIT 2.1.19907"
       },
@@ -15821,7 +16574,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 52.6,
+        "source_bytes": 274,
         "source_total": 751,
+        "compile_time_ms": 549.8,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 95120384,
         "toolchain": "tsc + Node 25.6.1"
       },
@@ -15832,7 +16588,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 52.7,
+        "source_bytes": 1042,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 27148,
         "exe_bytes": 95120384,
         "toolchain": "Node 25.6.1"
       },
@@ -15843,7 +16602,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 54.9,
+        "source_bytes": 1593,
         "source_total": 2508,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 76515,
         "toolchain": "CHICKEN 5.4.0 csi"
       },
@@ -15854,7 +16616,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 55.3,
+        "source_bytes": 1042,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 111662592,
         "toolchain": "Bun 1.2.2"
       },
@@ -15865,7 +16630,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 68.4,
+        "source_bytes": 1042,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 97316640,
         "toolchain": "Deno 2.9.6"
       },
@@ -15876,7 +16644,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 75.9,
+        "source_bytes": 290,
         "source_total": 948,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 43012,
         "exe_bytes": 50344,
         "toolchain": "kotlinc 2.2.21 + JDK 21"
       },
@@ -15887,7 +16658,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 89.2,
+        "source_bytes": 456,
         "source_total": 1467,
+        "compile_time_ms": 158.1,
+        "exec_peak_ws_kb": 42884,
         "exe_bytes": 50344,
         "toolchain": "OpenJDK 21.0.10"
       },
@@ -15898,7 +16672,10 @@
         "family": "native",
         "platform": "linux",
         "time_ms": 98.8,
+        "source_bytes": 2231,
         "source_total": 3174,
+        "compile_time_ms": 1722.7,
+        "exec_peak_ws_kb": 20980,
         "exe_bytes": 4114768,
         "toolchain": "Lean 4.33.1 (elan stable, Linux x86_64)"
       },
@@ -15909,7 +16686,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 128.2,
+        "source_bytes": 297,
         "source_total": 890,
+        "compile_time_ms": 748.5,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 50344,
         "toolchain": "Scala CLI 1.15 / Scala 3.8.4"
       },
@@ -15920,7 +16700,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 237.1,
+        "source_bytes": 1357,
         "source_total": 2126,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 454656,
         "toolchain": "Windows PowerShell 5.1"
       },
@@ -15931,7 +16714,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 247.9,
+        "source_bytes": 989,
         "source_total": 1458,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 213072,
         "exe_bytes": 170952,
         "toolchain": "Julia 1.12.6"
       },
@@ -15942,7 +16728,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 248.3,
+        "source_bytes": 283,
         "source_total": 825,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2684,
         "exe_bytes": 183296,
         "toolchain": "PHP 8.4.24 NTS"
       },
@@ -15953,7 +16742,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 273.4,
+        "source_bytes": 303,
         "source_total": 887,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 20192,
         "exe_bytes": 105696,
         "toolchain": "CPython 3.13.15"
       },
@@ -15964,7 +16756,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 310.5,
+        "source_bytes": 839,
         "source_total": 1294,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
         "exe_bytes": 245760,
         "toolchain": "Lua 5.4.6"
       },
@@ -15975,7 +16770,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 334.3,
+        "source_bytes": 311,
         "source_total": 813,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2656,
         "exe_bytes": 46592,
         "toolchain": "Strawberry 5.42.2"
       },
@@ -15986,7 +16784,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 388.7,
+        "source_bytes": 299,
         "source_total": 870,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 2710528,
         "toolchain": "custom interpreter (Go)"
       },
@@ -15997,7 +16798,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 439.8,
+        "source_bytes": 432,
         "source_total": 1618,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
         "exe_bytes": 50176,
         "toolchain": "OTP 29.0.5"
       },
@@ -16008,7 +16812,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 442.6,
+        "source_bytes": 237,
         "source_total": 771,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 3908096,
         "toolchain": "rhai 1.25"
       },
@@ -16019,7 +16826,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 454.3,
+        "source_bytes": 526,
         "source_total": 1644,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 3964,
         "exe_bytes": 3897344,
         "toolchain": "sqlite3 3.51.1"
       },
@@ -16030,7 +16840,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 538.3,
+        "source_bytes": 359,
         "source_total": 1138,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 8872,
         "exe_bytes": 6573,
         "toolchain": "Elixir 1.18.4 + OTP 29"
       },
@@ -16041,7 +16854,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 548.7,
+        "source_bytes": 1042,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 2149746,
         "toolchain": "QuickJS-ng 0.16.2"
       },
@@ -16052,7 +16868,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 562.9,
+        "source_bytes": 957,
         "source_total": 1578,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": null,
         "toolchain": "Dart 3.12.2 VM"
       },
@@ -16063,7 +16882,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 648.8,
+        "source_bytes": 428,
         "source_total": 2516,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 15872,
         "toolchain": "SWI-Prolog 10.0.2"
       },
@@ -16074,7 +16896,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 738.9,
+        "source_bytes": 455,
         "source_total": 1181,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 12832,
         "exe_bytes": 24793088,
         "toolchain": "Clojure CLI 1.12.0.1501"
       },
@@ -16085,7 +16910,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 752.5,
+        "source_bytes": 1100,
         "source_total": 1615,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 849920,
         "toolchain": "wren-cli 0.4.0"
       },
@@ -16096,7 +16924,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 800.1,
+        "source_bytes": 683,
         "source_total": 2245,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 2644,
         "exe_bytes": 23295832,
         "toolchain": "Gleam 1.18.1"
       },
@@ -16107,7 +16938,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 816.6,
+        "source_bytes": 205,
         "source_total": 589,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": 16708,
         "exe_bytes": 38400,
         "toolchain": "Ruby 3.4.10"
       },
@@ -16118,7 +16952,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 829.5,
+        "source_bytes": 293,
         "source_total": 850,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 64000,
         "toolchain": "Tcl 8.6.16"
       },
@@ -16129,7 +16966,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 911.2,
+        "source_bytes": 297,
         "source_total": 854,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 6143488,
         "toolchain": "go.starlark.net"
       },
@@ -16140,7 +16980,10 @@
         "family": "jit",
         "platform": "linux-wsl",
         "time_ms": 930,
+        "source_bytes": 1398,
         "source_total": 2312,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": null,
         "toolchain": "Mojo 1.0.0 (Ubuntu 24.04 WSL2)"
       },
@@ -16151,7 +16994,10 @@
         "family": "jit",
         "platform": "windows",
         "time_ms": 1324,
+        "source_bytes": 245,
         "source_total": 719,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 1452,
         "toolchain": "Groovy 4.0.32"
       },
@@ -16162,7 +17008,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 1661.7,
+        "source_bytes": 243,
         "source_total": 726,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 150016,
         "toolchain": "Rakudo 2026.07"
       },
@@ -16173,7 +17022,10 @@
         "family": "native",
         "platform": "windows",
         "time_ms": 1873.5,
+        "source_bytes": 315,
         "source_total": 928,
+        "compile_time_ms": 917,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 101888,
         "toolchain": "Red 0.6.6 toolchain"
       },
@@ -16184,7 +17036,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 1929.2,
+        "source_bytes": 1042,
         "source_total": 1758,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 35119616,
         "toolchain": "Boa 0.22.0"
       },
@@ -16195,7 +17050,10 @@
         "family": "interp",
         "platform": "windows",
         "time_ms": 3848.4,
+        "source_bytes": 537,
         "source_total": 920,
+        "compile_time_ms": null,
+        "exec_peak_ws_kb": null,
         "exe_bytes": 26112,
         "toolchain": "Octave 11.3.0 portable"
       }
